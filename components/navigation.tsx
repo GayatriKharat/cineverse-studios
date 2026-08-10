@@ -1,0 +1,4 @@
+"use client";
+import { useState } from "react";
+const links=[["About","studio"],["Capabilities","services"],["Selected Work","work"],["Media & IP","media"],["Contact","contact"]];
+export function Navigation(){const [open,setOpen]=useState(false);return <><header className="nav"><a className="wordmark" href="#top">NARAYANI <i>STUDIOS LLP</i></a><nav>{links.map(([label,id])=><a key={id} href={`#${id}`}>{label}</a>)}</nav><a className="nav-cta" href="#contact">Start a conversation</a><button className="menu" onClick={()=>setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>{open?"×":"Menu"}</button></header><div className={`mobile-menu ${open?"open":""}`} aria-hidden={!open}>{links.map(([label,id])=><a onClick={()=>setOpen(false)} key={id} href={`#${id}`}>{label}</a>)}<a onClick={()=>setOpen(false)} href="#contact">Start a conversation ↗</a></div></>}

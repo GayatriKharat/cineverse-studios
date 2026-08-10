@@ -1,0 +1,8 @@
+{
+  "name": "cineverse-studios",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {"dev":"next dev","build":"next build","start":"next start","lint":"next lint"},
+  "dependencies": {"@hookform/resolvers":"^5.0.1","@react-three/drei":"^10.0.7","@react-three/fiber":"^9.1.2","framer-motion":"^12.9.2","gsap":"^3.12.7","lenis":"^1.2.3","next":"^15.3.2","react":"^19.1.0","react-dom":"^19.1.0","react-hook-form":"^7.56.4","resend":"^4.5.0","three":"^0.176.0","zod":"^3.24.4"},
+  "devDependencies": {"@types/node":"^22.15.3","@types/react":"^19.1.2","@types/react-dom":"^19.1.2","typescript":"^5.8.3"}
+}
