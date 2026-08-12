@@ -13,6 +13,7 @@ export const resourceTypes = [
   { slug: "news", title: "News", copy: "News, announcements and moments from Narayani Studios." },
   { slug: "faqs", title: "FAQs", copy: "Straightforward answers before we start a conversation." },
   { slug: "gallery", title: "Gallery", copy: "A visual record of ideas in motion, on set and in the world." },
+  { slug: "testimonials", title: "Testimonials", copy: "Words from clients and collaborators who have made the work with us." },
 ] as const;
 
 export const workCategories = ["Brand Films", "Advertising", "Digital & Social", "Music & Entertainment", "Events & Experiences", "Photography"];
