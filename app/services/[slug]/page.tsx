@@ -1,0 +1,6 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { services } from "@/lib/site-data";
+import { ServiceAccordion } from "@/components/service-accordion";
+export function generateStaticParams(){return services.map(({slug})=>({slug}))}
+export default async function ServicePage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const service=services.find(s=>s.slug===slug);if(!service)notFound();return <main className="page-shell"><section className="service-hero" style={{backgroundImage:`linear-gradient(90deg,#050505 10%,#05050555 75%),url(${service.image})`}}><div className="wrap"><p className="eyebrow">{service.number} / Service division</p><h1>{service.title}</h1><p>{service.strap}</p></div></section><section className="service-details wrap"><div><p className="eyebrow">What we do</p><h2>Built around your <em>ambition.</em></h2></div><ServiceAccordion items={service.items}/></section><section className="service-actions wrap"><Link className="button" href={`/contact?service=${service.slug}`}>Enquire about this service <span>↗</span></Link><Link className="text-link" href="/our-work">View this service&apos;s work ↗</Link></section></main>}

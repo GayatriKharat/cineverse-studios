@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function SiteFooter(){return <footer className="site-footer wrap"><div><Link className="wordmark" href="/">NARAYANI <i>STUDIOS LLP</i></Link><p>Production · Branding · Media</p></div><div className="footer-links"><Link href="/about">About us</Link><Link href="/services">Services</Link><Link href="/our-work">Our work</Link><Link href="/resources">Resources</Link><Link href="/contact">Contact</Link></div><div><p>India · Global</p><p>© {new Date().getFullYear()} Narayani Studios LLP</p></div></footer>}
