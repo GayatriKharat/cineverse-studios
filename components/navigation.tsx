@@ -1,5 +1,5 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-const links=[["About us","/about"],["Services","/services"],["Our work","/our-work"],["Resources","/resources"],["Contact","/contact"]];
+const links=[["About us","/about"],["Services","/services"],["Productions","/productions"],["Portfolio","/portfolio"],["Talent","/talent"],["Media & IP","/media-ip"],["Insights","/insights"],["Contact","/contact"]];
 export function Navigation(){const [open,setOpen]=useState(false);return <><header className="nav"><Link className="wordmark" href="/">NARAYANI <i>STUDIOS LLP</i></Link><nav>{links.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}</nav><Link className="nav-cta" href="/contact">Start a conversation</Link><button className="menu" onClick={()=>setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>{open?"×":"Menu"}</button></header><div className={`mobile-menu ${open?"open":""}`} aria-hidden={!open}>{links.map(([label,href])=><Link onClick={()=>setOpen(false)} key={href} href={href}>{label}</Link>)}<Link onClick={()=>setOpen(false)} href="/contact">Start a conversation ↗</Link></div></>}
