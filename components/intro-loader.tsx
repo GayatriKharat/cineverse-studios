@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 
 export function IntroLoader() {
   const [done, setDone] = useState(false);
@@ -13,7 +14,7 @@ export function IntroLoader() {
   return (
     <div className={`intro-loader${done ? " is-done" : ""}`} aria-hidden={done}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/narayani-lockup-official.png" alt="" width={708} height={212} />
+      <img src={asset("/narayani-lockup-official.png")} alt="" width={708} height={212} />
       <b><i /></b>
     </div>
   );

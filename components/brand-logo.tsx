@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 
 type BrandLogoProps = {
   href?: string;
@@ -14,21 +14,21 @@ export function BrandLogo({ href = "/", variant = "dark", showTagline = true, co
     <span className={`brand-logo is-${variant}${compact ? " is-compact" : ""}${showTagline ? " has-tagline" : ""}`}>
       <span className="brand-logo-stage">
         <span className="brand-logo-float">
-          <Image
-            src="/narayani-lockup-official.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset("/narayani-lockup-official.png")}
             alt=""
             width={708}
             height={212}
             className={`brand-logo-image is-on-dark${variant === "dark" ? " is-on" : ""}`}
-            priority
           />
-          <Image
-            src="/narayani-lockup-official-light.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset("/narayani-lockup-official-light.png")}
             alt=""
             width={708}
             height={212}
             className={`brand-logo-image is-on-light${variant === "light" ? " is-on" : ""}`}
-            priority
           />
         </span>
         <span className="brand-logo-shine" aria-hidden="true" />
