@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { FlipCard } from "@/components/flip-card";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { cssUrl } from "@/lib/asset";
-import { craftsByService } from "@/lib/offerings";
+import { craftHref, craftsByService } from "@/lib/offerings";
 import { pillars, services } from "@/lib/site-data";
 
 const extras = services.filter((s) => !pillars.some((p) => p.slug === s.slug));
@@ -14,7 +13,7 @@ export default function Services() {
       <PageHero
         eyebrow="Services"
         title={<>Pre. Production. <em>Post.</em></>}
-        copy="Three main stages. Flip a card for the crafts — or open a stage for the full story."
+        copy="Three main stages. Open a stage for the full story — or a listed craft for the exact solution."
         image="/film-automotive.png"
       />
       <section className="wrap service-pillars">
@@ -27,35 +26,22 @@ export default function Services() {
             const crafts = craftsByService[pillar.slug] ?? [];
             return (
               <StaggerItem key={pillar.slug}>
-                <FlipCard
-                  className="pillar-flip"
-                  href={`/services/${pillar.slug}`}
-                  front={
-                    <>
-                      <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
-                      <span>{pillar.code}</span>
-                      <h3>{pillar.title}</h3>
-                      <p>{pillar.summary}</p>
-                      <b>Open {pillar.title}</b>
-                    </>
-                  }
-                  back={
-                    <div className="pillar-back">
-                      <span>{pillar.code}</span>
-                      <h3>{pillar.title}</h3>
-                      <ul>
-                        {crafts.map((craft) => (
-                          <li key={craft.slug}>
-                            <Link href={pillar.slug === "production" ? `/services/production/${craft.slug}` : `/services/${pillar.slug}#${craft.slug}`}>
-                              {craft.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                      <Link className="text-link" href={`/services/${pillar.slug}`}>View {pillar.title} ↗</Link>
-                    </div>
-                  }
-                />
+                <article className="pillar-card">
+                  <Link href={`/services/${pillar.slug}`} className="pillar-card-hit">
+                    <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
+                    <span>{pillar.code}</span>
+                    <h3>{pillar.title}</h3>
+                    <p>{pillar.summary}</p>
+                  </Link>
+                  <ul>
+                    {crafts.map((craft) => (
+                      <li key={craft.slug}>
+                        <Link href={craftHref(pillar.slug, craft.slug)}>{craft.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link className="text-link" href={`/services/${pillar.slug}`}>Open {pillar.title} ↗</Link>
+                </article>
               </StaggerItem>
             );
           })}
@@ -66,29 +52,23 @@ export default function Services() {
           <p className="eyebrow">Extended services</p>
           <h2>Where the work <em>travels next.</em></h2>
         </Reveal>
-        <Stagger className="flip-grid three">
+        <Stagger className="pillar-cards">
           {extras.map((service) => (
             <StaggerItem key={service.slug}>
-              <FlipCard
-                className="service-flip"
-                href={`/services/${service.slug}`}
-                front={
-                  <>
-                    <div className="pillar-card-media" style={{ backgroundImage: cssUrl(service.image) }} />
-                    <span>{service.code}</span>
-                    <h3>{service.title}</h3>
-                    <p>{service.strap}</p>
-                  </>
-                }
-                back={
-                  <div className="pillar-back">
-                    <span>{service.code}</span>
-                    <h3>{service.title}</h3>
-                    <p>{service.summary}</p>
-                    <Link className="text-link" href={`/services/${service.slug}`}>Open ↗</Link>
-                  </div>
-                }
-              />
+              <article className="pillar-card">
+                <Link href={`/services/${service.slug}`} className="pillar-card-hit">
+                  <div className="pillar-card-media" style={{ backgroundImage: cssUrl(service.image) }} />
+                  <span>{service.code}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.strap}</p>
+                </Link>
+                <ul>
+                  {service.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <Link className="text-link" href={`/services/${service.slug}`}>Open {service.title} ↗</Link>
+              </article>
             </StaggerItem>
           ))}
         </Stagger>

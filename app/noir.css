@@ -115,6 +115,9 @@ h3{font-family:var(--font-serif),Georgia,serif;font-weight:500;font-size:clamp(1
 .quick-bar a,.index-row,.nav-cta,.button{transition:transform .45s cubic-bezier(.16,1,.3,1),background .3s,color .3s,padding .4s}
 .quick-bar a:hover{transform:translateY(-2px)}
 .pillar-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:40px 0 20px;align-items:stretch}
+.pillar-card{display:grid;align-content:start;height:100%;border:1px solid var(--line);background:var(--charcoal);padding-bottom:18px}
+.pillar-card-hit{display:grid;color:inherit;text-decoration:none}
+.pillar-card-hit:hover h3{color:var(--gold)}
 
 .pillar-card-media{height:210px;background-size:cover;background-position:center;margin-bottom:18px;filter:saturate(.8)}
 .pillar-card span,.pillar-card h3,.pillar-card p,.pillar-card ul,.pillar-card b{padding-inline:20px}
@@ -142,7 +145,8 @@ h3{font-family:var(--font-serif),Georgia,serif;font-weight:500;font-size:clamp(1
 .split-mini ul,.split-mini ol,.detail-grid ul,.detail-grid ol{margin:0;padding-left:18px;color:var(--champagne);line-height:1.7}
 .who{color:var(--ivory)!important}
 .craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0 80px}
-.craft-tile{display:grid;border:1px solid var(--line);background:var(--charcoal);min-height:280px}
+.craft-tile{display:grid;border:1px solid var(--line);background:var(--charcoal);min-height:280px;color:inherit;text-decoration:none}
+.craft-tile:hover{border-color:var(--gold)}
 .craft-tile div{height:140px;background-size:cover;background-position:center}
 .craft-tile h3,.craft-tile p,.craft-tile b{padding:0 16px}
 .craft-tile h3{margin:14px 0 6px}

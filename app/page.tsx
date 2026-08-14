@@ -4,7 +4,7 @@ import { Hero } from "@/components/hero";
 import { CtaBand } from "@/components/page-hero";
 import { MediaReveal, Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { cssUrl } from "@/lib/asset";
-import { craftsByService } from "@/lib/offerings";
+import { craftHref, craftsByService } from "@/lib/offerings";
 import { clients, navGuide, pillars, projects } from "@/lib/site-data";
 
 export default function Home() {
@@ -22,7 +22,6 @@ export default function Home() {
           <FlipCard
             key={item.href}
             className="guide-flip"
-            href={item.href}
             front={
               <div className="guide-front">
                 <span>{item.label}</span>
@@ -54,42 +53,29 @@ export default function Home() {
       <section className="wrap service-pillars">
         <Reveal>
           <p className="eyebrow">Main services</p>
-          <h2>Three stages. Flip a card.</h2>
+          <h2>Three stages. Pick a craft.</h2>
         </Reveal>
         <Stagger className="pillar-cards">
           {pillars.map((pillar) => {
             const crafts = craftsByService[pillar.slug] ?? [];
             return (
               <StaggerItem key={pillar.slug}>
-                <FlipCard
-                  className="pillar-flip"
-                  href={`/services/${pillar.slug}`}
-                  front={
-                    <>
-                      <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
-                      <span>{pillar.code}</span>
-                      <h3>{pillar.title}</h3>
-                      <p>{pillar.summary}</p>
-                      <b>Open {pillar.title}</b>
-                    </>
-                  }
-                  back={
-                    <div className="pillar-back">
-                      <span>{pillar.code}</span>
-                      <h3>{pillar.title}</h3>
-                      <ul>
-                        {crafts.map((craft) => (
-                          <li key={craft.slug}>
-                            <Link href={pillar.slug === "production" ? `/services/production/${craft.slug}` : `/services/${pillar.slug}#${craft.slug}`}>
-                              {craft.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                      <Link className="text-link" href={`/services/${pillar.slug}`}>View {pillar.title} ↗</Link>
-                    </div>
-                  }
-                />
+                <article className="pillar-card">
+                  <Link href={`/services/${pillar.slug}`} className="pillar-card-hit">
+                    <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
+                    <span>{pillar.code}</span>
+                    <h3>{pillar.title}</h3>
+                    <p>{pillar.summary}</p>
+                  </Link>
+                  <ul>
+                    {crafts.map((craft) => (
+                      <li key={craft.slug}>
+                        <Link href={craftHref(pillar.slug, craft.slug)}>{craft.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link className="text-link" href={`/services/${pillar.slug}`}>Open {pillar.title} ↗</Link>
+                </article>
               </StaggerItem>
             );
           })}

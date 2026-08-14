@@ -226,3 +226,9 @@ export const craftsByService: Record<string, Craft[]> = {
 export function findCraft(serviceSlug: string, craftSlug: string) {
   return craftsByService[serviceSlug]?.find((c) => c.slug === craftSlug);
 }
+
+export function craftHref(serviceSlug: string, craftSlug: string) {
+  return serviceSlug === "production"
+    ? `/services/production/${craftSlug}`
+    : `/services/${serviceSlug}#${craftSlug}`;
+}
