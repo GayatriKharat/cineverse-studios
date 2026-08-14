@@ -7,10 +7,9 @@ out/
 .env.test.local
 .env.production.local
 *.log
+tsconfig.tsbuildinfo
+
+# Client-sensitive. Local only — never commit or deploy.
+reports/
 public/report/
 .brief-pages/
-scripts/make-architecture-report-pdf.py
-scripts/make-client-report-pdf.py
-scripts/embed-canvas-shots.py
-scripts/capture-report.mjs
-tsconfig.tsbuildinfo
