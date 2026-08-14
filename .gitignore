@@ -7,3 +7,10 @@ out/
 .env.test.local
 .env.production.local
 *.log
+public/report/
+.brief-pages/
+scripts/make-architecture-report-pdf.py
+scripts/make-client-report-pdf.py
+scripts/embed-canvas-shots.py
+scripts/capture-report.mjs
+tsconfig.tsbuildinfo
