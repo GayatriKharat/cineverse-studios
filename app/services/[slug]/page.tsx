@@ -33,12 +33,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <StaggerItem key={craft.slug}>
                 <FlipCard
                   className="craft-flip"
+                  href={`/services/production/${craft.slug}`}
                   front={
                     <>
                       <div className="pillar-card-media" style={{ backgroundImage: cssUrl(craft.image) }} />
                       <h3>{craft.title}</h3>
                       <p>{craft.strap}</p>
-                      <b>Hover to flip</b>
+                      <b>Open {craft.title}</b>
                     </>
                   }
                   back={

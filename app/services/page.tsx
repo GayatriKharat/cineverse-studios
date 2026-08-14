@@ -29,13 +29,14 @@ export default function Services() {
               <StaggerItem key={pillar.slug}>
                 <FlipCard
                   className="pillar-flip"
+                  href={`/services/${pillar.slug}`}
                   front={
                     <>
                       <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
                       <span>{pillar.code}</span>
                       <h3>{pillar.title}</h3>
                       <p>{pillar.summary}</p>
-                      <b>Hover to flip</b>
+                      <b>Open {pillar.title}</b>
                     </>
                   }
                   back={
@@ -70,6 +71,7 @@ export default function Services() {
             <StaggerItem key={service.slug}>
               <FlipCard
                 className="service-flip"
+                href={`/services/${service.slug}`}
                 front={
                   <>
                     <div className="pillar-card-media" style={{ backgroundImage: cssUrl(service.image) }} />

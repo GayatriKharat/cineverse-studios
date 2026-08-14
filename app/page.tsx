@@ -22,6 +22,7 @@ export default function Home() {
           <FlipCard
             key={item.href}
             className="guide-flip"
+            href={item.href}
             front={
               <div className="guide-front">
                 <span>{item.label}</span>
@@ -62,13 +63,14 @@ export default function Home() {
               <StaggerItem key={pillar.slug}>
                 <FlipCard
                   className="pillar-flip"
+                  href={`/services/${pillar.slug}`}
                   front={
                     <>
                       <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
                       <span>{pillar.code}</span>
                       <h3>{pillar.title}</h3>
                       <p>{pillar.summary}</p>
-                      <b>Hover to flip</b>
+                      <b>Open {pillar.title}</b>
                     </>
                   }
                   back={

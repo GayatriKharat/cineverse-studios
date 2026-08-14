@@ -62,7 +62,7 @@ export function StaggerItem({
         hidden: { opacity: 0, y: 36, rotateX: 8 },
         show: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.85, ease } },
       }}
-      style={{ transformPerspective: 900 }}
+        style={{ height: "100%" }}
     >
       {children}
     </motion.div>
