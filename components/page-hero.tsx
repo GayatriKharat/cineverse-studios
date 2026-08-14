@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MediaReveal, Reveal } from "@/components/reveal";
+import { Reveal } from "@/components/reveal";
 import { cssUrl } from "@/lib/asset";
 
 export function PageHero({
@@ -16,16 +16,14 @@ export function PageHero({
   return (
     <section className="page-hero">
       {image && (
-        <MediaReveal className="page-hero-media">
+        <div className="page-hero-media">
           <div style={{ backgroundImage: cssUrl(image) }} />
-        </MediaReveal>
+        </div>
       )}
       <div className="wrap page-hero-copy">
-        <Reveal>
-          <p className="eyebrow">{eyebrow}</p>
-          <h1>{title}</h1>
-          {copy && <p className="lede">{copy}</p>}
-        </Reveal>
+        <p className="eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        {copy && <p className="lede">{copy}</p>}
       </div>
     </section>
   );

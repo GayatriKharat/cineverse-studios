@@ -2,8 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CraftTabs } from "@/components/craft-tabs";
 import { CtaBand, PageHero } from "@/components/page-hero";
-import { cssUrl } from "@/lib/asset";
-import { craftHref, craftsByService, productionCrafts } from "@/lib/offerings";
+import { craftsByService, productionCrafts } from "@/lib/offerings";
 import { pillars, services } from "@/lib/site-data";
 
 export function generateStaticParams() {
@@ -31,16 +30,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <section className="wrap quick-need">
           <p className="eyebrow">Pick a craft</p>
           <h2>What do you need <em>made?</em></h2>
-          <div className="craft-grid">
-            {productionCrafts.map((craft) => (
-              <Link key={craft.slug} href={craftHref("production", craft.slug)} className="craft-tile">
-                <div style={{ backgroundImage: cssUrl(craft.image) }} />
-                <h3>{craft.title}</h3>
-                <p>{craft.strap}</p>
-                <b>Open page ↗</b>
-              </Link>
-            ))}
-          </div>
+          <CraftTabs crafts={productionCrafts} serviceSlug="production" />
         </section>
         <CtaBand />
       </main>
@@ -62,7 +52,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
         <p className="lede">
           {crafts
-            ? "Use the tabs for each listed craft: who it is for, the problem, the solution, what you leave with, and how it runs."
+            ? "Open a bar for each listed craft: who it is for, the problem, the solution, what you leave with, and how it runs."
             : "Hire this division as a single brief, or fold it into pre, production and post."}
         </p>
       </section>

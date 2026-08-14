@@ -132,13 +132,30 @@ h3{font-family:var(--font-serif),Georgia,serif;font-weight:500;font-size:clamp(1
 .quick-bar a:last-child{border-right:0}
 .quick-bar b{color:var(--ivory);font-family:var(--font-serif),Georgia,serif;font-size:1.25rem;font-weight:500}
 .quick-bar a:hover{background:var(--charcoal);color:var(--gold)}
-.craft-tabs{margin:20px 0 80px;border:1px solid var(--line)}
-.tab-rail{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--line);background:var(--charcoal)}
-.tab-rail button{padding:14px 16px;border:0;border-right:1px solid var(--line);background:transparent;color:var(--smoke);cursor:pointer;font-size:13px}
-.tab-rail button.is-on{color:var(--gold);background:#08090b}
-.tab-panel{display:grid;grid-template-columns:.9fr 1.1fr;min-height:420px}
-.tab-visual{min-height:320px;background-size:cover;background-position:center}
-.tab-copy{padding:32px;display:grid;align-content:center;gap:12px}
+.craft-stack{margin:20px 0 80px;border-top:1px solid var(--line)}
+.craft-bar{border-bottom:1px solid var(--line);background:var(--obsidian);scroll-margin-top:92px}
+.craft-bar-hit{position:relative;display:grid;grid-template-columns:56px 1fr 28px;align-items:center;gap:18px;width:100%;padding:22px 8px;border:0;background:transparent;color:var(--ivory);text-align:left;cursor:pointer}
+.craft-bar-index{font-size:11px;letter-spacing:.2em;color:var(--smoke);transition:color .4s}
+.craft-bar-copy{display:grid;gap:4px;min-width:0}
+.craft-bar-copy strong{font-family:var(--font-serif),Georgia,serif;font-size:clamp(1.35rem,2.4vw,2rem);font-weight:500;letter-spacing:-.02em;transition:color .4s}
+.craft-bar-copy small{color:var(--smoke);font-size:13px;line-height:1.45;font-weight:300}
+.craft-bar-mark{position:relative;justify-self:end;width:16px;height:16px;display:block;transition:transform .45s cubic-bezier(.77,0,.18,1)}
+.craft-bar-mark:before,.craft-bar-mark:after{content:"";position:absolute;background:var(--gold)}
+.craft-bar-mark:before{left:7px;top:0;width:1px;height:16px}
+.craft-bar-mark:after{left:0;top:7px;width:16px;height:1px}
+.craft-bar-line{position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;pointer-events:none;transition:transform .55s cubic-bezier(.77,0,.18,1)}
+.craft-bar.is-on{background:var(--charcoal)}
+.craft-bar.is-on .craft-bar-index{color:var(--gold)}
+.craft-bar.is-on .craft-bar-copy strong{color:var(--gold)}
+.craft-bar.is-on .craft-bar-mark{transform:rotate(45deg)}
+.craft-bar.is-on .craft-bar-line{transform:scaleX(1)}
+.craft-bar-hit:hover .craft-bar-copy strong{color:var(--champagne)}
+.craft-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .65s cubic-bezier(.77,0,.18,1)}
+.craft-bar.is-on .craft-panel{grid-template-rows:1fr}
+.craft-panel-inner{overflow:hidden;min-height:0}
+.tab-panel{display:grid;grid-template-columns:.9fr 1.1fr;min-height:380px;border-top:1px solid var(--line)}
+.tab-visual{min-height:380px;background:#111318 center/cover no-repeat}
+.tab-copy{padding:36px 32px 40px;display:grid;align-content:center;gap:12px}
 .tab-copy p{margin:0;color:var(--smoke);line-height:1.65}
 .split-mini{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:12px 0}
 .split-mini h3{margin:0 0 8px;font-size:1.1rem}
@@ -279,4 +296,4 @@ h3{font-family:var(--font-serif),Georgia,serif;font-weight:500;font-size:clamp(1
 .daily-caption h3{margin:8px 0 10px;font-size:clamp(1.8rem,3vw,2.8rem)}
 .daily-caption p{margin:0;color:var(--smoke)}
 @media(max-width:980px){.daily-mosaic,.dailies-head{grid-template-columns:1fr;display:grid}.dailies-head{align-items:start}.daily-tile,.daily-tile.is-hero{min-height:240px}}
-@media(prefers-reduced-motion:reduce){.client-strip>div,.veil.on,.page-hero-media div{animation:none}.cursor{display:none}.flip-inner{transition:none}.flip-card:hover .flip-inner,.flip-card.is-flipped .flip-inner{transform:none}.flip-card:hover .flip-front,.flip-card.is-flipped .flip-front{pointer-events:auto;z-index:2}.flip-card:hover .flip-back,.flip-card.is-flipped .flip-back{pointer-events:none}.feature-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.client-strip>div,.veil.on,.page-hero-media div{animation:none}.cursor{display:none}.flip-inner{transition:none}.flip-card:hover .flip-inner,.flip-card.is-flipped .flip-inner{transform:none}.flip-card:hover .flip-front,.flip-card.is-flipped .flip-front{pointer-events:auto;z-index:2}.flip-card:hover .flip-back,.flip-card.is-flipped .flip-back{pointer-events:none}.feature-card:hover{transform:none}.tab-visual{clip-path:none!important}}
