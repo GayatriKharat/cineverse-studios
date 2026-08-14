@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { Magnetic } from "@/components/magnetic";
 import { asset } from "@/lib/asset";
 import { houseReelBeats } from "@/lib/house-reel";
 import { pillars } from "@/lib/site-data";
@@ -16,8 +17,14 @@ export function Hero() {
     const el = root.current;
     if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
-      gsap.from(".hero-line span", { yPercent: 110, duration: 1.4, stagger: 0.14, ease: "power4.out", delay: 0.12 });
-      gsap.from(".hero-meta, .hero-actions, .stage-rail", { opacity: 0, y: 20, duration: 1, delay: 0.9, ease: "power3.out" });
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      gsap.to(".hero-reel", { scale: 1.08, duration: 18, ease: "none" });
+      tl.from(".hero .eyebrow", { opacity: 0, y: 10, duration: 0.7 }, 0.2)
+        .from(".hero-line span", { yPercent: 110, duration: 1.15, stagger: 0.12 }, 0.4)
+        .from(".hero-lede", { opacity: 0, y: 16, duration: 0.75 }, 0.65)
+        .from(".hero-actions", { opacity: 0, y: 16, duration: 0.7 }, 0.85)
+        .from(".stage-rail", { opacity: 0, y: 18, duration: 0.8 }, 1.05)
+        .from(".hero-slate, .hero-now", { opacity: 0, duration: 0.6 }, 1.15);
     }, el);
     return () => ctx.revert();
   }, []);
@@ -68,7 +75,7 @@ export function Hero() {
       </video>
       <div className="hero-shade" />
       <div className="hero-copy wrap">
-        <p className="eyebrow hero-meta">Narayani Studios LLP · House reel</p>
+        <p className="eyebrow hero-meta">We create. You remember.</p>
         <h1>
           <span className="hero-line"><span>Brand it.</span></span>
           <span className="hero-line"><span>Shoot it.</span></span>
@@ -78,7 +85,9 @@ export function Hero() {
           Script, shoot, edit — then digital, branded campaigns, conferences, broadcast and live.
         </p>
         <div className="hero-actions">
-          <Link className="button" href="/services">See our services <span>↗</span></Link>
+          <Magnetic>
+            <Link className="button" href="/services">See our services <span>↗</span></Link>
+          </Magnetic>
           <Link className="text-link" href="/contact">Start a brief</Link>
         </div>
       </div>

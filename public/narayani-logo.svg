@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 72" fill="none" aria-hidden="true">
+  <path fill="#6E3FC7" fill-rule="evenodd" clip-rule="evenodd" d="M4 6h10v60H4V6Zm52 0h10v60H56V6ZM16 10h9v52h-9V10Zm31 0h9v52h-9V10Zm25 6h6v5h-6v-6Zm-62 0h6v5H4v-6Zm62 10h6v5h-6v-5Zm-62 0h6v5H4v-5Zm62 10h6v5h-6v-5Zm-62 0h6v5H4v-5Zm62 10h6v5h-6v-5Zm-62 0h6v5H4v-5Zm62 10h6v5h-6v-5Zm-62 0h6v5H4v-5Zm62 10h6v5h-6v-5Zm-62 0h6v5H4v-5ZM25 10h8v52h-8V10Zm11 0 12 22h-7L26 10h7Zm-4 26 12 26h-7L27 36h7Z"/>
+  <text x="78" y="28" fill="#14111F" font-family="Outfit, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="0.28em">NARAYANI</text>
+  <line x1="78" y1="36" x2="108" y2="36" stroke="#6E3FC7" stroke-width="1"/>
+  <text x="93" y="48" fill="#6E3FC7" font-family="Outfit, Arial, sans-serif" font-size="8" font-weight="600" letter-spacing="0.38em" text-anchor="middle">STUDIOS</text>
+  <line x1="108" y1="36" x2="138" y2="36" stroke="#6E3FC7" stroke-width="1"/>
+  <text x="78" y="64" fill="#A6A6A6" font-family="Outfit, Arial, sans-serif" font-size="7" font-weight="500" letter-spacing="0.2em">WE CREATE. YOU REMEMBER.</text>
+</svg>

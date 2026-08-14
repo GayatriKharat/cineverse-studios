@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Magnetic } from "@/components/magnetic";
 import { Reveal } from "@/components/reveal";
 import { cssUrl } from "@/lib/asset";
 
@@ -43,7 +44,9 @@ export function CtaBand({
       <Reveal>
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
-        <Link className="button" href="/contact">Enquire <span>↗</span></Link>
+        <Magnetic>
+          <Link className="button" href="/contact">Enquire <span>↗</span></Link>
+        </Magnetic>
       </Reveal>
     </section>
   );

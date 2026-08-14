@@ -25,7 +25,7 @@ export default function Home() {
             front={
               <div className="guide-front">
                 <span>{item.label}</span>
-                <p>Turn the card</p>
+                <p>Explore →</p>
               </div>
             }
             back={
@@ -38,7 +38,7 @@ export default function Home() {
           />
         ))}
       </section>
-      <section className="intro wrap">
+      <section className="intro wrap" aria-label="Studio introduction">
         <Reveal>
           <p className="eyebrow">Narayani Studios LLP</p>
           <h2>A production house for brands, not a film studio <em>only.</em></h2>
@@ -46,6 +46,12 @@ export default function Home() {
         <Reveal delay={0.08} className="body-copy">
           <p>We plan, shoot and finish work for business, government, creators and entertainment. Hire one craft or the full chain. Film, ads, stills, podcasts, music and live all sit on the same floor.</p>
         </Reveal>
+      </section>
+      <section className="stats-band" aria-label="Studio at a glance">
+        <div><b>12+</b><span>Production crafts</span></div>
+        <div><b>3</b><span>Core stages</span></div>
+        <div><b>India</b><span>Based, globally ready</span></div>
+        <div><b>1</b><span>Integrated house</span></div>
       </section>
       <section className="client-strip" aria-label="Who we work with">
         <div>{[...clients, ...clients].map((client, i) => <span key={`${client}-${i}`}>{client}<i>—</i></span>)}</div>

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 import { navIndex, navPrimary } from "@/lib/site-data";
 
 export function Navigation() {
@@ -24,11 +25,12 @@ export function Navigation() {
   }, [open]);
 
   const isActive = (href: string) => href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+  const onDarkHero = pathname === "/" && !scrolled;
 
   return (
     <>
-      <header className={`nav${scrolled ? " scrolled" : ""}`}>
-        <Link className="wordmark" href="/">NARAYANI <i>STUDIOS</i></Link>
+      <header className={`nav${scrolled ? " scrolled" : ""}${onDarkHero ? " on-hero" : ""}`}>
+        <BrandLogo variant="dark" compact showTagline />
         <nav>
           {navPrimary.map(([label, href]) => (
             <Link key={href} href={href} className={isActive(href) ? "is-active" : undefined}>{label}</Link>
@@ -36,11 +38,11 @@ export function Navigation() {
         </nav>
         <div className="nav-end">
           <Link className="nav-cta" href="/contact">Enquire</Link>
-          <button className="menu" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Open index">{open ? "Close" : "Index"}</button>
+          <button className="menu" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Open menu">{open ? "Close" : "Menu"}</button>
         </div>
       </header>
       <div className={`index-menu ${open ? "open" : ""}`} aria-hidden={!open}>
-        <p className="eyebrow">Index</p>
+        <p className="eyebrow">Menu</p>
         <div className="index-cols">
           {navIndex.map(([label, href], i) => (
             <Link key={href} href={href} onClick={() => setOpen(false)}>

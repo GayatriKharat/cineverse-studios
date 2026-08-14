@@ -10,8 +10,8 @@
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
   margin: 0;
-  background: var(--white);
-  color: var(--ink);
+  background: #08090B;
+  color: #fff;
   font-family: var(--font-sans), Inter, Arial, sans-serif;
   overflow-x: hidden;
 }
@@ -58,17 +58,6 @@ h2 {
 }
 .nav.scrolled { border-color: var(--line); }
 .nav nav { display: flex; gap: 28px; font-size: 14px; color: #444; }
-.nav nav a:hover, .nav nav a.is-active { color: var(--ink); }
-.nav-cta, .button, .button-ghost {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 44px; padding: 0 18px; border-radius: 999px;
-  font-size: 14px; font-weight: 600;
-}
-.nav-cta, .button { background: #111; color: #fff; border: 0; }
-.button-ghost { border: 1px solid #111; background: #fff; color: #111; }
-.button:hover, .nav-cta:hover { opacity: .88; }
-.menu { display: none; background: transparent; border: 1px solid #111; border-radius: 999px; padding: 8px 14px; }
-.mobile-menu { display: none; }
 
 .hero {
   background: var(--bg);
@@ -230,8 +219,6 @@ h2 {
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 @media (max-width: 900px) {
-  .nav nav, .nav-cta { display: none; }
-  .menu { display: block; }
   .mobile-menu {
     position: fixed; inset: 0; z-index: 15; display: grid; align-content: center; gap: 18px;
     padding: 80px 28px; background: #fffcf8f2; opacity: 0; pointer-events: none;

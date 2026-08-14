@@ -1,12 +1,13 @@
 ﻿import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import { navIndex } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
     <footer className="site-footer wrap">
       <div>
-        <Link className="wordmark" href="/">NARAYANI <i>STUDIOS LLP</i></Link>
-        <p>CineVerse · Production · Branding · Media</p>
+        <BrandLogo href="/" variant="dark" showTagline />
+        <p>Production · Branding · Media</p>
         <p className="footer-lede">An integrated house for branding, production, talent, platforms and entertainment — from India, for anywhere the work needs to travel.</p>
       </div>
       <div className="footer-links">

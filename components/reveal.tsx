@@ -1,27 +1,40 @@
 "use client";
-import { motion } from "framer-motion";
-
-const ease = [0.16, 1, 0.3, 1] as const;
+import { useEffect, useRef } from "react";
 
 export function Reveal({
   children,
   className = "",
-  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.classList.add("reveal-in");
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("reveal-in");
+          io.disconnect();
+        }
+      },
+      { threshold: 0.12 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 48 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.16 }}
-      transition={{ duration: 1.05, delay, ease }}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -32,20 +45,7 @@ export function Stagger({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <motion.div
-      className={className}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.12 }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.1, delayChildren: 0.06 } },
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 export function StaggerItem({
@@ -56,16 +56,9 @@ export function StaggerItem({
   className?: string;
 }) {
   return (
-    <motion.div
-      className={className}
-      variants={{
-        hidden: { opacity: 0, y: 36, rotateX: 8 },
-        show: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.85, ease } },
-      }}
-        style={{ height: "100%" }}
-    >
-      {children}
-    </motion.div>
+    <Reveal className={className}>
+      <div style={{ height: "100%" }}>{children}</div>
+    </Reveal>
   );
 }
 
@@ -76,15 +69,5 @@ export function MediaReveal({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <motion.div
-      className={`media-reveal ${className}`}
-      initial={{ clipPath: "inset(100% 0 0 0)" }}
-      whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 1.35, ease: [0.77, 0, 0.18, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={`media-reveal ${className}`}>{children}</div>;
 }
