@@ -1,14 +1,105 @@
 "use client";
-import { useEffect, useRef, type CSSProperties } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { DroneFlight } from "./drone-flight";
-gsap.registerPlugin(ScrollTrigger);
+import { houseReelBeats } from "@/lib/house-reel";
+import { pillars } from "@/lib/site-data";
 
-export function Hero(){
-  const section=useRef<HTMLElement>(null); const copy=useRef<HTMLDivElement>(null);
-  const base=process.env.NEXT_PUBLIC_BASE_PATH??"";
-  const visualStyle={"--hero-image":`url(${base}/cinematic-aurora-hero.png)`} as CSSProperties;
-  useEffect(()=>{const el=section.current;if(!el||matchMedia("(prefers-reduced-motion:reduce)").matches)return;const context=gsap.context(()=>{gsap.fromTo(copy.current,{y:36,opacity:0},{y:0,opacity:1,duration:1.35,ease:"power3.out"});gsap.to(".hero-fallback",{scale:1.08,ease:"none",scrollTrigger:{trigger:el,start:"top top",end:"bottom bottom",scrub:.5}})},el);return()=>context.revert()},[]);
-  return <section ref={section} id="top" className="hero-wrap aurora-hero" style={visualStyle}><div className="hero"><div className="hero-fallback"/><div className="hero-grid"/><div className="particles" aria-hidden="true"/><DroneFlight/><div ref={copy} className="hero-copy"><p className="eyebrow">Production · Branding · Media</p><h1>Ideas built<br/>to <em>move forward.</em></h1><p className="hero-lede">From strategy and pre-production to production, post-production, digital, advertising and live experiences—Narayani Studios brings ambitious ideas to life.</p><a className="button aurora-button" href="/contact">Start a conversation <span>↗</span></a></div><p className="scroll-note">Scroll to explore</p></div></section>
+export function Hero() {
+  const root = useRef<HTMLElement>(null);
+  const video = useRef<HTMLVideoElement>(null);
+  const [beat, setBeat] = useState(0);
+  const [active, setActive] = useState(1);
+
+  useEffect(() => {
+    const el = root.current;
+    if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const ctx = gsap.context(() => {
+      gsap.from(".hero-line span", { yPercent: 110, duration: 1.4, stagger: 0.14, ease: "power4.out", delay: 0.12 });
+      gsap.from(".hero-meta, .hero-actions, .stage-rail", { opacity: 0, y: 20, duration: 1, delay: 0.9, ease: "power3.out" });
+    }, el);
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const el = video.current;
+    if (!el) return;
+    el.muted = true;
+    el.defaultMuted = true;
+    const play = () => {
+      el.play().catch(() => undefined);
+    };
+    play();
+    el.addEventListener("canplay", play);
+    el.addEventListener("loadeddata", play);
+    const onTime = () => {
+      const duration = el.duration || 1;
+      const n = houseReelBeats.length;
+      const index = Math.min(n - 1, Math.floor((el.currentTime / duration) * n));
+      setBeat(index);
+    };
+    el.addEventListener("timeupdate", onTime);
+    return () => {
+      el.removeEventListener("canplay", play);
+      el.removeEventListener("loadeddata", play);
+      el.removeEventListener("timeupdate", onTime);
+    };
+  }, []);
+
+  const current = pillars[active];
+  const slate = houseReelBeats[beat];
+
+  return (
+    <section ref={root} className="hero" id="top">
+      <video
+        ref={video}
+        className="hero-reel"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/service-documentary.png"
+      >
+        <source src="/house-reel.mp4?v=3" type="video/mp4" />
+        <source src="/reels/house-reel.mp4?v=3" type="video/mp4" />
+        <source src="/reels/set.mp4" type="video/mp4" />
+      </video>
+      <div className="hero-shade" />
+      <div className="hero-copy wrap">
+        <p className="eyebrow hero-meta">Narayani Studios LLP · House reel</p>
+        <h1>
+          <span className="hero-line"><span>Brand it.</span></span>
+          <span className="hero-line"><span>Shoot it.</span></span>
+          <span className="hero-line"><span><em>Finish it.</em></span></span>
+        </h1>
+        <p className="hero-lede hero-meta">
+          Script, shoot, edit — then digital, branded campaigns, conferences, broadcast and live.
+        </p>
+        <div className="hero-actions">
+          <Link className="button" href="/services">See our services <span>↗</span></Link>
+          <Link className="text-link" href="/contact">Start a brief</Link>
+        </div>
+      </div>
+      <p className="hero-slate" aria-live="polite">
+        <span>{slate.code}</span>
+        On the reel · {slate.label}
+      </p>
+      <div className="stage-rail wrap">
+        {pillars.map((pillar, i) => (
+          <Link
+            key={pillar.slug}
+            href={`/services/${pillar.slug}`}
+            className={i === active ? "is-on" : ""}
+            onMouseEnter={() => setActive(i)}
+          >
+            <span>{pillar.code}</span>
+            <strong>{pillar.title}</strong>
+            <small>{pillar.items.slice(0, 3).join(" · ")}</small>
+          </Link>
+        ))}
+      </div>
+      <p className="hero-now">Now showing · {current.title}</p>
+    </section>
+  );
 }

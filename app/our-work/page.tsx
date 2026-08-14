@@ -1,3 +1,26 @@
-import { workCategories } from "@/lib/site-data";
-const images=["film-automotive.png","film-music.png","service-motion.png","film-virtual.png","service-drone.png","service-photography.png"];
-export default function OurWork(){return <main className="page-shell"><section className="page-hero wrap"><p className="eyebrow">Our work</p><h1>Stories that travel <em>further.</em></h1><p>A selection of formats and ideas made to meet people where culture is happening.</p></section><section className="work-categories wrap">{workCategories.map((category,i)=><article key={category} className="work-category"><div style={{backgroundImage:`linear-gradient(0deg,#050505cc,transparent 65%),url(/${images[i]})`}}/><p>0{i+1} / Selected work</p><h2>{category}</h2><span>View project ↗</span></article>)}</section><section className="cta-band wrap"><p className="eyebrow">Make your next move</p><h2>Have an idea worth <em>making?</em></h2><a className="button" href="/contact">Tell us about it <span>↗</span></a></section></main>}
+import Link from "next/link";
+import { CtaBand, PageHero } from "@/components/page-hero";
+import { projects } from "@/lib/site-data";
+
+export default function OurWork() {
+  return (
+    <main>
+      <PageHero
+        eyebrow="Work"
+        title={<>Selected <em>frames.</em></>}
+        copy="A record of worlds made for brands, stages and screens — stills from the floor, not a stock gallery."
+        image="/service-photography.png"
+      />
+      <section className="feature-asymmetric wrap">
+        {projects.map((project, i) => (
+          <Link key={project.slug} href="/contact" className={`feature-card n${i + 1}`}>
+            <div className="feature-still" style={{ backgroundImage: `url(${project.image})` }} />
+            <span>{project.type}</span>
+            <h3>{project.title}</h3>
+          </Link>
+        ))}
+      </section>
+      <CtaBand title={<>Have an idea worth <em>making?</em></>} />
+    </main>
+  );
+}

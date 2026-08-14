@@ -1,2 +1,29 @@
+import { Suspense } from "react";
 import { ContactForm } from "@/components/contact-form";
-export default function Contact(){return <main className="page-shell"><section className="page-hero wrap"><p className="eyebrow">Contact</p><h1>Let&apos;s make<br/><em>what&apos;s next.</em></h1><p>Tell us the opportunity. We&apos;ll bring the ideas, the team and the momentum.</p></section><section className="contact-page wrap"><div className="contact-details"><p className="eyebrow">Start a conversation</p><h2>A good brief is a great <em>beginning.</em></h2><p>Whether you need one service or a joined-up partnership, we&apos;ll find the right shape for the work.</p><div><span>Founders & partners</span><b>Shreeraj Avhad · Kiran Dhangar</b></div><div><span>Working from</span><b>India · Global</b></div></div><ContactForm/></section></main>}
+import { PageHero } from "@/components/page-hero";
+
+export default function Contact() {
+  return (
+    <main>
+      <PageHero
+        eyebrow="Contact"
+        title={<>Let&apos;s make <em>what&apos;s next.</em></>}
+        copy="Tell us the opportunity. We will bring the team, the plan and the craft."
+      />
+      <section className="contact-layout wrap">
+        <div>
+          <p className="eyebrow">Direct</p>
+          <h2>A good brief is a great <em>beginning.</em></h2>
+          <div className="contact-meta">
+            <p><span>Partners</span><b>Shreeraj Avhad · Kiran Dhangar</b></p>
+            <p><span>Working from</span><b>India · International</b></p>
+            <p><span>Studio</span><b>hello@narayanistudios.com</b></p>
+          </div>
+        </div>
+        <Suspense fallback={<div className="contact-form" />}>
+          <ContactForm />
+        </Suspense>
+      </section>
+    </main>
+  );
+}
