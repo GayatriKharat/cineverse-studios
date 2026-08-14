@@ -22,10 +22,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://narayanistudios.com"),
 };
 
+const publicBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${outfit.variable} ${cormorant.variable}`}>
       <body>
+        <style>{`:root{--hero-still:url("${publicBase}/service-documentary.png");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}`}</style>
         <a className="skip-link" href="#main">Skip to content</a>
         <div className="grain" aria-hidden="true" />
         <SmoothScroll />

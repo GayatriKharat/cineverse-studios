@@ -41,7 +41,7 @@ h3{font-family:var(--font-serif),Georgia,serif;font-weight:500;font-size:clamp(1
 .index-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px 80px;max-width:900px}
 .index-menu a{display:flex;align-items:baseline;gap:18px;padding:10px 0;border-bottom:1px solid var(--line);font-family:var(--font-serif),Georgia,serif;font-size:clamp(1.8rem,3vw,2.8rem)}
 .index-menu a span{color:var(--gold);font-family:var(--font-sans),sans-serif;font-size:11px;letter-spacing:.16em}
-.hero{position:relative;min-height:100svh;overflow:hidden;display:grid;align-items:end;background:#08090b url("/service-documentary.png") center/cover no-repeat}
+.hero{position:relative;min-height:100svh;overflow:hidden;display:grid;align-items:end;background:#08090b var(--hero-still) center/cover no-repeat}
 .hero-reel{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;filter:saturate(.82) contrast(1.06) brightness(.92)}
 .hero-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,#08090b99 0%,#08090b2e 36%,#08090bd4 100%),linear-gradient(90deg,#08090b88 0%,transparent 55%)}
 .hero-copy{position:relative;z-index:3;padding-bottom:28vh;max-width:1100px}

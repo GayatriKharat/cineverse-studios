@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { cssUrl } from "@/lib/asset";
 import type { Craft } from "@/lib/offerings";
 
 export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlug: string }) {
@@ -34,7 +35,7 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
         ))}
       </div>
       <article className="tab-panel" id={current.slug}>
-        <div className="tab-visual" style={{ backgroundImage: `url(${current.image})` }} />
+        <div className="tab-visual" style={{ backgroundImage: cssUrl(current.image) }} />
         <div className="tab-copy">
           <p className="eyebrow">What we provide</p>
           <h2>{current.title}</h2>

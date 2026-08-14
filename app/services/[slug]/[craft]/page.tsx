@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CtaBand, PageHero } from "@/components/page-hero";
+import { cssUrl } from "@/lib/asset";
 import { findCraft, productionCrafts } from "@/lib/offerings";
 
 export function generateStaticParams() {
@@ -40,7 +41,7 @@ export default async function CraftPage({ params }: { params: Promise<{ slug: st
       </section>
       <section className="frame-row wrap">
         {[craft.image, "/film-virtual.png", "/service-photography.png"].map((image, i) => (
-          <div key={image + i} style={{ backgroundImage: `url(${image})` }} />
+          <div key={image + i} style={{ backgroundImage: cssUrl(image) }} />
         ))}
       </section>
       <section className="service-actions wrap">

@@ -3,6 +3,7 @@ import { FlipCard } from "@/components/flip-card";
 import { Hero } from "@/components/hero";
 import { CtaBand } from "@/components/page-hero";
 import { MediaReveal, Reveal, Stagger, StaggerItem } from "@/components/reveal";
+import { cssUrl } from "@/lib/asset";
 import { craftsByService } from "@/lib/offerings";
 import { clients, navGuide, pillars, projects } from "@/lib/site-data";
 
@@ -63,7 +64,7 @@ export default function Home() {
                   className="pillar-flip"
                   front={
                     <>
-                      <div className="pillar-card-media" style={{ backgroundImage: `url(${pillar.image})` }} />
+                      <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
                       <span>{pillar.code}</span>
                       <h3>{pillar.title}</h3>
                       <p>{pillar.summary}</p>
@@ -104,7 +105,7 @@ export default function Home() {
           {projects.map((project, i) => (
             <Link key={project.slug} href="/portfolio" className={`feature-card n${i + 1}`}>
               <MediaReveal>
-                <div className="feature-still" style={{ backgroundImage: `url(${project.image})` }} />
+                <div className="feature-still" style={{ backgroundImage: cssUrl(project.image) }} />
               </MediaReveal>
               <span>{project.type}</span>
               <h3>{project.title}</h3>

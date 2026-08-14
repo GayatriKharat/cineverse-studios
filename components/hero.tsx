@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { asset } from "@/lib/asset";
 import { houseReelBeats } from "@/lib/house-reel";
 import { pillars } from "@/lib/site-data";
 
@@ -59,11 +60,11 @@ export function Hero() {
         loop
         playsInline
         preload="auto"
-        poster="/service-documentary.png"
+        poster={asset("/service-documentary.png")}
       >
-        <source src="/house-reel.mp4?v=3" type="video/mp4" />
-        <source src="/reels/house-reel.mp4?v=3" type="video/mp4" />
-        <source src="/reels/set.mp4" type="video/mp4" />
+        <source src={asset("/house-reel.mp4?v=3")} type="video/mp4" />
+        <source src={asset("/reels/house-reel.mp4?v=3")} type="video/mp4" />
+        <source src={asset("/reels/set.mp4")} type="video/mp4" />
       </video>
       <div className="hero-shade" />
       <div className="hero-copy wrap">

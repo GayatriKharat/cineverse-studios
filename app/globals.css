@@ -89,7 +89,7 @@ h2 {
   min-height: min(56vw, 520px);
   margin-top: 28px;
   border-radius: 18px;
-  background: #1a1a1a url("/cinematic-aurora-hero.png") center/cover;
+  background: #1a1a1a var(--aurora-still) center/cover;
   color: #fff;
 }
 .reel span {

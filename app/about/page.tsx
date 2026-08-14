@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FlipCard } from "@/components/flip-card";
+import { cssUrl } from "@/lib/asset";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
@@ -52,7 +53,7 @@ export default function About() {
                 className="founder-flip"
                 front={
                   <>
-                    <div className="portrait" style={{ backgroundImage: `url(${person.image})` }} />
+                    <div className="portrait" style={{ backgroundImage: cssUrl(person.image) }} />
                     <p className="eyebrow">{person.role}</p>
                     <h3>{person.name}</h3>
                     <span>{person.line}</span>

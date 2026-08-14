@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FlipCard } from "@/components/flip-card";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Stagger, StaggerItem } from "@/components/reveal";
+import { cssUrl } from "@/lib/asset";
 import { projects } from "@/lib/site-data";
 
 const pages = {
@@ -109,14 +110,14 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: "url(/founder-shreeraj.png?v=6)" }} /><p className="eyebrow">Founder</p><h3>Shreeraj Avhad</h3><span>Creative direction · Production</span></>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-shreeraj.png?v=6") }} /><p className="eyebrow">Founder</p><h3>Shreeraj Avhad</h3><span>Creative direction · Production</span></>}
                 back={<div className="founder-back"><p className="eyebrow">Founder</p><h3>Shreeraj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: "url(/founder-kiran.png?v=6)" }} /><p className="eyebrow">Co-founder</p><h3>Kiran Dhangar</h3><span>Brand strategy · Operations</span></>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-kiran.png?v=6") }} /><p className="eyebrow">Co-founder</p><h3>Kiran Dhangar</h3><span>Brand strategy · Operations</span></>}
                 back={<div className="founder-back"><p className="eyebrow">Co-founder</p><h3>Kiran Dhangar</h3><p>Keeps the house commercially sharp: brand, ops and the brief that production can actually make.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
@@ -152,7 +153,7 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
         <section className="feature-asymmetric wrap">
           {projects.map((project, i) => (
             <Link key={project.slug} href="/contact" className={`feature-card n${i + 1}`}>
-              <div className="feature-still" style={{ backgroundImage: `url(${project.image})` }} />
+              <div className="feature-still" style={{ backgroundImage: cssUrl(project.image) }} />
               <span>{project.type}</span>
               <h3>{project.title}</h3>
             </Link>

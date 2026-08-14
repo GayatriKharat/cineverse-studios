@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { cssUrl } from "@/lib/asset";
 import { resourceTypes, testimonials } from "@/lib/site-data";
 import { FaqList } from "@/components/faq-list";
 
@@ -41,7 +42,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
         </section>
         <section className="gallery-grid wrap">
           {gallery.map((image, i) => (
-            <div key={image} style={{ backgroundImage: `url(/${image})` }}><span>Frame 0{i + 1}</span></div>
+            <div key={image} style={{ backgroundImage: cssUrl(`/${image}`) }}><span>Frame 0{i + 1}</span></div>
           ))}
         </section>
       </main>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FlipCard } from "@/components/flip-card";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
+import { cssUrl } from "@/lib/asset";
 import { craftsByService } from "@/lib/offerings";
 import { pillars, services } from "@/lib/site-data";
 
@@ -30,7 +31,7 @@ export default function Services() {
                   className="pillar-flip"
                   front={
                     <>
-                      <div className="pillar-card-media" style={{ backgroundImage: `url(${pillar.image})` }} />
+                      <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
                       <span>{pillar.code}</span>
                       <h3>{pillar.title}</h3>
                       <p>{pillar.summary}</p>
@@ -71,7 +72,7 @@ export default function Services() {
                 className="service-flip"
                 front={
                   <>
-                    <div className="pillar-card-media" style={{ backgroundImage: `url(${service.image})` }} />
+                    <div className="pillar-card-media" style={{ backgroundImage: cssUrl(service.image) }} />
                     <span>{service.code}</span>
                     <h3>{service.title}</h3>
                     <p>{service.strap}</p>

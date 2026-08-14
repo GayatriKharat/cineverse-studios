@@ -4,6 +4,7 @@ import { CraftTabs } from "@/components/craft-tabs";
 import { FlipCard } from "@/components/flip-card";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Stagger, StaggerItem } from "@/components/reveal";
+import { cssUrl } from "@/lib/asset";
 import { craftsByService, productionCrafts } from "@/lib/offerings";
 import { pillars, services } from "@/lib/site-data";
 
@@ -34,7 +35,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   className="craft-flip"
                   front={
                     <>
-                      <div className="pillar-card-media" style={{ backgroundImage: `url(${craft.image})` }} />
+                      <div className="pillar-card-media" style={{ backgroundImage: cssUrl(craft.image) }} />
                       <h3>{craft.title}</h3>
                       <p>{craft.strap}</p>
                       <b>Hover to flip</b>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MediaReveal, Reveal } from "@/components/reveal";
+import { cssUrl } from "@/lib/asset";
 
 export function PageHero({
   eyebrow,
@@ -16,7 +17,7 @@ export function PageHero({
     <section className="page-hero">
       {image && (
         <MediaReveal className="page-hero-media">
-          <div style={{ backgroundImage: `url(${image})` }} />
+          <div style={{ backgroundImage: cssUrl(image) }} />
         </MediaReveal>
       )}
       <div className="wrap page-hero-copy">
