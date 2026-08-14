@@ -174,7 +174,7 @@ h3{font-family:var(--font-serif),Georgia,serif;font-weight:500;font-size:clamp(1
 .detail-grid ol{list-style:none;padding-left:0}
 .detail-grid ol li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
 .detail-grid ol span{color:var(--gold)}
-.quick-need{padding-top:50px}
+.quick-need{padding-top:28px}
 .pillar-card b{color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 .text-link{color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
 .intro,.home-services,.house,.voices,.founders,.note{padding-block:clamp(80px,12vw,150px)}
@@ -212,6 +212,9 @@ h3{font-family:var(--font-serif),Georgia,serif;font-weight:500;font-size:clamp(1
 .voice-list p{margin:0 0 16px;font-family:var(--font-serif),Georgia,serif;font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.15;font-style:italic}
 .voice-list footer{color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 .page-hero{position:relative;min-height:78svh;display:grid;align-items:end;padding-bottom:70px;overflow:hidden}
+.page-hero.is-compact{min-height:42svh;padding-bottom:28px}
+.page-hero.is-compact .page-hero-copy{padding-top:120px}
+.intro.is-tight{padding-block:28px 8px}
 .page-hero-media{position:absolute;inset:0}
 .page-hero-media div{height:100%;background-size:cover;background-position:center;filter:saturate(.75) brightness(.55)}
 .page-hero-copy{position:relative;z-index:1;max-width:980px;padding-top:160px}

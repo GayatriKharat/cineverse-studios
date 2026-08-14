@@ -7,14 +7,16 @@ export function PageHero({
   title,
   copy,
   image,
+  compact = false,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   copy?: string;
   image?: string;
+  compact?: boolean;
 }) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero${compact ? " is-compact" : ""}`}>
       {image && (
         <div className="page-hero-media">
           <div style={{ backgroundImage: cssUrl(image) }} />

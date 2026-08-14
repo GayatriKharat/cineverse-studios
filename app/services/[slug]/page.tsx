@@ -22,6 +22,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     return (
       <main>
         <PageHero
+          compact
           eyebrow="02 · Main service"
           title="Production"
           copy="Every format. One production floor. Open a craft for the problem, the solution, what you leave with, and how it runs."
@@ -40,12 +41,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   return (
     <main>
       <PageHero
+        compact
         eyebrow={`${service.code} · ${isMain ? "Main service" : "Extended service"}`}
         title={service.title}
         copy={service.strap}
         image={service.image}
       />
-      <section className="intro wrap">
+      <section className="intro is-tight wrap">
         <div>
           <p className="eyebrow">The solution</p>
           <h2>{service.summary}</h2>
