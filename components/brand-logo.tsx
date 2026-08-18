@@ -10,30 +10,11 @@ type BrandLogoProps = {
 };
 
 export function BrandLogo({ href = "/", variant = "dark", showTagline = true, compact = false }: BrandLogoProps) {
+  const src = asset(variant === "light" ? "/narayani-lockup-official-light.png?v=2" : "/narayani-lockup-official.png?v=2");
   const content = (
     <span className={`brand-logo is-${variant}${compact ? " is-compact" : ""}${showTagline ? " has-tagline" : ""}`}>
-      <span className="brand-logo-stage">
-        <span className="brand-logo-float">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={asset("/narayani-lockup-official.png")}
-            alt=""
-            width={708}
-            height={212}
-            className={`brand-logo-image is-on-dark${variant === "dark" ? " is-on" : ""}`}
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={asset("/narayani-lockup-official-light.png")}
-            alt=""
-            width={708}
-            height={212}
-            className={`brand-logo-image is-on-light${variant === "light" ? " is-on" : ""}`}
-          />
-        </span>
-        <span className="brand-logo-shine" aria-hidden="true" />
-      </span>
-      <span className="sr-only">Narayani Studios</span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt="Narayani Studios" width={708} height={212} className="brand-logo-image" />
     </span>
   );
 

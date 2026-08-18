@@ -25,7 +25,7 @@ export default function About() {
   return (
     <main>
       <PageHero
-        eyebrow="About · CineVerse"
+        eyebrow="About us"
         title={<>Built to make <em>ideas move.</em></>}
         copy="Narayani Studios LLP is a production, branding and media house. We were founded on the belief that great stories deserve careful craft — from the first idea to the final frame."
         image="/cinematic-aurora-hero.png"
@@ -71,7 +71,7 @@ export default function About() {
             </StaggerItem>
           ))}
         </Stagger>
-        <p className="muted"><Link className="text-link" href="/team">Studio departments ↗</Link></p>
+        <p className="muted"><Link className="text-link" href="/team">Studio departments ↗</Link> · <Link className="text-link" href="/services">Services ↗</Link> · <Link className="text-link" href="/contact">Contact ↗</Link></p>
       </section>
       <CtaBand />
     </main>

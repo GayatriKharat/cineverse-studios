@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { FaqList } from "@/components/faq-list";
 
@@ -11,6 +12,7 @@ export default function FaqPage() {
       />
       <section className="faq-section wrap">
         <FaqList />
+        <p><Link className="text-link" href="/contact">Still need a person? Contact us ↗</Link></p>
       </section>
       <CtaBand />
     </main>

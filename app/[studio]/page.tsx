@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FlipCard } from "@/components/flip-card";
 import { CtaBand, PageHero } from "@/components/page-hero";
+import { WorkShowcase } from "@/components/work-showcase";
 import { Stagger, StaggerItem } from "@/components/reveal";
 import { cssUrl } from "@/lib/asset";
-import { projects } from "@/lib/site-data";
 
 const pages = {
   productions: {
@@ -149,17 +149,7 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
           ))}
         </Stagger>
       </section>
-      {studio === "portfolio" && (
-        <section className="feature-asymmetric wrap">
-          {projects.map((project, i) => (
-            <Link key={project.slug} href="/contact" className={`feature-card n${i + 1}`}>
-              <div className="feature-still" style={{ backgroundImage: cssUrl(project.image) }} />
-              <span>{project.type}</span>
-              <h3>{project.title}</h3>
-            </Link>
-          ))}
-        </section>
-      )}
+      {studio === "portfolio" && <WorkShowcase />}
       {studio === "insights" && (
         <section className="note wrap">
           <Link className="text-link" href="/resources">From the studio resources ↗</Link>

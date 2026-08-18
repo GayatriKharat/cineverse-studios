@@ -21,6 +21,7 @@ export default function Home() {
         {navGuide.map((item) => (
           <FlipCard
             key={item.href}
+            href={item.href}
             className="guide-flip"
             front={
               <div className="guide-front">
@@ -97,7 +98,7 @@ export default function Home() {
         </div>
         <div className="feature-asymmetric wrap">
           {projects.map((project, i) => (
-            <Link key={project.slug} href="/portfolio" className={`feature-card n${i + 1}`}>
+            <Link key={project.slug} href={`/services/${project.service}`} className={`feature-card n${i + 1}`}>
               <MediaReveal>
                 <div className="feature-still" style={{ backgroundImage: cssUrl(project.image) }} />
               </MediaReveal>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import "./noir.css";
@@ -19,6 +19,12 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
   variable: "--font-serif",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#08090B",
+};
 
 export const metadata: Metadata = {
   title: { default: "Narayani Studios LLP", template: "%s · Narayani Studios" },

@@ -1,8 +1,9 @@
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { FaqList } from "@/components/faq-list";
+import { CtaBand, PageHero } from "@/components/page-hero";
 import { cssUrl } from "@/lib/asset";
 import { resourceTypes, testimonials } from "@/lib/site-data";
-import { FaqList } from "@/components/faq-list";
 
 const entries = [
   ["How the right production process protects the idea", "Process"],
@@ -21,41 +22,38 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
   const resource = resourceTypes.find((r) => r.slug === slug);
   if (!resource) notFound();
 
+  const back = <p className="note wrap"><Link className="text-link" href="/resources">All resources ↗</Link></p>;
+
   if (slug === "faqs") {
     return (
-      <main className="page-shell">
-        <section className="page-hero wrap">
-          <p className="eyebrow">Resources</p>
-          <h1>Frequently asked questions</h1>
-        </section>
+      <main>
+        <PageHero eyebrow="Resources" title="FAQs" copy={resource.copy} />
         <section className="faq-section wrap"><FaqList /></section>
+        {back}
+        <CtaBand />
       </main>
     );
   }
 
   if (slug === "gallery") {
     return (
-      <main className="page-shell">
-        <section className="page-hero wrap">
-          <p className="eyebrow">Resources</p>
-          <h1>Gallery</h1>
-        </section>
+      <main>
+        <PageHero eyebrow="Resources" title="Gallery" copy={resource.copy} image="/service-photography.png" />
         <section className="gallery-grid wrap">
           {gallery.map((image, i) => (
             <div key={image} style={{ backgroundImage: cssUrl(`/${image}`) }}><span>Frame 0{i + 1}</span></div>
           ))}
         </section>
+        {back}
+        <CtaBand />
       </main>
     );
   }
 
   if (slug === "testimonials") {
     return (
-      <main className="page-shell">
-        <section className="page-hero wrap">
-          <p className="eyebrow">Resources</p>
-          <h1>Client testimonials</h1>
-        </section>
+      <main>
+        <PageHero eyebrow="Resources" title="Testimonials" copy={resource.copy} />
         <section className="testimonial-cards wrap">
           {testimonials.map((item) => (
             <article key={item.name}>
@@ -65,26 +63,26 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
             </article>
           ))}
         </section>
+        {back}
+        <CtaBand />
       </main>
     );
   }
 
   return (
-    <main className="page-shell">
-      <section className="page-hero wrap">
-        <p className="eyebrow">Resources / {resource.title}</p>
-        <h1>{resource.title}</h1>
-        <p>{resource.copy}</p>
-      </section>
+    <main>
+      <PageHero eyebrow={`Resources / ${resource.title}`} title={resource.title} copy={resource.copy} />
       <section className="editorial-list wrap">
         {entries.map(([entry, tag]) => (
           <article key={entry}>
-            <span>{slug === "news" ? `12.08.2026` : tag}</span>
+            <span>{slug === "news" ? "12.08.2026" : tag}</span>
             <h2>{entry}</h2>
-            <Link href="/contact">Read more</Link>
+            <Link href="/contact">Talk to the studio ↗</Link>
           </article>
         ))}
       </section>
+      {back}
+      <CtaBand />
     </main>
   );
 }

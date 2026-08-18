@@ -95,10 +95,10 @@ export const workCategories = services.map((service) => ({
 }));
 
 export const projects = [
-  { slug: "northbound", type: "Production", title: "Northbound", blurb: "A night-drive film for a performance marque.", image: "/film-automotive.png" },
-  { slug: "afterglow", type: "Advertising", title: "Afterglow", blurb: "Stage, film and social captured as one night.", image: "/film-music.png" },
-  { slug: "signal", type: "Digital", title: "Signal", blurb: "A motion language across launch films and paid social.", image: "/service-motion.png" },
-  { slug: "volume", type: "Productions", title: "Volume", blurb: "An LED-volume world for a launch that could not wait on weather.", image: "/film-virtual.png" },
+  { slug: "northbound", type: "Production", service: "production", title: "Northbound", blurb: "A night-drive film for a performance marque.", image: "/film-automotive.png" },
+  { slug: "afterglow", type: "Advertising", service: "advertising", title: "Afterglow", blurb: "Stage, film and social captured as one night.", image: "/film-music.png" },
+  { slug: "signal", type: "Digital", service: "digital-social", title: "Signal", blurb: "A motion language across launch films and paid social.", image: "/service-motion.png" },
+  { slug: "volume", type: "Production", service: "production", title: "Volume", blurb: "An LED-volume world for a launch that could not wait on weather.", image: "/film-virtual.png" },
 ] as const;
 
 export const testimonials = [
@@ -116,32 +116,50 @@ export const faqs = [
   ["How do we begin?", "Share the opportunity through the contact form. We will follow up to understand the brief, scope and timeline."],
 ] as const;
 
-export const navPrimary = [
-  ["Home", "/"],
-  ["About us", "/about"],
-  ["Services", "/services"],
-  ["Team", "/team"],
-  ["Work", "/portfolio"],
-] as const;
+export type NavLink = { label: string; href: string };
+export type NavItem = NavLink & { children?: NavLink[] };
+
+export const navPrimary: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  {
+    label: "Services",
+    href: "/services",
+    children: [
+      { label: "All services", href: "/services" },
+      ...services.map((service) => ({ label: service.title, href: `/services/${service.slug}` })),
+    ],
+  },
+  { label: "Portfolio", href: "/portfolio" },
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
+      { label: "All resources", href: "/resources" },
+      ...resourceTypes.map((resource) => ({ label: resource.title, href: `/resources/${resource.slug}` })),
+    ],
+  },
+  { label: "Contact", href: "/contact" },
+];
 
 export const navGuide = [
-  { label: "About us", href: "/about", hint: "Who we are, the founders and why the house exists" },
+  { label: "About", href: "/about", hint: "Who we are, the founders and why the house exists" },
   { label: "Services", href: "/services", hint: "Pre-production, production, post — then digital, ads and live" },
-  { label: "Team", href: "/team", hint: "The people who hold creative, production and brand" },
-  { label: "Work", href: "/portfolio", hint: "Selected frames across every division" },
+  { label: "Portfolio", href: "/portfolio", hint: "Selected frames across every division" },
+  { label: "Resources", href: "/resources", hint: "Blog, articles, news, FAQs, gallery and testimonials" },
   { label: "Contact", href: "/contact", hint: "Start a brief — one service or the full chain" },
 ] as const;
 
 export const navIndex = [
   ["Home", "/"],
-  ["About us", "/about"],
-  ["Team", "/team"],
+  ["About", "/about"],
   ["Services", "/services"],
-  ["Work", "/portfolio"],
+  ["Portfolio", "/portfolio"],
+  ["Resources", "/resources"],
+  ["Contact", "/contact"],
+  ["Team", "/team"],
   ["Productions", "/productions"],
   ["Talent", "/talent"],
   ["Media & IP", "/media-ip"],
-  ["Insights", "/insights"],
   ["FAQ", "/faq"],
-  ["Contact", "/contact"],
 ] as const;

@@ -10,16 +10,17 @@ const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@narayanistu
 
 export function ContactForm() {
   const search = useSearchParams();
-  const hinted = search.get("service");
-  const matched = services.find((s) => s.slug === hinted)?.title ?? "";
+  const hinted = search.get("service") ?? "";
+  const matched = services.some((s) => s.slug === hinted) ? hinted : "";
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormValues>({
     defaultValues: { service: matched },
   });
   const [state, setState] = useState("");
 
   const submit = async (values: FormValues) => {
-    const subject = encodeURIComponent(`Narayani Studios enquiry — ${values.service || "General"}`);
-    const body = encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\nService: ${values.service}\n\nProject details:\n${values.details}`);
+    const serviceTitle = services.find((item) => item.slug === values.service)?.title ?? values.service ?? "General";
+    const subject = encodeURIComponent(`Narayani Studios enquiry — ${serviceTitle}`);
+    const body = encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\nService: ${serviceTitle}\n\nProject details:\n${values.details}`);
     window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
     setState("Your email app is opening with the enquiry prepared.");
   };
@@ -37,7 +38,7 @@ export function ContactForm() {
       <label>Service needed
         <select {...register("service")}>
           <option value="">Select a service</option>
-          {services.map((service) => <option key={service.slug} value={service.title}>{service.title}</option>)}
+          {services.map((service) => <option key={service.slug} value={service.slug}>{service.title}</option>)}
         </select>
       </label>
       <label>Tell us about your project
