@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050308" />
+  <title>Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050308;
+      --purple: #6E3FC7;
+      --gold: #F5B400;
+      --white: #fff;
+      --x: 50%;
+      --y: 42%;
+      --warm: 0.35;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; height: 100%; overflow: hidden;
+      background: var(--bg); color: var(--white);
+      font-family: Outfit, sans-serif;
+      cursor: none;
+    }
+    canvas#fx { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+    .world {
+      position: fixed; inset: 0; z-index: 2; pointer-events: none;
+      background:
+        radial-gradient(900px circle at var(--x) var(--y),
+          color-mix(in srgb, #F5B400 calc(var(--warm) * 55%), #8a5cff) 0%,
+          transparent 42%),
+        radial-gradient(520px circle at var(--x) var(--y),
+          rgba(255,255,255,.16), transparent 34%),
+        radial-gradient(1400px circle at calc(100% - var(--x)) calc(100% - var(--y)),
+          color-mix(in srgb, #6E3FC7 80%, #F5B400) 0%,
+          transparent 55%),
+        radial-gradient(ellipse at 50% 120%, #2a1060 0%, transparent 55%),
+        #050308;
+      transition: background 40ms linear;
+    }
+    .haze {
+      position: fixed; inset: 0; z-index: 3; pointer-events: none;
+      background:
+        radial-gradient(ellipse at var(--x) var(--y), rgba(245,180,0, calc(var(--warm) * .18)), transparent 36%),
+        radial-gradient(ellipse at center, transparent 30%, #000 100%);
+      mix-blend-mode: screen;
+    }
+    .grain {
+      position: fixed; inset: 0; z-index: 12; pointer-events: none; opacity: .11; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .scan {
+      position: fixed; inset: 0; z-index: 11; pointer-events: none; opacity: .08;
+      background: repeating-linear-gradient(transparent 0 2px, #000 3px);
+    }
+    .bars { position: fixed; left: 0; right: 0; height: 46px; z-index: 14; background: #000; }
+    .bars.top { top: 0; }
+    .bars.bot { bottom: 0; }
+
+    .cursor {
+      position: fixed; z-index: 30; width: 18px; height: 18px; margin: -9px 0 0 -9px;
+      border: 1.5px solid #fff; border-radius: 50%; pointer-events: none;
+      box-shadow: 0 0 24px #f5b400aa, 0 0 60px #6e3fc7aa;
+      mix-blend-mode: screen;
+    }
+    .cursor:after {
+      content: ""; position: absolute; inset: -22px; border-radius: 50%;
+      border: 1px solid rgba(245,180,0,.35);
+      animation: ring 2.4s ease-out infinite;
+    }
+
+    .stage {
+      position: relative; z-index: 8;
+      min-height: 100svh; display: grid; place-items: center;
+      padding: 80px 20px; text-align: center;
+    }
+    .hero { position: relative; width: min(920px, 100%); }
+    .orbit, .orbit2 {
+      position: absolute; left: 50%; top: 58%;
+      width: min(720px, 92vw); height: min(720px, 92vw);
+      transform: translate(-50%, -50%);
+      border-radius: 50%; pointer-events: none;
+      border: 1px solid rgba(110,63,199,.35);
+      box-shadow: inset 0 0 80px rgba(110,63,199,.12), 0 0 80px rgba(245,180,0,.08);
+      animation: spin 28s linear infinite;
+    }
+    .orbit2 {
+      width: min(540px, 70vw); height: min(540px, 70vw);
+      border-color: rgba(245,180,0,.28);
+      animation-duration: 18s; animation-direction: reverse;
+    }
+    .orbit span, .orbit2 span {
+      position: absolute; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 18px var(--gold);
+    }
+    .orbit span { top: -5px; left: 50%; }
+    .orbit2 span { bottom: 18%; right: 6%; background: var(--purple); box-shadow: 0 0 18px var(--purple); }
+
+    .kicker {
+      position: relative; z-index: 2;
+      margin: 0 0 10px; color: var(--gold);
+      letter-spacing: .46em; text-transform: uppercase; font-size: 11px;
+      text-shadow: 0 0 20px #f5b40088;
+    }
+    h1 {
+      position: relative; z-index: 2;
+      margin: 0 0 28px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.4rem, 8vw, 5.6rem);
+      font-weight: 600; letter-spacing: -.03em; line-height: .95;
+      text-shadow: 0 0 40px rgba(110,63,199,.55);
+      animation: titleIn 1.4s cubic-bezier(.16,1,.3,1);
+    }
+    h1 em { font-style: italic; color: #efe8ff; }
+
+    .clock {
+      position: relative; z-index: 3;
+      display: flex; justify-content: center; align-items: stretch; gap: 12px;
+      perspective: 900px;
+    }
+    .unit {
+      min-width: 92px; padding: 18px 10px 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow:
+        0 20px 50px rgba(0,0,0,.45),
+        0 0 40px rgba(110,63,199,.22),
+        inset 0 1px 0 rgba(255,255,255,.22);
+      backdrop-filter: blur(16px);
+      transform: rotateX(8deg);
+      animation: float 5s ease-in-out infinite;
+    }
+    .unit:nth-child(2) { animation-delay: .4s; }
+    .unit:nth-child(3) { animation-delay: .8s; }
+    .unit:nth-child(4) { animation-delay: 1.2s; }
+    .unit b {
+      display: block;
+      font-variant-numeric: tabular-nums;
+      font-size: clamp(2.1rem, 7vw, 4.2rem);
+      font-weight: 600; letter-spacing: .04em; line-height: 1;
+      background: linear-gradient(180deg, #fff, #d7c6ff 55%, var(--gold));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 0 18px rgba(245,180,0,.35));
+    }
+    .unit span {
+      display: block; margin-top: 8px;
+      letter-spacing: .28em; text-transform: uppercase; font-size: 9px; color: #c9bddc;
+    }
+    .colon {
+      align-self: center; font-size: 2.4rem; color: var(--gold);
+      text-shadow: 0 0 16px var(--gold); animation: blink 1s steps(2) infinite;
+      padding-bottom: 18px;
+    }
+
+    .soon {
+      position: relative; z-index: 2;
+      margin: 34px 0 0; letter-spacing: .5em; text-transform: uppercase;
+      font-size: 12px; color: #fff;
+    }
+    .soon u {
+      text-decoration: none; color: var(--gold);
+      border-bottom: 1px solid var(--gold); padding-bottom: 6px;
+    }
+    .whisper {
+      position: relative; z-index: 2;
+      margin: 18px auto 0; max-width: 28rem;
+      color: #c8bdd6; font-weight: 300; line-height: 1.7; font-size: .98rem;
+    }
+
+    .rec {
+      position: fixed; top: 18px; right: 22px; z-index: 20;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: #ff6b6b;
+    }
+    .rec i { width: 8px; height: 8px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 12px #ff3b3b; animation: blink 1.2s steps(2) infinite; }
+
+    @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+    @keyframes float { 50% { transform: rotateX(8deg) translateY(-8px); } }
+    @keyframes blink { 50% { opacity: .25; } }
+    @keyframes ring { to { transform: scale(1.8); opacity: 0; } }
+    @keyframes titleIn { from { opacity: 0; transform: translateY(24px) scale(.98); filter: blur(10px); } }
+
+    @media (max-width: 700px) {
+      html, body { cursor: auto; }
+      .cursor { display: none; }
+      .clock { gap: 6px; }
+      .unit { min-width: 64px; padding: 12px 6px 10px; border-radius: 12px; }
+      .colon { font-size: 1.4rem; padding-bottom: 12px; }
+      .bars { height: 28px; }
+      .orbit, .orbit2 { opacity: .45; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .orbit, .orbit2, .unit, .colon, .rec i, .cursor:after { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="fx"></canvas>
+  <div class="world" id="world"></div>
+  <div class="haze"></div>
+  <div class="grain"></div>
+  <div class="scan"></div>
+  <div class="bars top"></div>
+  <div class="bars bot"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="rec"><i></i> Live</div>
+
+  <main class="stage">
+    <div class="hero">
+      <div class="orbit"><span></span></div>
+      <div class="orbit2"><span></span></div>
+      <p class="kicker">Premiere locked</p>
+      <h1>The lights go up.<br><em>Not yet.</em></h1>
+      <div class="clock" aria-live="polite">
+        <div class="unit"><b id="d">00</b><span>Days</span></div>
+        <div class="colon">:</div>
+        <div class="unit"><b id="h">00</b><span>Hours</span></div>
+        <div class="colon">:</div>
+        <div class="unit"><b id="m">00</b><span>Min</span></div>
+        <div class="colon">:</div>
+        <div class="unit"><b id="s">00</b><span>Sec</span></div>
+      </div>
+      <p class="soon"><u>Coming Soon</u></p>
+      <p class="whisper">Move through the dark. The beam follows you. When the numbers hit zero, the first frame lands.</p>
+    </div>
+  </main>
+
+  <script>
+    const TARGET = new Date("2026-09-01T18:00:00+05:30").getTime();
+    const pad = (n) => String(Math.max(0, n)).padStart(2, "0");
+    const tick = () => {
+      const t = Math.max(0, TARGET - Date.now());
+      const s = Math.floor(t / 1000);
+      document.getElementById("d").textContent = pad(Math.floor(s / 86400));
+      document.getElementById("h").textContent = pad(Math.floor(s / 3600) % 24);
+      document.getElementById("m").textContent = pad(Math.floor(s / 60) % 60);
+      document.getElementById("s").textContent = pad(s % 60);
+    };
+    tick();
+    setInterval(tick, 250);
+
+    const root = document.documentElement;
+    const cur = document.getElementById("cursor");
+    let x = innerWidth * 0.5, y = innerHeight * 0.42;
+    let tx = x, ty = y;
+    addEventListener("pointermove", (e) => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+
+    const canvas = document.getElementById("fx");
+    const ctx = canvas.getContext("2d");
+    const dust = Array.from({ length: 90 }, () => ({
+      x: Math.random(), y: Math.random(), z: Math.random(),
+      v: 0.0004 + Math.random() * 0.0012
+    }));
+    const size = () => { canvas.width = innerWidth; canvas.height = innerHeight; };
+    size(); addEventListener("resize", size);
+
+    const loop = () => {
+      x += (tx - x) * 0.12;
+      y += (ty - y) * 0.12;
+      const px = (x / innerWidth) * 100;
+      const py = (y / innerHeight) * 100;
+      const warm = Math.min(1, Math.max(0, x / innerWidth));
+      root.style.setProperty("--x", px.toFixed(2) + "%");
+      root.style.setProperty("--y", py.toFixed(2) + "%");
+      root.style.setProperty("--warm", warm.toFixed(3));
+      cur.style.left = x + "px";
+      cur.style.top = y + "px";
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dust.forEach((p) => {
+        p.y -= p.v;
+        if (p.y < 0) p.y = 1;
+        const dx = p.x * canvas.width - x;
+        const dy = p.y * canvas.height - y;
+        const near = Math.max(0, 1 - Math.hypot(dx, dy) / 280);
+        const a = 0.08 + near * 0.7;
+        ctx.fillStyle = near > 0.2
+          ? `rgba(245,180,0,${a})`
+          : `rgba(180,150,255,${0.12 + near})`;
+        ctx.beginPath();
+        ctx.arc(p.x * canvas.width, p.y * canvas.height, 1.1 + p.z * 1.8 + near * 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
