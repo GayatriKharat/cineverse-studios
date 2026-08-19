@@ -18,6 +18,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .lede,.body-copy p,.hero-lede{max-width:34rem;color:var(--smoke);font-weight:300;font-size:1.05rem;line-height:1.75}
 .brand-logo-link{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0;position:relative;z-index:1}
 .brand-logo{display:inline-flex;align-items:center;gap:12px;background:transparent}
+.brand-logo-image{display:block;width:min(30vw,354px);height:auto;max-height:74px;object-fit:contain}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .brand-logo-mark{display:block;width:46px;height:46px;flex-shrink:0;filter:drop-shadow(0 0 10px #ffffff55)}
 .brand-logo.is-compact .brand-logo-mark{width:40px;height:40px}
