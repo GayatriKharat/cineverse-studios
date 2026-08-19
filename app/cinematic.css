@@ -38,7 +38,7 @@ body{background:var(--color-bg);color:var(--color-white);font-weight:400}
 .progress{position:fixed;top:0;left:0;z-index:80;height:2px;width:var(--scroll,0%);background:linear-gradient(90deg,#6E3FC7,#F5B400);pointer-events:none;opacity:.85}
 .intro-loader{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:#08090B;transition:opacity .6s var(--ease),visibility .6s}
 .intro-loader.is-done{opacity:0;visibility:hidden;pointer-events:none}
-.intro-loader img{height:72px;width:auto;opacity:1}
+.intro-loader img,.intro-loader .brand-logo-mark{height:88px;width:88px;opacity:1}
 .intro-loader b{position:absolute;bottom:18%;left:20%;right:20%;height:1px;background:#ffffff18;overflow:hidden}
 .intro-loader b i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6E3FC7,#F5B400);animation:loadLine 1.1s var(--ease) forwards}
 @keyframes loadLine{to{width:100%}}
@@ -175,7 +175,7 @@ h3{color:var(--color-white);font-weight:500}
 .work-cat:hover{border-color:#6e3fc788;background:#6e3fc714}
 @media (max-width:860px){.work-cats{grid-template-columns:1fr}.index-menu a{font-size:1.35rem}.quick-bar{grid-template-columns:1fr}}
 a,button{touch-action:manipulation}
-@media (max-width:980px){.atmosphere,.spotlight{opacity:.4}.hero-reel{animation:none}.intro-loader img{height:56px}}
+@media (max-width:980px){.atmosphere,.spotlight{opacity:.4}.hero-reel{animation:none}.intro-loader img,.intro-loader .brand-logo-mark{height:64px;width:64px}}
 @media (prefers-reduced-motion:reduce){
   .hero-reel,.intro-loader img,.intro-loader b i,.index-menu.open .index-block,.reveal-in,.grain{animation:none!important}
   .brand-logo-image,.intro-loader img{clip-path:none!important;opacity:1!important;transform:none!important}

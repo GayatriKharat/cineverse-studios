@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { asset } from "@/lib/asset";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function IntroLoader() {
   const [done, setDone] = useState(false);
@@ -14,8 +14,7 @@ export function IntroLoader() {
 
   return (
     <div className={`intro-loader${done ? " is-done" : ""}`} aria-hidden={done}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={asset("/narayani-lockup-official.png?v=2")} alt="Narayani Studios" width={708} height={212} />
+      <BrandLogo href={null} variant="dark" showTagline />
       <b><i /></b>
     </div>
   );

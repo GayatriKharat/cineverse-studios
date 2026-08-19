@@ -8,19 +8,21 @@ export function PageHero({
   title,
   copy,
   image,
+  imagePosition = "center 18%",
   compact = false,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   copy?: string;
   image?: string;
+  imagePosition?: string;
   compact?: boolean;
 }) {
   return (
-    <section className={`page-hero${compact ? " is-compact" : ""}`}>
+    <section className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}`}>
       {image && (
         <div className="page-hero-media">
-          <div style={{ backgroundImage: cssUrl(image) }} />
+          <div style={{ backgroundImage: cssUrl(image), backgroundPosition: imagePosition }} />
         </div>
       )}
       <div className="wrap page-hero-copy">

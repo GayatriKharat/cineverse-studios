@@ -38,7 +38,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
   if (slug === "gallery") {
     return (
       <main>
-        <PageHero eyebrow="Resources" title="Gallery" copy={resource.copy} image="/service-photography.png" />
+        <PageHero eyebrow="Resources" title="Gallery" copy={resource.copy} image="/service-photography.png" imagePosition="72% 12%" />
         <section className="gallery-grid wrap">
           {gallery.map((image, i) => (
             <div key={image} style={{ backgroundImage: cssUrl(`/${image}`) }}><span>Frame 0{i + 1}</span></div>

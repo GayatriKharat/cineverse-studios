@@ -115,46 +115,6 @@
     }
     h1 em { font-style: italic; color: #efe8ff; }
 
-    .clock {
-      position: relative; z-index: 3;
-      display: flex; justify-content: center; align-items: stretch; gap: 12px;
-      perspective: 900px;
-    }
-    .unit {
-      min-width: 92px; padding: 18px 10px 14px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.16);
-      box-shadow:
-        0 20px 50px rgba(0,0,0,.45),
-        0 0 40px rgba(110,63,199,.22),
-        inset 0 1px 0 rgba(255,255,255,.22);
-      backdrop-filter: blur(16px);
-      transform: rotateX(8deg);
-      animation: float 5s ease-in-out infinite;
-    }
-    .unit:nth-child(2) { animation-delay: .4s; }
-    .unit:nth-child(3) { animation-delay: .8s; }
-    .unit:nth-child(4) { animation-delay: 1.2s; }
-    .unit b {
-      display: block;
-      font-variant-numeric: tabular-nums;
-      font-size: clamp(2.1rem, 7vw, 4.2rem);
-      font-weight: 600; letter-spacing: .04em; line-height: 1;
-      background: linear-gradient(180deg, #fff, #d7c6ff 55%, var(--gold));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      filter: drop-shadow(0 0 18px rgba(245,180,0,.35));
-    }
-    .unit span {
-      display: block; margin-top: 8px;
-      letter-spacing: .28em; text-transform: uppercase; font-size: 9px; color: #c9bddc;
-    }
-    .colon {
-      align-self: center; font-size: 2.4rem; color: var(--gold);
-      text-shadow: 0 0 16px var(--gold); animation: blink 1s steps(2) infinite;
-      padding-bottom: 18px;
-    }
-
     .soon {
       position: relative; z-index: 2;
       margin: 34px 0 0; letter-spacing: .5em; text-transform: uppercase;
@@ -178,7 +138,6 @@
     .rec i { width: 8px; height: 8px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 12px #ff3b3b; animation: blink 1.2s steps(2) infinite; }
 
     @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-    @keyframes float { 50% { transform: rotateX(8deg) translateY(-8px); } }
     @keyframes blink { 50% { opacity: .25; } }
     @keyframes ring { to { transform: scale(1.8); opacity: 0; } }
     @keyframes titleIn { from { opacity: 0; transform: translateY(24px) scale(.98); filter: blur(10px); } }
@@ -186,14 +145,11 @@
     @media (max-width: 700px) {
       html, body { cursor: auto; }
       .cursor { display: none; }
-      .clock { gap: 6px; }
-      .unit { min-width: 64px; padding: 12px 6px 10px; border-radius: 12px; }
-      .colon { font-size: 1.4rem; padding-bottom: 12px; }
       .bars { height: 28px; }
       .orbit, .orbit2 { opacity: .45; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .orbit, .orbit2, .unit, .colon, .rec i, .cursor:after { animation: none; }
+      .orbit, .orbit2, .rec i, .cursor:after { animation: none; }
     }
   </style>
 </head>
@@ -213,35 +169,13 @@
       <div class="orbit"><span></span></div>
       <div class="orbit2"><span></span></div>
       <p class="kicker">Premiere locked</p>
-      <h1>The lights go up.<br><em>Not yet.</em></h1>
-      <div class="clock" aria-live="polite">
-        <div class="unit"><b id="d">00</b><span>Days</span></div>
-        <div class="colon">:</div>
-        <div class="unit"><b id="h">00</b><span>Hours</span></div>
-        <div class="colon">:</div>
-        <div class="unit"><b id="m">00</b><span>Min</span></div>
-        <div class="colon">:</div>
-        <div class="unit"><b id="s">00</b><span>Sec</span></div>
-      </div>
+      <h1>The lights go up.<br><em>Your moment is near.</em></h1>
       <p class="soon"><u>Coming Soon</u></p>
-      <p class="whisper">Move through the dark. The beam follows you. When the numbers hit zero, the first frame lands.</p>
+      <p class="whisper">Move through the dark. The beam follows you. The first frame lands soon.</p>
     </div>
   </main>
 
   <script>
-    const TARGET = new Date("2026-09-14T18:00:00+05:30").getTime();
-    const pad = (n) => String(Math.max(0, n)).padStart(2, "0");
-    const tick = () => {
-      const t = Math.max(0, TARGET - Date.now());
-      const s = Math.floor(t / 1000);
-      document.getElementById("d").textContent = pad(Math.floor(s / 86400));
-      document.getElementById("h").textContent = pad(Math.floor(s / 3600) % 24);
-      document.getElementById("m").textContent = pad(Math.floor(s / 60) % 60);
-      document.getElementById("s").textContent = pad(s % 60);
-    };
-    tick();
-    setInterval(tick, 250);
-
     const root = document.documentElement;
     const cur = document.getElementById("cursor");
     let x = innerWidth * 0.5, y = innerHeight * 0.42;
