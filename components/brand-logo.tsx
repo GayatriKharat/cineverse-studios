@@ -3,7 +3,7 @@ import Link from "next/link";
 import { asset } from "@/lib/asset";
 
 type BrandLogoProps = {
-  href?: string;
+  href?: string | null;
   variant?: "dark" | "light";
   showTagline?: boolean;
   compact?: boolean;
