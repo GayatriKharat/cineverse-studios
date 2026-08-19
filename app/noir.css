@@ -47,10 +47,10 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .nav-link.is-active:after,.nav-link:hover:after,.nav-item:hover .nav-link:after,.nav-item:focus-within .nav-link:after{transform:scaleX(1)}
 .nav-drop{position:absolute;top:100%;left:0;padding-top:8px;min-width:260px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease;transition-delay:.08s;z-index:2}
 .nav-item.has-drop:nth-last-child(-n+2) .nav-drop{left:auto;right:0}
-.nav-drop-inner{padding:8px 0;background:#0d0d10;border:1px solid #ffffff18;box-shadow:0 18px 48px #00000088}
+.nav-drop-inner{padding:10px 8px;background:#0d0d10;border:1px solid #6e3fc766;box-shadow:0 22px 56px #000000aa,0 0 36px #6e3fc755}
 .nav-item:hover .nav-drop,.nav-item:focus-within .nav-drop,.nav-item.is-open .nav-drop{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition-delay:0s}
-.nav-drop a{display:block;padding:11px 18px;color:#ffffffc4;font-size:12px;letter-spacing:.04em;text-transform:none;transition:background .2s,color .2s}
-.nav-drop a:hover,.nav-drop a:focus{color:#fff;background:#6e3fc722}
+.nav-drop a{display:block;margin:4px 0;padding:12px 16px;border:1px solid #6e3fc744;border-radius:3px;background:#6e3fc714;color:#fff;font-size:12px;letter-spacing:.04em;text-transform:none;box-shadow:0 4px 16px #00000066,0 0 14px #6e3fc744;transition:background .25s,color .25s,border-color .25s,box-shadow .25s,transform .25s}
+.nav-drop a:hover,.nav-drop a:focus{color:#fff;background:#6e3fc74d;border-color:#f5b400cc;box-shadow:0 8px 24px #6e3fc766,0 0 22px #f5b40088;transform:translateX(3px)}
 .index-sub{display:grid;gap:4px;padding:4px 0 16px 42px}
 .index-sub a{font-size:15px!important;letter-spacing:.04em;text-transform:none;border-bottom:0!important;padding:4px 0!important;color:#ffffff99!important}
 .index-block .index-sub a:hover{color:#fff!important}
