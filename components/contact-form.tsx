@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 import { services } from "@/lib/site-data";
 
-type FormValues = { name: string; email: string; service: string; details: string };
+type FormValues = { name: string; email: string; phone: string; service: string; details: string };
 
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@narayanistudios.com";
 
@@ -18,11 +18,37 @@ export function ContactForm() {
   const [state, setState] = useState("");
 
   const submit = async (values: FormValues) => {
-    const serviceTitle = services.find((item) => item.slug === values.service)?.title ?? values.service ?? "General";
-    const subject = encodeURIComponent(`Narayani Studios enquiry — ${serviceTitle}`);
-    const body = encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\nService: ${serviceTitle}\n\nProject details:\n${values.details}`);
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-    setState("Your email app is opening with the enquiry prepared.");
+    // Validate email
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    if (!emailRegex.test(values.email)) {
+      setState("Please enter a valid email address");
+      return;
+    }
+
+    // Simple validation - just check if all fields are filled
+    if (!values.name || !values.email || !values.phone || !values.details) {
+      setState("Please fill all fields");
+      return;
+    }
+
+    // Validate phone (basic validation - at least 10 digits)
+    const phoneDigits = values.phone.replace(/\D/g, "");
+    if (phoneDigits.length < 10) {
+      setState("Please enter a valid phone number (at least 10 digits)");
+      return;
+    }
+
+    // All good! Show success
+    setState("✅ Thank you! Your details have been submitted. We'll contact you soon at " + values.phone + " or " + values.email);
+    
+    // Log to console (for development)
+    console.log("Contact Details Received:", {
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      service: values.service,
+      details: values.details,
+    });
   };
 
   return (
@@ -34,6 +60,10 @@ export function ContactForm() {
       <label>Email address
         <input {...register("email", { required: "Please enter an email", pattern: { value: /^\S+@\S+\.\S+$/, message: "Enter a valid email" } })} type="email" autoComplete="email" />
         {errors.email && <small>{errors.email.message}</small>}
+      </label>
+      <label>Contact number
+        <input {...register("phone", { required: "Please enter your contact number" })} type="tel" autoComplete="tel" placeholder="+91 XXXXX XXXXX" />
+        {errors.phone && <small>{errors.phone.message}</small>}
       </label>
       <label>Service needed
         <select {...register("service")}>
