@@ -387,7 +387,7 @@ export const blogPosts: BlogPost[] = [
     title: "How the right production process protects the idea",
     date: "2026-08-20",
     category: "Process",
-    author: "Shreeraj Avhad",
+    author: "ShreeRaj Avhad",
     excerpt: "The difference between chaos and craft on set starts long before anyone calls action.",
     featured_image: "/client/frame-01.jpg",
     content: `
@@ -427,7 +427,7 @@ export const blogPosts: BlogPost[] = [
     title: "What a clear creative brief unlocks",
     date: "2026-08-16",
     category: "Strategy",
-    author: "Shreeraj Avhad",
+    author: "ShreeRaj Avhad",
     excerpt: "Most projects don't fail because of bad ideas. They fail because the brief is unclear.",
     featured_image: "/client/frame-03.jpg",
     content: `

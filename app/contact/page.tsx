@@ -15,7 +15,7 @@ export default function Contact() {
           <p className="eyebrow">Direct</p>
           <h2>A good brief is a great <em>beginning.</em></h2>
           <div className="contact-meta">
-            <p><span>Partners</span><b>Shreeraj Avhad · Kiran Dhangar</b></p>
+            <p><span>Partners</span><b>ShreeRaj Avhad · Kiran Dhangar</b></p>
             <p><span>Working from</span><b>India · International</b></p>
             <p><span>Studio</span><b>hello@narayanistudios.com</b></p>
           </div>

@@ -78,7 +78,7 @@ export const blogPosts = [
     title: "How the right production process protects the idea",
     category: "Process",
     date: "2026-08-20",
-    author: "Shreeraj Avhad",
+    author: "ShreeRaj Avhad",
     excerpt: "...",
     content: "Full article body here..."
   },

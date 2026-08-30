@@ -6,7 +6,7 @@ import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 const founders = [
   {
-    name: "Shreeraj Avhad",
+    name: "ShreeRaj Avhad",
     role: "Founder",
     image: "/founder-shreeraj.png?v=6",
     line: "Creative direction · Production",
