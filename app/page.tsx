@@ -62,7 +62,7 @@ export default function Home() {
           {projects.map((project, i) => (
             <Link key={project.slug} href={`/services/${project.service}`} className={`feature-card n${i + 1}`}>
               <MediaReveal>
-                <div className="feature-still" style={{ backgroundImage: cssUrl(project.image) }} />
+                <div className="feature-still" style={{ backgroundImage: cssUrl(project.image), backgroundPosition: project.imagePosition ?? "center" }} />
               </MediaReveal>
               <span>{project.type}</span>
               <h3>{project.title}</h3>

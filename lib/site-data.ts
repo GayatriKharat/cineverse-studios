@@ -93,10 +93,10 @@ export const workCategories = services.map((service) => ({
 }));
 
 export const projects = [
-  { slug: "automotive-launch", type: "Advertising", service: "advertising", title: "Velocity, given a new language.", blurb: "Automotive launch film and commercial storytelling.", image: "/client/project-automotive.png" },
-  { slug: "luxury-beauty", type: "Production", service: "production", title: "Light that moves.", blurb: "A beauty film shaped around light, texture and performance.", image: "/client/project-fashion.png" },
-  { slug: "music-performance", type: "Production", service: "production", title: "Sound, in focus.", blurb: "Music performance captured with image and rhythm in sync.", image: "/client/project-performance.png" },
-  { slug: "virtual-mountain", type: "Post-production", service: "post-production", title: "Beyond the studio wall.", blurb: "Virtual worldbuilding and finishing for a complete screen experience.", image: "/client/project-post.png" },
+  { slug: "automotive-launch", type: "Advertising", service: "advertising", title: "Velocity, given a new language.", blurb: "Automotive launch film and commercial storytelling.", image: "/client/project-automotive.png", imagePosition: "center" },
+  { slug: "luxury-beauty", type: "Production", service: "production", title: "Light that moves.", blurb: "A beauty film shaped around light, texture and performance.", image: "/client/project-fashion.png", imagePosition: "right center" },
+  { slug: "music-performance", type: "Production", service: "production", title: "Sound, in focus.", blurb: "Music performance captured with image and rhythm in sync.", image: "/client/project-performance.png", imagePosition: "center" },
+  { slug: "virtual-mountain", type: "Post-production", service: "post-production", title: "Beyond the studio wall.", blurb: "Virtual worldbuilding and finishing for a complete screen experience.", image: "/client/project-post.png", imagePosition: "center" },
 ] as const;
 
 export const testimonials = [
