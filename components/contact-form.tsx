@@ -6,8 +6,6 @@ import { services } from "@/lib/site-data";
 
 type FormValues = { name: string; email: string; phone: string; service: string; details: string };
 
-const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@narayanistudios.com";
-
 export function ContactForm() {
   const search = useSearchParams();
   const hinted = search.get("service") ?? "";
@@ -18,37 +16,19 @@ export function ContactForm() {
   const [state, setState] = useState("");
 
   const submit = async (values: FormValues) => {
-    // Validate email
-    const emailRegex = /^\S+@\S+\.\S+$/;
-    if (!emailRegex.test(values.email)) {
-      setState("Please enter a valid email address");
-      return;
+    setState("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error ?? "Unable to send your enquiry.");
+      setState("Thank you! Your enquiry has been sent. We'll be in touch soon.");
+    } catch (error) {
+      setState(error instanceof Error ? error.message : "Unable to send your enquiry. Please try again.");
     }
-
-    // Simple validation - just check if all fields are filled
-    if (!values.name || !values.email || !values.phone || !values.details) {
-      setState("Please fill all fields");
-      return;
-    }
-
-    // Validate phone (basic validation - at least 10 digits)
-    const phoneDigits = values.phone.replace(/\D/g, "");
-    if (phoneDigits.length < 10) {
-      setState("Please enter a valid phone number (at least 10 digits)");
-      return;
-    }
-
-    // All good! Show success
-    setState("✅ Thank you! Your details have been submitted. We'll contact you soon at " + values.phone + " or " + values.email);
-    
-    // Log to console (for development)
-    console.log("Contact Details Received:", {
-      name: values.name,
-      email: values.email,
-      phone: values.phone,
-      service: values.service,
-      details: values.details,
-    });
   };
 
   return (
@@ -75,7 +55,7 @@ export function ContactForm() {
         <textarea {...register("details", { required: "Tell us a little about the project", minLength: 15 })} rows={5} />
         {errors.details && <small>{errors.details.message}</small>}
       </label>
-      <button className="button" disabled={isSubmitting} type="submit">Send message</button>
+      <button className="button" disabled={isSubmitting} type="submit">{isSubmitting ? "Sending…" : "Send message"}</button>
       {state && <p className="form-state success" role="status">{state}</p>}
     </form>
   );

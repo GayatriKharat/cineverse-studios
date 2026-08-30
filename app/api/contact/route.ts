@@ -1,19 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const recipient = "business@narayanistudios.com";
+const escapeHtml = (value: string) => value.replace(/[&<>'"]/g, (character) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
+}[character] ?? character));
+
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, service, details } = await request.json();
+    const { name, email, phone, service, details } = await request.json();
 
-    // Validate required fields
-    if (!name || !email || !details) {
+    if (![name, email, phone, details].every((value) => typeof value === "string" && value.trim())) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    // Email validation
     const emailRegex = /^\S+@\S+\.\S+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -21,8 +24,10 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+    if (phone.replace(/\D/g, "").length < 10) {
+      return NextResponse.json({ error: "Please enter a valid phone number." }, { status: 400 });
+    }
 
-    // Gmail SMTP configuration
     const gmailUser = process.env.GMAIL_USER;
     const gmailPassword = process.env.GMAIL_PASSWORD;
 
@@ -34,7 +39,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -43,34 +47,26 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const emailSubject = `Narayani Studios Enquiry — ${service || "General"}`;
-    const emailBody = `
-New Enquiry from Website
+    const cleanName = name.trim();
+    const cleanEmail = email.trim();
+    const cleanPhone = phone.trim();
+    const cleanService = typeof service === "string" && service.trim() ? service.trim() : "General";
+    const cleanDetails = details.trim();
+    const emailSubject = `Narayani Studios enquiry — ${cleanService}`;
 
-Name: ${name}
-Email: ${email}
-Service: ${service || "General"}
-
-Project Details:
-${details}
-
----
-This is an automated message from the Narayani Studios website.
-    `;
-
-    // Send email to business inbox
     await transporter.sendMail({
       from: gmailUser,
-      to: "business@narayanistudios.com",
-      replyTo: email,
+      to: recipient,
+      replyTo: cleanEmail,
       subject: emailSubject,
       html: `
         <h2>${emailSubject}</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Service:</strong> ${service || "General"}</p>
+        <p><strong>Name:</strong> ${escapeHtml(cleanName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(cleanEmail)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(cleanPhone)}</p>
+        <p><strong>Service:</strong> ${escapeHtml(cleanService)}</p>
         <h3>Project Details:</h3>
-        <p>${details.replace(/\n/g, "<br>")}</p>
+        <p>${escapeHtml(cleanDetails).replace(/\n/g, "<br>")}</p>
       `,
     });
 
@@ -82,7 +78,7 @@ This is an automated message from the Narayani Studios website.
       { status: 200 }
     );
   } catch (error) {
-    console.error("Contact form error:", error);
+    console.error("Contact form error:", error instanceof Error ? error.message : "Unknown error");
     return NextResponse.json(
       { error: "Failed to send email. Please try again later." },
       { status: 500 }
