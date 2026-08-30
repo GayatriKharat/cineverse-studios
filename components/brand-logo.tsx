@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { asset } from "@/lib/asset";
+import { BrandMark } from "@/components/brand-mark";
 
 type BrandLogoProps = {
   href?: string | null;
@@ -10,11 +10,14 @@ type BrandLogoProps = {
 };
 
 export function BrandLogo({ href = "/", variant = "dark", showTagline = true, compact = false }: BrandLogoProps) {
-  const src = asset(variant === "light" ? "/narayani-lockup-official-light.png?v=2" : "/narayani-lockup-official.png?v=2");
   const content = (
     <span className={`brand-logo is-${variant}${compact ? " is-compact" : ""}${showTagline ? " has-tagline" : ""}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt="Narayani Studios" width={708} height={212} className="brand-logo-image" />
+      <BrandMark className="brand-logo-mark" size={compact ? 40 : 46} />
+      <span className="brand-logo-copy">
+        <strong className="brand-logo-name">NARAYANI</strong>
+        <span className="brand-logo-studios"><i /> STUDIOS <i /></span>
+        {showTagline && <small className="brand-logo-tag">WE CREATE. YOU REMEMBER.</small>}
+      </span>
     </span>
   );
 

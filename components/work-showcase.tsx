@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cssUrl } from "@/lib/asset";
-import { projects, services } from "@/lib/site-data";
+import { projects, services, workCategories } from "@/lib/site-data";
 
 export function WorkShowcase() {
   return (
@@ -17,14 +17,15 @@ export function WorkShowcase() {
           ))}
         </div>
       </section>
-      <section className="feature-asymmetric wrap">
-        {projects.map((project, i) => (
-          <Link key={project.slug} href={`/services/${project.service}`} className={`feature-card n${i + 1}`}>
-            <div className="feature-still" style={{ backgroundImage: cssUrl(project.image) }} />
-            <span>{project.type}</span>
-            <h3>{project.title}</h3>
-          </Link>
-        ))}
+      <section className="portfolio-categories wrap">
+        {workCategories.map((category) => {
+          const categoryProjects = projects.filter((project) => project.service === category.slug);
+          const cards = categoryProjects.length ? categoryProjects : category.projects.map((project, index) => ({ ...project, slug: `${category.slug}-${index}`, type: category.title, service: category.slug }));
+          return <section key={category.slug} id={category.slug} className="portfolio-category">
+            <div className="work-band-head"><span className="eyebrow">{category.code}</span><h2>{category.title}</h2><Link className="text-link" href={`/services/${category.slug}`}>Open service ↗</Link></div>
+            <div className="work-row">{cards.slice(0, 3).map((project) => <Link key={project.slug} href={`/services/${project.service}`}><div style={{ backgroundImage: cssUrl(project.image) }} /><h3>{project.title}</h3></Link>)}</div>
+          </section>;
+        })}
       </section>
     </>
   );

@@ -90,6 +90,7 @@ export function Hero() {
           </Magnetic>
           <Link className="text-link" href="/contact">Start a brief</Link>
         </div>
+        <Link className="hero-explore" href="#studio">Explore the studio <span>↓</span></Link>
       </div>
       <p className="hero-slate" aria-live="polite">
         <span>{slate.code}</span>

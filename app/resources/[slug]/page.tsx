@@ -11,7 +11,7 @@ const entries = [
   ["What a clear creative brief unlocks", "Strategy"],
   ["On building campaigns that travel across platforms", "Distribution"],
 ];
-const gallery = ["film-automotive.png", "film-music.png", "film-virtual.png", "service-brand.png", "service-documentary.png", "service-drone.png", "service-photography.png", "service-vfx.png"];
+const gallery = ["/client/frame-01.jpg", "/client/frame-02.jpg", "/client/frame-03.jpg", "/client/frame-04.jpg", "/client/frame-05.jpg", "/client/frame-06.jpg"];
 
 export function generateStaticParams() {
   return resourceTypes.map(({ slug }) => ({ slug }));
@@ -41,7 +41,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
         <PageHero eyebrow="Resources" title="Gallery" copy={resource.copy} image="/service-photography.png" imagePosition="72% 12%" />
         <section className="gallery-grid wrap">
           {gallery.map((image, i) => (
-            <div key={image} style={{ backgroundImage: cssUrl(`/${image}`) }}><span>Frame 0{i + 1}</span></div>
+            <div key={image} style={{ backgroundImage: cssUrl(image) }}><span>Frame 0{i + 1}</span></div>
           ))}
         </section>
         {back}

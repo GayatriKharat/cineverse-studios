@@ -3,7 +3,6 @@ type BrandMarkProps = {
   size?: number;
 };
 
-/** Official Narayani film-strip N from the brand guide. */
 export function BrandMark({ className, size = 48 }: BrandMarkProps) {
   return (
     <svg
@@ -15,9 +14,20 @@ export function BrandMark({ className, size = 48 }: BrandMarkProps) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <path fill="#6E3FC7" fillRule="evenodd" clipRule="evenodd" d="M4 6h13v76H4V6Zm71 0h13v76H75V6ZM18 12h12v64H18V12Zm42 0h12v64H60V12ZM6 14h7v6H6v-6Zm69 0h7v6h-7v-6ZM6 28h7v6H6v-6Zm69 0h7v6h-7v-6ZM6 42h7v6H6v-6Zm69 0h7v6h-7v-6ZM6 56h7v6H6v-6Zm69 0h7v6h-7v-6ZM6 70h7v6H6v-6Zm69 0h7v6h-7v-6Z" />
-      <path fill="#6E3FC7" d="M30 12h11v64H30V12Zm11 0c8 0 14 8 18 18 4 10 6 22 8 34h-11c-2-10-4-18-7-24-3-7-6-10-8-10v-18Z" />
-      <path fill="#6E3FC7" d="M41 44c4 8 8 16 12 24 4 8 8 14 12 18h-11c-3-4-6-10-9-17-3-7-5-14-7-20h3Z" />
+      <defs>
+        <linearGradient id="narayani-purple" x1="10" y1="8" x2="79" y2="80" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#843BFF" />
+          <stop offset="1" stopColor="#5420B8" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#narayani-purple)" d="M17 8h12c6 0 10 2 14 7l25 31V17c0-5 3-9 9-9h3c5 0 8 4 8 9v56c0 5-3 8-8 8H76c-6 0-10-2-14-7L36 45v28c0 5-3 8-8 8H17c-5 0-9-3-9-8V17c0-5 4-9 9-9Z" />
+      <g fill="#fff">
+        <rect x="15" y="17" width="12" height="10" rx="2" />
+        <rect x="15" y="31" width="12" height="10" rx="2" />
+        <rect x="15" y="45" width="12" height="10" rx="2" />
+        <rect x="15" y="59" width="12" height="10" rx="2" />
+      </g>
+      <circle cx="76" cy="18" r="6" fill="#FFC400" />
     </svg>
   );
 }

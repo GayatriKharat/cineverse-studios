@@ -1,43 +1,20 @@
 import Link from "next/link";
+import { BrandMark } from "@/components/brand-mark";
 import { FlipCard } from "@/components/flip-card";
 import { Hero } from "@/components/hero";
 import { CtaBand } from "@/components/page-hero";
 import { MediaReveal, Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { cssUrl } from "@/lib/asset";
 import { craftHref, craftsByService } from "@/lib/offerings";
-import { clients, navGuide, pillars, projects } from "@/lib/site-data";
+import { clients, projects, services, testimonials } from "@/lib/site-data";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <section className="quick-bar wrap" aria-label="Quick start">
-        <Link href="/services/pre-production">Need a plan? <b>Pre-production</b></Link>
-        <Link href="/services/production">Need it made? <b>Production</b></Link>
-        <Link href="/services/post-production">Need it finished? <b>Post-production</b></Link>
-        <Link href="/contact">Have a brief? <b>Talk to us</b></Link>
-      </section>
-      <section className="guide wrap" aria-label="What you will find">
-        {navGuide.map((item) => (
-          <FlipCard
-            key={item.href}
-            href={item.href}
-            className="guide-flip"
-            front={
-              <div className="guide-front">
-                <span>{item.label}</span>
-                <p>Explore →</p>
-              </div>
-            }
-            back={
-              <Link href={item.href} className="guide-back">
-                <span>{item.label}</span>
-                <p>{item.hint}</p>
-                <b>Open ↗</b>
-              </Link>
-            }
-          />
-        ))}
+      <section className="studio-reel wrap">
+        <Reveal><p className="eyebrow">01 / Our studio</p><h2>Where every frame <em>finds its floor.</em></h2></Reveal>
+        <MediaReveal><Link href="/about" className="home-reel" style={{ backgroundImage: cssUrl("/client/reel-still.jpg") }}><span>Enter the studio ↗</span></Link></MediaReveal>
       </section>
       <section className="intro wrap" aria-label="Studio introduction">
         <Reveal>
@@ -48,45 +25,30 @@ export default function Home() {
           <p>We plan, shoot and finish work for business, government, creators and entertainment. Hire one craft or the full chain. Film, ads, stills, podcasts, music and live all sit on the same floor.</p>
         </Reveal>
       </section>
-      <section className="stats-band" aria-label="Studio at a glance">
-        <div><b>12+</b><span>Production crafts</span></div>
-        <div><b>3</b><span>Core stages</span></div>
-        <div><b>India</b><span>Based, globally ready</span></div>
-        <div><b>1</b><span>Integrated house</span></div>
-      </section>
-      <section className="client-strip" aria-label="Who we work with">
-        <div>{[...clients, ...clients].map((client, i) => <span key={`${client}-${i}`}>{client}<i>—</i></span>)}</div>
-      </section>
       <section className="wrap service-pillars">
         <Reveal>
-          <p className="eyebrow">Main services</p>
-          <h2>Three stages. Pick a craft.</h2>
+          <p className="eyebrow">02 / The craft</p>
+          <h2>Six divisions. <em>One floor.</em></h2>
         </Reveal>
-        <Stagger className="pillar-cards">
-          {pillars.map((pillar) => {
-            const crafts = craftsByService[pillar.slug] ?? [];
+        <Stagger className="pillar-cards client-service-grid">
+          {services.map((service) => {
+            const crafts = craftsByService[service.slug] ?? [];
             return (
-              <StaggerItem key={pillar.slug}>
-                <article className="pillar-card">
-                  <Link href={`/services/${pillar.slug}`} className="pillar-card-hit">
-                    <div className="pillar-card-media" style={{ backgroundImage: cssUrl(pillar.image) }} />
-                    <span>{pillar.code}</span>
-                    <h3>{pillar.title}</h3>
-                    <p>{pillar.summary}</p>
-                  </Link>
-                  <ul>
-                    {crafts.map((craft) => (
-                      <li key={craft.slug}>
-                        <Link href={craftHref(pillar.slug, craft.slug)}>{craft.title}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link className="text-link" href={`/services/${pillar.slug}`}>Open {pillar.title} ↗</Link>
-                </article>
+              <StaggerItem key={service.slug}>
+                <FlipCard className="service-architecture-card" href={`/services/${service.slug}`}
+                  front={<div className="service-card-face" style={{ backgroundImage: cssUrl(service.image) }}><span>{service.code}</span><h3>{service.title}</h3><p>{service.strap}</p></div>}
+                  back={<div className="service-card-face service-card-back"><span>{service.code}</span><h3>{service.title}</h3><p>{service.summary}</p><div className="service-card-links">{crafts.slice(0, 2).map((craft) => <Link key={craft.slug} href={craftHref(service.slug, craft.slug)}>{craft.title}</Link>)}<Link className="text-link" href={`/services/${service.slug}`}>Open division ↗</Link></div></div>}
+                />
               </StaggerItem>
             );
           })}
         </Stagger>
+      </section>
+      <section className="client-strip" aria-label="Who we work with">
+        <div>{[...clients, ...clients].map((client, i) => <span className="client-logo-item" key={`${client}-${i}`}><BrandMark size={24} /><b>{client}</b><i>—</i></span>)}</div>
+      </section>
+      <section className="stats-band" aria-label="Studio at a glance">
+        <div><b>12+</b><span>Production crafts</span></div><div><b>6</b><span>Connected divisions</span></div><div><b>India</b><span>Based, globally ready</span></div><div><b>1</b><span>Integrated house</span></div>
       </section>
       <section className="feature-work">
         <div className="wrap feature-head">
@@ -107,6 +69,10 @@ export default function Home() {
             </Link>
           ))}
         </div>
+      </section>
+      <section className="home-voices wrap">
+        <Reveal><p className="eyebrow">06 / The people we make with</p><h2>What clients <em>say.</em></h2></Reveal>
+        <div className="testimonial-cards">{testimonials.map((item) => <article key={item.name}><span className="stars">★★★★★</span><blockquote>“{item.quote}”</blockquote><footer><b>{item.name}</b><small>{item.scope}</small></footer></article>)}</div>
       </section>
       <CtaBand title={<>Tell us the brief. We will name the <em>stage.</em></>} />
     </main>

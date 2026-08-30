@@ -6,7 +6,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 ::selection{background:var(--purple-soft);color:var(--ink)}
 .skip-link{position:absolute;left:16px;top:-48px;z-index:80;padding:10px 14px;background:var(--cta);color:var(--ink);font-weight:600}
 .skip-link:focus{top:16px}
-.wrap{padding-inline:clamp(20px,6vw,110px)}
+.wrap{width:min(100%,1440px);margin-inline:auto;padding-inline:clamp(20px,6vw,110px)}
 .eyebrow{margin:0 0 18px;display:flex;align-items:center;gap:12px;color:var(--purple);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
 .eyebrow:before{content:"";width:28px;height:1px;background:var(--purple)}
 h1,h2,h3,p{margin-top:0}
@@ -18,7 +18,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .lede,.body-copy p,.hero-lede{max-width:34rem;color:var(--smoke);font-weight:300;font-size:1.05rem;line-height:1.75}
 .brand-logo-link{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0;position:relative;z-index:1}
 .brand-logo{display:inline-flex;align-items:center;gap:12px;background:transparent}
-.brand-logo-image{display:block;width:min(30vw,354px);height:auto;max-height:74px;object-fit:contain}
+.brand-logo-image{display:none}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .brand-logo-mark{display:block;width:46px;height:46px;flex-shrink:0;filter:drop-shadow(0 0 10px #ffffff55)}
 .brand-logo.is-compact .brand-logo-mark{width:40px;height:40px}
@@ -91,6 +91,9 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .hero-line{display:block;overflow:hidden}
 .hero-line span{display:block}
 .hero-actions{display:flex;align-items:center;gap:28px;margin-top:32px}
+.hero-explore{display:inline-flex;align-items:center;gap:12px;margin-top:34px;color:#ffffffa8;font-size:10px;letter-spacing:.18em;text-transform:uppercase;transition:color .3s,transform .3s}
+.hero-explore span{color:var(--cta);font-size:16px;transition:transform .3s}
+.hero-explore:hover{color:#fff;transform:translateY(2px)}.hero-explore:hover span{transform:translateY(4px)}
 .hero .text-link{color:var(--cta)}
 .stage-rail{position:relative;z-index:4;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:28px;border:1px solid var(--line-dark);background:var(--line-dark)}
 .stage-rail button,.stage-rail a{display:grid;gap:6px;padding:18px 16px;border:0;background:#120e1ae8;color:var(--white);text-align:left;cursor:pointer;text-decoration:none}
@@ -340,6 +343,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .footer-links a:hover{color:var(--purple)}
 @keyframes marquee{to{transform:translateX(-50%)}}
 @media(max-width:980px){.index-cols,.contact-layout,.founder-row,.feature-asymmetric,.house-grid,.work-row,.frame-row,.guide,.pillar,.pillar.flip,.pillar-head,.pillar-cards,.stage-rail,.quick-bar,.tab-panel,.split-mini,.craft-grid,.detail-grid,.flip-grid.three,.flip-grid.two,.stats-band,.intro{grid-template-columns:1fr}.hero-floor{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);padding:92px 16px 34vh}.hero-cell-board,.hero-cell-set,.hero-cell-stills,.hero-cell-live,.hero-cell-grade,.hero-cell-air{grid-column:auto;grid-row:auto}.pillar.flip .pillar-media{order:0}.index-row{grid-template-columns:42px 1fr}.index-row p,.index-row b{display:none}.gallery-grid{grid-template-columns:1fr 1fr}.editorial-list article{grid-template-columns:1fr}.site-footer{flex-direction:column}.cursor{display:none}.feature-card,.feature-card.n2,.feature-card.n4{min-height:320px}.hero-copy{padding-bottom:8vh}.hero-now{display:none}.guide-card,.quick-bar a{border-right:0;border-bottom:1px solid var(--line)}}
+@media(max-width:600px){.brand-logo-image{width:min(42vw,176px);max-height:56px}.hero-actions{gap:20px;margin-top:26px}.hero-explore{margin-top:28px}.hero-lede{font-size:1rem;line-height:1.7}}
 @media(max-width:1100px){.nav nav{gap:16px;font-size:10px;letter-spacing:.1em}}
 @media(max-width:860px){.nav nav{display:none}.menu{display:block}}
 .dailies{padding-block:clamp(72px,10vw,140px)}

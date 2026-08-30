@@ -77,10 +77,8 @@ export const house = [
 export const resourceTypes = [
   { slug: "blog", title: "Blog", copy: "Notes from inside the frame — process, people and the work." },
   { slug: "articles", title: "Articles", copy: "Evergreen thinking on branding, production and culture." },
-  { slug: "news", title: "News", copy: "Studio announcements, releases and collaborations." },
   { slug: "faqs", title: "FAQs", copy: "Straightforward answers before the first conversation." },
   { slug: "gallery", title: "Gallery", copy: "Selected stills from set, stage and the grade." },
-  { slug: "testimonials", title: "Testimonials", copy: "Words from partners who have made the work with us." },
 ] as const;
 
 export const workCategories = services.map((service) => ({
@@ -95,10 +93,10 @@ export const workCategories = services.map((service) => ({
 }));
 
 export const projects = [
-  { slug: "northbound", type: "Production", service: "production", title: "Northbound", blurb: "A night-drive film for a performance marque.", image: "/film-automotive.png" },
-  { slug: "afterglow", type: "Advertising", service: "advertising", title: "Afterglow", blurb: "Stage, film and social captured as one night.", image: "/film-music.png" },
-  { slug: "signal", type: "Digital", service: "digital-social", title: "Signal", blurb: "A motion language across launch films and paid social.", image: "/service-motion.png" },
-  { slug: "volume", type: "Production", service: "production", title: "Volume", blurb: "An LED-volume world for a launch that could not wait on weather.", image: "/film-virtual.png" },
+  { slug: "automotive-launch", type: "Advertising", service: "advertising", title: "Velocity, given a new language.", blurb: "Automotive launch film and commercial storytelling.", image: "/client/frame-01.jpg" },
+  { slug: "luxury-beauty", type: "Production", service: "production", title: "Light that moves.", blurb: "A beauty film shaped around light, texture and performance.", image: "/client/frame-02.jpg" },
+  { slug: "music-performance", type: "Production", service: "production", title: "Sound, in focus.", blurb: "Music performance captured with image and rhythm in sync.", image: "/client/frame-03.jpg" },
+  { slug: "virtual-mountain", type: "Post-production", service: "post-production", title: "Beyond the studio wall.", blurb: "Virtual worldbuilding and finishing for a complete screen experience.", image: "/client/frame-04.jpg" },
 ] as const;
 
 export const testimonials = [
