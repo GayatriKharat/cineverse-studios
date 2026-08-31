@@ -123,9 +123,9 @@ h3{color:var(--color-white);font-weight:500}
 .home-voices .testimonial-cards article{background:#0d0d10;border-color:#ffffff14;color:#fff}
 .home-voices .testimonial-cards small{color:var(--color-gray)}
 .testimonial-marquee{display:grid;gap:18px;margin-top:40px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.testimonial-track{display:flex;gap:18px;width:max-content;animation:clientMarquee 62s linear infinite}
+.testimonial-track{display:flex;gap:18px;width:max-content;animation:clientMarquee 62s linear infinite;animation-play-state:running;will-change:transform}
 .testimonial-track:nth-child(2){animation-direction:reverse;animation-duration:74s}
-.testimonial-track article{display:flex;flex-direction:column;gap:14px;width:380px;min-height:230px;flex:none;padding:26px 28px;border:1px solid #ffffff14;background:#0d0d10;color:#fff}
+.testimonial-track article{display:flex;flex-direction:column;gap:14px;width:min(30vw,476px);min-height:268px;flex:none;padding:28px 34px;border:1px solid #ffffff14;border-radius:14px;background:#0d0d10;color:#fff}
 .testimonial-track blockquote{margin:0;color:#ffffffb8;font:italic 1rem/1.5 var(--font-serif),Georgia,serif;flex:1}
 .testimonial-track footer{display:grid;gap:4px}.testimonial-track footer b{font-size:13px}.testimonial-track footer small{color:var(--color-gray)}
 .home-contact{display:grid;grid-template-columns:1.1fr .9fr;gap:8vw;padding-block:clamp(90px,12vw,150px);background:#0d0d10;color:#fff}
