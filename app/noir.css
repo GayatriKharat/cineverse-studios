@@ -280,8 +280,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .voice-list p{margin:0 0 16px;font-family:var(--font-serif),Georgia,serif;font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.15;font-style:italic}
 .voice-list footer{color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 .page-hero{position:relative;min-height:78svh;display:grid;align-items:end;padding-bottom:70px;overflow:hidden;background:var(--obsidian);color:var(--white)}
-.motion-ready .page-hero[data-rv]{opacity:0;transform:translateY(24px)}
-.page-hero[data-rv].reveal-in{opacity:1;transform:none}
+.page-hero[data-rv].reveal-in{animation:sectionIn .9s var(--ease) both}
 .page-hero.has-media{min-height:min(58svh, 640px)}
 .page-hero.is-compact{min-height:42svh;padding-bottom:28px}
 .page-hero.is-compact .page-hero-copy{padding-top:120px}
