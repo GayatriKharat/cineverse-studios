@@ -9,6 +9,7 @@ import { Navigation } from "@/components/navigation";
 import { PageTransition } from "@/components/page-transition";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { Spotlight } from "@/components/spotlight";
 
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="grain" aria-hidden="true" />
         <Spotlight />
         <SmoothScroll />
+        <ScrollReveal />
         <Cursor />
         <PageTransition />
         <Navigation />

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type Stat = { value?: number; text?: string; suffix?: string; label: string };
+type Stat = { value?: number; text?: string; suffix?: string; label: string; decimals?: number };
 
 export function AnimatedStats({ stats }: { stats: Stat[] }) {
   const root = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ export function AnimatedStats({ stats }: { stats: Stat[] }) {
 
   return <div ref={root} className="stats-band" aria-label="Studio at a glance">
     {stats.map((stat) => <div key={stat.label}>
-      <b>{stat.text ?? (Number.isInteger(stat.value) ? Math.round((stat.value ?? 0) * progress).toLocaleString("en-IN") : ((stat.value ?? 0) * progress).toFixed(1))}{stat.suffix ?? ""}</b>
+      <b>{stat.text ?? (stat.decimals ? ((stat.value ?? 0) * progress).toFixed(stat.decimals) : Math.round((stat.value ?? 0) * progress).toLocaleString("en-IN"))}{stat.suffix ?? ""}</b>
       <span>{stat.label}</span>
     </div>)}
   </div>;

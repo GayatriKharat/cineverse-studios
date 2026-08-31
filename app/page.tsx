@@ -37,8 +37,8 @@ export default function Home() {
           })}
         </Stagger>
       </section>
-      <section className="client-strip" aria-label="Who we work with">
-        <div>{[...clients, ...clients].map((client, i) => <span className="client-logo-item" key={`${client}-${i}`}><BrandMark size={24} /><b>{client}</b><i>—</i></span>)}</div>
+      <section className="client-marquees" aria-label="Who we work with">
+        {[clients, [...clients].reverse()].map((row, rowIndex) => <div className={`client-strip${rowIndex ? " is-reverse" : ""}`} key={rowIndex}><div>{[...row, ...row].map((client, i) => <span className="client-logo-item" key={`${client}-${i}`}><BrandMark size={24} /><b>{client}</b><i>—</i></span>)}</div></div>)}
       </section>
       <section className="home-voices wrap">
         <Reveal><p className="eyebrow">06 / The people we make with</p><h2>What clients <em>say.</em></h2></Reveal>
@@ -46,7 +46,7 @@ export default function Home() {
           {[testimonials, [...testimonials].reverse()].map((row, rowIndex) => <div className="testimonial-track" key={rowIndex}>{[...row, ...row].map((item, index) => <article key={`${rowIndex}-${item.name}-${index}`}><span className="stars">★★★★★</span><blockquote>“{item.quote}”</blockquote><footer><b>{item.name}</b><small>{item.scope}</small></footer></article>)}</div>)}
         </div>
       </section>
-      <AnimatedStats stats={[{ value: 12, suffix: "+", label: "Production crafts" }, { value: 6, label: "Connected divisions" }, { text: "India", label: "Based, globally ready" }, { value: 1, label: "Integrated house" }]} />
+      <AnimatedStats stats={[{ value: 52, suffix: "+", label: "Happy clients across the globe" }, { value: 4.2, suffix: "B+", label: "Views generated across platforms", decimals: 1 }, { value: 1200, suffix: "+", label: "Content pieces created for clients" }, { value: 6400, suffix: "+", label: "Content pieces distributed" }]} />
       <section className="intro wrap" aria-label="Studio introduction">
         <Reveal>
           <p className="eyebrow">05 / Narayani Studios LLP</p>

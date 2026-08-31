@@ -19,7 +19,7 @@ export function PageHero({
   compact?: boolean;
 }) {
   return (
-    <section className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}`}>
+    <section data-rv className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}`}>
       {image && (
         <div className="page-hero-media">
           <div style={{ backgroundImage: cssUrl(image), backgroundPosition: imagePosition }} />
