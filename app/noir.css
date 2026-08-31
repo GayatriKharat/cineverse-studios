@@ -393,3 +393,4 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .daily-caption p{margin:0;color:var(--smoke)}
 @media(max-width:980px){.daily-mosaic,.dailies-head{grid-template-columns:1fr;display:grid}.dailies-head{align-items:start}.daily-tile,.daily-tile.is-hero{min-height:240px}}
 @media(prefers-reduced-motion:reduce){.client-strip>div,.veil.on,.page-hero-media div{animation:none}.cursor{display:none}.flip-inner{transition:none}.flip-card:hover .flip-inner,.flip-card.is-flipped .flip-inner{transform:none}.flip-card:hover .flip-front,.flip-card.is-flipped .flip-front{pointer-events:auto;z-index:2}.flip-card:hover .flip-back,.flip-card.is-flipped .flip-back{pointer-events:none}.feature-card:hover{transform:none}.tab-visual{clip-path:none!important}}
+@media(prefers-reduced-motion:reduce){[data-rv]{opacity:1;transform:none}.media-reveal>a,.media-reveal>img{opacity:1;transform:none}}

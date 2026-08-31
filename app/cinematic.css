@@ -185,6 +185,7 @@ h3{color:var(--color-white);font-weight:500}
 .faq button,.tag-item button{color:#fff}
 .cursor{border:1px solid #ffffff55;mix-blend-mode:difference;transition:width .25s,height .25s,background .25s,border-color .25s}
 .cursor.is-hot{border-color:var(--color-primary);background:#6e3fc733;mix-blend-mode:normal}
+[data-rv]{opacity:0;transform:translateY(28px)}
 .reveal-in{animation:sectionIn .9s var(--ease) both;animation-delay:var(--reveal-delay,0s)}
 @keyframes sectionIn{from{opacity:.01;transform:translateY(28px)}to{opacity:1;transform:none}}
 .reveal-in.stagger-item{animation-delay:calc(var(--stagger-step, .09s) * var(--stagger-index, 0))}
