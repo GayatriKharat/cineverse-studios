@@ -8,9 +8,11 @@ export function ScrollReveal() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const reveal = (el: Element) => el.classList.add("reveal-in");
     if (reduce) {
+      document.body.classList.add("motion-ready");
       document.querySelectorAll("[data-rv]").forEach(reveal);
-      return;
+      return () => document.body.classList.remove("motion-ready");
     }
+    document.body.classList.add("motion-ready");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) { reveal(entry.target); io.unobserve(entry.target); }
@@ -20,7 +22,7 @@ export function ScrollReveal() {
     scan();
     const mo = new MutationObserver(scan);
     mo.observe(document.body, { childList: true, subtree: true });
-    return () => { io.disconnect(); mo.disconnect(); };
+    return () => { io.disconnect(); mo.disconnect(); document.body.classList.remove("motion-ready"); };
   }, []);
   return null;
 }
