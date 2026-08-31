@@ -15,7 +15,7 @@ export default function Services() {
         <Stagger className="pillar-cards client-service-grid">
           {services.map((service) => {
             const crafts = craftsByService[service.slug] ?? [];
-            return <StaggerItem key={service.slug}><FlipCard className="service-architecture-card"
+            return <StaggerItem key={service.slug}><FlipCard className="service-architecture-card" href={`/services/${service.slug}`}
               front={<div className="service-card-face" style={{ backgroundImage: cssUrl(service.image) }}><span>{service.code}</span><h3>{service.title}</h3><p>{service.strap}</p></div>}
               back={<div className="service-card-face service-card-back"><span>{service.code}</span><h3>{service.title}</h3><p>{service.summary}</p><div className="service-card-links">{crafts.slice(0, 3).map((craft) => <Link key={craft.slug} href={craftHref(service.slug, craft.slug)}>{craft.title}</Link>)}<Link className="text-link" href={`/services/${service.slug}`}>Open division ↗</Link></div></div>}
             /></StaggerItem>;

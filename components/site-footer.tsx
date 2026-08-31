@@ -15,7 +15,7 @@ export function SiteFooter() {
       </div>
       <div>
         <p>India · International</p>
-        <p>hello@narayanistudios.com</p>
+        <p><a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a></p>
         <p>{"©"} {new Date().getFullYear()} Narayani Studios LLP</p>
       </div>
     </footer>

@@ -17,7 +17,7 @@ export default function Contact() {
           <div className="contact-meta">
             <p><span>Partners</span><b>ShreeRaj Avhad · Kiran Dhangar</b></p>
             <p><span>Working from</span><b>India · International</b></p>
-            <p><span>Studio</span><b>hello@narayanistudios.com</b></p>
+            <p><span>Studio</span><b>business@narayanistudios.com</b></p>
           </div>
         </div>
         <Suspense fallback={<div className="contact-form" />}>
