@@ -76,10 +76,10 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .index-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px 80px;max-width:900px}
 .index-menu a{display:flex;align-items:baseline;gap:18px;padding:10px 0;border-bottom:1px solid var(--line-dark);font-family:var(--font-sans),Outfit,sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--white)}
 .index-menu a span{color:var(--cta);font-family:var(--font-sans),sans-serif;font-size:11px;letter-spacing:.16em}
-.hero{position:relative;min-height:100svh;overflow:hidden;display:grid;align-items:end;background:var(--obsidian) var(--hero-still) center/cover no-repeat;color:var(--white)}
+.hero{position:relative;min-height:clamp(560px,72svh,760px);overflow:hidden;display:grid;align-items:end;background:var(--obsidian) var(--hero-still) center/cover no-repeat;color:var(--white)}
 .hero-reel{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;filter:saturate(.88) contrast(1.04) brightness(.9)}
 .hero-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,#120e1acc 0%,#6e3fc726 38%,#120e1ae6 100%),linear-gradient(90deg,#120e1a99 0%,transparent 50%),radial-gradient(circle at 70% 20%,#6e3fc722,transparent 35%)}
-.hero-copy{position:relative;z-index:3;padding-bottom:28vh;max-width:1100px;pointer-events:none}
+.hero-copy{position:relative;z-index:3;padding-bottom:10vh;max-width:1100px;pointer-events:none}
 .hero-copy a,.hero-copy .hero-actions{pointer-events:auto}
 .hero .eyebrow{color:var(--cta)}
 .hero .eyebrow:before{background:var(--cta)}
@@ -280,7 +280,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .voice-list blockquote{margin:0;padding:32px 0;border-top:1px solid var(--line)}
 .voice-list p{margin:0 0 16px;font-family:var(--font-serif),Georgia,serif;font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.15;font-style:italic}
 .voice-list footer{color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-.page-hero{position:relative;min-height:78svh;display:grid;align-items:end;padding-bottom:70px;overflow:hidden;background:var(--obsidian);color:var(--white)}
+.page-hero{position:relative;min-height:60svh;display:grid;align-items:end;padding-bottom:56px;overflow:hidden;background:var(--obsidian);color:var(--white)}
 .page-hero[data-rv].reveal-in{animation:sectionIn .9s var(--ease) both}
 .page-hero.has-media{min-height:min(58svh, 640px)}
 .page-hero.is-compact{min-height:42svh;padding-bottom:28px}
