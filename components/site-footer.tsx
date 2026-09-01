@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 import { navPrimary } from "@/lib/site-data";
+import { SocialLinks } from "@/components/social-links";
 
 export function SiteFooter() {
   return (
@@ -16,6 +17,8 @@ export function SiteFooter() {
       <div>
         <p>India · International</p>
         <p><a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a></p>
+        <p><a href="tel:+917447474431">+91 74474 74431</a></p>
+        <SocialLinks />
         <p>{"©"} {new Date().getFullYear()} Narayani Studios LLP</p>
       </div>
     </footer>

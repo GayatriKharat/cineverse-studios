@@ -77,8 +77,10 @@ export const house = [
 export const resourceTypes = [
   { slug: "blog", title: "Blog", copy: "Notes from inside the frame — process, people and the work." },
   { slug: "articles", title: "Articles", copy: "Evergreen thinking on branding, production and culture." },
+  { slug: "news", title: "News", copy: "Studio announcements, launches and updates." },
   { slug: "faqs", title: "FAQs", copy: "Straightforward answers before the first conversation." },
   { slug: "gallery", title: "Gallery", copy: "Selected stills from set, stage and the grade." },
+  { slug: "testimonials", title: "Testimonials", copy: "What partners say after the work ships." },
 ] as const;
 
 export const workCategories = services.map((service) => ({

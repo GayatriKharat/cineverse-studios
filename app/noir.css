@@ -43,7 +43,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .nav{position:fixed;z-index:80;top:0;width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px clamp(20px,6vw,110px);background:#ffffffef;border-bottom:1px solid var(--line);backdrop-filter:blur(16px);transition:background .35s,border-color .35s,box-shadow .35s}
 .nav.on-hero:not(.scrolled){background:linear-gradient(#120e1acc,transparent);border-bottom:0;box-shadow:none;backdrop-filter:none}
 .nav.scrolled{background:#ffffffef;border-bottom:1px solid var(--line);backdrop-filter:blur(16px);box-shadow:0 10px 40px #6e3fc714}
-.nav nav{display:flex;align-items:center;gap:clamp(16px,2vw,32px);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+.nav nav{display:flex;align-items:center;gap:clamp(22px,2.4vw,36px);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
 .nav.on-hero:not(.scrolled) nav{color:#ffffffb8}
 .nav-item{position:relative;display:flex;align-items:center;min-height:44px}
 .nav-link{position:relative;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:12px 0;min-height:44px}
@@ -57,9 +57,9 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .nav-link.is-active:after,.nav-link:hover:after,.nav-item:hover .nav-link:after,.nav-item:focus-within .nav-link:after{transform:scaleX(1)}
 .nav-drop{position:absolute;top:100%;left:0;padding-top:8px;min-width:260px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease;transition-delay:.08s;z-index:2}
 .nav-item.has-drop:nth-last-child(-n+2) .nav-drop{left:auto;right:0}
-.nav-drop-inner{padding:10px 8px;background:#0d0d10;border:1px solid #6e3fc766;box-shadow:0 22px 56px #000000aa,0 0 36px #6e3fc755}
+.nav-drop-inner{padding:12px 10px;min-width:280px;background:#0d0d10;border:1px solid #6e3fc766;box-shadow:0 22px 56px #000000aa,0 0 36px #6e3fc755}
 .nav-item:hover .nav-drop,.nav-item:focus-within .nav-drop,.nav-item.is-open .nav-drop{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition-delay:0s}
-.nav-drop a{display:block;margin:4px 0;padding:12px 16px;border:1px solid #6e3fc744;border-radius:3px;background:#6e3fc714;color:#fff;font-size:12px;letter-spacing:.04em;text-transform:none;box-shadow:0 4px 16px #00000066,0 0 14px #6e3fc744;transition:background .25s,color .25s,border-color .25s,box-shadow .25s,transform .25s}
+.nav-drop a{display:block;margin:5px 0;padding:14px 18px;border:1px solid #6e3fc744;border-radius:3px;background:#6e3fc714;color:#fff;font-size:12px;letter-spacing:.04em;text-transform:none;box-shadow:0 4px 16px #00000066,0 0 14px #6e3fc744;transition:background .25s,color .25s,border-color .25s,box-shadow .25s,transform .25s}
 .nav-drop a:hover,.nav-drop a:focus{color:#fff;background:#6e3fc74d;border-color:#f5b400cc;box-shadow:0 8px 24px #6e3fc766,0 0 22px #f5b40088;transform:translateX(3px)}
 .index-sub{display:grid;gap:4px;padding:4px 0 16px 42px}
 .index-sub a{font-size:15px!important;letter-spacing:.04em;text-transform:none;border-bottom:0!important;padding:4px 0!important;color:#ffffff99!important}
@@ -244,6 +244,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .client-strip>div{display:flex;gap:40px;width:max-content;animation:marquee 32s linear infinite}
 .client-strip span{display:flex;align-items:center;gap:40px;color:var(--smoke);letter-spacing:.2em;text-transform:uppercase;font-size:11px;white-space:nowrap}
 .client-strip i{color:var(--purple);font-style:normal;opacity:.45}
+.resource-tabs{display:flex;flex-wrap:wrap;gap:10px;padding:28px 0;border-top:1px solid #ffffff14}.resource-tabs a{padding:10px 16px;border:1px solid #ffffff18;border-radius:999px;color:#ffffffb8;font-size:12px}.resource-tabs a:hover{border-color:var(--purple);color:#fff}
 .index-list{margin-top:48px;border-top:1px solid var(--line)}
 .index-row{display:grid;grid-template-columns:64px 1fr 1.2fr auto;gap:20px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);transition:padding .4s}
 .index-row:hover{padding-left:12px}

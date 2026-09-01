@@ -3,14 +3,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Magnetic } from "@/components/magnetic";
-import { asset } from "@/lib/asset";
-import { houseReelBeats } from "@/lib/house-reel";
 import { pillars } from "@/lib/site-data";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
-  const video = useRef<HTMLVideoElement>(null);
-  const [beat, setBeat] = useState(0);
   const [active, setActive] = useState(1);
 
   useEffect(() => {
@@ -29,50 +25,12 @@ export function Hero() {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    const el = video.current;
-    if (!el) return;
-    el.muted = true;
-    el.defaultMuted = true;
-    const play = () => {
-      el.play().catch(() => undefined);
-    };
-    play();
-    el.addEventListener("canplay", play);
-    el.addEventListener("loadeddata", play);
-    const onTime = () => {
-      const duration = el.duration || 1;
-      const n = houseReelBeats.length;
-      const index = Math.min(n - 1, Math.floor((el.currentTime / duration) * n));
-      setBeat(index);
-    };
-    el.addEventListener("timeupdate", onTime);
-    return () => {
-      el.removeEventListener("canplay", play);
-      el.removeEventListener("loadeddata", play);
-      el.removeEventListener("timeupdate", onTime);
-    };
-  }, []);
 
   const current = pillars[active];
-  const slate = houseReelBeats[beat];
 
   return (
     <section ref={root} className="hero" id="top">
-      <video
-        ref={video}
-        className="hero-reel"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster={asset("/service-documentary.png")}
-      >
-        <source src={asset("/house-reel.mp4?v=3")} type="video/mp4" />
-        <source src={asset("/reels/house-reel.mp4?v=3")} type="video/mp4" />
-        <source src={asset("/reels/set.mp4")} type="video/mp4" />
-      </video>
+      <div className="hero-reel" aria-hidden="true" />
       <div className="hero-shade" />
       <div className="hero-copy wrap">
         <p className="eyebrow hero-meta">We create. You remember.</p>
@@ -85,16 +43,14 @@ export function Hero() {
           Script, shoot, edit — then digital, branded campaigns, conferences, broadcast and live.
         </p>
         <div className="hero-actions">
-          <Magnetic>
-            <Link className="button" href="/services">See our services <span>↗</span></Link>
-          </Magnetic>
-          <Link className="text-link" href="/contact">Start a brief</Link>
+          <Magnetic><Link className="button" href="/services">Our services <span>↗</span></Link></Magnetic>
+          <Link className="text-link" href="/contact">Contact Us</Link>
         </div>
         <Link className="hero-explore" href="#studio">Explore the studio <span>↓</span></Link>
       </div>
       <p className="hero-slate" aria-live="polite">
-        <span>{slate.code}</span>
-        On the reel · {slate.label}
+        <span>01</span>
+        One house · every stage
       </p>
       <div className="stage-rail wrap">
         {pillars.map((pillar, i) => (

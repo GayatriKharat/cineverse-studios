@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FlipCard } from "@/components/flip-card";
 import { cssUrl } from "@/lib/asset";
 import { CtaBand, PageHero } from "@/components/page-hero";
+import { AnimatedStats } from "@/components/animated-stats";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 const founders = [
@@ -30,16 +31,6 @@ export default function About() {
         copy="Narayani Studios LLP is a production, branding and media house. We were founded on the belief that great stories deserve careful craft — from the first idea to the final frame."
         image="/cinematic-aurora-hero.png"
       />
-      <section className="intro wrap">
-        <Reveal>
-          <p className="eyebrow">Mandate</p>
-          <h2>Consultancy, craft <em>and commercial range.</em></h2>
-        </Reveal>
-        <Reveal delay={0.1} className="body-copy">
-          <p>The LLP is constituted to serve businesses, organisations, government bodies, creators and individuals in India and internationally. Branding and creative, social and digital, production, advertising, consultancy, talent, events, platforms, intellectual property, entertainment, distribution and ventures live in one house.</p>
-          <p>Engage a single stage — a script, an edit, a campaign — or a joined-up partnership from strategy through licensed release.</p>
-        </Reveal>
-      </section>
       <section className="about-values wrap">
         <Reveal><p className="eyebrow">02 / Vision & mission</p><h2>Consultancy, craft <em>and commercial range.</em></h2></Reveal>
         <div className="about-values-grid">
@@ -84,10 +75,7 @@ export default function About() {
         <Reveal><p className="eyebrow">04 / Our story</p><h2>A production house for brands, not a film studio <em>only.</em></h2></Reveal>
         <Reveal delay={0.08} className="about-story-copy"><p>We plan, shoot and finish work for business, government, creators and entertainment. Hire one craft or the full chain. Film, ads, stills, podcasts, music and live all sit on the same floor.</p><p>From India, we work with teams anywhere the work needs to travel—keeping the brief, the people and the final delivery in one conversation.</p></Reveal>
       </section>
-      <section className="about-gallery wrap">
-        <Reveal><p className="eyebrow">05 / Frames from the floor</p><h2>Work that holds the <em>picture.</em></h2></Reveal>
-        <div className="about-gallery-grid">{["/client/project-automotive.png", "/client/project-fashion.png", "/client/project-performance.png", "/client/project-post.png"].map((image) => <div key={image} style={{ backgroundImage: cssUrl(image) }} />)}</div>
-      </section>
+      <AnimatedStats stats={[{ value: 52, suffix: "+", label: "Happy clients across the globe" }, { value: 4.2, suffix: "B+", label: "Views generated across platforms", decimals: 1 }, { value: 1200, suffix: "+", label: "Content pieces created for clients" }, { value: 6400, suffix: "+", label: "Content pieces distributed" }]} />
       <CtaBand />
     </main>
   );
