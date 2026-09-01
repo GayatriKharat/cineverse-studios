@@ -1,13 +1,11 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Magnetic } from "@/components/magnetic";
-import { pillars } from "@/lib/site-data";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(1);
 
   useEffect(() => {
     const el = root.current;
@@ -25,8 +23,6 @@ export function Hero() {
     return () => ctx.revert();
   }, []);
 
-
-  const current = pillars[active];
 
   return (
     <section ref={root} className="hero" id="top">
@@ -46,27 +42,7 @@ export function Hero() {
           <Magnetic><Link className="button" href="/services">Our services <span>↗</span></Link></Magnetic>
           <Link className="text-link" href="/contact">Contact Us</Link>
         </div>
-        <Link className="hero-explore" href="#studio">Explore the studio <span>↓</span></Link>
       </div>
-      <p className="hero-slate" aria-live="polite">
-        <span>01</span>
-        One house · every stage
-      </p>
-      <div className="stage-rail wrap">
-        {pillars.map((pillar, i) => (
-          <Link
-            key={pillar.slug}
-            href={`/services/${pillar.slug}`}
-            className={i === active ? "is-on" : ""}
-            onMouseEnter={() => setActive(i)}
-          >
-            <span>{pillar.code}</span>
-            <strong>{pillar.title}</strong>
-            <small>{pillar.items.slice(0, 3).join(" · ")}</small>
-          </Link>
-        ))}
-      </div>
-      <p className="hero-now">Now showing · {current.title}</p>
     </section>
   );
 }
