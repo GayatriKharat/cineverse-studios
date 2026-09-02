@@ -10,7 +10,7 @@ export function WorkShowcase() {
         <h2>Open the work through a <em>service.</em></h2>
         <div className="work-cats">
           {services.map((service) => (
-            <Link key={service.slug} href={`/services/${service.slug}`} className="work-cat">
+            <Link key={service.slug} href={`#${service.slug}`} className="work-cat">
               <span>{service.code}</span>
               {service.title}
             </Link>

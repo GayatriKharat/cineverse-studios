@@ -8,7 +8,7 @@ export default function OurWork() {
         eyebrow="Portfolio"
         title={<>Selected <em>frames.</em></>}
         copy="A record of worlds made for brands, stages and screens — stills from the floor, not a stock gallery."
-        image="/service-photography.png"
+        image="/film-virtual.png"
       />
       <WorkShowcase />
       <CtaBand title={<>Have an idea worth <em>making?</em></>} />
