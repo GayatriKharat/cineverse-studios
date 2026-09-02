@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import "./noir.css";
 import "./cinematic.css";
-import { Cursor } from "@/components/cursor";
 import { IntroLoader } from "@/components/intro-loader";
 import { Navigation } from "@/components/navigation";
 import { PageTransition } from "@/components/page-transition";
@@ -48,7 +47,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Spotlight />
         <SmoothScroll />
         <ScrollReveal />
-        <Cursor />
         <PageTransition />
         <Navigation />
         <div id="main">{children}</div>
