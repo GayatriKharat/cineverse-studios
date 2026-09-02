@@ -40,7 +40,7 @@ export function Hero() {
         </p>
         <div className="hero-actions">
           <Magnetic><Link className="button" href="/services">Our services <span>↗</span></Link></Magnetic>
-          <Link className="text-link" href="/contact">Contact Us</Link>
+          <Link className="button-ghost" href="/contact">Contact Us</Link>
         </div>
       </div>
     </section>
