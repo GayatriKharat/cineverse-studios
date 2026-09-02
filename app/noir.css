@@ -295,8 +295,8 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .page-hero .lede,.page-hero p{color:#ffffffbf}
 .intro.is-tight{padding-block:28px 8px}
 .page-hero-media{position:absolute;inset:0}
-.page-hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08090be8 0%,#08090b66 42%,transparent 68%),linear-gradient(180deg,#08090b88 0%,transparent 38%,#08090be6 100%)}
-.page-hero-media div{height:100%;background-size:cover;background-position:center 18%;background-repeat:no-repeat;filter:saturate(.82) brightness(.7)}
+.page-hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08090bcc 0%,#08090b42 38%,transparent 72%),linear-gradient(180deg,#08090b66 0%,transparent 38%,#08090bcc 100%)}
+.page-hero-media div{height:100%;background-size:cover;background-position:center 18%;background-repeat:no-repeat;filter:saturate(.94) brightness(.9)}
 .page-hero-copy{position:relative;z-index:1;max-width:980px;padding-top:160px}
 .cta-band{position:relative;padding-block:clamp(90px,12vw,150px);background:var(--surface-alt);color:var(--ink);overflow:hidden;border-top:1px solid var(--line)}
 .cta-band .wrap{position:relative;z-index:1}
