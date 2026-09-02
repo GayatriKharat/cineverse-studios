@@ -20,8 +20,9 @@ export default function Home() {
       </section>
       <section className="wrap service-pillars">
         <Reveal>
-          <p className="eyebrow">02 / The craft</p>
-          <h2>Six divisions. <em>One floor.</em></h2>
+          <p className="eyebrow">Main services</p>
+          <h2>Our <em>services.</em></h2>
+          <p className="section-lede">Available individually or combined into a full production.</p>
         </Reveal>
         <Stagger className="pillar-cards client-service-grid">
           {services.map((service) => {

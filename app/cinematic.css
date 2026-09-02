@@ -205,6 +205,7 @@ h3{color:var(--color-white);font-weight:500}
 .portfolio-category .work-row a:hover div{transform:scale(1.03);filter:saturate(1.15)}
 .client-service-grid{grid-template-columns:repeat(2,1fr)}
 .service-architecture-card{min-height:340px}
+.service-pillars .service-architecture-card{border-radius:14px}
 .service-card-face{height:100%;min-height:340px;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;background-color:#0d0d10;background-position:center;background-size:cover;position:relative;overflow:hidden}
 .service-card-face:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,#08090bdd 100%)}
 .service-card-face>*{position:relative;z-index:1}
