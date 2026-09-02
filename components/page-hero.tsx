@@ -10,6 +10,7 @@ export function PageHero({
   image,
   imagePosition = "center 18%",
   compact = false,
+  actions,
 }: {
   eyebrow: string;
   title: React.ReactNode;
@@ -17,6 +18,7 @@ export function PageHero({
   image?: string;
   imagePosition?: string;
   compact?: boolean;
+  actions?: React.ReactNode;
 }) {
   return (
     <section data-rv className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}`}>
@@ -29,6 +31,7 @@ export function PageHero({
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         {copy && <p className="lede">{copy}</p>}
+        {actions}
       </div>
     </section>
   );

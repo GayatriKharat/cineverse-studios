@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { FlipCard } from "@/components/flip-card";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-import { cssUrl } from "@/lib/asset";
+import { asset, cssUrl } from "@/lib/asset";
 import { craftHref, craftsByService } from "@/lib/offerings";
 import { services } from "@/lib/site-data";
 
@@ -15,10 +14,29 @@ export default function Services() {
         <Stagger className="pillar-cards client-service-grid">
           {services.map((service) => {
             const crafts = craftsByService[service.slug] ?? [];
-            return <StaggerItem key={service.slug}><FlipCard className="service-architecture-card" href={`/services/${service.slug}`}
-              front={<div className="service-card-face" style={{ backgroundImage: cssUrl(service.image) }}><span>{service.code}</span><h3>{service.title}</h3><p>{service.strap}</p></div>}
-              back={<div className="service-card-face service-card-back"><span>{service.code}</span><h3>{service.title}</h3><p>{service.summary}</p><div className="service-card-links">{crafts.slice(0, 3).map((craft) => <Link key={craft.slug} href={craftHref(service.slug, craft.slug)}>{craft.title}</Link>)}<Link className="text-link" href={`/services/${service.slug}`}>Open division ↗</Link></div></div>}
-            /></StaggerItem>;
+            return <StaggerItem key={service.slug}>
+              <article className="service-directory-card">
+                <Link className="service-directory-media" href={`/services/${service.slug}`} aria-label={`Open ${service.title}`}>
+                  <img src={asset(service.image)} alt="" />
+                  <span>{service.code}</span>
+                </Link>
+                <div className="service-directory-copy">
+                  <h3>{service.title}</h3>
+                  <p>{service.strap}</p>
+                  <div className="service-directory-options">
+                    {service.items.map((item) => {
+                      const craft = crafts.find((candidate) => candidate.title === item);
+                      const href = craft ? craftHref(service.slug, craft.slug) : `/services/${service.slug}`;
+                      return <Link key={item} href={href}>{item}</Link>;
+                    })}
+                  </div>
+                  <div className="service-directory-footer">
+                    <Link href={`/services/${service.slug}`}>Open ↗</Link>
+                    <Link className="muted-link" href="/portfolio">See our work</Link>
+                  </div>
+                </div>
+              </article>
+            </StaggerItem>;
           })}
         </Stagger>
       </section>

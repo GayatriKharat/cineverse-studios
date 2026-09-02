@@ -124,31 +124,33 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
           </Stagger>
         </section>
       )}
-      <section className="wrap">
-        <Stagger className="flip-grid two">
-          {page.items.map((item, index) => (
-            <StaggerItem key={item.title}>
-              <FlipCard
-                className="dept-flip"
-                front={
-                  <div className="pillar-back">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <h3>{item.title}</h3>
-                    <p>Hover to flip</p>
-                  </div>
-                }
-                back={
-                  <div className="pillar-back">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <h3>{item.title}</h3>
-                    <p>{item.copy}</p>
-                  </div>
-                }
-              />
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </section>
+      {studio !== "portfolio" && (
+        <section className="wrap">
+          <Stagger className="flip-grid two">
+            {page.items.map((item, index) => (
+              <StaggerItem key={item.title}>
+                <FlipCard
+                  className="dept-flip"
+                  front={
+                    <div className="pillar-back">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <h3>{item.title}</h3>
+                      <p>Hover to flip</p>
+                    </div>
+                  }
+                  back={
+                    <div className="pillar-back">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.copy}</p>
+                    </div>
+                  }
+                />
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </section>
+      )}
       {studio === "portfolio" && <WorkShowcase />}
       {studio === "insights" && (
         <section className="note wrap">
