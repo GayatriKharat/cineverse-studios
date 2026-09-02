@@ -147,14 +147,14 @@ h3{color:var(--color-white);font-weight:500}
 .pillar-card p,.pillar-card ul{color:var(--color-gray)}
 .pillar-card ul a:hover{color:#fff}
 .pillar-card-media{filter:saturate(.7) contrast(1.08) brightness(.82)}
-.client-strip{background:transparent;border-block:1px solid #ffffff12}
+.client-strip{background:transparent;border-block:1px solid #ffffff12;padding-block:32px}
 .client-marquees{overflow:hidden}
 .client-marquees .client-strip{border-top:0}
 .client-marquees .client-strip.is-reverse>div{animation-direction:reverse;animation-duration:34s}
 .client-strip span{color:#ffffff66}
 .client-strip i{color:var(--color-primary);opacity:.7}
 .social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.social-links a{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid #ffffff18;border-radius:8px;color:#ffffffb8;font-size:12px;transition:border-color .3s,color .3s,background .3s}.social-links a:hover{border-color:var(--color-primary);color:#fff;background:#6e3fc714}.social-links span{color:var(--color-gold);font-weight:700}
-.client-logo-item{display:inline-flex!important;align-items:center;gap:12px}.client-logo-item svg{flex:none;filter:drop-shadow(0 0 8px #6e3fc755)}.client-logo-item b{font-weight:500;color:#ffffff88}.client-logo-item i{margin-left:4px}
+.client-logo-item{display:inline-flex!important;align-items:center;gap:16px}.client-logo-item svg{width:32px;height:32px;flex:none;filter:drop-shadow(0 0 8px #6e3fc755)}.client-logo-item b{font-size:13px;font-weight:500;color:#ffffff88}.client-logo-item i{margin-left:8px;font-size:14px}
 .feature-work{background:transparent;color:#fff}
 .feature-work .eyebrow{color:#c4b8d8}
 .feature-work h2,.feature-work h2 em{color:#fff}
