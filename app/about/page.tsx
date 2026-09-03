@@ -32,7 +32,9 @@ export default function About() {
         image="/cinematic-aurora-hero.png"
       />
       <section className="about-values wrap">
-        <Reveal><p className="eyebrow">02 / Vision & mission</p><h2>Consultancy, craft <em>and commercial range.</em></h2></Reveal>
+        <div className="about-values-copy">
+          <Reveal><p className="eyebrow">02 / Vision & mission</p><h2>Consultancy, craft <em>and commercial range.</em></h2></Reveal>
+        </div>
         <div className="about-values-grid">
           <article>
             <span>Vision</span><b className="value-index">01</b>

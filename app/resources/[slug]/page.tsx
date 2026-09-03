@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaqList } from "@/components/faq-list";
 import { CtaBand, PageHero } from "@/components/page-hero";
+import { TestimonialsDeck } from "@/components/testimonials-deck";
 import { cssUrl } from "@/lib/asset";
 import { resourceTypes, testimonials } from "@/lib/site-data";
 
@@ -52,16 +53,15 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
 
   if (slug === "testimonials") {
     return (
-      <main>
-        <PageHero eyebrow="Resources" title="Testimonials" copy={resource.copy} />
-        <section className="testimonial-cards wrap">
-          {testimonials.map((item) => (
-            <article key={item.name}>
-              <span className="stars" aria-label="5 stars">★★★★★</span>
-              <blockquote>“{item.quote}”</blockquote>
-              <footer><b>{item.name}</b><small>{item.scope}</small></footer>
-            </article>
-          ))}
+      <main className="testimonials-page">
+        <PageHero eyebrow="Resources / Voices" title={<>What partners <em>remember.</em></>} copy={resource.copy} />
+        <section className="testimonials-stage wrap">
+          <div className="testimonials-intro">
+            <p className="eyebrow">The signal is clear</p>
+            <h2>Work that leaves a <em>trace.</em></h2>
+            <p>Three perspectives from the people who trusted the house with the idea, the process and the final frame.</p>
+          </div>
+          <TestimonialsDeck items={testimonials} />
         </section>
         {back}
         <CtaBand />
