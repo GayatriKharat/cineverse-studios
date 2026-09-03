@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${outfit.variable} ${cormorant.variable}`}>
       <body>
-        <style>{`:root{--hero-still:url("${publicBase}/service-documentary.png");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}`}</style>
+        <style>{`:root{--hero-still:url("${publicBase}/Home%20BG.png");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}`}</style>
         <a className="skip-link" href="#main">Skip to content</a>
         <IntroLoader />
         <ScrollProgress />
