@@ -44,16 +44,19 @@ export default function Home() {
         </div>
       </section>
       <AnimatedStats stats={[{ value: 52, suffix: "+", label: "Happy clients across the globe" }, { value: 4.2, suffix: "B+", label: "Views generated across platforms", decimals: 1 }, { value: 1200, suffix: "+", label: "Content pieces created for clients" }, { value: 6400, suffix: "+", label: "Content pieces distributed" }]} />
-      <section className="intro wrap" aria-label="Studio introduction">
-        <Reveal>
-          <p className="eyebrow">Narayani Studios LLP</p>
-          <h2>A production house for brands, not a film studio <em>only.</em></h2>
-        </Reveal>
-        <Reveal delay={0.08} className="body-copy">
-          <p>We plan, shoot and finish work for business, government, creators and entertainment. Hire one craft or the full chain. Film, ads, stills, podcasts, music and live all sit on the same floor.</p>
-        </Reveal>
+      <section className="who-we-are wrap" aria-label="Who we are">
+        <Reveal><p className="eyebrow">Who we are</p></Reveal>
+        <div className="who-we-are-grid">
+          <Reveal><h2>A production house for <em>all your needs.</em></h2></Reveal>
+          <Reveal delay={0.08} className="who-we-are-copy">
+            <p className="who-we-are-lede">Narayani Studios was founded on the belief that great stories deserve careful craft, from the first idea to the final frame.</p>
+            <div className="who-we-are-detail"><span /> <p>Narayani Studios delivers branding, marketing and end-to-end production across digital, film and advertising media.</p></div>
+            <div className="who-we-are-detail"><span /> <p>We work with businesses, creators and organisations across India and internationally.</p></div>
+            <a className="text-link" href="/about">More about the studio ↗</a>
+          </Reveal>
+        </div>
       </section>
-      <section className="home-contact wrap" aria-label="Start a project">
+      <section className="home-contact wrap" aria-label="Start a project" style={{ backgroundImage: cssUrl("/cinematic-aurora-hero.png") }}>
         <div><Reveal><p className="eyebrow">Get in touch</p><h2>Let&apos;s <em>talk.</em></h2><p className="section-lede">Tell us the brief—one service or the full chain. We will name the stage and come back with a plan.</p><p className="direct"><a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a></p></Reveal></div>
         <Suspense fallback={<div className="contact-form" />}><ContactForm /></Suspense>
       </section>

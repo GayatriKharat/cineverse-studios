@@ -34,8 +34,20 @@ export default function About() {
       <section className="about-values wrap">
         <Reveal><p className="eyebrow">02 / Vision & mission</p><h2>Consultancy, craft <em>and commercial range.</em></h2></Reveal>
         <div className="about-values-grid">
-          <article><span>Vision</span><h3>Make ideas move.</h3><p>Great stories deserve careful craft and a clear route from first thought to final frame.</p></article>
-          <article><span>Mission</span><h3>Build the right house for the brief.</h3><p>We connect strategy, creative, production, digital and live so the work stays coherent wherever it travels.</p></article>
+          <article>
+            <span>Vision</span><b className="value-index">01</b>
+            <h3>Make ideas <em>move.</em></h3>
+            <i className="value-rule" />
+            <p>Great stories deserve careful craft and a clear route from first thought to final frame.</p>
+            <small>IDEA → FRAME</small>
+          </article>
+          <article>
+            <span>Mission</span><b className="value-index">02</b>
+            <h3>Build the right <em>house for the brief.</em></h3>
+            <i className="value-rule" />
+            <p>We connect strategy, creative, production, digital and live so the work stays coherent wherever it travels.</p>
+            <small>STRATEGY → IMPACT</small>
+          </article>
         </div>
       </section>
       <section className="founders wrap">
@@ -69,7 +81,6 @@ export default function About() {
             </StaggerItem>
           ))}
         </Stagger>
-        <p className="muted"><Link className="text-link" href="/team">Studio departments ↗</Link> · <Link className="text-link" href="/services">Services ↗</Link> · <Link className="text-link" href="/contact">Contact ↗</Link></p>
       </section>
       <section className="about-story wrap">
         <Reveal><p className="eyebrow">04 / Our story</p><h2>A production house for brands, not a film studio <em>only.</em></h2></Reveal>

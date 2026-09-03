@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
 import { SocialLinks } from "@/components/social-links";
+import { cssUrl } from "@/lib/asset";
 
 export default function Contact() {
   return (
@@ -10,8 +11,10 @@ export default function Contact() {
         eyebrow="Contact"
         title={<>Let&apos;s make <em>what&apos;s next.</em></>}
         copy="Tell us the opportunity. We will bring the team, the plan and the craft."
+        image="/ChatGPT Image Sep 3, 2026, 10_58_54 AM.png"
+        imagePosition="center 42%"
       />
-      <section className="contact-layout wrap">
+      <section className="contact-layout wrap" style={{ backgroundImage: cssUrl("/ChatGPT Image Sep 3, 2026, 10_58_54 AM.png") }}>
         <div>
           <p className="eyebrow">Direct</p>
           <h2>A good brief is a great <em>beginning.</em></h2>

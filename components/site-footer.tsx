@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 import { navPrimary } from "@/lib/site-data";
 import { SocialLinks } from "@/components/social-links";

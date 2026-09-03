@@ -1,16 +1,16 @@
 :root {
-  --bg: #f7f5f0;
+  --bg: #ffffff;
   --white: #fff;
-  --ink: #111;
-  --muted: #6b6b6b;
-  --line: #e6e1d8;
-  --cream: #efebe3;
+  --ink: #000000;
+  --muted: #2d2d2f;
+  --line: #2d2d2f33;
+  --cream: #f5b400;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
   margin: 0;
-  background: #08090B;
+  background: #000000;
   color: #fff;
   font-family: var(--font-sans), Inter, Arial, sans-serif;
   overflow-x: hidden;
