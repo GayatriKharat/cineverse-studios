@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { BrandLogo } from "@/components/brand-logo";
 import { navPrimary } from "@/lib/site-data";
 import { SocialLinks } from "@/components/social-links";
 
@@ -7,7 +6,6 @@ export function SiteFooter() {
   return (
     <footer className="site-footer wrap">
       <div>
-        <BrandLogo href="/" variant="dark" showTagline />
         <p>Production · Branding · Media</p>
         <p className="footer-lede">An integrated house for branding, production, talent, platforms and entertainment — from India, for anywhere the work needs to travel.</p>
       </div>

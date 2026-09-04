@@ -31,7 +31,7 @@ export function AnimatedStats({ stats }: { stats: Stat[] }) {
   }, []);
 
   return <div ref={root} className="stats-band" aria-label="Studio at a glance">
-    {stats.map((stat) => <div key={stat.label}>
+    {stats.map((stat, index) => <div key={stat.label} style={{ "--stat-index": index } as React.CSSProperties}>
       <b>{stat.text ?? (stat.decimals ? ((stat.value ?? 0) * progress).toFixed(stat.decimals) : Math.round((stat.value ?? 0) * progress).toLocaleString("en-IN"))}{stat.suffix ?? ""}</b>
       <span>{stat.label}</span>
     </div>)}
