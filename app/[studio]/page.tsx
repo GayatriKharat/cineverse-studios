@@ -110,8 +110,8 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-shreeraj.png?v=6") }} /><p className="eyebrow">Founder</p><h3>ShreeRaj Avhad</h3><span>Creative direction · Production</span></>}
-                back={<div className="founder-back"><p className="eyebrow">Founder</p><h3>ShreeRaj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-shreeraj.png?v=6") }} /><p className="eyebrow">Co-founder</p><h3>ShreeRaj Avhad</h3><span>Creative direction · Production</span></>}
+                back={<div className="founder-back"><p className="eyebrow">Co-founder</p><h3>ShreeRaj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
             <StaggerItem>

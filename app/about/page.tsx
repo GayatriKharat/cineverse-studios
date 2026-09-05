@@ -8,7 +8,7 @@ import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 const founders = [
   {
     name: "ShreeRaj Avhad",
-    role: "Founder",
+    role: "Co-founder",
     image: "/founder-shreeraj.png?v=6",
     line: "Creative direction · Production",
     bio: "Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation so the work does not leak between rooms.",
