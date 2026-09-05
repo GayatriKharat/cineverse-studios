@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { services } from "@/lib/site-data";
 
 type FormValues = { name: string; email: string; phone: string; service: string; details: string };
+type SendPhase = "idle" | "sending" | "flying";
 
 export function ContactForm() {
   const search = useSearchParams();
@@ -14,9 +15,11 @@ export function ContactForm() {
     defaultValues: { service: matched },
   });
   const [state, setState] = useState("");
+  const [sendPhase, setSendPhase] = useState<SendPhase>("idle");
 
   const submit = async (values: FormValues) => {
     setState("");
+    setSendPhase("sending");
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -25,8 +28,11 @@ export function ContactForm() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error ?? "Unable to send your enquiry.");
+      setSendPhase("flying");
+      window.setTimeout(() => setSendPhase("idle"), 1250);
       setState("Thank you! Your enquiry has been sent. We'll be in touch soon.");
     } catch (error) {
+      setSendPhase("idle");
       setState(error instanceof Error ? error.message : "Unable to send your enquiry. Please try again.");
     }
   };
@@ -55,7 +61,10 @@ export function ContactForm() {
         <textarea {...register("details", { required: "Tell us a little about the project", minLength: 15 })} rows={5} />
         {errors.details && <small>{errors.details.message}</small>}
       </label>
-      <button className="button" disabled={isSubmitting} type="submit">{isSubmitting ? "Sending…" : "Send message"}</button>
+      <button className={`button send-button is-${sendPhase}`} disabled={isSubmitting || sendPhase !== "idle"} type="submit" aria-live="polite">
+        <span className="send-button-label">{sendPhase === "sending" ? "Sending…" : "Send message"}</span>
+        {sendPhase === "flying" && <span className="send-button-plane" aria-hidden="true">✈</span>}
+      </button>
       {state && <p className="form-state success" role="status">{state}</p>}
     </form>
   );

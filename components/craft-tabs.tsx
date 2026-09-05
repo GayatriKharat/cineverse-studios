@@ -58,16 +58,6 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
                     <p className="eyebrow">What we provide</p>
                     <h2>{craft.title}</h2>
                     <p className="lede">{craft.strap}</p>
-                    <div className="split-mini">
-                      <div>
-                        <h3>You leave with</h3>
-                        <ul>{craft.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
-                      </div>
-                      <div>
-                        <h3>How it runs</h3>
-                        <ol>{craft.steps.map((item) => <li key={item}>{item}</li>)}</ol>
-                      </div>
-                    </div>
                     {serviceSlug === "production" && (
                       <Link className="button" href={craftHref("production", craft.slug)}>Open full page <span>↗</span></Link>
                     )}
