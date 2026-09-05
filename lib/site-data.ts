@@ -83,6 +83,8 @@ export const resourceTypes = [
   { slug: "testimonials", title: "Testimonials", copy: "What partners say after the work ships." },
 ] as const;
 
+export const resourceNavTypes = resourceTypes.filter(({ slug }) => ["articles", "faqs", "testimonials"].includes(slug));
+
 export const workCategories = services.map((service) => ({
   slug: service.slug,
   title: `${service.title} work`,
@@ -136,7 +138,7 @@ export const navPrimary: NavItem[] = [
     href: "/resources",
     children: [
       { label: "All resources", href: "/resources" },
-      ...resourceTypes.map((resource) => ({ label: resource.title, href: `/resources/${resource.slug}` })),
+      ...resourceNavTypes.map((resource) => ({ label: resource.title, href: `/resources/${resource.slug}` })),
     ],
   },
   { label: "Contact", href: "/contact" },
@@ -146,7 +148,7 @@ export const navGuide = [
   { label: "About", href: "/about", hint: "Who we are, the founders and why the house exists" },
   { label: "Services", href: "/services", hint: "Pre-production, production, post — then digital, ads and live" },
   { label: "Portfolio", href: "/portfolio", hint: "Selected frames across every division" },
-  { label: "Resources", href: "/resources", hint: "Blog, articles, news, FAQs, gallery and testimonials" },
+  { label: "Resources", href: "/resources", hint: "Articles, FAQs and testimonials" },
   { label: "Contact", href: "/contact", hint: "Start a brief — one service or the full chain" },
 ] as const;
 

@@ -4,6 +4,7 @@ import { FaqList } from "@/components/faq-list";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { TestimonialsDeck } from "@/components/testimonials-deck";
 import { cssUrl } from "@/lib/asset";
+import { articles } from "@/lib/article-data";
 import { resourceTypes, testimonials } from "@/lib/site-data";
 
 const entries = [
@@ -30,6 +31,25 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
       <main>
         <PageHero eyebrow="Resources" title="FAQs" copy={resource.copy} />
         <section className="faq-section wrap"><FaqList /></section>
+        {back}
+        <CtaBand />
+      </main>
+    );
+  }
+
+  if (slug === "articles") {
+    return (
+      <main>
+        <PageHero eyebrow="Resources" title="Articles" copy={resource.copy} image="/service-motion.png" />
+        <section className="editorial-list wrap resource-index-list">
+          {articles.map((article) => (
+            <Link key={article.slug} href={`/resources/articles/${article.slug}`}>
+              <span>{article.tag}</span>
+              <div><h2>{article.title}</h2><small>{article.meta}</small><p>{article.dek}</p></div>
+              <b>↗</b>
+            </Link>
+          ))}
+        </section>
         {back}
         <CtaBand />
       </main>
