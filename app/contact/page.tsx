@@ -28,7 +28,6 @@ export default function Contact() {
           <h2>Contact us.</h2>
           <div className="contact-meta">
             <p><span>Email</span><a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a></p>
-            <p><span>Phone</span><a href="tel:+917447474431">+91 74474 74431</a></p>
             <div className="contact-meta-item"><span>Socials</span><SocialLinks /></div>
             <p><span>Where we work</span><b>India · International</b></p>
           </div>

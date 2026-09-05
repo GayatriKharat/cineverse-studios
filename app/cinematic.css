@@ -131,9 +131,12 @@ h3{color:var(--color-white);font-weight:500}
 .who-we-are-detail{display:flex;gap:14px}
 .who-we-are-detail>span{width:2px;flex:none;border-radius:2px;background:#2337c680}
 .who-we-are-copy .text-link{margin-top:4px;color:#2337c6;font-size:14.5px}
-.stats-band{background:#020207 url("/NumberSection-4.png") center/cover no-repeat;border:1px solid #1a1b3b;box-shadow:inset 0 0 42px #000000cc,0 22px 60px #00000099}
+.stats-band{position:relative;background:#020207;border:1px solid #1a1b3b;box-shadow:inset 0 0 42px #000000cc,0 22px 60px #00000099}
 .stats-band div{background:transparent}
 .stats-band b{color:#fff}
+.stats-band:before{content:"";position:absolute;inset:-18%;z-index:0;background:radial-gradient(circle at 18% 50%,#2337c655 0 5%,transparent 24%),radial-gradient(circle at 48% 18%,#536dff38 0 4%,transparent 26%),radial-gradient(circle at 82% 68%,#8b4dff42 0 5%,transparent 25%),linear-gradient(115deg,#020207,#0b1238 48%,#05051a);animation:statsAtmosphere 22s ease-in-out infinite alternate;transform-origin:center}
+.stats-band div{z-index:1}
+@keyframes statsAtmosphere{from{transform:scale(1) translate3d(-1%,0,0);filter:saturate(.85) brightness(.82)}to{transform:scale(1.12) translate3d(2%,-1%,0);filter:saturate(1.15) brightness(1.05)}}
 .service-pillars{background:transparent}
 .home-reel{display:grid;place-items:center;min-height:min(56vw,520px);margin-top:28px;border:1px solid #ffffff14;background-position:center;background-size:cover;position:relative;overflow:hidden}
 .studio-reel{padding-block:clamp(44px,5vw,64px)}
@@ -399,3 +402,30 @@ a,button{touch-action:manipulation}
 .site-footer .button:hover,.cta-band .button:hover{
   box-shadow:0 16px 48px #2337c688,0 0 40px #f5b40077;
 }
+
+.site-footer{display:block;padding:clamp(28px,5vw,56px) clamp(12px,3vw,32px) 20px;border:0;background:transparent;color:#fff}
+.site-footer-panel{position:relative;display:grid;grid-template-columns:1.25fr .8fr 1.05fr 1.1fr;gap:clamp(28px,4vw,58px);padding:clamp(34px,5vw,58px) clamp(24px,4vw,48px) 22px;border:1px solid #2337c688;border-radius:28px;background:linear-gradient(135deg,#080d2e 0%,#0d1745 55%,#070b25 100%);box-shadow:inset 0 0 80px #0000005c,0 18px 50px #00000099;overflow:hidden}
+.site-footer-panel:before{content:"";position:absolute;right:-100px;top:-140px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,#2337c655 0 12%,transparent 68%);pointer-events:none}
+.footer-brand-column,.footer-column{position:relative;z-index:1;min-width:0}
+.footer-kicker{margin:0 0 24px;color:#fff;font-size:clamp(1.25rem,2vw,1.8rem);font-weight:700;letter-spacing:.08em}
+.footer-lede{max-width:340px;margin:0;color:#d1e3e3;line-height:1.75;font-size:14px}
+.footer-cta{display:inline-flex;align-items:center;gap:24px;margin-top:30px;padding:14px 22px;border-radius:999px;background:linear-gradient(100deg,#2337c6,#536dff);color:#fff;font-size:14px;font-weight:600;letter-spacing:.02em;transition:transform .3s,box-shadow .3s}
+.footer-cta:hover,.footer-cta:focus-visible{color:#fff;transform:translateY(-2px);box-shadow:0 12px 28px #1ed49b55}
+.footer-cta span{font-size:22px;line-height:1}
+.footer-column h2{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid #b8e0df45;color:#fff;font-family:var(--font-sans),Outfit,sans-serif;font-size:clamp(1.05rem,1.8vw,1.45rem);font-weight:600;letter-spacing:0}
+.footer-nav{display:grid;gap:13px}
+.footer-nav a,.footer-contact-column a{color:#d9e8e8;font-size:13px;letter-spacing:0;text-transform:none;transition:color .25s,transform .25s}
+.footer-nav a:before{content:"✓";display:inline-block;margin-right:10px;color:#7d8dff;font-weight:700}
+.footer-nav a:hover,.footer-contact-column a:hover{color:#b7c1ff;transform:translateX(2px)}
+.footer-contact-column>p{margin:0 0 8px;color:#d9e8e8;font-size:13px;line-height:1.5}
+.footer-contact-label{color:#9daaff!important;text-decoration:underline;text-underline-offset:3px}
+.footer-contact-column h3{margin:26px 0 10px;color:#fff;font-family:var(--font-sans),Outfit,sans-serif;font-size:1.3rem;font-weight:600}
+.footer-contact-column .social-links{display:flex;gap:16px;margin:0}
+.footer-contact-column .social-links a{display:inline-flex;padding:0;border:0;color:#9daaff;font-size:0}
+.footer-contact-column .social-links a:hover{background:transparent;transform:none}
+.footer-contact-column .social-links span{font-size:20px;color:#9daaff}
+.footer-bottom{position:relative;z-index:1;grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;margin-top:18px;padding:22px 18px 0;border-top:1px solid #b8e0df45;color:#d1e3e3;font-size:12px}
+@media(max-width:980px){.site-footer-panel{grid-template-columns:1fr 1fr}.footer-brand-column{grid-column:1/-1}.footer-bottom{grid-column:1/-1}}
+@media(max-width:600px){.site-footer{padding-inline:12px}.site-footer-panel{grid-template-columns:1fr;gap:34px;padding:30px 22px 20px;border-radius:22px}.footer-brand-column,.footer-bottom{grid-column:auto}.footer-bottom{display:grid;gap:8px;margin-top:4px;padding-inline:0}.footer-lede{max-width:none}.footer-nav{gap:11px}}
+
+.nav-cta,.button,.button-ghost,.hero-actions .button,.hero-actions .button-ghost{border-radius:999px}
