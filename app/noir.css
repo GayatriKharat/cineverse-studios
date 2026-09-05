@@ -200,10 +200,12 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .craft-bar-hit:hover .craft-bar-copy strong{color:var(--purple)}
 .craft-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .65s cubic-bezier(.77,0,.18,1)}
 .craft-bar.is-on .craft-panel{grid-template-rows:1fr}
-.craft-panel-inner{overflow:hidden;min-height:0}
+.craft-panel-inner{position:relative;overflow:hidden;min-height:0}
+.craft-panel-close{position:absolute;z-index:2;top:18px;right:22px;width:36px;height:36px;border:0;background:transparent;color:var(--gold);font-size:28px;line-height:1;cursor:pointer;transition:transform .25s,color .25s}
+.craft-panel-close:hover,.craft-panel-close:focus-visible{color:var(--white);transform:rotate(90deg)}
 .tab-panel{display:grid;grid-template-columns:.9fr 1.1fr;min-height:380px;border-top:1px solid var(--line)}
 .tab-visual{min-height:380px;background:#111318 center/cover no-repeat}
-.tab-copy{padding:36px 32px 40px;display:grid;align-content:center;gap:12px}
+.tab-copy{padding:32px 56px 32px 32px;display:grid;align-content:center;gap:12px}
 .tab-copy p{margin:0;color:var(--smoke);line-height:1.65}
 .split-mini{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:12px 0}
 .split-mini h3{margin:0 0 8px;font-size:1.1rem}

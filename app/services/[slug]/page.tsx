@@ -47,17 +47,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         copy={service.strap}
         image={service.image}
       />
-      <section className="intro is-tight wrap">
-        <div>
-          <p className="eyebrow">The solution</p>
-          <h2>{service.summary}</h2>
-        </div>
-        <p className="lede">
-          {crafts
-            ? "Open a bar for each listed craft: who it is for, the problem, the solution, what you leave with, and how it runs."
-            : "Hire this division as a single brief, or fold it into pre, production and post."}
-        </p>
-      </section>
       {crafts ? (
         <section className="wrap">
           <CraftTabs crafts={crafts} serviceSlug={slug} />

@@ -5,7 +5,7 @@ import { cssUrl } from "@/lib/asset";
 import { craftHref, type Craft } from "@/lib/offerings";
 
 export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlug: string }) {
-  const [active, setActive] = useState(crafts[0]?.slug ?? "");
+  const [active, setActive] = useState<string | null>(crafts[0]?.slug ?? null);
 
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
@@ -23,8 +23,9 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
               className="craft-bar-hit"
               aria-expanded={on}
               onClick={() => {
-                setActive(craft.slug);
-                history.replaceState(null, "", `#${craft.slug}`);
+                const next = active === craft.slug ? null : craft.slug;
+                setActive(next);
+                history.replaceState(null, "", next ? `#${next}` : window.location.pathname + window.location.search);
               }}
             >
               <span className="craft-bar-index">{String(index + 1).padStart(2, "0")}</span>
@@ -37,6 +38,17 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
             </button>
             <div className="craft-panel">
               <div className="craft-panel-inner">
+                <button
+                  type="button"
+                  className="craft-panel-close"
+                  aria-label={`Close ${craft.title} details`}
+                  onClick={() => {
+                    setActive(null);
+                    history.replaceState(null, "", window.location.pathname + window.location.search);
+                  }}
+                >
+                  ×
+                </button>
                 <div className="tab-panel">
                   <div
                     className="tab-visual"
@@ -46,9 +58,6 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
                     <p className="eyebrow">What we provide</p>
                     <h2>{craft.title}</h2>
                     <p className="lede">{craft.strap}</p>
-                    <p><b>The problem.</b> {craft.problem}</p>
-                    <p><b>The solution.</b> {craft.solution}</p>
-                    <p className="who"><b>Who it is for.</b> {craft.forWho}</p>
                     <div className="split-mini">
                       <div>
                         <h3>You leave with</h3>
