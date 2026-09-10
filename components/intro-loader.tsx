@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { BrandLogo } from "@/components/brand-logo";
 
 export function IntroLoader() {
   const [done, setDone] = useState(false);
@@ -14,7 +13,6 @@ export function IntroLoader() {
 
   return (
     <div className={`intro-loader${done ? " is-done" : ""}`} aria-hidden={done}>
-      <BrandLogo href={null} variant="dark" showTagline />
       <b><i /></b>
     </div>
   );

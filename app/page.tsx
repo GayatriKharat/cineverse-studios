@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { BrandMark } from "@/components/brand-mark";
 import { AnimatedStats } from "@/components/animated-stats";
 import { ContactForm } from "@/components/contact-form";
 import { Hero } from "@/components/hero";
@@ -35,7 +34,7 @@ export default function Home() {
         </Stagger>
       </section>
       <section className="client-marquees" aria-label="Who we work with">
-        {[clients, [...clients].reverse()].map((row, rowIndex) => <div className={`client-strip${rowIndex ? " is-reverse" : ""}`} key={rowIndex}><div>{[...row, ...row].map((client, i) => <span className="client-logo-item" key={`${client}-${i}`}><BrandMark size={24} /><b>{client}</b><i>—</i></span>)}</div></div>)}
+        {[clients, [...clients].reverse()].map((row, rowIndex) => <div className={`client-strip${rowIndex ? " is-reverse" : ""}`} key={rowIndex}><div>{[...row, ...row].map((client, i) => <span className="client-logo-item" key={`${client}-${i}`}><b>{client}</b><i>—</i></span>)}</div></div>)}
       </section>
       <section className="home-voices wrap">
         <Reveal><p className="eyebrow">The people we make with</p><h2>What clients <em>say.</em></h2></Reveal>
