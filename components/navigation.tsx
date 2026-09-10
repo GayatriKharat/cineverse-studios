@@ -113,6 +113,7 @@ export function Navigation() {
             </div>
           ))}
         </nav>
+        <Link className="nav-cta" href="/contact">Let&apos;s Create <span aria-hidden="true">→</span></Link>
         <button className="menu" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
           {open ? "Close" : "Menu"}
         </button>

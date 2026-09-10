@@ -29,7 +29,7 @@ export default function About() {
         eyebrow="About us"
         title={<>Built to make <em>ideas move.</em></>}
         copy="Narayani Studios LLP is a production, branding and media house. We were founded on the belief that great stories deserve careful craft — from the first idea to the final frame."
-        image="/cinematic-aurora-hero.png"
+        image="/Updated Images/About us.png"
       />
       <section className="about-values wrap">
         <div className="about-values-copy">

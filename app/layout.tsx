@@ -23,7 +23,7 @@ const cormorant = Cormorant_Garamond({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#000000",
+  themeColor: "#FFFFFF",
 };
 
 export const metadata: Metadata = {

@@ -39,7 +39,7 @@ export function PageHero({
 
 export function CtaBand({
   eyebrow = "Begin",
-  title = <>Bring the next <em>chapter.</em></>,
+  title = <>Have a story worth <em>framing?</em></>,
 }: {
   eyebrow?: string;
   title?: React.ReactNode;

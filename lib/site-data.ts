@@ -5,7 +5,7 @@ export const pillars = [
     title: "Pre-production",
     strap: "Clarity before anyone calls action.",
     summary: "The work before the work: brand, strategy, scripts and a plan that protects the idea.",
-    image: "/service-brand.png",
+    image: "/Updated Images/Branding.png",
     items: ["Concept Development", "Creative Strategy", "Script / Content Development", "Campaign Planning", "Production Planning", "Brand Strategy"],
   },
   {
@@ -14,7 +14,7 @@ export const pillars = [
     title: "Production",
     strap: "Every format. One production floor.",
     summary: "On-ground craft across film, advertising, photography, podcasts, music and branded content — not film alone.",
-    image: "/film-automotive.png",
+    image: "/Updated Images/personal branding.png",
     items: ["Video Production", "Film Production", "Advertisement Production", "Branded Content", "Photography", "Podcast Production", "Music Production"],
   },
   {
@@ -23,7 +23,7 @@ export const pillars = [
     title: "Post-production",
     strap: "Locked picture. Ready for every screen.",
     summary: "Picture, sound and finishing until every version is ready for social, broadcast, cinema or OTT.",
-    image: "/service-vfx.png",
+    image: "/Updated Images/Full white coverage.png",
     items: ["Video Editing", "Audio Post", "Finishing", "Platform Adaptation", "Final Delivery"],
   },
 ] as const;
@@ -36,7 +36,7 @@ export const services = [
     title: "Digital & Social Media",
     strap: "The feed, the community and the growth plan.",
     summary: "Social management, content strategy, publishing, community and digital growth across platforms.",
-    image: "/service-motion.png",
+    image: "/Updated Images/portfolio.png",
     items: ["Social Media Management", "Content Strategy", "Digital Publishing", "Community Management", "Digital Marketing", "Digital Growth"],
   },
   {
@@ -45,7 +45,7 @@ export const services = [
     title: "Advertising & Brand Content",
     strap: "Campaigns that carry a brand, not just a logo.",
     summary: "Advertising, branded content and commercial media across digital, print, broadcast and live platforms.",
-    image: "/film-music.png",
+    image: "/Updated Images/Branding.png",
     items: ["Advertising Campaigns", "Branded Campaigns", "Commercial Media", "Promotional Campaigns", "Marketing Communications"],
   },
   {
@@ -54,7 +54,7 @@ export const services = [
     title: "Events & Experiences",
     strap: "Live rooms treated with the same care as the film.",
     summary: "Corporate events, launches, exhibitions, conferences, concerts and brand experiences, conceived and run as productions.",
-    image: "/service-drone.png",
+    image: "/Updated Images/event.png",
     items: ["Corporate Events", "Product Launches", "Exhibitions", "Conferences", "Live Shows", "Concerts", "Brand Experiences"],
   },
 ] as const;
@@ -91,8 +91,8 @@ export const workCategories = services.map((service) => ({
   code: service.code,
   projects: [
     { title: `${service.title} — Frame 01`, image: service.image },
-    { title: `${service.title} — Frame 02`, image: "/film-virtual.png" },
-    { title: `${service.title} — Frame 03`, image: "/service-photography.png" },
+    { title: `${service.title} — Frame 02`, image: "/Updated Images/portfolio.png" },
+    { title: `${service.title} — Frame 03`, image: "/Updated Images/Full white coverage.png" },
   ],
 }));
 
@@ -122,8 +122,7 @@ export type NavLink = { label: string; href: string };
 export type NavItem = NavLink & { children?: NavLink[] };
 
 export const navPrimary: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "Studio", href: "/" },
   {
     label: "Services",
     href: "/services",
@@ -132,15 +131,8 @@ export const navPrimary: NavItem[] = [
       ...services.map((service) => ({ label: service.title, href: `/services/${service.slug}` })),
     ],
   },
-  { label: "Portfolio", href: "/portfolio" },
-  {
-    label: "Resources",
-    href: "/resources",
-    children: [
-      { label: "All resources", href: "/resources" },
-      ...resourceNavTypes.map((resource) => ({ label: resource.title, href: `/resources/${resource.slug}` })),
-    ],
-  },
+  { label: "Work", href: "/portfolio" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 

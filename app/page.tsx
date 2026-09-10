@@ -12,14 +12,14 @@ export default function Home() {
     <main>
       <Hero />
       <section className="studio-reel wrap">
-        <Reveal><p className="eyebrow">Our studio</p><h2>Where every frame <em>finds its floor.</em></h2></Reveal>
-        <MediaReveal><Link href="/about" className="home-reel" style={{ backgroundImage: cssUrl("/client/reel-still.jpg") }}><span>Enter the studio ↗</span></Link></MediaReveal>
+        <Reveal><p className="eyebrow">01 / The studio</p><h2>We don&apos;t just capture moments. <em>We build worlds.</em></h2></Reveal>
+        <MediaReveal><Link href="/about" className="home-reel" style={{ backgroundImage: cssUrl("/Updated Images/portfolio.png") }}><span>Enter the studio ↗</span></Link></MediaReveal>
       </section>
       <section className="wrap service-pillars">
         <Reveal>
-          <p className="eyebrow">Main services</p>
-          <h2>Our <em>services.</em></h2>
-          <p className="section-lede">Available individually or combined into a full production.</p>
+          <p className="eyebrow">02 / Production journey</p>
+          <h2>From idea <em>to final frame.</em></h2>
+          <p className="section-lede">Direction, production, technology and visual craft brought together under one roof.</p>
         </Reveal>
         <Stagger className="pillar-cards client-service-grid">
           {services.map((service) => {
@@ -55,7 +55,7 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-      <section className="home-contact wrap" aria-label="Start a project" style={{ backgroundImage: cssUrl("/cinematic-aurora-hero.png") }}>
+      <section className="home-contact wrap" aria-label="Start a project" style={{ backgroundImage: cssUrl("/Updated Images/Full white coverage.png") }}>
         <div><Reveal><p className="eyebrow">Get in touch</p><h2>Let&apos;s <em>talk.</em></h2><p className="section-lede">Tell us the brief—one service or the full chain. We will name the stage and come back with a plan.</p><p className="direct"><a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a></p></Reveal></div>
         <Suspense fallback={<div className="contact-form" />}><ContactForm /></Suspense>
       </section>

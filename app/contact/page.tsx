@@ -11,10 +11,10 @@ export default function Contact() {
         eyebrow="Contact"
         title={<>Let&apos;s make <em>what&apos;s next.</em></>}
         copy="Tell us the opportunity. We will bring the team, the plan and the craft."
-        image="/ChatGPT Image Sep 3, 2026, 10_58_54 AM.png"
+        image="/Updated Images/Let's connect.png"
         imagePosition="center bottom"
       />
-      <section className="contact-layout wrap" style={{ backgroundImage: cssUrl("/ChatGPT Image Sep 3, 2026, 10_58_54 AM.png") }}>
+      <section className="contact-layout wrap" style={{ backgroundImage: cssUrl("/Updated Images/Let's connect.png") }}>
         <div className="contact-brief">
           <p className="eyebrow">Get in touch</p>
           <h2>Let&apos;s <em>talk.</em></h2>
