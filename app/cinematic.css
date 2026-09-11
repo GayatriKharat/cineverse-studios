@@ -1109,3 +1109,1034 @@ h1 em,h2 em{color:var(--color-primary)}
   left: 0 !important;
   padding-left: 20px !important;
 }
+
+/* =========================================================
+   STATS BAND — COMPACT FINAL
+   ========================================================= */
+
+.stats-band {
+  position: relative !important;
+  width: min(100% - 120px, 1320px) !important;
+  height: 190px !important;
+  min-height: 190px !important;
+  margin: 40px auto !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.stats-band > div {
+  min-width: 0 !important;
+  min-height: 190px !important;
+  height: 190px !important;
+  padding: 20px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  border-right: 1px solid var(--line) !important;
+  box-sizing: border-box !important;
+}
+
+.stats-band > div:last-child {
+  border-right: 0 !important;
+}
+
+.stats-band b {
+  display: block !important;
+  margin: 0 0 12px !important;
+  font-size: clamp(2.5rem, 4vw, 4rem) !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+}
+
+.stats-band span {
+  display: block !important;
+  width: 100% !important;
+  max-width: 180px !important;
+  margin: 0 !important;
+  font-size: 0.82rem !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+}
+
+@media (max-width: 900px) {
+  .stats-band {
+    width: calc(100% - 48px) !important;
+    height: 170px !important;
+    min-height: 170px !important;
+  }
+
+  .stats-band > div {
+    height: 170px !important;
+    min-height: 170px !important;
+    padding: 16px 10px !important;
+  }
+
+  .stats-band b {
+    font-size: 2.5rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .stats-band span {
+    font-size: 0.76rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-band {
+    width: calc(100% - 32px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .stats-band > div {
+    height: 130px !important;
+    min-height: 130px !important;
+    padding: 16px 8px !important;
+  }
+
+  .stats-band > div:nth-child(2) {
+    border-right: 0 !important;
+  }
+
+  .stats-band > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .stats-band b {
+    font-size: 2.1rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .stats-band span {
+    max-width: 145px !important;
+    font-size: 0.7rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+
+
+/* =========================================================
+   CINEVERSE — FLUID RESPONSIVE SYSTEM
+   FINAL OVERRIDE LAYER
+   Purpose:
+   - Prevent overlap across platforms and screen sizes
+   - Remove layout dependence on fixed component heights
+   - Let content determine its own height
+   - Keep sections tight with no accidental vertical gaps
+   - Preserve the existing visual design and component structure
+   ========================================================= */
+
+/* ---------- GLOBAL BOX MODEL ---------- */
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   FLUID CONTAINER
+   ========================================================= */
+
+.wrap {
+  width: min(calc(100% - clamp(32px, 8vw, 160px)), 1440px);
+  max-width: 1440px;
+  margin-inline: auto;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   SECTION SAFETY
+   ========================================================= */
+
+#main,
+main,
+#main > section,
+main > section {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.intro,
+.home-services,
+.feature-work,
+.house,
+.voices,
+.founders,
+.note,
+.guide,
+.quick-bar,
+.service-pillars,
+.cta-band,
+.resources-architecture,
+.resource-section,
+.about-story,
+.dailies,
+.who-we-are,
+.home-voices,
+.studio-reel {
+  min-width: 0;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   NAVBAR — FLUID
+   ========================================================= */
+
+.nav {
+  width: 100% !important;
+  max-width: 100vw !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+
+  display: grid !important;
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr) !important;
+
+  align-items: center !important;
+  gap: clamp(12px, 2vw, 28px) !important;
+
+  padding-left: max(16px, env(safe-area-inset-left), clamp(16px, 5vw, 86px)) !important;
+  padding-right: max(16px, env(safe-area-inset-right), clamp(16px, 5vw, 86px)) !important;
+}
+
+.nav > .brand-logo-link {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  justify-self: start !important;
+}
+
+.nav > .brand-logo-link img,
+.nav .brand-logo {
+  width: auto !important;
+  max-width: min(100%, 220px) !important;
+  height: auto !important;
+}
+
+.nav > nav {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(12px, 2vw, 30px) !important;
+  margin: 0 !important;
+}
+
+.nav > .nav-end {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  justify-self: end !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav > .nav-end .nav-cta {
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+  flex-shrink: 1 !important;
+}
+
+
+/* =========================================================
+   HERO — VIEWPORT SAFE
+   ========================================================= */
+
+.hero {
+  width: 100%;
+  max-width: 100%;
+  min-height: clamp(560px, 78svh, 820px);
+  min-height: clamp(560px, 78dvh, 820px);
+  overflow: hidden;
+}
+
+.hero-stage {
+  width: min(100%, 1440px);
+  max-width: 100%;
+  min-width: 0;
+  margin-inline: auto;
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(0, .95fr);
+
+  gap: clamp(24px, 5vw, 72px);
+
+  padding-inline: clamp(20px, 5vw, 72px);
+}
+
+.hero-copy {
+  min-width: 0;
+  width: 100%;
+  max-width: 700px;
+}
+
+.hero-title,
+.hero-copy h1 {
+  max-width: 100%;
+  font-size: clamp(3rem, 8vw, 8.5rem);
+  line-height: .92;
+}
+
+.hero-lede {
+  width: min(100%, 620px);
+  max-width: 100%;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-actions > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   SERVICE GRID — AUTO ADAPTING
+   ========================================================= */
+
+.service-pillars .client-service-grid {
+  width: 100%;
+  max-width: 100%;
+
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 280px), 1fr)
+    ) !important;
+
+  gap: clamp(16px, 2vw, 24px) !important;
+
+  align-items: stretch !important;
+  margin-top: clamp(28px, 4vw, 44px) !important;
+}
+
+
+/* =========================================================
+   SERVICE CARD SHELL
+   No fixed 420px height
+   ========================================================= */
+
+.service-pillars .client-service-grid > *,
+.service-pillars .service-architecture-card,
+.service-pillars .service-card-link,
+.service-pillars .service-card-face {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+.service-pillars .service-card-link {
+  position: relative !important;
+  display: block !important;
+  height: auto !important;
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   SERVICE CARD FACE
+   Natural document flow
+   ========================================================= */
+
+.service-pillars .service-card-face {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   SERVICE IMAGE
+   Fluid 16:9 ratio
+   ========================================================= */
+
+.service-pillars .service-card-image {
+  position: relative !important;
+  inset: auto !important;
+
+  display: block !important;
+
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  flex: 0 0 auto !important;
+  z-index: 1 !important;
+
+  transition: transform .5s cubic-bezier(.16,1,.3,1);
+}
+
+.service-pillars .service-card-link:hover .service-card-image {
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   SERVICE CONTENT
+   No top: 210px / 237px / 285px
+   ========================================================= */
+
+.service-pillars .service-card-face > span {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+
+  display: block !important;
+  width: 100% !important;
+
+  margin: 0 !important;
+  padding:
+    clamp(16px, 2vw, 22px)
+    clamp(18px, 2vw, 24px)
+    0 !important;
+
+  white-space: normal !important;
+
+  font-size: clamp(.62rem, .75vw, .72rem) !important;
+  line-height: 1.2 !important;
+  letter-spacing: .14em !important;
+
+  z-index: 3 !important;
+}
+
+.service-pillars .service-card-face > h3 {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+
+  display: block !important;
+  width: 100% !important;
+
+  margin:
+    clamp(7px, 1vw, 10px)
+    0
+    0 !important;
+
+  padding-inline:
+    clamp(18px, 2vw, 24px) !important;
+
+  font-size:
+    clamp(1.15rem, 1.8vw, 1.6rem) !important;
+
+  line-height: 1.15 !important;
+  overflow-wrap: break-word;
+
+  z-index: 3 !important;
+}
+
+.service-pillars .service-card-face > p {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+
+  display: block !important;
+  width: 100% !important;
+
+  margin:
+    clamp(8px, 1vw, 12px)
+    0
+    0 !important;
+
+  padding:
+    0
+    clamp(18px, 2vw, 24px)
+    clamp(20px, 2.2vw, 28px) !important;
+
+  font-size:
+    clamp(.76rem, .9vw, .9rem) !important;
+
+  line-height: 1.5 !important;
+  overflow-wrap: break-word;
+
+  z-index: 3 !important;
+}
+
+
+/* =========================================================
+   SERVICE ARROW
+   ========================================================= */
+
+.service-pillars .service-card-link::after {
+  right: clamp(12px, 1.4vw, 18px) !important;
+  bottom: clamp(12px, 1.4vw, 18px) !important;
+
+  width: clamp(30px, 3vw, 36px) !important;
+  height: clamp(30px, 3vw, 36px) !important;
+
+  z-index: 10 !important;
+}
+
+
+/* =========================================================
+   STATS — FLUID
+   ========================================================= */
+
+.stats-band {
+  width:
+    min(
+      calc(100% - clamp(32px, 8vw, 120px)),
+      1320px
+    ) !important;
+
+  max-width: 1320px !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+
+  margin-block: clamp(28px, 4vw, 48px) !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr)) !important;
+
+  align-items: stretch !important;
+}
+
+.stats-band > div {
+  min-width: 0 !important;
+  min-height: clamp(140px, 12vw, 190px) !important;
+  height: auto !important;
+
+  padding:
+    clamp(18px, 2.5vw, 28px)
+    clamp(12px, 2vw, 24px) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  text-align: center !important;
+}
+
+.stats-band b {
+  font-size: clamp(2rem, 4.5vw, 4rem) !important;
+  line-height: 1 !important;
+}
+
+.stats-band span {
+  width: 100% !important;
+  max-width: 180px !important;
+
+  font-size: clamp(.7rem, .9vw, .85rem) !important;
+  line-height: 1.35 !important;
+}
+
+
+/* =========================================================
+   QUICK BAR
+   ========================================================= */
+
+.quick-bar {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 180px), 1fr)
+    );
+
+  gap: 0;
+}
+
+.quick-bar a {
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   WHO WE ARE
+   ========================================================= */
+
+.who-we-are-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, .9fr)
+    minmax(0, 1.1fr);
+
+  gap: clamp(28px, 6vw, 80px);
+  min-width: 0;
+}
+
+.who-we-are-grid > * {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   WORK / RESOURCE GRIDS
+   ========================================================= */
+
+.work-cats,
+.resource-preview-grid,
+.resource-gallery-grid,
+.resource-gallery-preview {
+  min-width: 0;
+}
+
+.work-cats {
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 220px), 1fr)
+    );
+}
+
+.resource-preview-grid {
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 280px), 1fr)
+    );
+}
+
+.resource-gallery-grid,
+.resource-gallery-preview {
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 240px), 1fr)
+    );
+}
+
+.resource-preview,
+.resource-gallery-preview a {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   TESTIMONIAL CARDS
+   ========================================================= */
+
+.testimonial-track article {
+  width: clamp(280px, 30vw, 420px) !important;
+  max-width: calc(100vw - 40px);
+  min-width: 0;
+  min-height: 0 !important;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.home-contact,
+.contact-layout {
+  min-width: 0;
+}
+
+.home-contact > *,
+.contact-layout > * {
+  min-width: 0;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 100%;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.site-footer-panel {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+}
+
+.footer-brand-column,
+.footer-column,
+.footer-contact-column,
+.footer-bottom {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .nav > nav {
+    gap: 16px !important;
+  }
+
+  .nav > .nav-end .nav-cta {
+    padding-inline: 14px !important;
+    font-size: 10px !important;
+  }
+
+  .hero-stage {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .who-we-are-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer-panel {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-brand-column {
+    grid-column: 1 / -1;
+  }
+
+  .stats-band {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .stats-band > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stats-band > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .wrap {
+    width: calc(
+      100% -
+      max(
+        32px,
+        env(safe-area-inset-left) +
+        env(safe-area-inset-right)
+      )
+    );
+  }
+
+  .nav {
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto !important;
+
+    min-height: 72px !important;
+  }
+
+  .nav > nav {
+    display: none !important;
+  }
+
+  .nav > .nav-end {
+    grid-column: 2 !important;
+  }
+
+  .nav > .nav-end .nav-cta {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: clamp(560px, 86svh, 760px);
+    min-height: clamp(560px, 86dvh, 760px);
+  }
+
+  .hero-stage {
+    padding-inline: 20px;
+  }
+
+  .hero-title,
+  .hero-copy h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions > a,
+  .hero-actions > button {
+    flex: 1 1 180px;
+  }
+
+  .service-pillars .client-service-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stats-band {
+    width: calc(100% - 32px) !important;
+  }
+
+  .testimonial-track article {
+    width: min(82vw, 360px) !important;
+  }
+
+  .site-footer-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand-column,
+  .footer-bottom {
+    grid-column: auto;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .wrap {
+    width: calc(100% - 28px);
+  }
+
+  .hero-stage {
+    padding-inline: 14px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions > * {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .service-pillars .service-card-face > h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .service-pillars .service-card-face > p {
+    font-size: .78rem !important;
+  }
+
+  .stats-band {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .stats-band > div {
+    min-height: 125px !important;
+    padding-inline: 8px !important;
+  }
+
+  .stats-band b {
+    font-size: 2rem !important;
+  }
+
+  .stats-band span {
+    font-size: .68rem !important;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .wrap {
+    width: calc(100% - 22px);
+  }
+
+  .service-pillars .service-card-face > span {
+    font-size: .58rem !important;
+  }
+
+  .service-pillars .service-card-face > h3 {
+    font-size: 1.08rem !important;
+  }
+
+  .service-pillars .service-card-face > p {
+    font-size: .72rem !important;
+    line-height: 1.4 !important;
+  }
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-height: 560px) and (orientation: landscape) {
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-stage {
+    padding-top: 90px;
+    padding-bottom: 28px;
+  }
+}
+
+
+/* =========================================================
+   SAFE AREA — NOTCHED DEVICES
+   ========================================================= */
+
+@supports (padding: max(0px)) {
+
+  .nav {
+    padding-left:
+      max(
+        16px,
+        env(safe-area-inset-left)
+      ) !important;
+
+    padding-right:
+      max(
+        16px,
+        env(safe-area-inset-right)
+      ) !important;
+  }
+
+  .site-footer {
+    padding-bottom:
+      max(
+        20px,
+        env(safe-area-inset-bottom)
+      );
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
