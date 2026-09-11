@@ -2140,3 +2140,607 @@ main > section {
     transition-duration: .001ms !important;
   }
 }
+
+
+/* =========================================================
+   CINEVERSE — FINAL SERVICE CARD RESPONSIVE OVERRIDE
+   ---------------------------------------------------------
+   Explicit layout rules:
+   Desktop  : 3 columns × 2 rows
+   Tablet   : 2 columns × 3 rows
+   Mobile   : 1 column × 6 rows
+   No auto-fit / auto-fill
+   No title word-splitting
+   ========================================================= */
+
+.service-pillars .client-service-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2vw, 28px) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  align-items: stretch !important;
+}
+
+.service-pillars .client-service-grid > * {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: clamp(400px, 31vw, 460px) !important;
+  min-height: 400px !important;
+  max-height: 460px !important;
+}
+
+.service-pillars .service-card-link,
+.service-pillars .service-architecture-card {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  display: block !important;
+  overflow: hidden !important;
+}
+
+.service-pillars .service-card-face {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.service-pillars .service-card-image {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: 48% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex: 0 0 48% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transition:
+    transform .55s cubic-bezier(.16,1,.3,1),
+    filter .4s ease !important;
+}
+
+.service-pillars .service-card-link:hover .service-card-image {
+  transform: scale(1.045) !important;
+}
+
+.service-pillars .service-card-face > span {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 18px 24px 0 !important;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  letter-spacing: .18em !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+}
+
+.service-pillars .service-card-face > h3 {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 8px 0 0 !important;
+  padding: 0 24px !important;
+  font-size: clamp(24px, 2.2vw, 34px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.025em !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  z-index: 2 !important;
+}
+
+.service-pillars .service-card-face > p {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 14px 0 0 !important;
+  padding: 0 24px 24px !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  z-index: 2 !important;
+}
+
+@media (min-width: 1400px) {
+  .service-pillars .client-service-grid {
+    gap: 28px !important;
+  }
+
+  .service-pillars .client-service-grid > * {
+    height: 450px !important;
+    min-height: 450px !important;
+    max-height: 450px !important;
+  }
+}
+
+@media (max-width: 1099px) and (min-width: 701px) {
+  .service-pillars .client-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  .service-pillars .client-service-grid > * {
+    height: 420px !important;
+    min-height: 420px !important;
+    max-height: 420px !important;
+  }
+
+  .service-pillars .service-card-face > h3 {
+    font-size: clamp(23px, 3vw, 30px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .service-pillars .client-service-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .service-pillars .client-service-grid > * {
+    height: 390px !important;
+    min-height: 390px !important;
+    max-height: 390px !important;
+  }
+
+  .service-pillars .service-card-image {
+    height: 47% !important;
+    flex-basis: 47% !important;
+  }
+
+  .service-pillars .service-card-face > span {
+    padding: 16px 20px 0 !important;
+  }
+
+  .service-pillars .service-card-face > h3 {
+    margin-top: 7px !important;
+    padding-inline: 20px !important;
+    font-size: 28px !important;
+    line-height: 1.05 !important;
+  }
+
+  .service-pillars .service-card-face > p {
+    padding-inline: 20px !important;
+    padding-bottom: 20px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .service-pillars .client-service-grid {
+    gap: 14px !important;
+  }
+
+  .service-pillars .client-service-grid > * {
+    height: 365px !important;
+    min-height: 365px !important;
+    max-height: 365px !important;
+  }
+
+  .service-pillars .service-card-face > h3 {
+    font-size: 25px !important;
+  }
+
+  .service-pillars .service-card-face > p {
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+}
+
+/* =========================================================
+   CINEVERSE — TRUE FLUID / AUTO-FIT LAYOUT OVERRIDE
+   ---------------------------------------------------------
+   Goal: eliminate artificial empty space and make every
+   section/component use the available viewport intelligently.
+
+   IMPORTANT:
+   - Service grid keeps the approved 3 / 2 / 1 layout.
+   - Other content grids use fluid columns and fill the wrap.
+   - No fixed narrow testimonial area.
+   - Cards never create accidental horizontal whitespace.
+   ========================================================= */
+
+/* ---------- UNIVERSAL CONTAINER ---------- */
+.wrap,
+.voices,
+.founders,
+.note,
+.guide,
+.quick-bar,
+.service-pillars,
+.cta-band,
+.resources-architecture,
+.resource-section,
+.about-story,
+.dailies,
+.who-we-are,
+.home-voices,
+.studio-reel {
+  width: min(100% - clamp(28px, 5vw, 96px), 1440px) !important;
+  max-width: 1440px !important;
+  min-width: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* ---------- EVERY GRID SHOULD USE ITS AVAILABLE WIDTH ---------- */
+.client-service-grid,
+.testimonial-cards,
+.resource-testimonial-grid,
+.resource-preview-grid,
+.resource-gallery-grid,
+.resource-gallery-preview,
+.founder-grid,
+.detail-grid,
+.work-grid,
+.portfolio-grid,
+.craft-grid {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.client-service-grid > *,
+.testimonial-cards > *,
+.resource-testimonial-grid > *,
+.resource-preview-grid > *,
+.resource-gallery-grid > *,
+.resource-gallery-preview > *,
+.founder-grid > *,
+.detail-grid > *,
+.work-grid > *,
+.portfolio-grid > *,
+.craft-grid > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ---------- HOME TESTIMONIALS ---------- */
+.home-voices,
+.voices {
+  overflow: visible !important;
+}
+
+.home-voices .testimonial-cards,
+.testimonial-cards {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(16px, 2vw, 28px) !important;
+  align-items: stretch !important;
+  justify-items: stretch !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.home-voices .testimonial-cards > article,
+.testimonial-cards > article {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.home-voices .testimonial-cards article blockquote,
+.testimonial-cards article blockquote {
+  max-width: none !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+/* Make each testimonial internally compact rather than leaving
+   artificial vertical space between quote and author. */
+.home-voices .testimonial-cards article,
+.testimonial-cards article {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: clamp(10px, 1.2vw, 16px) !important;
+  padding: clamp(20px, 2vw, 28px) !important;
+}
+
+.home-voices .testimonial-cards article blockquote,
+.testimonial-cards article blockquote {
+  flex: 0 1 auto !important;
+  margin: 0 !important;
+}
+
+.home-voices .testimonial-cards article footer,
+.testimonial-cards article footer {
+  margin-top: auto !important;
+}
+
+/* ---------- OTHER CARD GRIDS: FLUID FILL ---------- */
+.resource-testimonial-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(16px, 2vw, 24px) !important;
+}
+
+.resource-preview-grid,
+.resource-gallery-grid,
+.resource-gallery-preview {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(14px, 1.8vw, 24px) !important;
+}
+
+/* ---------- TWO-COLUMN CONTENT SHOULD ACTUALLY FILL ---------- */
+.who-we-are-grid,
+.home-contact,
+.contact-layout,
+.resource-columns {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ---------- NO ACCIDENTAL MAX-WIDTH ON SECTION CONTENT ---------- */
+.home-voices .section-lede,
+.voices .section-lede,
+.home-voices h2,
+.voices h2 {
+  max-width: 100% !important;
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width: 1050px) {
+  .home-voices .testimonial-cards,
+  .testimonial-cards,
+  .resource-testimonial-grid,
+  .resource-preview-grid,
+  .resource-gallery-grid,
+  .resource-gallery-preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 700px) {
+  .wrap,
+  .voices,
+  .founders,
+  .note,
+  .guide,
+  .quick-bar,
+  .service-pillars,
+  .cta-band,
+  .resources-architecture,
+  .resource-section,
+  .about-story,
+  .dailies,
+  .who-we-are,
+  .home-voices,
+  .studio-reel {
+    width: calc(100% - 28px) !important;
+    max-width: none !important;
+  }
+
+  .home-voices .testimonial-cards,
+  .testimonial-cards,
+  .resource-testimonial-grid,
+  .resource-preview-grid,
+  .resource-gallery-grid,
+  .resource-gallery-preview {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .home-voices .testimonial-cards > article,
+  .testimonial-cards > article {
+    width: 100% !important;
+  }
+}
+
+/* ---------- VERY SMALL SCREENS ---------- */
+@media (max-width: 420px) {
+  .wrap,
+  .voices,
+  .founders,
+  .note,
+  .guide,
+  .quick-bar,
+  .service-pillars,
+  .cta-band,
+  .resources-architecture,
+  .resource-section,
+  .about-story,
+  .dailies,
+  .who-we-are,
+  .home-voices,
+  .studio-reel {
+    width: calc(100% - 20px) !important;
+  }
+
+  .home-voices .testimonial-cards,
+  .testimonial-cards {
+    gap: 12px !important;
+  }
+}
+
+
+/* =========================================================
+   CINEVERSE — SERVICE CARDS / BRAND BLUE FINISH
+   ---------------------------------------------------------
+   Uses the approved Narayani Studios blue:
+   #2337C6
+   Keeps the service imagery and responsive layout unchanged.
+   ========================================================= */
+
+.service-pillars .service-card-face {
+  background: #2337C6 !important;
+  color: #FFFFFF !important;
+  border-color: #2337C6 !important;
+}
+
+.service-pillars .service-card-face::before {
+  background: linear-gradient(
+    180deg,
+    transparent 20%,
+    rgba(0, 0, 0, .12) 100%
+  ) !important;
+}
+
+.service-pillars .service-card-face > span {
+  color: #F5B400 !important;
+}
+
+.service-pillars .service-card-face > h3 {
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+}
+
+.service-pillars .service-card-face > p {
+  color: rgba(255, 255, 255, .86) !important;
+}
+
+.service-pillars .service-card-link:hover .service-card-face {
+  background: #2337C6 !important;
+  box-shadow:
+    0 24px 55px rgba(35, 55, 198, .28),
+    0 0 0 1px rgba(35, 55, 198, .35) !important;
+}
+
+.service-pillars .service-card-link:hover .service-card-image {
+  filter: saturate(1.05) contrast(1.04) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-pillars .service-card-link:hover .service-card-image {
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   CINEVERSE — FINAL SERVICE CARD CREATIVE PATTERN
+   ---------------------------------------------------------
+   01 / 03 / 05  → WHITE + HALF DIAGONAL GOLD BAR
+   02 / 04 / 06  → BRAND BLUE #2337C6
+   Gold bar stays confined to the lower information panel
+   and runs in one consistent bottom-left → top-right
+   direction.
+   ========================================================= */
+
+/* Base: every service card keeps the approved image treatment. */
+.service-pillars .client-service-grid > * {
+  position: relative !important;
+}
+
+.service-pillars .service-card-face {
+  isolation: isolate !important;
+  overflow: hidden !important;
+}
+
+/* -------- WHITE CARDS: 01, 03, 05 -------- */
+
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 0, 0, .16) !important;
+}
+
+/* Gold diagonal bar — intentionally partial, not full-card. */
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  top: 44% !important;
+  right: -8% !important;
+  width: 72px !important;
+  height: 62% !important;
+  background: #F5B400 !important;
+  transform: rotate(34deg) !important;
+  transform-origin: center !important;
+  pointer-events: none !important;
+  opacity: .96 !important;
+}
+
+/* Keep the image above the card background but below the information layer. */
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-image {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Information sits above the gold bar. */
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > span,
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > h3,
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > p {
+  position: relative !important;
+  z-index: 3 !important;
+  color: #000000 !important;
+}
+
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > span {
+  color: #2337C6 !important;
+}
+
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > h3 {
+  color: #000000 !important;
+}
+
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > p {
+  color: rgba(0, 0, 0, .76) !important;
+}
+
+/* -------- BLUE CARDS: 02, 04, 06 -------- */
+
+.service-pillars .client-service-grid > :nth-child(even) .service-card-face {
+  background: #2337C6 !important;
+  color: #FFFFFF !important;
+  border-color: #2337C6 !important;
+}
+
+.service-pillars .client-service-grid > :nth-child(even) .service-card-face > span {
+  color: #F5B400 !important;
+}
+
+.service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3,
+.service-pillars .client-service-grid > :nth-child(even) .service-card-face > p {
+  color: #FFFFFF !important;
+}
+
+/* Remove any accidental gold stripe from blue cards. */
+.service-pillars .client-service-grid > :nth-child(even) .service-card-face::after {
+  content: none !important;
+}
+
+/* Make the gold stripe slightly more refined on narrower screens. */
+@media (max-width: 700px) {
+  .service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
+    width: 62px !important;
+    top: 46% !important;
+    right: -10% !important;
+    transform: rotate(34deg) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
+    width: 54px !important;
+    top: 48% !important;
+    right: -11% !important;
+  }
+}

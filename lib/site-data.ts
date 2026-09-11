@@ -5,7 +5,7 @@ export const pillars = [
     title: "Pre-production",
     strap: "Clarity before anyone calls action.",
     summary: "The work before the work: brand, strategy, scripts and a plan that protects the idea.",
-    image: "/Updated Images/6 services/Pre Prodcution.png",
+    image: "Updated Images/6 services/Pre production.png",
     items: [
       "Concept Development",
       "Creative Strategy",
@@ -21,7 +21,7 @@ export const pillars = [
     title: "Production",
     strap: "Every format. One production floor.",
     summary: "On-ground craft across film, advertising, photography, podcasts, music and branded content — not film alone.",
-    image: "/Updated Images/6 services/Production.png",
+    image: "Updated Images/6 services/Production.png",
     items: [
       "Video Production",
       "Film Production",
@@ -38,7 +38,7 @@ export const pillars = [
     title: "Post-production",
     strap: "Locked picture. Ready for every screen.",
     summary: "Picture, sound and finishing until every version is ready for social, broadcast, cinema or OTT.",
-    image: "/Updated Images/6 services/Post Production.png",
+    image: "Updated Images/6 services/Post Production.png",
     items: [
       "Video Editing",
       "Audio Post",
@@ -57,7 +57,7 @@ export const services = [
   title: "Digital & Social Media",
   strap: "The feed, the community and the growth plan.",
   summary: "Social management, content strategy, publishing, community and digital growth across platforms.",
-  image: "/Updated Images/6 services/Social Media .png",
+  image: "Updated Images/6 services/Social Media.png",
   items: [
     "Social Media Management",
     "Content Strategy",
@@ -73,7 +73,7 @@ export const services = [
   title: "Advertising & Brand Content",
   strap: "Campaigns that carry a brand, not just a logo.",
   summary: "Advertising, branded content and commercial media across digital, print, broadcast and live platforms.",
-  image: "/Updated Images/6 services/Advertising & Brand Content.png",
+  image: "Updated Images/6 services/Advertising.png",
   items: [
     "Advertising Campaigns",
     "Branded Campaigns",
@@ -88,7 +88,7 @@ export const services = [
   title: "Events & Experiences",
   strap: "Live rooms treated with the same care as the film.",
   summary: "Corporate events, launches, exhibitions, conferences, concerts and brand experiences, conceived and run as productions.",
-  image: "/Updated Images/6 services/Events (1).png",
+  image: "Updated Images/6 services/Evants.png",
   items: [
     "Corporate Events",
     "Product Launches",
