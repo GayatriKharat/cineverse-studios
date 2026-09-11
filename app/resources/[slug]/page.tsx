@@ -13,7 +13,7 @@ const entries = [
   ["What a clear creative brief unlocks", "Strategy"],
   ["On building campaigns that travel across platforms", "Distribution"],
 ];
-const gallery = ["/client/frame-01.jpg", "/client/frame-02.jpg", "/client/frame-03.jpg", "/client/frame-04.jpg", "/client/frame-05.jpg", "/client/frame-06.jpg"];
+const gallery = ["/Updated Images/portfolio.png", "/Updated Images/Branding.png", "/Updated Images/personal branding.png", "/Updated Images/Full white coverage.png", "/Updated Images/About us.png", "/Updated Images/Let's connect.png"];
 
 export function generateStaticParams() {
   return resourceTypes.map(({ slug }) => ({ slug }));

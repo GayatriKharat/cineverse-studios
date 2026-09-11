@@ -88,13 +88,17 @@ h3{color:var(--color-white);font-weight:500}
 .index-menu.open .index-block:nth-child(5){animation-delay:.2s}
 .index-menu.open .index-block:nth-child(6){animation-delay:.24s}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.hero{background-color:#000000}
-.hero-reel{animation:ken 22s ease-in-out infinite alternate;filter:saturate(.78) contrast(1.08) brightness(.72)}
+.hero{position:relative;min-height:clamp(560px,72svh,760px);overflow:hidden;display:grid;align-items:end;background:#000 var(--hero-still) center/cover no-repeat;color:#fff}
+.hero-reel{position:absolute;inset:0;z-index:0;display:block!important;width:100%;height:100%;background:var(--hero-still) center/cover no-repeat;animation:ken 22s ease-in-out infinite alternate;filter:saturate(.78) contrast(1.08) brightness(.72)}
 @keyframes ken{from{transform:scale(1.04)}to{transform:scale(1.12)}}
-.hero-shade{background:
+.hero-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:
   linear-gradient(180deg,#000000e6 0%,#00000055 28%,#2337c614 52%,#000000f0 100%),
   linear-gradient(90deg,#000000cc 0%,transparent 48%),
   radial-gradient(circle at 72% 18%,#2337c622,transparent 36%)}
+.hero-copy{position:relative;z-index:3;padding-bottom:10vh;max-width:1100px;pointer-events:none}
+.hero-copy a,.hero-copy .hero-actions{pointer-events:auto}
+.hero-line{display:block;overflow:hidden}
+.hero-line span{display:block}
 .hero .eyebrow{color:var(--color-gold)}
 .hero h1 em{color:var(--color-gold)}
 .hero .text-link{color:#fff;position:relative}
@@ -471,7 +475,7 @@ a,button{touch-action:manipulation}
 .send-button-plane{position:absolute;left:50%;top:50%;font-size:20px;line-height:1;transform:translate(-50%,-50%) rotate(-18deg);animation:sendPlaneFlight 1.05s cubic-bezier(.16,1,.3,1) both}
 @keyframes sendPlaneFlight{0%{opacity:0;transform:translate(-50%,-50%) scale(.5) rotate(-18deg)}18%{opacity:1}100%{opacity:0;transform:translate(155px,-72px) scale(1.15) rotate(-18deg)}}
 
-/* Clean premium theme */
+/* Clean premium theme
 :root{
   --color-gray:#00000099;
   --smoke:#00000099;
@@ -561,7 +565,7 @@ h1 em,h2 em{color:var(--brand-primary);font-family:var(--font-sans),sans-serif;f
 .progress{background:var(--brand-accent)}
 .intro-loader{background:var(--brand-black)}
 
-/* Keep light-theme sections readable after legacy cinematic rules. */
+* Keep light-theme sections readable after legacy cinematic rules.
 .feature-work,.cta-band,.house,.voices,.founders,.note,.resources-architecture,.resource-section,.about-story,.dailies{color:var(--brand-black)}
 .feature-work h2,.feature-work h2 em,.cta-band h2,.cta-band h2 em,.house h2,.voices h2,.founders h2,.note h2,.resource-section h2,.about-story h2{color:var(--brand-black)!important}
 .feature-work h2 em,.cta-band h2 em,.resource-section h2 em,.about-story h2 em{color:var(--brand-primary)!important}
@@ -606,7 +610,7 @@ h1 em,h2 em{color:var(--brand-primary);font-family:var(--font-sans),sans-serif;f
 .nav:not(.on-hero) .nav-link:after,.nav.scrolled .nav-link:after{background:var(--brand-primary)!important}
 @media(max-width:860px){.nav-cta{display:none}}
 
-/* White-first surface pass: keep imagery, remove dark UI surfaces. */
+* White-first surface pass: keep imagery, remove dark UI surfaces.
 html,body,#main{background:var(--brand-white)!important;color:var(--brand-black)}
 .intro-loader,.index-menu,.veil{background:var(--brand-white)!important;color:var(--brand-black)}
 .intro-loader .brand-logo-name,.intro-loader .brand-logo-tag{color:var(--brand-black)!important}
@@ -668,7 +672,7 @@ html,body,#main{background:var(--brand-white)!important;color:var(--brand-black)
 .service-card-face>span{color:var(--brand-primary)!important}
 .portfolio-category .work-row div,.work-row div,.gallery-grid div,.resource-gallery-preview a{background-color:var(--brand-white)!important}
 
-/* Image direction for the white Narayani theme. */
+* Image direction for the white Narayani theme.
 .hero-reel,.page-hero-media div,.feature-still,.pillar-card-media,.service-card-face,.service-directory-media img,.resource-preview>div:first-child,.portrait,.frame-row div,.work-row div,.gallery-grid div,.resource-gallery-preview a{filter:saturate(.72) brightness(1.12) contrast(.96)!important}
 .hero-reel,.page-hero-media div{mix-blend-mode:multiply}
 .service-card-face:before,.feature-card:after{background:linear-gradient(180deg,#FFFFFF00 24%,#00000026 100%)!important}
@@ -679,3 +683,429 @@ html,body,#main{background:var(--brand-white)!important;color:var(--brand-black)
 .service-card-face h3,.service-card-face p{color:var(--brand-white)!important;text-shadow:0 1px 10px #00000066!important}
 .resource-preview-copy span,.service-directory-media span{color:var(--brand-primary)!important}
 .resource-preview-copy h3,.resource-preview-copy p,.service-directory-copy h3,.service-directory-copy>p{color:var(--brand-black)!important}
+*/
+
+/* Light application theme: imagery remains darkened where copy overlays it. */
+:root{--color-bg:#f7f8fb;--color-bg-2:#ffffff;--color-bg-3:#f0f2f7;--color-white:#17181c;--ink:#17181c;--surface:#ffffff;--surface-alt:#f0f2f7;--smoke:#5f6570;--line:#dce0e8;--line-dark:#cbd1dc;--champagne:#2337c6}
+html,body,#main{background:var(--color-bg);color:var(--ink)}
+body{font-weight:400}
+.atmosphere{background:radial-gradient(ellipse 70% 45% at 5% 0,#2337c60d,transparent 55%),radial-gradient(ellipse 55% 35% at 100% 100%,#f5b40014,transparent 52%)}
+.spotlight{display:none}
+h1,h2,h3{color:var(--ink)}
+h1 em,h2 em{color:var(--color-primary)}
+.lede,.body-copy p,.hero-lede,.section-lede{color:var(--smoke)!important}
+.eyebrow,.text-link{color:var(--color-primary)}
+.nav,.nav.scrolled,.nav.on-hero:not(.scrolled){background:#fffffff2;border-bottom:1px solid var(--line);box-shadow:0 8px 28px #1118270d}
+.nav nav,.nav.on-hero:not(.scrolled) nav,.nav-link,.nav.on-hero:not(.scrolled) .nav-link,.menu,.nav.on-hero:not(.scrolled) .menu{color:var(--ink)}
+.brand-logo-name,.nav.on-hero:not(.scrolled) .brand-logo-name{color:var(--ink)}
+.brand-logo-tag,.nav.on-hero:not(.scrolled) .brand-logo-tag{color:var(--smoke)}
+.nav-link:hover,.nav-link.is-active,.nav.on-hero:not(.scrolled) .nav-link:hover,.nav.on-hero:not(.scrolled) .nav-link.is-active{color:var(--color-primary)}
+.nav-cta,.button{background:var(--brand-gold);color:#17181c;box-shadow:none}
+.nav-cta:hover,.button:hover,.nav-cta:focus-visible,.button:focus-visible{background:var(--color-primary);color:#fff;box-shadow:0 10px 26px #2337c62b}
+.button-ghost{border-color:var(--color-primary);color:var(--color-primary)}
+.button-ghost:hover,.button-ghost:focus-visible{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
+.index-menu{background:#fffffff7}.index-menu a,.index-sub a,.index-block .index-sub a{color:var(--ink)!important;border-color:var(--line)!important}.index-menu a span{color:var(--color-primary)}
+.nav-drop-inner{background:#fff;border-color:var(--line);box-shadow:0 16px 42px #1118271f}.nav-drop a{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:none;text-shadow:none}.nav-drop a:hover,.nav-drop a:focus{background:#eef1ff;color:var(--color-primary);border-color:var(--color-primary);box-shadow:none}
+.hero,.page-hero{color:#fff;background-color:#101116}.hero-shade,.page-hero-media:after{background:linear-gradient(90deg,#101116df 0%,#10111691 46%,#10111642 100%),linear-gradient(180deg,#10111655 0%,#101116d9 100%)}
+.hero h1,.hero h1 span,.hero .hero-lede,.hero .eyebrow,.page-hero h1,.page-hero h2,.page-hero h3,.page-hero p,.page-hero .lede,.page-hero .eyebrow{color:#fff!important}.hero h1 em,.page-hero h1 em,.page-hero h2 em,.hero .eyebrow,.page-hero .eyebrow{color:var(--brand-gold)!important}.hero .hero-lede,.page-hero .lede{color:#ffffffd9!important}
+.hero-actions .button{background:var(--brand-gold);color:#17181c}.hero-actions .button-ghost{border-color:#ffffffa8;color:#fff}.hero-actions .button-ghost:hover{background:#ffffff1f;border-color:#fff;color:#fff}
+.intro,.home-services,.feature-work,.house,.voices,.founders,.note,.guide,.quick-bar,.service-pillars,.cta-band,.resources-architecture,.resource-section,.about-story,.dailies{background:transparent;color:var(--ink)}
+.intro h2,.feature-work h2,.cta-band h2,.resource-section h2,.about-story h2{color:var(--ink)}
+.client-strip{background:#fff;border-color:var(--line)}.client-strip span,.client-logo-item b{color:var(--smoke)}
+.testimonial-track article,.resource-testimonial-grid article,.testimonial-card,.pillar-card,.flip-face,.craft-tile,.detail-grid article,.faq,.resource-faq-list details,.service-directory-card,.resource-preview{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:0 10px 28px #1118270d}
+.testimonial-track blockquote,.testimonial-track footer b,.resource-testimonial-grid blockquote,.resource-testimonial-grid footer b,.testimonial-card blockquote,.testimonial-card footer b,.pillar-card h3,.pillar-card p,.flip-face h3,.flip-face p,.craft-tile h3,.craft-tile p{color:var(--ink)!important}.testimonial-track footer small,.resource-testimonial-grid footer small,.testimonial-card footer small{color:var(--smoke)!important}
+.stats-band{background:#fff;border-color:var(--line);box-shadow:0 10px 28px #1118270d}.stats-band:before{display:none}.stats-band b{color:var(--ink)}.stats-band span{color:var(--smoke)}.stats-band div+div{border-color:var(--line)}
+.about-values,.testimonials-page{background:#f0f2f7;color:var(--ink)}.about-values:before,.about-values:after,.testimonials-stage:before{display:none}.about-values h2,.about-values h2 em,.about-values .eyebrow{color:var(--ink)}.about-values h2 em,.about-values .eyebrow{color:var(--color-primary)}.about-values-grid article{background:#fff;border-color:var(--line);box-shadow:0 10px 28px #1118270d}.about-values-grid article:before,.about-values-grid article:after{display:none}.about-values-grid h3,.about-values-grid p,.about-values-grid .value-index{color:var(--ink)}.about-values-grid span,.about-values-grid h3 em,.about-values-grid small{color:var(--color-primary)}
+.craft-bar,.craft-tile,.detail-grid article,.contact-form,.house-item,.faq,.tag-item,.index-row{background:#fff;border-color:var(--line);color:var(--ink)}.craft-bar-hit,.craft-bar-copy strong,.craft-bar-copy small,.craft-bar-index,.tag-item button,.faq button,.index-row h3,.index-row p{color:var(--ink)!important}.craft-bar.is-on{background:#eef1ff}.tab-copy p,.tag-copy,.faq-copy,.resource-faq-list details>p{color:var(--smoke)!important}
+.resource-preview h3,.resource-preview-copy p,.service-directory-copy h3,.service-directory-copy>p{color:var(--ink)!important}.resource-preview span,.service-directory-media span,.service-directory-footer a,.resource-index-list a>span,.resource-index-list b{color:var(--color-primary)!important}.service-directory-options a{border-color:var(--line);color:var(--smoke)}.service-directory-footer .muted-link{color:var(--smoke)!important}.resource-faq-list summary,.faq button{background:#fff;color:var(--ink)!important;border-color:var(--line)!important}
+.article-reading-body h2,.resource-index-list h2,.resource-index-list a,.editorial-list,.editorial-list article{color:var(--ink)!important}.article-reading-body p,.resource-index-list p,.resource-index-list small,.editorial-list p,.editorial-list small{color:var(--smoke)!important}.article-reading-meta,.resource-index-list a,.editorial-list article{border-color:var(--line)}
+.contact-layout,.home-contact{color:#fff}.contact-layout:before,.home-contact:before{background:linear-gradient(90deg,#101116ed 0%,#101116c9 48%,#1011169c 100%)}.contact-layout h2,.contact-layout p,.contact-direct h2,.home-contact h2,.home-contact p{color:#fff}.contact-layout .eyebrow,.home-contact .eyebrow,.contact-meta span,.home-contact .direct{color:var(--brand-gold)}.contact-form{background:#fff;color:var(--ink);box-shadow:0 10px 28px #11182724}.contact-form label,.contact-form input,.contact-form select,.contact-form textarea{color:var(--ink)!important}.contact-form input,.contact-form select,.contact-form textarea{background:#fff!important;border-color:#cbd1dc!important}.contact-form select option{background:#fff;color:var(--ink)}
+.contact-layout .contact-form,.home-contact .contact-form{padding:32px;background:#fff!important;border:1px solid var(--line)!important;box-shadow:0 10px 28px #11182724}
+.site-footer{background:#eef0f5;color:var(--smoke);border-color:var(--line)}.site-footer-panel{background:#fff;border-color:var(--line);box-shadow:0 10px 28px #1118270d}.site-footer-panel:before{display:none}.footer-kicker,.footer-column h2,.footer-contact-column h3,.footer-bottom{color:var(--ink)}.footer-lede,.footer-contact-column p,.footer-bottom{color:var(--smoke)!important}.footer-nav a,.footer-contact-column a,.social-links a{color:var(--color-primary)!important;border-color:var(--line)!important}
+
+/* ===== FINAL NAVBAR ALIGNMENT FIX ===== */
+
+.nav {
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  align-items: center !important;
+
+  padding-left: clamp(20px, 5.5vw, 86px) !important;
+  padding-right: clamp(20px, 5.5vw, 86px) !important;
+
+  gap: 20px !important;
+}
+
+.nav > .brand-logo-link {
+  grid-column: 1 !important;
+  justify-self: start !important;
+  min-width: 0 !important;
+}
+
+.nav > nav {
+  grid-column: 2 !important;
+  justify-self: center !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: clamp(16px, 2vw, 30px) !important;
+  min-width: max-content !important;
+
+  margin: 0 !important;
+}
+
+.nav > .nav-end {
+  grid-column: 3 !important;
+  justify-self: end !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+.nav > .nav-end .nav-cta {
+  width: auto !important;
+  max-width: 150px !important;
+  min-width: 0 !important;
+
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.nav nav,
+.nav-end,
+.nav-cta {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+}
+
+/* =========================================================
+   SERVICES — FINAL CARD SYSTEM
+   One clean definition: 50% client image + 50% information
+   ========================================================= */
+
+.service-pillars .client-service-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  margin-top: 42px !important;
+  align-items: stretch !important;
+}
+
+.service-pillars .client-service-grid > * {
+  min-width: 0 !important;
+  height: 420px !important;
+  min-height: 420px !important;
+  max-height: 420px !important;
+}
+
+/* Card shell */
+.service-pillars .service-architecture-card {
+  min-height: 0 !important;
+  height: 420px !important;
+}
+
+.service-pillars .service-card-link {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: 420px !important;
+  min-height: 420px !important;
+  max-height: 420px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+
+  background: #11131a !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.16) !important;
+
+  text-decoration: none !important;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease !important;
+}
+
+.service-pillars .service-card-link:hover {
+  transform: translateY(-5px) !important;
+  border-color: rgba(212,170,82,.7) !important;
+  box-shadow: 0 20px 44px rgba(0,0,0,.24) !important;
+}
+
+/* Inner card: no flex distribution, no inherited blank space */
+.service-pillars .service-card-face {
+  position: relative !important;
+
+  display: block !important;
+
+  width: 100% !important;
+  height: 420px !important;
+  min-height: 420px !important;
+  max-height: 420px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  background: #11131a !important;
+  color: #fff !important;
+}
+
+/* Kill every previous overlay */
+.service-pillars .service-card-face::before,
+.service-pillars .service-card-face::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* =========================================================
+   TOP HALF — CLIENT IMAGE
+   ========================================================= */
+
+.service-pillars .service-card-image {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+
+  display: block !important;
+
+  width: 100% !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  max-height: 210px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  z-index: 1 !important;
+
+  transition: transform .5s cubic-bezier(.16,1,.3,1) !important;
+}
+
+.service-pillars .service-card-link:hover .service-card-image {
+  transform: scale(1.04) !important;
+}
+
+/* =========================================================
+   BOTTOM HALF — INFORMATION
+   ========================================================= */
+
+.service-pillars .service-card-face > span {
+  position: absolute !important;
+  top: 210px !important;
+  left: 0 !important;
+
+  display: block !important;
+
+  margin: 0 !important;
+  padding: 17px 20px 0 !important;
+
+  color: #f5b400 !important;
+
+  font-size: 10px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  letter-spacing: .15em !important;
+  text-transform: uppercase !important;
+
+  z-index: 3 !important;
+}
+
+.service-pillars .service-card-face > h3 {
+  position: absolute !important;
+  top: 237px !important;
+  left: 0 !important;
+
+  display: block !important;
+
+  width: calc(100% - 54px) !important;
+  margin: 0 !important;
+  padding: 0 20px !important;
+
+  color: #fff !important;
+
+  font-size: clamp(1.08rem,1.45vw,1.4rem) !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: -.02em !important;
+
+  z-index: 3 !important;
+}
+
+.service-pillars .service-card-face > p {
+  position: absolute !important;
+  top: 285px !important;
+  left: 0 !important;
+
+  display: block !important;
+
+  width: calc(100% - 40px) !important;
+  margin: 0 !important;
+  padding: 0 20px !important;
+
+  color: rgba(255,255,255,.64) !important;
+
+  font-size: .8rem !important;
+  line-height: 1.45 !important;
+
+  z-index: 3 !important;
+}
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.service-pillars .service-card-link::after {
+  content: "↗" !important;
+
+  position: absolute !important;
+  right: 17px !important;
+  bottom: 17px !important;
+
+  width: 34px !important;
+  height: 34px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid rgba(255,255,255,.45) !important;
+  border-radius: 50% !important;
+
+  background: transparent !important;
+  color: #fff !important;
+
+  font-size: 16px !important;
+  line-height: 1 !important;
+
+  z-index: 10 !important;
+
+  transition:
+    background .3s ease,
+    border-color .3s ease,
+    color .3s ease,
+    transform .3s ease !important;
+}
+
+.service-pillars .service-card-link:hover::after {
+  background: #f5b400 !important;
+  border-color: #f5b400 !important;
+  color: #111 !important;
+  transform: rotate(45deg) !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .service-pillars .client-service-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    gap: 20px !important;
+  }
+
+  .service-pillars .client-service-grid > *,
+  .service-pillars .service-architecture-card,
+  .service-pillars .service-card-link,
+  .service-pillars .service-card-face {
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+  }
+
+  .service-pillars .service-card-image {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+  }
+
+  .service-pillars .service-card-face > span {
+    top: 200px !important;
+  }
+
+  .service-pillars .service-card-face > h3 {
+    top: 227px !important;
+  }
+
+  .service-pillars .service-card-face > p {
+    top: 275px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-pillars .client-service-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .service-pillars .client-service-grid > *,
+  .service-pillars .service-architecture-card,
+  .service-pillars .service-card-link,
+  .service-pillars .service-card-face {
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+  }
+
+  .service-pillars .service-card-image {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+  }
+
+  .service-pillars .service-card-face > span {
+    top: 200px !important;
+  }
+
+  .service-pillars .service-card-face > h3 {
+    top: 227px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .service-pillars .service-card-face > p {
+    top: 270px !important;
+  }
+}
+/* =========================================================
+   SERVICE CARD TEXT — FINAL POSITION FIX
+   ========================================================= */
+
+.service-pillars .service-card-face > span {
+  left: 0 !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  white-space: nowrap !important;
+}
+
+.service-pillars .service-card-face > h3 {
+  left: 0 !important;
+  padding-left: 20px !important;
+}
+
+.service-pillars .service-card-face > p {
+  left: 0 !important;
+  padding-left: 20px !important;
+}

@@ -1,7 +1,8 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { cssUrl } from "@/lib/asset";
+import { Magnetic } from "@/components/magnetic";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -11,29 +12,35 @@ export function Hero() {
     if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      gsap.to(".hero-visual", { scale: 1.05, duration: 18, ease: "none" });
-      tl.from(".hero-kicker", { opacity: 0, y: 10, duration: 0.5 }, 0.15)
-        .from(".hero-title span", { opacity: 0, y: 36, duration: 0.85, stagger: 0.12 }, 0.25)
-        .from(".hero-lede", { opacity: 0, y: 12, duration: 0.6 }, 0.7);
+      gsap.to(".hero-reel", { scale: 1.08, duration: 18, ease: "none" });
+      tl.from(".hero .eyebrow", { opacity: 0, y: 10, duration: 0.7 }, 0.2)
+        .from(".hero-line span", { yPercent: 110, duration: 1.15, stagger: 0.12 }, 0.4)
+        .from(".hero-lede", { opacity: 0, y: 16, duration: 0.75 }, 0.65)
+        .from(".hero-actions", { opacity: 0, y: 16, duration: 0.7 }, 0.85)
+        .from(".stage-rail", { opacity: 0, y: 18, duration: 0.8 }, 1.05)
+        .from(".hero-slate, .hero-now", { opacity: 0, duration: 0.6 }, 1.15);
     }, el);
     return () => ctx.revert();
   }, []);
 
   return (
     <section ref={root} className="hero" id="top">
-      <div className="hero-stage wrap">
-        <div className="hero-copy">
-          <p className="eyebrow hero-kicker">Services</p>
-          <h1 className="hero-title">
-            <span>Six divisions.</span>
-            <span className="hero-accent">One</span>
-            <span>floor.</span>
-          </h1>
-          <p className="hero-lede">
-            From the first idea to the final delivery, every craft lives in one connected production house. Open a division to find the right route for your brief.
-          </p>
+      <div className="hero-reel" aria-hidden="true" />
+      <div className="hero-shade" />
+      <div className="hero-copy wrap">
+        <p className="eyebrow hero-meta">Creative production studio</p>
+        <h1>
+          <span className="hero-line"><span>Stories</span></span>
+          <span className="hero-line"><span>Beyond</span></span>
+          <span className="hero-line"><span><em>Frames</em></span></span>
+        </h1>
+        <p className="hero-lede hero-meta">
+          We turn ideas into unforgettable visual experiences.
+        </p>
+        <div className="hero-actions">
+          <Magnetic><Link className="button" href="/services">Watch showreel <span>→</span></Link></Magnetic>
+          <Link className="button-ghost" href="/contact">Our work <span aria-hidden="true">▷</span></Link>
         </div>
-        <div className="hero-visual" style={{ backgroundImage: cssUrl("/Updated Images/narayani Home white.png") }} aria-label="Narayani production studio" />
       </div>
     </section>
   );

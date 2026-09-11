@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { BrandMark } from "@/components/brand-mark";
 import { AnimatedStats } from "@/components/animated-stats";
 import { ContactForm } from "@/components/contact-form";
 import { Hero } from "@/components/hero";
 import { MediaReveal, Reveal, Stagger, StaggerItem } from "@/components/reveal";
-import { cssUrl } from "@/lib/asset";
+import { asset, cssUrl } from "@/lib/asset";
 import { clients, services, testimonials } from "@/lib/site-data";
 
 export default function Home() {
@@ -12,21 +13,27 @@ export default function Home() {
     <main>
       <Hero />
       <section className="studio-reel wrap">
-        <Reveal><p className="eyebrow">01 / The studio</p><h2>We don&apos;t just capture moments. <em>We build worlds.</em></h2></Reveal>
+        <Reveal><p className="eyebrow">Our studio</p><h2>Where every frame <em>finds its floor.</em></h2></Reveal>
         <MediaReveal><Link href="/about" className="home-reel" style={{ backgroundImage: cssUrl("/Updated Images/portfolio.png") }}><span>Enter the studio ↗</span></Link></MediaReveal>
       </section>
       <section className="wrap service-pillars">
         <Reveal>
-          <p className="eyebrow">02 / Production journey</p>
-          <h2>From idea <em>to final frame.</em></h2>
-          <p className="section-lede">Direction, production, technology and visual craft brought together under one roof.</p>
+          <p className="eyebrow">Main services</p>
+          <h2>Our <em>services.</em></h2>
+          <p className="section-lede">Available individually or combined into a full production.</p>
         </Reveal>
         <Stagger className="pillar-cards client-service-grid">
           {services.map((service) => {
             return (
               <StaggerItem key={service.slug}>
                 <Link className="service-architecture-card service-card-link" href={`/services/${service.slug}`}>
-                  <div className="service-card-face" style={{ backgroundImage: cssUrl(service.image) }}><span>{service.code}</span><h3>{service.title}</h3><p>{service.strap}</p></div>
+                  <div className="service-card-face">
+  <img
+    src={asset(service.image)}
+    alt=""
+    className="service-card-image"
+  />
+<span>{service.code}</span><h3>{service.title}</h3><p>{service.strap}</p></div>
                 </Link>
               </StaggerItem>
             );
@@ -34,7 +41,7 @@ export default function Home() {
         </Stagger>
       </section>
       <section className="client-marquees" aria-label="Who we work with">
-        {[clients, [...clients].reverse()].map((row, rowIndex) => <div className={`client-strip${rowIndex ? " is-reverse" : ""}`} key={rowIndex}><div>{[...row, ...row].map((client, i) => <span className="client-logo-item" key={`${client}-${i}`}><b>{client}</b><i>—</i></span>)}</div></div>)}
+        {[clients, [...clients].reverse()].map((row, rowIndex) => <div className={`client-strip${rowIndex ? " is-reverse" : ""}`} key={rowIndex}><div>{[...row, ...row].map((client, index) => <span className="client-logo-item" key={`${client}-${index}`}><BrandMark size={24} /><b>{client}</b><i>—</i></span>)}</div></div>)}
       </section>
       <section className="home-voices wrap">
         <Reveal><p className="eyebrow">The people we make with</p><h2>What clients <em>say.</em></h2></Reveal>
@@ -51,11 +58,11 @@ export default function Home() {
             <p className="who-we-are-lede">Narayani Studios was founded on the belief that great stories deserve careful craft, from the first idea to the final frame.</p>
             <div className="who-we-are-detail"><span /> <p>Narayani Studios delivers branding, marketing and end-to-end production across digital, film and advertising media.</p></div>
             <div className="who-we-are-detail"><span /> <p>We work with businesses, creators and organisations across India and internationally.</p></div>
-            <a className="text-link" href="/about">More about the studio ↗</a>
+            <Link className="text-link" href="/about">More about the studio ↗</Link>
           </Reveal>
         </div>
       </section>
-      <section className="home-contact wrap" aria-label="Start a project" style={{ backgroundImage: cssUrl("/Updated Images/Full white coverage.png") }}>
+      <section className="home-contact wrap" aria-label="Start a project" style={{ backgroundImage: cssUrl("/Updated Images/Let's connect.png") }}>
         <div><Reveal><p className="eyebrow">Get in touch</p><h2>Let&apos;s <em>talk.</em></h2><p className="section-lede">Tell us the brief—one service or the full chain. We will name the stage and come back with a plan.</p><p className="direct"><a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a></p></Reveal></div>
         <Suspense fallback={<div className="contact-form" />}><ContactForm /></Suspense>
       </section>

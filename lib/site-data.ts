@@ -5,8 +5,15 @@ export const pillars = [
     title: "Pre-production",
     strap: "Clarity before anyone calls action.",
     summary: "The work before the work: brand, strategy, scripts and a plan that protects the idea.",
-    image: "/Updated Images/Branding.png",
-    items: ["Concept Development", "Creative Strategy", "Script / Content Development", "Campaign Planning", "Production Planning", "Brand Strategy"],
+    image: "/Updated Images/6 services/Pre Prodcution.png",
+    items: [
+      "Concept Development",
+      "Creative Strategy",
+      "Script / Content Development",
+      "Campaign Planning",
+      "Production Planning",
+      "Brand Strategy",
+    ],
   },
   {
     slug: "production",
@@ -14,8 +21,16 @@ export const pillars = [
     title: "Production",
     strap: "Every format. One production floor.",
     summary: "On-ground craft across film, advertising, photography, podcasts, music and branded content — not film alone.",
-    image: "/Updated Images/personal branding.png",
-    items: ["Video Production", "Film Production", "Advertisement Production", "Branded Content", "Photography", "Podcast Production", "Music Production"],
+    image: "/Updated Images/6 services/Production.png",
+    items: [
+      "Video Production",
+      "Film Production",
+      "Advertisement Production",
+      "Branded Content",
+      "Photography",
+      "Podcast Production",
+      "Music Production",
+    ],
   },
   {
     slug: "post-production",
@@ -23,40 +38,67 @@ export const pillars = [
     title: "Post-production",
     strap: "Locked picture. Ready for every screen.",
     summary: "Picture, sound and finishing until every version is ready for social, broadcast, cinema or OTT.",
-    image: "/Updated Images/Full white coverage.png",
-    items: ["Video Editing", "Audio Post", "Finishing", "Platform Adaptation", "Final Delivery"],
+    image: "/Updated Images/6 services/Post Production.png",
+    items: [
+      "Video Editing",
+      "Audio Post",
+      "Finishing",
+      "Platform Adaptation",
+      "Final Delivery",
+    ],
   },
 ] as const;
 
 export const services = [
   ...pillars,
   {
-    slug: "digital-social",
-    code: "04",
-    title: "Digital & Social Media",
-    strap: "The feed, the community and the growth plan.",
-    summary: "Social management, content strategy, publishing, community and digital growth across platforms.",
-    image: "/Updated Images/portfolio.png",
-    items: ["Social Media Management", "Content Strategy", "Digital Publishing", "Community Management", "Digital Marketing", "Digital Growth"],
-  },
-  {
-    slug: "advertising",
-    code: "05",
-    title: "Advertising & Brand Content",
-    strap: "Campaigns that carry a brand, not just a logo.",
-    summary: "Advertising, branded content and commercial media across digital, print, broadcast and live platforms.",
-    image: "/Updated Images/Branding.png",
-    items: ["Advertising Campaigns", "Branded Campaigns", "Commercial Media", "Promotional Campaigns", "Marketing Communications"],
-  },
-  {
-    slug: "events",
-    code: "06",
-    title: "Events & Experiences",
-    strap: "Live rooms treated with the same care as the film.",
-    summary: "Corporate events, launches, exhibitions, conferences, concerts and brand experiences, conceived and run as productions.",
-    image: "/Updated Images/event.png",
-    items: ["Corporate Events", "Product Launches", "Exhibitions", "Conferences", "Live Shows", "Concerts", "Brand Experiences"],
-  },
+  slug: "digital-social",
+  code: "04",
+  title: "Digital & Social Media",
+  strap: "The feed, the community and the growth plan.",
+  summary: "Social management, content strategy, publishing, community and digital growth across platforms.",
+  image: "/Updated Images/6 services/Social Media .png",
+  items: [
+    "Social Media Management",
+    "Content Strategy",
+    "Digital Publishing",
+    "Community Management",
+    "Digital Marketing",
+    "Digital Growth",
+  ],
+},
+{
+  slug: "advertising",
+  code: "05",
+  title: "Advertising & Brand Content",
+  strap: "Campaigns that carry a brand, not just a logo.",
+  summary: "Advertising, branded content and commercial media across digital, print, broadcast and live platforms.",
+  image: "/Updated Images/6 services/Advertising & Brand Content.png",
+  items: [
+    "Advertising Campaigns",
+    "Branded Campaigns",
+    "Commercial Media",
+    "Promotional Campaigns",
+    "Marketing Communications",
+  ],
+},
+{
+  slug: "events",
+  code: "06",
+  title: "Events & Experiences",
+  strap: "Live rooms treated with the same care as the film.",
+  summary: "Corporate events, launches, exhibitions, conferences, concerts and brand experiences, conceived and run as productions.",
+  image: "/Updated Images/6 services/Events (1).png",
+  items: [
+    "Corporate Events",
+    "Product Launches",
+    "Exhibitions",
+    "Conferences",
+    "Live Shows",
+    "Concerts",
+    "Brand Experiences",
+  ],
+},
 ] as const;
 
 export const house = [
@@ -97,10 +139,10 @@ export const workCategories = services.map((service) => ({
 }));
 
 export const projects = [
-  { slug: "automotive-launch", type: "Advertising", service: "advertising", title: "Velocity, given a new language.", blurb: "Automotive launch film and commercial storytelling.", image: "/client/project-automotive.png", imagePosition: "center" },
-  { slug: "luxury-beauty", type: "Production", service: "production", title: "Light that moves.", blurb: "A beauty film shaped around light, texture and performance.", image: "/client/project-fashion.png", imagePosition: "right center" },
-  { slug: "music-performance", type: "Production", service: "production", title: "Sound, in focus.", blurb: "Music performance captured with image and rhythm in sync.", image: "/client/project-performance.png", imagePosition: "center" },
-  { slug: "virtual-mountain", type: "Post-production", service: "post-production", title: "Beyond the studio wall.", blurb: "Virtual worldbuilding and finishing for a complete screen experience.", image: "/client/project-post.png", imagePosition: "center" },
+  { slug: "automotive-launch", type: "Advertising", service: "advertising", title: "Velocity, given a new language.", blurb: "Automotive launch film and commercial storytelling.", image: "/Updated Images/Branding.png", imagePosition: "center" },
+  { slug: "luxury-beauty", type: "Production", service: "production", title: "Light that moves.", blurb: "A beauty film shaped around light, texture and performance.", image: "/Updated Images/personal branding.png", imagePosition: "right center" },
+  { slug: "music-performance", type: "Production", service: "production", title: "Sound, in focus.", blurb: "Music performance captured with image and rhythm in sync.", image: "/Updated Images/Full white coverage.png", imagePosition: "center" },
+  { slug: "virtual-mountain", type: "Post-production", service: "post-production", title: "Beyond the studio wall.", blurb: "Virtual worldbuilding and finishing for a complete screen experience.", image: "/Updated Images/About us.png", imagePosition: "center" },
 ] as const;
 
 export const testimonials = [
@@ -122,7 +164,7 @@ export type NavLink = { label: string; href: string };
 export type NavItem = NavLink & { children?: NavLink[] };
 
 export const navPrimary: NavItem[] = [
-  { label: "Studio", href: "/" },
+  { label: "Home", href: "/" },
   {
     label: "Services",
     href: "/services",
