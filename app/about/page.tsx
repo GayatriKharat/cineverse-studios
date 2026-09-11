@@ -4,6 +4,7 @@ import { cssUrl } from "@/lib/asset";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { AnimatedStats } from "@/components/animated-stats";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
+import styles from "./about-values.module.css";
 
 const founders = [
   {
@@ -31,27 +32,61 @@ export default function About() {
         copy="Narayani Studios LLP is a production, branding and media house. We were founded on the belief that great stories deserve careful craft — from the first idea to the final frame."
         image="/Updated Images/About us.png"
       />
-      <section className="about-values wrap">
-        <div className="about-values-copy">
-          <Reveal><p className="eyebrow">02 / Vision & mission</p><h2>Consultancy, craft <em>and commercial range.</em></h2></Reveal>
+
+      <section className={styles.purpose} aria-labelledby="purpose-title">
+        <div className={styles.ambient} aria-hidden="true" />
+        <div className={styles.gridLines} aria-hidden="true" />
+
+        <div className={styles.header}>
+          <span className={styles.eyebrow}>02 / Vision & mission</span>
+          <span className={styles.kicker}>OUR PURPOSE</span>
         </div>
-        <div className="about-values-grid">
-          <article>
-            <span>Vision</span><b className="value-index">01</b>
+
+        <div className={styles.stage}>
+          <article className={`${styles.card} ${styles.vision}`}>
+            <div className={styles.cardGlow} aria-hidden="true" />
+            <div className={styles.cardTop}>
+              <span className={styles.cardNumber}>01</span>
+              <span className={styles.cardLabel}>VISION</span>
+            </div>
+            <div className={styles.icon} aria-hidden="true">◉</div>
             <h3>Make ideas <em>move.</em></h3>
-            <i className="value-rule" />
+            <div className={styles.rule} />
             <p>Great stories deserve careful craft and a clear route from first thought to final frame.</p>
-            <small>IDEA → FRAME</small>
+            <small>IDEA <b>→</b> FRAME</small>
           </article>
-          <article>
-            <span>Mission</span><b className="value-index">02</b>
+
+          <div className={styles.center}>
+            <div className={styles.orbit} aria-hidden="true">
+              <span />
+              <i />
+            </div>
+            <span className={styles.centerIndex}>02</span>
+            <h2 id="purpose-title">Vision <span>×</span> Mission</h2>
+            <p>Two directions.<br /><strong>One bigger tomorrow.</strong></p>
+            <div className={styles.centerLine} aria-hidden="true" />
+            <span className={styles.centerNote}>THE HOUSE<br />IN MOTION</span>
+          </div>
+
+          <article className={`${styles.card} ${styles.mission}`}>
+            <div className={styles.cardGlow} aria-hidden="true" />
+            <div className={styles.cardTop}>
+              <span className={styles.cardNumber}>02</span>
+              <span className={styles.cardLabel}>MISSION</span>
+            </div>
+            <div className={styles.icon} aria-hidden="true">◎</div>
             <h3>Build the right <em>house for the brief.</em></h3>
-            <i className="value-rule" />
+            <div className={styles.rule} />
             <p>We connect strategy, creative, production, digital and live so the work stays coherent wherever it travels.</p>
-            <small>STRATEGY → IMPACT</small>
+            <small>STRATEGY <b>→</b> IMPACT</small>
           </article>
+        </div>
+
+        <div className={styles.footerMark} aria-hidden="true">
+          <span>CRAFT</span><i /> <span>CONNECT</span><i /> <span>CREATE</span>
         </div>
       </section>
+
       <section className="founders wrap">
         <Reveal>
           <p className="eyebrow">Founders & partners</p>
@@ -84,10 +119,12 @@ export default function About() {
           ))}
         </Stagger>
       </section>
+
       <section className="about-story wrap">
         <Reveal><p className="eyebrow">04 / Our story</p><h2>A production house for brands, not a film studio <em>only.</em></h2></Reveal>
         <Reveal delay={0.08} className="about-story-copy"><p>We plan, shoot and finish work for business, government, creators and entertainment. Hire one craft or the full chain. Film, ads, stills, podcasts, music and live all sit on the same floor.</p><p>From India, we work with teams anywhere the work needs to travel—keeping the brief, the people and the final delivery in one conversation.</p></Reveal>
       </section>
+
       <AnimatedStats stats={[{ value: 52, suffix: "+", label: "Happy clients across the globe" }, { value: 4.2, suffix: "B+", label: "Views generated across platforms", decimals: 1 }, { value: 1200, suffix: "+", label: "Content pieces created for clients" }, { value: 6400, suffix: "+", label: "Content pieces distributed" }]} />
       <CtaBand />
     </main>
