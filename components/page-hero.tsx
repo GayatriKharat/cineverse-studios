@@ -12,7 +12,7 @@ export function PageHero({
   compact = false,
   actions,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: React.ReactNode;
   copy?: string;
   image?: string;
@@ -28,7 +28,6 @@ export function PageHero({
         </div>
       )}
       <div className="wrap page-hero-copy">
-        <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         {copy && <p className="lede">{copy}</p>}
         {actions}
@@ -38,19 +37,22 @@ export function PageHero({
 }
 
 export function CtaBand({
-  eyebrow = "Begin",
+  eyebrow,
   title = <>Have a story worth <em>framing?</em></>,
+  buttonText = "Enquire ↗",
+  buttonHref = "/contact",
 }: {
   eyebrow?: string;
   title?: React.ReactNode;
+  buttonText?: string;
+  buttonHref?: string;
 }) {
   return (
     <section className="cta-band wrap">
       <Reveal>
-        <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
         <Magnetic>
-          <Link className="button" href="/contact">Enquire <span>↗</span></Link>
+          <Link className="button" href={buttonHref}>{buttonText}</Link>
         </Magnetic>
       </Reveal>
     </section>

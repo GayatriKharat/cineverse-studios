@@ -13,12 +13,11 @@ export default function Home() {
     <main>
       <Hero />
       <section className="studio-reel wrap">
-        <Reveal><p className="eyebrow">Our studio</p><h2>Where every frame <em>finds its floor.</em></h2></Reveal>
-        <MediaReveal><Link href="/about" className="home-reel" style={{ backgroundImage: cssUrl("/Updated Images/portfolio.png") }}><span>Enter the studio ↗</span></Link></MediaReveal>
+        <Reveal><h2>Meet the <em>studio.</em></h2></Reveal>
+        <MediaReveal><Link href="/about" className="home-reel" style={{ backgroundImage: cssUrl("/Updated Images/portfolio.png") }}><span>Studio intro reel, 01:24</span></Link></MediaReveal>
       </section>
       <section className="wrap service-pillars">
         <Reveal>
-          <p className="eyebrow">Main services</p>
           <h2>Our <em>services.</em></h2>
           <p className="section-lede">Available individually or combined into a full production.</p>
         </Reveal>
@@ -28,42 +27,57 @@ export default function Home() {
               <StaggerItem key={service.slug}>
                 <Link className="service-architecture-card service-card-link" href={`/services/${service.slug}`}>
                   <div className="service-card-face">
-  <img
-    src={asset(service.image)}
-    alt=""
-    className="service-card-image"
-  />
-<span>{service.code}</span><h3>{service.title}</h3><p>{service.strap}</p></div>
+                    <img
+                      src={asset(service.image)}
+                      alt={service.title}
+                      className="service-card-image"
+                    />
+                    <h3>{service.title}</h3>
+                    <p>{service.strap}</p>
+                  </div>
                 </Link>
               </StaggerItem>
             );
           })}
         </Stagger>
       </section>
-      <section className="client-marquees" aria-label="Who we work with">
+      <section className="client-marquees" aria-label="Who we have worked with">
+        <div className="wrap client-marquees-header">
+          <Reveal>
+            <h2>Who we have <em>worked with.</em></h2>
+          </Reveal>
+        </div>
         {[clients, [...clients].reverse()].map((row, rowIndex) => <div className={`client-strip${rowIndex ? " is-reverse" : ""}`} key={rowIndex}><div>{[...row, ...row].map((client, index) => <span className="client-logo-item" key={`${client}-${index}`}><BrandMark size={24} /><b>{client}</b><i>—</i></span>)}</div></div>)}
       </section>
       <section className="home-voices wrap">
-        <Reveal><p className="eyebrow">The people we make with</p><h2>What clients <em>say.</em></h2></Reveal>
+        <Reveal><h2>What clients <em>say.</em></h2></Reveal>
         <div className="testimonial-marquee">
           {[testimonials, [...testimonials].reverse()].map((row, rowIndex) => <div className="testimonial-track" key={rowIndex}>{[...row, ...row].map((item, index) => <article key={`${rowIndex}-${item.name}-${index}`}><span className="stars">★★★★★</span><blockquote>“{item.quote}”</blockquote><footer><b>{item.name}</b><small>{item.scope}</small></footer></article>)}</div>)}
         </div>
       </section>
       <AnimatedStats stats={[{ value: 52, suffix: "+", label: "Happy clients across the globe" }, { value: 4.2, suffix: "B+", label: "Views generated across platforms", decimals: 1 }, { value: 1200, suffix: "+", label: "Content pieces created for clients" }, { value: 6400, suffix: "+", label: "Content pieces distributed" }]} />
       <section className="who-we-are wrap" aria-label="Who we are">
-        <Reveal><p className="eyebrow">Who we are</p></Reveal>
         <div className="who-we-are-grid">
-          <Reveal><h2>A production house for <em>all your needs.</em></h2></Reveal>
+          <Reveal><h2>A creative ecosystem, built for <em>all your needs.</em></h2></Reveal>
           <Reveal delay={0.08} className="who-we-are-copy">
             <p className="who-we-are-lede">Narayani Studios was founded on the belief that great stories deserve careful craft, from the first idea to the final frame.</p>
             <div className="who-we-are-detail"><span /> <p>Narayani Studios delivers branding, marketing and end-to-end production across digital, film and advertising media.</p></div>
-            <div className="who-we-are-detail"><span /> <p>We work with businesses, creators and organisations across India and internationally.</p></div>
+            <div className="who-we-are-detail"><span /> <p>We work with businesses, creators and organisations across markets worldwide.</p></div>
             <Link className="text-link" href="/about">More about the studio ↗</Link>
           </Reveal>
         </div>
       </section>
       <section className="home-contact wrap" aria-label="Start a project" style={{ backgroundImage: cssUrl("/Updated Images/Let's connect.png") }}>
-        <div><Reveal><p className="eyebrow">Get in touch</p><h2>Let&apos;s <em>talk.</em></h2><p className="section-lede">Tell us the brief—one service or the full chain. We will name the stage and come back with a plan.</p><p className="direct"><a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a></p></Reveal></div>
+        <div>
+          <Reveal>
+            <h2>Let&apos;s <em>talk.</em></h2>
+            <p className="section-lede">Tell us the brief, one service or the full chain. We will name the stage and come back with a plan.</p>
+            <div className="contact-meta" style={{ marginTop: "24px" }}>
+              <p><a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a></p>
+              <p><a href="tel:+917447474431">+91 74474 74431</a></p>
+            </div>
+          </Reveal>
+        </div>
         <Suspense fallback={<div className="contact-form" />}><ContactForm /></Suspense>
       </section>
     </main>

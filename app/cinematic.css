@@ -59,7 +59,8 @@ h1,h2{color:var(--color-white);font-weight:500;letter-spacing:-.035em}
 h1 em,h2 em{color:#2337c6;font-weight:400}
 h3{color:var(--color-white);font-weight:500}
 .lede,.body-copy p,.hero-lede{color:var(--color-gray)!important}
-.eyebrow{color:#2337c6}
+.eyebrow{display:none!important}
+.eyebrow::before{content:none!important;display:none!important}
 .nav{background:transparent;border-bottom:1px solid transparent;padding:22px clamp(20px,6vw,110px)}
 .nav.scrolled,.nav:not(.on-hero){background:#000000cc;border-bottom:1px solid #ffffff12;backdrop-filter:blur(18px);padding-block:14px}
 .nav.on-hero:not(.scrolled){background:linear-gradient(#000000cc,transparent)}
@@ -331,16 +332,16 @@ a,button{touch-action:manipulation}
   .spotlight,.progress{display:none}
 }
 
-.nav-link{transition:color .3s,text-shadow .3s,filter .3s}
+.nav-link{transition:color .3s}
 .nav-link:hover,.nav-link.is-active,.nav-link:focus-visible{
-  text-shadow:0 0 16px #2337c6cc,0 0 28px #f5b40066;
+  text-shadow:none;
 }
 .nav-caret{
-  transition:transform .25s ease,color .3s,text-shadow .3s,filter .3s;
+  transition:transform .25s ease,color .3s;
 }
 .nav-caret:hover,.nav-item.is-open .nav-caret,.nav-caret:focus-visible{
-  color:#fff;
-  text-shadow:0 0 14px #f5b400aa,0 0 22px #2337c6aa;
+  color:var(--brand-primary);
+  text-shadow:none;
 }
 .nav-drop{overflow:visible}
 .nav-drop-inner{
@@ -2786,462 +2787,271 @@ main > section {
 }
 
 /* =========================================================
-   FINAL SERVICE CARD COLOR LOCK
-   02 / 04 / 06 = EXACT BRAND BLUE
-   01 / 03 / 05 = WHITE + YELLOW DIAGONAL
+   DEFINITIVE SERVICE CARD STYLING & CORNERS / SHADOW FIX
+   - Unified curves (border-radius: 18px) for all cards (blue & white)
+   - Matching soft elevation shadows for both blue and white cards
+   - No double borders, no white bottom ledge under blue cards
+   - No numbers (01, 02...) on cards
+   - Images fit completely without cropping (aspect-ratio: 16/9, object-fit: contain)
    ========================================================= */
 
-/* Force the complete blue-card surface to the brand blue.
-   This overrides older dark/navy card rules, overlays, gradients,
-   opacity and blending without changing the rest of the website. */
-.service-pillars .client-service-grid > :nth-child(even),
-.service-pillars .client-service-grid > :nth-child(even) .service-card-link,
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face {
-  background: #2337C6 !important;
-  background-color: #2337C6 !important;
+/* 1. Grid items / shells have no outer borders or backgrounds */
+html body main .service-pillars .client-service-grid > *,
+html body main .service-pillars .client-service-grid .stagger-item {
+  background: transparent !important;
+  background-color: transparent !important;
   background-image: none !important;
-  border-color: #2337C6 !important;
-  color: #FFFFFF !important;
-  filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 18px !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* No dark/navy overlay on blue cards */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face::before,
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face::after,
-.service-pillars .client-service-grid > :nth-child(even) .service-card-link::before {
-  content: none !important;
-  display: none !important;
-  background: none !important;
+/* 2. All Service Card Links: unified curve and matching elevation shadow */
+html body main .service-pillars .service-card-link,
+html body main .service-pillars .service-architecture-card {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 10px 28px rgba(17, 24, 39, 0.08) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease !important;
+  text-decoration: none !important;
+}
+
+html body main .service-pillars .service-card-link:hover,
+html body main .service-pillars .service-architecture-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.14) !important;
+}
+
+/* 3. Card Faces: Flex column filling the entire card */
+html body main .service-pillars .service-card-face {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: 0 0 28px 0 !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
+  isolation: isolate !important;
+}
+
+/* 4. White Cards (Odd: 01, 03, 05) */
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
   background-image: none !important;
-  opacity: 1 !important;
-  filter: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.09) !important;
 }
 
-/* Blue-card typography */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > span {
-  color: #F5B400 !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3,
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > p {
-  color: #FFFFFF !important;
-}
-
-/* White cards remain pure white */
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
   background: #FFFFFF !important;
   background-color: #FFFFFF !important;
   background-image: none !important;
   color: #000000 !important;
-  filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
 }
 
-/* Brand yellow on white-card diagonal only */
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(245, 180, 0, 1) 0%,
-      rgba(245, 180, 0, 1) 68%,
-      rgba(245, 180, 0, 0.96) 78%,
-      rgba(245, 180, 0, 0.72) 88%,
-      rgba(245, 180, 0, 0.32) 96%,
-      rgba(245, 180, 0, 0) 100%
-    ) !important;
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face > h3 {
+  color: #000000 !important;
 }
 
-/* Keep blue-card arrows clean */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-link::after {
-  color: #FFFFFF !important;
-  border-color: #FFFFFF !important;
-  background: transparent !important;
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face > p {
+  color: rgba(0, 0, 0, 0.72) !important;
 }
 
-/* =========================================================
-   FINAL SERVICE CARD FIX — FACE/PANEL ONLY
-   IMPORTANT:
-   Do NOT change the outer card/background behind the card.
-   Only the lower service-card face/panel changes to #2337C6.
-   ========================================================= */
-
-/* Blue cards: change ONLY the visible service-card face */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face {
-  position: relative !important;
-  overflow: hidden !important;
-  isolation: isolate !important;
-
+/* 5. Blue Cards (Even: 02, 04, 06) — seamless #2337C6, matching shadow and curve */
+html body main .service-pillars .client-service-grid > :nth-child(even),
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link {
   background: #2337C6 !important;
   background-color: #2337C6 !important;
   background-image: none !important;
-
-  color: #FFFFFF !important;
-  filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
+  border: 1px solid #2337C6 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 28px rgba(17, 24, 39, 0.08) !important;
 }
 
-/* Do not touch the outer card/link background.
-   This deliberately allows the existing card shell/edge to remain visible. */
-.service-pillars .client-service-grid > :nth-child(even),
-.service-pillars .client-service-grid > :nth-child(even) .service-card-link {
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link:hover {
+  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.14) !important;
+}
+
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face {
+  background: #2337C6 !important;
+  background-color: #2337C6 !important;
   background-image: none !important;
+  border: none !important;
+  border-radius: 18px !important;
+  color: #FFFFFF !important;
 }
 
-/* Remove any old overlay from the blue face only */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face::before,
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face::after {
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face > p {
+  color: #FFFFFF !important;
+}
+
+/* Disable unwanted overlays on blue card */
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face::before,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face::after,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link::before {
   content: none !important;
   display: none !important;
 }
 
-/* Blue-card content */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > * {
+/* 6. Image Fitting — 100% visible, ZERO cropping within designated area */
+html body main .service-pillars .service-card-image {
   position: relative !important;
-  z-index: 5 !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  background: transparent !important;
+  border-radius: 17px 17px 0 0 !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 1 !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > span {
-  color: #F5B400 !important;
+html body main .service-pillars .service-card-link:hover .service-card-image {
+  transform: scale(1.02) !important;
 }
 
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3,
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > p {
-  color: #FFFFFF !important;
+/* 7. Remove Card Numbers from UI */
+html body main .service-pillars .service-card-face > span,
+.service-directory-media span {
+  display: none !important;
 }
 
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3 {
+/* 8. Card Typography */
+html body main .service-pillars .service-card-face > h3 {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: block !important;
+  width: calc(100% - 56px) !important;
+  margin: 18px 0 0 !important;
+  padding: 0 24px !important;
+  font-size: clamp(22px, 2vw, 30px) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.025em !important;
+  font-weight: 600 !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
-  word-wrap: normal !important;
   hyphens: none !important;
+  z-index: 2 !important;
 }
 
-/* Keep the existing outer card edge/shadow untouched */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-link::after {
-  color: #FFFFFF !important;
-  border-color: #FFFFFF !important;
+html body main .service-pillars .service-card-face > p {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: block !important;
+  width: calc(100% - 56px) !important;
+  margin: 10px 0 0 !important;
+  padding: 0 24px !important;
+  font-size: 13.5px !important;
+  line-height: 1.45 !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  z-index: 2 !important;
+}
+
+/* 9. Arrow Buttons */
+html body main .service-pillars .service-card-link::after {
+  content: "↗" !important;
+  position: absolute !important;
+  right: 18px !important;
+  bottom: 18px !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  z-index: 10 !important;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease !important;
+}
+
+/* White card arrow */
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link::after {
+  border: 1px solid #2337C6 !important;
+  background: #FFFFFF !important;
+  color: #2337C6 !important;
+}
+
+/* Blue card arrow */
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link::after {
+  border: 1px solid rgba(255, 255, 255, 0.75) !important;
   background: transparent !important;
-}
-
-/* White cards stay unchanged */
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  color: #000000 !important;
-}
-
-/* Mobile — still change only the face */
-@media (max-width: 700px) {
-  .service-pillars .client-service-grid > :nth-child(even) .service-card-face {
-    background: #2337C6 !important;
-    background-color: #2337C6 !important;
-    background-image: none !important;
-  }
-}
-
-/* =========================================================
-   FINAL FACE-LEVEL COLOR LOCK
-   Only the information panel changes.
-   The outer card/background behind it is NOT changed.
-   ========================================================= */
-
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face {
-  background: #2337C6 !important;
-  background-color: #2337C6 !important;
-  background-image: none !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  background-image: none !important;
-}
-
-/* =========================================================
-   CINEVERSE — FINAL BLUE SERVICE CARD OVERRIDE
-   IMPORTANT:
-   The BLUE information panel is controlled at the face level.
-   The outer card/shell behind it is intentionally untouched.
-   This high-specificity rule is designed to beat older
-   service-card rules loaded from other stylesheets.
-   ========================================================= */
-
-/* 02 / 04 / 06 — ONLY THE LOWER INFORMATION FACE */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face {
-  background: #2337C6 !important;
-  background-color: #2337C6 !important;
-  background-image: none !important;
-
-  color: #FFFFFF !important;
-  filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-
-  box-shadow: none !important;
-}
-
-/* The image is the top half; do not tint it */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face .service-card-image {
-  opacity: 1 !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
-}
-
-/* Remove old dark/navy overlays from the FACE.
-   These are the rules that can make the blue look navy. */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face::before,
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face::after {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-  background-image: none !important;
-  opacity: 0 !important;
-  filter: none !important;
-}
-
-/* Never alter the outer shell/background behind the card */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-link {
-  /* preserve existing background */
-  background-image: none !important;
-}
-
-/* Blue-card text */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face > span {
-  color: #F5B400 !important;
-}
-
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face > h3,
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face > p {
   color: #FFFFFF !important;
 }
 
-/* Blue-card arrow */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-link::after {
-  color: #FFFFFF !important;
-  border-color: #FFFFFF !important;
-  background: transparent !important;
+html body main .service-pillars .service-card-link:hover::after {
+  background: #F5B400 !important;
+  border-color: #F5B400 !important;
+  color: #111111 !important;
+  transform: rotate(45deg) !important;
 }
 
-/* 01 / 03 / 05 remain white at the same face level */
-html body main .service-pillars .client-service-grid
-> :nth-child(odd) .service-card-face {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  background-image: none !important;
-  color: #000000 !important;
-}
-
-/* =========================================================
-   RESPONSIVE — SAME FACE-LEVEL COLOR
-   ========================================================= */
-@media (max-width: 1000px) {
-  html body main .service-pillars .client-service-grid
-  > :nth-child(even) .service-card-face {
-    background: #2337C6 !important;
-    background-color: #2337C6 !important;
-    background-image: none !important;
+/* 10. Responsive */
+@media (max-width: 760px) {
+  html body main .service-pillars .service-card-face > h3 {
+    margin-top: 14px !important;
+    padding: 0 18px !important;
+    font-size: 20px !important;
+  }
+  html body main .service-pillars .service-card-face > p {
+    margin-top: 8px !important;
+    padding: 0 18px !important;
+    font-size: 13px !important;
+  }
+  html body main .service-pillars .service-card-link::after {
+    right: 14px !important;
+    bottom: 14px !important;
+    width: 32px !important;
+    height: 32px !important;
   }
 }
 
-@media (max-width: 700px) {
-  html body main .service-pillars .client-service-grid
-  > :nth-child(even) .service-card-face {
-    background: #2337C6 !important;
-    background-color: #2337C6 !important;
-    background-image: none !important;
-  }
-}
-
-/* =========================================================
-   FINAL CORNER / EDGE FIX
-   Blue cards must have the SAME rounded premium edge treatment
-   as the white cards.
-   ========================================================= */
-
-/* Blue outer card — same dark outline + rounded corners */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-link {
-  border: 1px solid rgba(20, 22, 28, .72) !important;
-  border-radius: 16px !important;
+/* 11. Global Image Fitting: ensure full images are visible across components */
+.service-directory-media {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
   overflow: hidden !important;
-  background: #2337C6 !important;
-  background-color: #2337C6 !important;
-}
-
-/* Blue face follows the exact same rounded corner */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face {
-  border: 0 !important;
-  border-radius: 15px !important;
-  overflow: hidden !important;
-}
-
-/* Clip the image cleanly into the rounded top corners */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face .service-card-image {
   border-radius: 14px 14px 0 0 !important;
+  background: #f4f6fb !important;
 }
 
-/* Keep the blue panel flush and clean at the lower corners */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face {
-  background-clip: padding-box !important;
+.service-directory-media img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+  object-position: center !important;
 }
 
-/* Hover keeps the same corner treatment */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-link:hover {
-  border-radius: 16px !important;
-}
-
-/* =========================================================
-   FINAL — BLUE CARDS: WHITE-CARD OUTER BACKGROUND
-   ---------------------------------------------------------
-   IMPORTANT:
-   • Blue .service-card-face stays #2337C6.
-   • The OUTER card/shell uses the SAME WHITE background
-     treatment as cards 01 / 03 / 05.
-   • Same dark rounded outer edge.
-   • No dark strip underneath the blue face.
-   • No yellow bar on blue cards.
-   • No layout/content changes.
-   ========================================================= */
-
-/* 1. OUTER CARD/SHELL — same background as white cards */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  background-image: none !important;
-
-  border: 1px solid #17181C !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  box-sizing: border-box !important;
-}
-
-/* 2. LINK WRAPPER — also WHITE, never dark/navy/blue */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-link {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  background-image: none !important;
-
-  border: 1px solid #17181C !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  box-sizing: border-box !important;
-}
-
-/* 3. BLUE FACE ONLY — this is the only blue surface */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face {
-  background: #2337C6 !important;
-  background-color: #2337C6 !important;
-  background-image: none !important;
-
-  color: #FFFFFF !important;
-  border: 0 !important;
-  border-radius: 15px !important;
-  overflow: hidden !important;
-
-  filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-}
-
-/* 4. Remove any pseudo-element that could create a dark strip */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-link::before {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-}
-
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face::before,
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face::after {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-}
-
-/* 5. Image remains exactly as existing design */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face .service-card-image {
-  opacity: 1 !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
-}
-
-/* 6. Blue-card text */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face > span {
-  color: #F5B400 !important;
-}
-
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face > h3,
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-face > p {
-  color: #FFFFFF !important;
-}
-
-/* 7. Arrow stays on the blue face */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-link::after {
-  color: #FFFFFF !important;
-  border-color: #FFFFFF !important;
-  background: transparent !important;
-}
-
-/* 8. Hover must NOT recolor the outer shell */
-html body main .service-pillars .client-service-grid
-> :nth-child(even) .service-card-link:hover {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  border-color: #17181C !important;
-  border-radius: 16px !important;
-}
-
-/* 9. Mobile — same white outer shell */
-@media (max-width: 700px) {
-  html body main .service-pillars .client-service-grid
-  > :nth-child(even) {
-    background: #FFFFFF !important;
-    background-color: #FFFFFF !important;
-    border: 1px solid #17181C !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-  }
-
-  html body main .service-pillars .client-service-grid
-  > :nth-child(even) .service-card-link {
-    background: #FFFFFF !important;
-    background-color: #FFFFFF !important;
-    border: 1px solid #17181C !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-  }
-
-  html body main .service-pillars .client-service-grid
-  > :nth-child(even) .service-card-face {
-    background: #2337C6 !important;
-    background-color: #2337C6 !important;
-    border-radius: 15px !important;
-  }
+.home-reel {
+  aspect-ratio: 16 / 9 !important;
+  min-height: 0 !important;
+  border-radius: 18px !important;
+  background-size: cover !important;
+  background-position: center !important;
 }

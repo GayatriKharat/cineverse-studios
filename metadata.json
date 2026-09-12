@@ -1,0 +1,6 @@
+{
+  "name": "Cineverse Studios",
+  "description": "A production, branding and media house for cinematic production, entertainment, and digital experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

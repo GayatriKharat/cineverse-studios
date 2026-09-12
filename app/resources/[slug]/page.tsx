@@ -77,7 +77,6 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
         <PageHero eyebrow="Resources / Voices" title={<>What partners <em>remember.</em></>} copy={resource.copy} />
         <section className="testimonials-stage wrap">
           <div className="testimonials-intro">
-            <p className="eyebrow">The signal is clear</p>
             <h2>Work that leaves a <em>trace.</em></h2>
             <p>Three perspectives from the people who trusted the house with the idea, the process and the final frame.</p>
           </div>

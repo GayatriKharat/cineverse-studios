@@ -104,21 +104,20 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
       <PageHero eyebrow={page.eyebrow} title={page.title} copy={page.copy} image={page.image} />
       {studio === "team" && (
         <section className="founders wrap">
-          <p className="eyebrow">Founders</p>
           <h2>Flip a portrait.</h2>
           <Stagger className="founder-row">
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-shreeraj.png?v=6") }} /><p className="eyebrow">Co-founder</p><h3>ShreeRaj Avhad</h3><span>Creative direction · Production</span></>}
-                back={<div className="founder-back"><p className="eyebrow">Co-founder</p><h3>ShreeRaj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-shreeraj.png?v=6") }} /><h3>ShreeRaj Avhad</h3><span>Creative direction · Production</span></>}
+                back={<div className="founder-back"><h3>ShreeRaj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-kiran.png?v=6") }} /><p className="eyebrow">Co-founder</p><h3>Kiran Dhangar</h3><span>Brand strategy · Operations</span></>}
-                back={<div className="founder-back"><p className="eyebrow">Co-founder</p><h3>Kiran Dhangar</h3><p>Keeps the house commercially sharp: brand, ops and the brief that production can actually make.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-kiran.png?v=6") }} /><h3>Kiran Dhangar</h3><span>Brand strategy · Operations</span></>}
+                back={<div className="founder-back"><h3>Kiran Dhangar</h3><p>Keeps the house commercially sharp: brand, ops and the brief that production can actually make.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
           </Stagger>

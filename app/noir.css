@@ -7,7 +7,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .skip-link{position:absolute;left:16px;top:-48px;z-index:80;padding:10px 14px;background:var(--cta);color:var(--ink);font-weight:600}
 .skip-link:focus{top:16px}
 .wrap{width:min(100%,1440px);margin-inline:auto;padding-inline:clamp(20px,6vw,110px)}
-.eyebrow{margin:0 0 18px;display:block;color:var(--purple);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;text-align:left}
+.eyebrow{display:none!important}
+.eyebrow::before{content:none!important;display:none!important}
 h1,h2,h3,p{margin-top:0}
 h1,h2{font-family:var(--font-serif),Cormorant Garamond,Georgia,serif;font-weight:500;letter-spacing:-.04em;line-height:.92}
 h1{margin-bottom:22px;font-size:clamp(3.6rem,8.5vw,7.8rem)}
@@ -46,7 +47,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .nav.on-hero:not(.scrolled) nav{color:#1a1d2a}
 .nav-item{position:relative;display:flex;align-items:center;min-height:44px}
 .nav-link{position:relative;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:12px 0;min-height:44px}
-.nav-caret{border:0;background:transparent;color:inherit;padding:10px 4px;min-width:32px;min-height:44px;cursor:pointer;line-height:1;opacity:.75}
+.nav-caret{border:0;background:transparent;color:inherit;padding:0;margin-left:3px;min-width:0;width:auto;min-height:0;cursor:pointer;line-height:1;font-size:8px;opacity:.75}
 .nav-item.is-open .nav-caret,.nav-item:hover .nav-caret,.nav-item:focus-within .nav-caret{transform:rotate(180deg)}
 .nav-caret{transition:transform .25s ease}
 .nav-link:after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--purple);transform:scaleX(0);transform-origin:left;transition:transform .35s}
@@ -133,7 +134,7 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
 .founder-flip .portrait{min-height:460px;margin-bottom:16px}
 .founder-flip .flip-front{padding-bottom:18px}
 .founder-flip .flip-front h3,.founder-flip .flip-front .eyebrow,.founder-flip .flip-front span{padding-inline:20px}
-.founder-back{display:grid;align-content:center;gap:12px;height:100%;padding:36px 28px;box-sizing:border-box;background:linear-gradient(180deg,var(--surface-alt),var(--white))}
+.founder-back{display:grid;align-content:start;gap:12px;height:100%;max-height:100%;overflow-y:auto;padding:32px 28px;box-sizing:border-box;background:linear-gradient(180deg,var(--surface-alt),var(--white))}
 .founder-back p{margin:0;color:var(--smoke);line-height:1.7}
 .flip-grid{display:grid;gap:14px;margin:40px 0 20px}
 .flip-grid.three{grid-template-columns:repeat(3,1fr)}

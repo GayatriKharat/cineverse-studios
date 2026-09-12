@@ -10,15 +10,14 @@ export default function Services() {
     <main>
       <PageHero eyebrow="Services" title={<>Six divisions. <em>One floor.</em></>} copy="From the first idea to the final delivery, every craft lives in one connected production house. Open a division to find the right route for your brief." image="/all-services-hero.png" />
       <section id="explore" className="wrap service-pillars">
-        <Reveal><p className="eyebrow">01 / The craft</p><h2>Pick a division. <em>Make it move.</em></h2></Reveal>
+        <Reveal><h2>Pick a division. <em>Make it move.</em></h2></Reveal>
         <Stagger className="pillar-cards client-service-grid">
           {services.map((service) => {
             const crafts = craftsByService[service.slug] ?? [];
             return <StaggerItem key={service.slug}>
               <article className="service-directory-card">
                 <Link className="service-directory-media" href={`/services/${service.slug}`} aria-label={`Open ${service.title}`}>
-                  <img src={asset(service.image)} alt="" />
-                  <span>{service.code}</span>
+                  <img src={asset(service.image)} alt={service.title} />
                 </Link>
                 <div className="service-directory-copy">
                   <h3>{service.title}</h3>

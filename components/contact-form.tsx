@@ -40,29 +40,30 @@ export function ContactForm() {
   return (
     <form className="contact-form" onSubmit={handleSubmit(submit)} noValidate>
       <label>Your name
-        <input {...register("name", { required: "Please enter your name", minLength: 2 })} autoComplete="name" />
+        <input {...register("name", { required: "Please enter your name", minLength: 2 })} autoComplete="name" placeholder="Your name" />
         {errors.name && <small>{errors.name.message}</small>}
       </label>
       <label>Email address
-        <input {...register("email", { required: "Please enter an email", pattern: { value: /^\S+@\S+\.\S+$/, message: "Enter a valid email" } })} type="email" autoComplete="email" />
+        <input {...register("email", { required: "Please enter an email", pattern: { value: /^\S+@\S+\.\S+$/, message: "Enter a valid email" } })} type="email" autoComplete="email" placeholder="you@company.com" />
         {errors.email && <small>{errors.email.message}</small>}
       </label>
       <label>Contact number
-        <input {...register("phone", { required: "Please enter your contact number" })} type="tel" autoComplete="tel" placeholder="+91 XXXXX XXXXX" />
+        <input {...register("phone", { required: "Please enter your contact number" })} type="tel" autoComplete="tel" placeholder="+91 74474 74431" />
         {errors.phone && <small>{errors.phone.message}</small>}
       </label>
       <label>Service needed
         <select {...register("service")}>
           <option value="">Select a service</option>
           {services.map((service) => <option key={service.slug} value={service.slug}>{service.title}</option>)}
+          <option value="full-production">Full production</option>
         </select>
       </label>
       <label>Tell us about your project
-        <textarea {...register("details", { required: "Tell us a little about the project", minLength: 15 })} rows={5} />
+        <textarea {...register("details", { required: "Tell us a little about the project", minLength: 15 })} rows={5} placeholder="Tell us about your project, scope, timeline, references" />
         {errors.details && <small>{errors.details.message}</small>}
       </label>
       <button className={`button send-button is-${sendPhase}`} disabled={isSubmitting || sendPhase !== "idle"} type="submit" aria-live="polite">
-        <span className="send-button-label">{sendPhase === "sending" ? "Sending…" : "Send message"}</span>
+        <span className="send-button-label">{sendPhase === "sending" ? "Sending…" : "Send Message ↗"}</span>
         {sendPhase === "flying" && <span className="send-button-plane" aria-hidden="true">✈</span>}
       </button>
       {state && <p className="form-state success" role="status">{state}</p>}

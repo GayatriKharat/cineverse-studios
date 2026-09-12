@@ -55,7 +55,6 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
                     style={on ? { backgroundImage: cssUrl(craft.image) } : undefined}
                   />
                   <div className="tab-copy">
-                    <p className="eyebrow">What we provide</p>
                     <h2>{craft.title}</h2>
                     <p className="lede">{craft.strap}</p>
                     {serviceSlug === "production" && (

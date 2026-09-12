@@ -20,22 +20,20 @@ export default async function CraftPage({ params }: { params: Promise<{ slug: st
       <PageHero eyebrow={`Production · ${craft.title}`} title={craft.title} copy={craft.strap} image={craft.image} />
       <section className="intro wrap">
         <div>
-          <p className="eyebrow">The problem</p>
           <h2>{craft.problem}</h2>
         </div>
         <div>
-          <p className="eyebrow">How we solve it</p>
           <p className="lede">{craft.solution}</p>
           <p className="lede"><b>Who it is for.</b> {craft.forWho}</p>
         </div>
       </section>
       <section className="detail-grid wrap">
         <article>
-          <p className="eyebrow">You leave with</p>
+          <h3>You leave with</h3>
           <ul>{craft.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
         </article>
         <article>
-          <p className="eyebrow">How it runs</p>
+          <h3>How it runs</h3>
           <ol>{craft.steps.map((item, i) => <li key={item}><span>{String(i + 1).padStart(2, "0")}</span>{item}</li>)}</ol>
         </article>
       </section>

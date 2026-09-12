@@ -3,7 +3,7 @@ import path from "path";
 
 const basePath = process.env.BASE_PATH ?? "";
 const nextConfig: NextConfig = {
-  ...(process.env.NODE_ENV === "production" ? { output: "export" as const } : {}),
+  output: "standalone",
   trailingSlash: true,
   basePath,
   assetPrefix: basePath,

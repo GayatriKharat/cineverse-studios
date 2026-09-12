@@ -119,7 +119,6 @@ export function Navigation() {
         </button>
       </header>
       <div className={`index-menu${open ? " open" : ""}`} aria-hidden={!open}>
-        <p className="eyebrow">Menu</p>
         <div className="index-cols">
           {navPrimary.map((item, i) => (
             <div key={item.label} className="index-block">

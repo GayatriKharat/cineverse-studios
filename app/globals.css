@@ -71,19 +71,12 @@ textarea {
 }
 
 .eyebrow {
-  color: var(--brand-blue);
-  font-weight: 750;
-  letter-spacing: 0.2em;
+  display: none !important;
 }
 
 .eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  margin-right: 9px;
-  vertical-align: middle;
-  background: var(--brand-gold);
+  content: none !important;
+  display: none !important;
 }
 
 h1,
@@ -358,25 +351,35 @@ h2 em {
    ========================================================= */
 
 .client-marquees {
-  background: var(--brand-blue);
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--ink);
   overflow: hidden;
+  padding-block: clamp(60px, 8vw, 100px);
+}
+
+.client-marquees-header {
+  margin-bottom: clamp(24px, 3.5vw, 40px);
+}
+
+.client-marquees-header h2 {
+  margin: 0;
 }
 
 .client-strip {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--line);
+  background: #ffffff;
 }
 
 .client-strip span {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--smoke);
 }
 
 .client-strip b {
-  color: #ffffff;
+  color: var(--ink);
 }
 
 .client-strip i {
-  color: var(--brand-gold);
+  color: var(--brand-blue);
 }
 
 

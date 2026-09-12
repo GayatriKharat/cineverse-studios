@@ -29,7 +29,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           image="/film-automotive.png"
         />
         <section className="wrap quick-need">
-          <p className="eyebrow">Pick a craft</p>
           <h2>What do you need <em>made?</em></h2>
           <CraftTabs crafts={productionCrafts} serviceSlug="production" />
         </section>

@@ -3,7 +3,7 @@ export const pillars = [
     slug: "pre-production",
     code: "01",
     title: "Pre-production",
-    strap: "Clarity before anyone calls action.",
+    strap: "Plan with purpose. Create with intent.",
     summary: "The work before the work: brand, strategy, scripts and a plan that protects the idea.",
     image: "Updated Images/6 services/Pre production.png",
     items: [
@@ -19,7 +19,7 @@ export const pillars = [
     slug: "production",
     code: "02",
     title: "Production",
-    strap: "Every format. One production floor.",
+    strap: "Bring ideas to life. Capture stories that matter.",
     summary: "On-ground craft across film, advertising, photography, podcasts, music and branded content — not film alone.",
     image: "Updated Images/6 services/Production.png",
     items: [
@@ -36,7 +36,7 @@ export const pillars = [
     slug: "post-production",
     code: "03",
     title: "Post-production",
-    strap: "Locked picture. Ready for every screen.",
+    strap: "Refine every detail. Deliver excellence.",
     summary: "Picture, sound and finishing until every version is ready for social, broadcast, cinema or OTT.",
     image: "Updated Images/6 services/Post Production.png",
     items: [
@@ -52,53 +52,53 @@ export const pillars = [
 export const services = [
   ...pillars,
   {
-  slug: "digital-social",
-  code: "04",
-  title: "Digital & Social Media",
-  strap: "The feed, the community and the growth plan.",
-  summary: "Social management, content strategy, publishing, community and digital growth across platforms.",
-  image: "Updated Images/6 services/Social Media.png",
-  items: [
-    "Social Media Management",
-    "Content Strategy",
-    "Digital Publishing",
-    "Community Management",
-    "Digital Marketing",
-    "Digital Growth",
-  ],
-},
-{
-  slug: "advertising",
-  code: "05",
-  title: "Advertising & Brand Content",
-  strap: "Campaigns that carry a brand, not just a logo.",
-  summary: "Advertising, branded content and commercial media across digital, print, broadcast and live platforms.",
-  image: "Updated Images/6 services/Advertising.png",
-  items: [
-    "Advertising Campaigns",
-    "Branded Campaigns",
-    "Commercial Media",
-    "Promotional Campaigns",
-    "Marketing Communications",
-  ],
-},
-{
-  slug: "events",
-  code: "06",
-  title: "Events & Experiences",
-  strap: "Live rooms treated with the same care as the film.",
-  summary: "Corporate events, launches, exhibitions, conferences, concerts and brand experiences, conceived and run as productions.",
-  image: "Updated Images/6 services/Evants.png",
-  items: [
-    "Corporate Events",
-    "Product Launches",
-    "Exhibitions",
-    "Conferences",
-    "Live Shows",
-    "Concerts",
-    "Brand Experiences",
-  ],
-},
+    slug: "digital-social",
+    code: "04",
+    title: "Digital & Social Media",
+    strap: "Engage audiences. Build communities. Drive growth.",
+    summary: "Social management, content strategy, publishing, community and digital growth across platforms.",
+    image: "Updated Images/6 services/Social Media.png",
+    items: [
+      "Social Media Management",
+      "Content Strategy",
+      "Digital Publishing",
+      "Community Management",
+      "Digital Marketing",
+      "Digital Growth",
+    ],
+  },
+  {
+    slug: "advertising",
+    code: "05",
+    title: "Advertising & Brand Content",
+    strap: "Powerful campaigns. Stronger brands.",
+    summary: "Advertising, branded content and commercial media across digital, print, broadcast and live platforms.",
+    image: "Updated Images/6 services/Advertising.png",
+    items: [
+      "Advertising Campaigns",
+      "Branded Campaigns",
+      "Commercial Media",
+      "Promotional Campaigns",
+      "Marketing Communications",
+    ],
+  },
+  {
+    slug: "events",
+    code: "06",
+    title: "Events & Experiences",
+    strap: "Create moments. Inspire connections.",
+    summary: "Corporate events, launches, exhibitions, conferences, concerts and brand experiences, conceived and run as productions.",
+    image: "Updated Images/6 services/Evants.png",
+    items: [
+      "Corporate Events",
+      "Product Launches",
+      "Exhibitions",
+      "Conferences",
+      "Live Shows",
+      "Concerts",
+      "Brand Experiences",
+    ],
+  },
 ] as const;
 
 export const house = [
@@ -151,7 +151,7 @@ export const testimonials = [
   { quote: "Narayani understands that beautiful creative work also needs to perform in the real world.", name: "Founder", scope: "Brand & digital" },
 ] as const;
 
-export const clients = ["Brand partners", "Entertainment", "Startups", "Cultural IP", "Global teams", "Live stages", "Government"] as const;
+export const clients = ["Brands", "Creators", "Startups", "Government", "Entertainment", "Events", "Global teams"] as const;
 
 export const faqs = [
   ["Can I hire you for just one service?", "Yes. You can bring us in for one focused requirement — from a script or edit to a social campaign — or combine divisions for an end-to-end partnership spanning branding, production, talent and distribution."],
@@ -165,6 +165,7 @@ export type NavItem = NavLink & { children?: NavLink[] };
 
 export const navPrimary: NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   {
     label: "Services",
     href: "/services",
@@ -173,8 +174,17 @@ export const navPrimary: NavItem[] = [
       ...services.map((service) => ({ label: service.title, href: `/services/${service.slug}` })),
     ],
   },
-  { label: "Work", href: "/portfolio" },
-  { label: "About", href: "/about" },
+  { label: "Portfolio", href: "/portfolio" },
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
+      { label: "All resources", href: "/resources" },
+      { label: "Articles", href: "/resources/articles" },
+      { label: "FAQs", href: "/resources/faqs" },
+      { label: "Testimonials", href: "/resources/testimonials" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ];
 
