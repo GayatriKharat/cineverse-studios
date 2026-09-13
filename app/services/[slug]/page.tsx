@@ -9,7 +9,7 @@ export function generateStaticParams() {
   return services.map(({ slug }) => ({ slug }));
 }
 
-export const dynamicParams = true;
+
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
