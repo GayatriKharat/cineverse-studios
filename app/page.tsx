@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { BrandMark } from "@/components/brand-mark";
 import { AnimatedStats } from "@/components/animated-stats";
 import { ContactForm } from "@/components/contact-form";
@@ -55,8 +56,8 @@ export default function Home() {
                       <p>{service.strap}</p>
                     </div>
                     {isWhite && <span className="service-card-yellow-slash" aria-hidden="true" />}
-                    <span className="service-card-circle-btn" aria-hidden="true">
-                      ↗
+                    <span className="service-card-arrow-action" aria-hidden="true">
+                      <ArrowUpRight className="service-card-arrow-icon" size={34} strokeWidth={2.4} />
                     </span>
                   </div>
                 </Link>

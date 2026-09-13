@@ -2623,16 +2623,20 @@ main > section {
 }
 
 .service-pillars .client-service-grid > *,
-.service-pillars .client-service-grid .stagger-item {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+.service-pillars .client-service-grid .stagger-item,
+html body main .service-pillars .client-service-grid > * {
   padding: 0 !important;
   margin: 0 !important;
   display: flex !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
 }
 
-/* Card Link Container */
+/* Card Link Container - identical 28px curvature for all cards */
 html body main .service-pillars .service-card-link,
 html body main .service-pillars .service-architecture-card {
   position: relative !important;
@@ -2641,7 +2645,7 @@ html body main .service-pillars .service-architecture-card {
   width: 100% !important;
   height: 100% !important;
   min-height: 420px !important;
-  border-radius: 24px !important;
+  border-radius: 28px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
   text-decoration: none !important;
@@ -2662,7 +2666,7 @@ html body main .service-pillars .service-card-face {
   width: 100% !important;
   height: 100% !important;
   padding: 16px 16px 28px 16px !important;
-  border-radius: 24px !important;
+  border-radius: 28px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
   isolation: isolate !important;
@@ -2744,6 +2748,8 @@ html body main .service-pillars .client-service-grid > :nth-child(odd) .service-
   background: #FFFFFF !important;
   background-color: #FFFFFF !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
 }
 
@@ -2756,6 +2762,8 @@ html body main .service-pillars .card-theme-white .service-card-face,
 html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
   background: #FFFFFF !important;
   background-color: #FFFFFF !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
   color: #000000 !important;
 }
 
@@ -2788,13 +2796,14 @@ html body main .service-pillars .client-service-grid > :nth-child(odd) .service-
   z-index: 1 !important;
 }
 
-/* 2. Royal Blue Cards (Even: index 1, 3, 5 -> 2nd, 4th, 6th) */
+/* 2. Royal Blue Cards (Even: index 1, 3, 5 -> 2nd, 4th, 6th) - Same 28px curve as white cards */
 html body main .service-pillars .card-theme-blue,
-html body main .service-pillars .client-service-grid > :nth-child(even),
 html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link {
   background: #2337C6 !important;
   background-color: #2337C6 !important;
   border: 1px solid #2337C6 !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
   box-shadow: 0 12px 34px rgba(35, 55, 198, 0.2) !important;
 }
 
@@ -2807,6 +2816,8 @@ html body main .service-pillars .card-theme-blue .service-card-face,
 html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face {
   background: #2337C6 !important;
   background-color: #2337C6 !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
   color: #FFFFFF !important;
 }
 
@@ -2831,53 +2842,83 @@ html body main .service-pillars .client-service-grid > :nth-child(even) .service
   content: none !important;
 }
 
-/* 3. Circular Arrow Button */
+/* 3. Arrow Action (No circle, enlarged sleek arrow) */
+html body main .service-pillars .service-card-arrow-action,
 html body main .service-pillars .service-card-circle-btn {
   position: absolute !important;
   right: 22px !important;
   bottom: 22px !important;
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 50% !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 16px !important;
+  font-size: 32px !important;
   font-weight: 500 !important;
   line-height: 1 !important;
   z-index: 5 !important;
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
 }
 
-/* White card arrow button */
+html body main .service-pillars .service-card-arrow-icon {
+  width: 34px !important;
+  height: 34px !important;
+  display: block !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Hover: glide the arrow diagonally up-right */
+html body main .service-pillars .service-card-link:hover .service-card-arrow-action,
+html body main .service-pillars .service-card-link:hover .service-card-circle-btn,
+html body main .service-pillars .service-card-link:hover .service-card-arrow-icon {
+  transform: translate(5px, -5px) !important;
+}
+
+/* White card arrow button: sits on yellow triangle slash, high contrast black */
+html body main .service-pillars .card-theme-white .service-card-arrow-action,
 html body main .service-pillars .card-theme-white .service-card-circle-btn,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-arrow-action,
 html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-circle-btn {
-  border: 1.5px solid #2337C6 !important;
-  background: #FFFFFF !important;
-  color: #2337C6 !important;
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #000000 !important;
 }
 
+html body main .service-pillars .card-theme-white:hover .service-card-arrow-action,
 html body main .service-pillars .card-theme-white:hover .service-card-circle-btn,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link:hover .service-card-arrow-action,
 html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link:hover .service-card-circle-btn {
-  background: #2337C6 !important;
-  color: #FFFFFF !important;
-  transform: scale(1.08) !important;
+  background: transparent !important;
+  color: #000000 !important;
 }
 
-/* Blue card arrow button */
+/* Blue card arrow button: sits on royal blue background, crisp pure white */
+html body main .service-pillars .card-theme-blue .service-card-arrow-action,
 html body main .service-pillars .card-theme-blue .service-card-circle-btn,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-arrow-action,
 html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-circle-btn {
-  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
-  background: rgba(255, 255, 255, 0.14) !important;
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
   color: #FFFFFF !important;
 }
 
+html body main .service-pillars .card-theme-blue:hover .service-card-arrow-action,
 html body main .service-pillars .card-theme-blue:hover .service-card-circle-btn,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link:hover .service-card-arrow-action,
 html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link:hover .service-card-circle-btn {
-  background: #FFFFFF !important;
-  border-color: #FFFFFF !important;
-  color: #2337C6 !important;
-  transform: scale(1.08) !important;
+  background: transparent !important;
+  border: none !important;
+  color: #FFFFFF !important;
 }
 
 /* Turn off legacy ::after arrow */
@@ -2887,7 +2928,7 @@ html body main .service-pillars .service-card-link::after {
 }
 
 /* Hide legacy tags */
-html body main .service-pillars .service-card-face > span:not(.service-card-circle-btn):not(.service-card-yellow-slash) {
+html body main .service-pillars .service-card-face > span:not(.service-card-circle-btn):not(.service-card-arrow-action):not(.service-card-yellow-slash) {
   display: none !important;
 }
 
@@ -2902,11 +2943,16 @@ html body main .service-pillars .service-card-face > span:not(.service-card-circ
   html body main .service-pillars .service-card-body p {
     font-size: 14px !important;
   }
+  html body main .service-pillars .service-card-arrow-action,
   html body main .service-pillars .service-card-circle-btn {
     right: 18px !important;
     bottom: 18px !important;
-    width: 38px !important;
-    height: 38px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  html body main .service-pillars .service-card-arrow-icon {
+    width: 28px !important;
+    height: 28px !important;
   }
 }
 

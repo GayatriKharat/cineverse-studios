@@ -18,7 +18,7 @@ export function SiteFooter() {
       <div className="site-footer-panel">
         <div className="footer-brand-column">
           <div style={{ marginBottom: "16px" }}>
-            <BrandLogo variant="light" compact={false} showTagline={false} />
+            <BrandLogo variant="dark" compact={false} showTagline={false} />
           </div>
           <p className="footer-tag" style={{ color: "var(--brand-blue)", fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.08em", marginBottom: "8px" }}>Production · Branding · Media</p>
           <p className="footer-lede">An integrated house for branding, production, talent, platforms and entertainment, built to serve brands and creators anywhere in the world.</p>
@@ -46,7 +46,7 @@ export function SiteFooter() {
           <SocialLinks />
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Narayani Studios | Strategy & Consulting · Brand Development & PR · Content & Production · Social Media & Audience Growth · Advertising & Campaigns · Events & Experiences</span>
+          <span>© 2026 Narayani Studios | Pre-production · Production · Post-production · Digital & Social · Advertising · Events</span>
         </div>
       </div>
     </footer>

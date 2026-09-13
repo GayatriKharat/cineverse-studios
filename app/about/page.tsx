@@ -10,8 +10,8 @@ const founders = [
   {
     name: "Shreeraj Avhad",
     role: "Co-Founder & CEO",
-    image: "/founder-shreeraj.png?v=6",
-    line: "Creative direction · Production",
+    image: "/images/shreeraj-avhad.jpg",
+    line: "Co-Founder & CEO",
     bio: [
       "Shreeraj started working as a graphic designer at just 13 years old. From there, his skills grew naturally, one after another. He picked up photography to shoot better visuals. Then videography, to bring those visuals to life. Then video editing, to shape the footage into a story. Then scripting, to plan that story before the camera even rolled. Then social media and content strategy, to make sure the finished work actually reached people.",
       "Each new skill came from a real need, not from trying to add more to his resume. Over time, this gave him something rare: experience across the entire journey of content, from the very first idea to the moment it reaches an audience. Most people in this industry specialize in one part of that journey. Shreeraj has worked through nearly all of it himself.",
@@ -24,8 +24,8 @@ const founders = [
   {
     name: "Kiran Dhangar",
     role: "Co-Founder & COO",
-    image: "/founder-kiran.png?v=6",
-    line: "Brand strategy · Operations",
+    image: "/images/kiran-dhangar.jpg",
+    line: "Co-Founder & COO",
     bio: [
       "Kiran took an unusual path to get here. He completed his MTech at IIT Gandhinagar and graduated with an institute gold medal, a result that could have led him into research or a typical technical career. Instead, he chose to build a career in editing and content production.",
       "He picked up editing quickly, and went on to work with some of the industry’s top creators, on content that has also crossed billions of views. That speed came from the same habit that helped him succeed at IIT: breaking a process down into simple parts, figuring out what really matters, and improving that one thing well.",
@@ -56,7 +56,7 @@ export default function About() {
         <div className={styles.gridLines} aria-hidden="true" />
 
         <div className={styles.header}>
-          <span className={styles.eyebrow}>02 / Mandate</span>
+          <span className={styles.eyebrow}>Mandate</span>
           <span className={styles.kicker}>ONE ECOSYSTEM</span>
         </div>
 
@@ -64,8 +64,8 @@ export default function About() {
           <article className={`${styles.card} ${styles.vision}`}>
             <div className={styles.cardGlow} aria-hidden="true" />
             <div className={styles.cardTop}>
-              <span className={styles.cardNumber}>01</span>
               <span className={styles.cardLabel}>OUR VISION</span>
+              <span className={styles.cardDot} aria-hidden="true">●</span>
             </div>
             <div className={styles.icon} aria-hidden="true">◉</div>
             <h3>To build the world&apos;s most admired <em>creative ecosystem.</em></h3>
@@ -79,18 +79,19 @@ export default function About() {
               <span />
               <i />
             </div>
-            <span className={styles.centerIndex}>02</span>
-            <h2 id="purpose-title">One ecosystem. <span>Limitless</span> creative directions.</h2>
-            <p>Strategy, creative, production, branding & distribution.<br /><strong>Together under one roof.</strong></p>
-            <div className={styles.centerLine} aria-hidden="true" />
-            <span className={styles.centerNote}>THE HOUSE<br />IN MOTION</span>
+            <div className={styles.centerContent}>
+              <h2 id="purpose-title">One ecosystem.<br /><em>Limitless</em> creative directions.</h2>
+              <p className={styles.centerSub}>Strategy · Creativity · Production · Distribution<br /><strong>Together under one roof.</strong></p>
+              <div className={styles.centerLine} aria-hidden="true" />
+              <span className={styles.centerNote}>THE HOUSE<br />IN MOTION</span>
+            </div>
           </div>
 
           <article className={`${styles.card} ${styles.mission}`}>
             <div className={styles.cardGlow} aria-hidden="true" />
             <div className={styles.cardTop}>
-              <span className={styles.cardNumber}>02</span>
               <span className={styles.cardLabel}>OUR MISSION</span>
+              <span className={styles.cardDot} aria-hidden="true">●</span>
             </div>
             <div className={styles.icon} aria-hidden="true">◎</div>
             <h3>Turning ideas into identities <em>the world remembers.</em></h3>

@@ -109,14 +109,14 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-shreeraj.png?v=6") }} /><h3>ShreeRaj Avhad</h3><span>Creative direction · Production</span></>}
-                back={<div className="founder-back"><h3>ShreeRaj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/images/shreeraj-avhad.jpg") }} /><h3>Shreeraj Avhad</h3><span>Co-Founder & CEO</span></>}
+                back={<div className="founder-back"><h3>Shreeraj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-kiran.png?v=6") }} /><h3>Kiran Dhangar</h3><span>Brand strategy · Operations</span></>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/images/kiran-dhangar.jpg") }} /><h3>Kiran Dhangar</h3><span>Co-Founder & COO</span></>}
                 back={<div className="founder-back"><h3>Kiran Dhangar</h3><p>Keeps the house commercially sharp: brand, ops and the brief that production can actually make.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
