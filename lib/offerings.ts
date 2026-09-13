@@ -23,7 +23,7 @@ export const strategyCrafts: Craft[] = [
     solution: "We audit goals, identify high-leverage opportunities, and build actionable roadmaps for sustainable growth.",
     deliverables: ["Market Opportunity Audit", "Strategic Growth Roadmap", "Resource & Channel Plan"],
     steps: ["Goal Assessment", "Market Discovery", "Strategy Formulation", "Execution Plan"],
-    image: "/service-brand.png",
+    image: "/subservices/strategy.jpg",
   },
   {
     slug: "brand-positioning",
@@ -224,7 +224,7 @@ export const contentProductionCrafts: Craft[] = [
     solution: "Full-scale production crew, cinema cameras, precision lighting, and agile sets delivering multi-format masters.",
     deliverables: ["Cinematic 4K/6K Raw Capture", "Master Edits", "Platform Aspect Cuts"],
     steps: ["Production Setup", "Principal Photography", "Sound & Stills Capture", "DIT Handover"],
-    image: "/Updated Images/6 services/Production.png",
+    image: "/subservices/production.jpg",
   },
   {
     slug: "photography",
@@ -292,7 +292,7 @@ export const socialMediaCrafts: Craft[] = [
     solution: "Daily channel operations, scheduling, community moderation, and strategic performance oversight.",
     deliverables: ["Monthly Publishing Cadence", "Content Calendar", "Monthly Analytics Digest"],
     steps: ["Channel Setup & Audit", "Cadence Execution", "Community Monitoring", "Performance Iteration"],
-    image: "/Updated Images/6 services/Social Media.png",
+    image: "/subservices/social.jpg",
   },
   {
     slug: "content-creation-publishing",
@@ -373,7 +373,7 @@ export const advertisingCrafts: Craft[] = [
     solution: "Big-idea creative campaign concepts that cut through noise and spark organic cultural conversation.",
     deliverables: ["Master Campaign Pitch Deck", "Key Visuals (KV)", "Core Campaign Slogan & Angles"],
     steps: ["Brief Analysis", "Creative Conception", "Stakeholder Pitch", "Production Handover"],
-    image: "/film-automotive.png",
+    image: "/subservices/advertising.jpg",
   },
   {
     slug: "advertising-strategy-creative",
@@ -467,7 +467,7 @@ export const eventsCrafts: Craft[] = [
     solution: "Curating a thematic experience narrative, attendee journey design, and unforgettable keynote moments.",
     deliverables: ["Event Master Concept Deck", "Attendee Experience Map", "Spatial & Stage Design Vision"],
     steps: ["Objective Discovery", "Theme Architecture", "Experience Flow Design", "Production Roadmap"],
-    image: "/Updated Images/6 services/Evants.png",
+    image: "/subservices/events.jpg",
   },
   {
     slug: "corporate-events",
