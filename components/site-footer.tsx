@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { navPrimary, services } from "@/lib/site-data";
 import { SocialLinks } from "@/components/social-links";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function SiteFooter() {
   const exploreLinks = [
@@ -16,7 +17,9 @@ export function SiteFooter() {
     <footer className="site-footer wrap">
       <div className="site-footer-panel">
         <div className="footer-brand-column">
-          <p className="footer-kicker">NARAYANI STUDIOS</p>
+          <div style={{ marginBottom: "16px" }}>
+            <BrandLogo variant="light" compact={false} showTagline={false} />
+          </div>
           <p className="footer-tag" style={{ color: "var(--brand-blue)", fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.08em", marginBottom: "8px" }}>Production · Branding · Media</p>
           <p className="footer-lede">An integrated house for branding, production, talent, platforms and entertainment, built to serve brands and creators anywhere in the world.</p>
           <Link className="footer-cta" href="/contact">Start a project <span aria-hidden="true">↗</span></Link>

@@ -77,7 +77,7 @@ export function Navigation() {
   return (
     <>
       <header ref={navRef} className={`nav${scrolled ? " scrolled" : ""}${onDarkHero ? " on-hero" : ""}${open ? " is-open" : ""}`}>
-        <BrandLogo variant="dark" compact showTagline />
+        <BrandLogo variant="dark" compact showTagline={false} />
         <nav aria-label="Primary">
           {navPrimary.map((item) => (
             <div key={item.label} className={`nav-item${item.children ? " has-drop" : ""}${openDrop === item.label ? " is-open" : ""}`}>

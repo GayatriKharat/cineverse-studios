@@ -12,8 +12,8 @@
     <circle cx="64" cy="15" r="5.5" fill="#F5B400"/>
   </g>
 
-  <!-- Wordmark NARAYANI -->
-  <g transform="translate(98, 14)" fill="#000000">
+  <!-- Wordmark NARAYANI in White for dark surfaces -->
+  <g transform="translate(98, 14)" fill="#FFFFFF">
     <!-- N -->
     <path d="M0 32V2H6.5L18.5 24V2H24.5V32H18L6 10V32H0Z"/>
     <!-- A -->
@@ -49,6 +49,6 @@
     </g>
   </g>
 
-  <!-- Wordmark STUDIOS -->
-  <text x="99" y="78" fill="#000000" font-family="Outfit, Arial, Helvetica, sans-serif" font-size="24" font-weight="800" letter-spacing="0.22em">STUDIOS</text>
+  <!-- Wordmark STUDIOS in White -->
+  <text x="99" y="78" fill="#FFFFFF" font-family="Outfit, Arial, Helvetica, sans-serif" font-size="24" font-weight="800" letter-spacing="0.22em">STUDIOS</text>
 </svg>

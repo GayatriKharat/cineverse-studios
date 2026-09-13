@@ -9,25 +9,24 @@ export function BrandMark({ className, size = 48 }: BrandMarkProps) {
       className={className}
       width={size}
       height={size}
-      viewBox="0 0 88 88"
+      viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <defs>
-        <linearGradient id="narayani-blue" x1="10" y1="8" x2="79" y2="80" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#2337C6" />
-          <stop offset="1" stopColor="#2337C6" />
-        </linearGradient>
-      </defs>
-      <path fill="url(#narayani-blue)" d="M17 8h12c6 0 10 2 14 7l25 31V17c0-5 3-9 9-9h3c5 0 8 4 8 9v56c0 5-3 8-8 8H76c-6 0-10-2-14-7L36 45v28c0 5-3 8-8 8H17c-5 0-9-3-9-8V17c0-5 4-9 9-9Z" />
-      <g fill="#fff">
-        <rect x="15" y="17" width="12" height="10" rx="2" />
-        <rect x="15" y="31" width="12" height="10" rx="2" />
-        <rect x="15" y="45" width="12" height="10" rx="2" />
-        <rect x="15" y="59" width="12" height="10" rx="2" />
-      </g>
-      <circle cx="76" cy="18" r="6" fill="#2337C6" />
+      {/* Primary Blue N Emblem */}
+      <path
+        d="M8 12C8 6.5 12.5 2 18 2H30C34.5 2 38.2 4.6 39.8 8.5L64.5 62V11C64.5 6 68.5 2 73.5 2H80C85.5 2 90 6.5 90 12V88C90 93.5 85.5 98 80 98H68C63.5 98 59.8 95.4 58.2 91.5L33.5 38V89C33.5 94 29.5 98 24.5 98H18C12.5 98 8 93.5 8 88V12Z"
+        fill="#2337C6"
+      />
+      {/* 5 Film Perforation Sprocket Holes */}
+      <rect x="14" y="14" width="9.5" height="9" rx="2" fill="#FFFFFF" />
+      <rect x="14" y="29.5" width="9.5" height="9" rx="2" fill="#FFFFFF" />
+      <rect x="14" y="45" width="9.5" height="9" rx="2" fill="#FFFFFF" />
+      <rect x="14" y="60.5" width="9.5" height="9" rx="2" fill="#FFFFFF" />
+      <rect x="14" y="76" width="9.5" height="9" rx="2" fill="#FFFFFF" />
+      {/* Signature Gold Dot at top-right apex */}
+      <circle cx="77" cy="16" r="6.5" fill="#F5B400" />
     </svg>
   );
 }

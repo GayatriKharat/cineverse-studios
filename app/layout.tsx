@@ -4,6 +4,7 @@ import "./globals.css";
 import "./noir.css";
 import "./cinematic.css";
 import "./clean-theme.css";
+import "./serpentine-snake.css";
 import { IntroLoader } from "@/components/intro-loader";
 import { Navigation } from "@/components/navigation";
 import { PageTransition } from "@/components/page-transition";
