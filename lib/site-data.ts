@@ -1,119 +1,137 @@
-export const pillars = [
-  {
-    slug: "pre-production",
-    code: "01",
-    title: "Pre-production",
-    strap: "Plan with purpose. Create with intent.",
-    summary: "The work before the work: brand, strategy, scripts and a plan that protects the idea.",
-    image: "Updated Images/6 services/Pre production.png",
-    items: [
-      "Concept Development",
-      "Creative Strategy",
-      "Script / Content Development",
-      "Campaign Planning",
-      "Production Planning",
-      "Brand Strategy",
-    ],
-  },
-  {
-    slug: "production",
-    code: "02",
-    title: "Production",
-    strap: "Bring ideas to life. Capture stories that matter.",
-    summary: "On-ground craft across film, advertising, photography, podcasts, music and branded content — not film alone.",
-    image: "Updated Images/6 services/Production.png",
-    items: [
-      "Video Production",
-      "Film Production",
-      "Advertisement Production",
-      "Branded Content",
-      "Photography",
-      "Podcast Production",
-      "Music Production",
-    ],
-  },
-  {
-    slug: "post-production",
-    code: "03",
-    title: "Post-production",
-    strap: "Refine every detail. Deliver excellence.",
-    summary: "Picture, sound and finishing until every version is ready for social, broadcast, cinema or OTT.",
-    image: "Updated Images/6 services/Post Production.png",
-    items: [
-      "Video Editing",
-      "Audio Post",
-      "Finishing",
-      "Platform Adaptation",
-      "Final Delivery",
-    ],
-  },
-] as const;
+export type ServiceItem = {
+  slug: string;
+  code: string;
+  title: string;
+  strap: string;
+  summary: string;
+  image: string;
+  items: string[];
+  aliases?: string[];
+};
 
-export const services = [
-  ...pillars,
+export const divisions: ServiceItem[] = [
   {
-    slug: "digital-social",
+    slug: "strategy-consulting",
+    code: "01",
+    title: "Strategy & Consulting",
+    strap: "Turning ideas into clear strategies and actionable plans.",
+    summary: "Turning ideas into clear strategies and actionable plans.",
+    image: "/Updated Images/6 services/Pre production.png",
+    items: [
+      "Business & Marketing Consulting",
+      "Brand Positioning",
+      "Creative Direction",
+      "Content Strategy & Planning",
+      "Launch Strategy",
+      "Media Planning",
+      "Growth Strategy",
+    ],
+    aliases: ["pre-production"],
+  },
+  {
+    slug: "brand-development-pr",
+    code: "02",
+    title: "Brand Development & PR",
+    strap: "Building strong identities and creating a presence people remember.",
+    summary: "Building strong identities and creating a presence people remember.",
+    image: "/Updated Images/6 services/Production.png",
+    items: [
+      "Brand Strategy & Identity",
+      "Brand Development",
+      "Visual Design",
+      "Public Relations & Publicity",
+      "Personal Branding",
+      "Brand Content & Communication",
+    ],
+    aliases: ["brand-development", "branding"],
+  },
+  {
+    slug: "content-production",
+    code: "03",
+    title: "Content & Production",
+    strap: "Turning ideas into high-quality content, from concept to final output.",
+    summary: "Turning ideas into high-quality content, from concept to final output.",
+    image: "/Updated Images/6 services/Post Production.png",
+    items: [
+      "Concept & Script Development",
+      "Pre-Production",
+      "Video Production",
+      "Photography",
+      "Podcast & Audio Production",
+      "Music & Entertainment Production",
+      "Post-Production & Finishing",
+    ],
+    aliases: ["production", "post-production"],
+  },
+  {
+    slug: "social-media-growth",
     code: "04",
-    title: "Digital & Social Media",
-    strap: "Engage audiences. Build communities. Drive growth.",
-    summary: "Social management, content strategy, publishing, community and digital growth across platforms.",
-    image: "Updated Images/6 services/Social Media.png",
+    title: "Social Media & Audience Growth",
+    strap: "Building your online presence, engaging audiences, and growing your reach.",
+    summary: "Building your online presence, engaging audiences, and growing your reach.",
+    image: "/Updated Images/6 services/Social Media.png",
     items: [
       "Social Media Management",
-      "Content Strategy",
-      "Digital Publishing",
+      "Content Creation & Publishing",
+      "Platform Management",
       "Community Management",
-      "Digital Marketing",
-      "Digital Growth",
+      "Performance Marketing & Growth",
+      "Creator & Personal Presence",
     ],
+    aliases: ["digital-social", "social-media"],
   },
   {
-    slug: "advertising",
+    slug: "advertising-campaigns",
     code: "05",
-    title: "Advertising & Brand Content",
-    strap: "Powerful campaigns. Stronger brands.",
-    summary: "Advertising, branded content and commercial media across digital, print, broadcast and live platforms.",
-    image: "Updated Images/6 services/Advertising.png",
+    title: "Advertising & Campaigns",
+    strap: "Creating campaigns that connect brands with the right people.",
+    summary: "Creating campaigns that connect brands with the right people.",
+    image: "/Updated Images/6 services/Advertising.png",
     items: [
-      "Advertising Campaigns",
-      "Branded Campaigns",
-      "Commercial Media",
+      "Campaign Development",
+      "Advertising Strategy & Creative",
+      "Commercial Advertising",
+      "Branded Content Campaigns",
       "Promotional Campaigns",
-      "Marketing Communications",
+      "360° Campaigns",
+      "Campaign Management & Optimisation",
     ],
+    aliases: ["advertising"],
   },
   {
-    slug: "events",
+    slug: "events-experiences",
     code: "06",
     title: "Events & Experiences",
-    strap: "Create moments. Inspire connections.",
-    summary: "Corporate events, launches, exhibitions, conferences, concerts and brand experiences, conceived and run as productions.",
-    image: "Updated Images/6 services/Evants.png",
+    strap: "Creating memorable experiences that bring brands and audiences together.",
+    summary: "Creating memorable experiences that bring brands and audiences together.",
+    image: "/Updated Images/6 services/Evants.png",
     items: [
+      "Event Strategy & Concept",
       "Corporate Events",
       "Product Launches",
-      "Exhibitions",
-      "Conferences",
-      "Live Shows",
-      "Concerts",
-      "Brand Experiences",
+      "Brand Activations & Experiences",
+      "Exhibitions & Conferences",
+      "Live Shows & Concerts",
+      "Event Production, Promotion & Content",
     ],
+    aliases: ["events"],
   },
-] as const;
+];
+
+export const services = divisions;
+export const pillars = divisions.slice(0, 3);
+
+export function findService(slug: string): ServiceItem | undefined {
+  return divisions.find((s) => s.slug === slug || (s.aliases && s.aliases.includes(slug)));
+}
 
 export const house = [
-  { code: "01", title: "Branding & Creative", copy: "Brand development, campaign planning, creative strategy and communication for businesses, organisations and government.", href: "/services/pre-production" },
-  { code: "02", title: "Social & Digital", copy: "Platform management, publishing, community and digital growth for brands and creators.", href: "/services/digital-social" },
-  { code: "03", title: "Content Production", copy: "Concept to delivery for social, advertising, podcasts, photography, film and music.", href: "/services/production" },
-  { code: "04", title: "Advertising & Commercial", copy: "Campaigns and branded content across digital, print, broadcast and other media.", href: "/services/advertising" },
-  { code: "05", title: "Brand Consultancy", copy: "Counsel on branding, media, creative strategy, production and growth.", href: "/about" },
-  { code: "06", title: "Talent & Creators", copy: "Representation, collaborations, endorsements and commercial opportunities.", href: "/talent" },
-  { code: "07", title: "Events & Experiences", copy: "Launches, exhibitions, live shows, concerts and cultural programmes.", href: "/services/events" },
-  { code: "08", title: "Technology & Platforms", copy: "Websites, apps, communities, streaming and digital products for media and entertainment.", href: "/media-ip" },
-  { code: "09", title: "Intellectual Property", copy: "Create, own, license and commercialise copyrights, trademarks, music, film and digital assets.", href: "/media-ip" },
-  { code: "10", title: "Film & Entertainment", copy: "Films, series, OTT, music, podcasts, stage and live entertainment — produced and co-produced.", href: "/productions" },
-  { code: "11", title: "Distribution & Licensing", copy: "Theatrical, television, OTT, digital and venue exploitation of owned and represented rights.", href: "/media-ip" },
-  { code: "12", title: "Ventures & Partnerships", copy: "Investment, acquisition and joint ventures in media, IP and entertainment enterprises.", href: "/about" },
+  { code: "01", title: "Strategy & Consulting", copy: "Business consulting, brand positioning, creative direction, launch and media planning.", href: "/services/strategy-consulting" },
+  { code: "02", title: "Brand Development & PR", copy: "Brand strategy, visual systems, public relations, personal branding and communication.", href: "/services/brand-development-pr" },
+  { code: "03", title: "Content & Production", copy: "Video, photography, podcasts, music, and Hollywood-grade post-production finishing.", href: "/services/content-production" },
+  { code: "04", title: "Social Media & Growth", copy: "Full platform management, content publishing, community, and performance marketing.", href: "/services/social-media-growth" },
+  { code: "05", title: "Advertising & Campaigns", copy: "Commercial advertising, branded content, promotional campaigns and 360° launches.", href: "/services/advertising-campaigns" },
+  { code: "06", title: "Events & Experiences", copy: "Conferences, corporate galas, product launches, brand activations and live concerts.", href: "/services/events-experiences" },
 ] as const;
 
 export const resourceTypes = [
@@ -139,10 +157,10 @@ export const workCategories = services.map((service) => ({
 }));
 
 export const projects = [
-  { slug: "automotive-launch", type: "Advertising", service: "advertising", title: "Velocity, given a new language.", blurb: "Automotive launch film and commercial storytelling.", image: "/Updated Images/Branding.png", imagePosition: "center" },
-  { slug: "luxury-beauty", type: "Production", service: "production", title: "Light that moves.", blurb: "A beauty film shaped around light, texture and performance.", image: "/Updated Images/personal branding.png", imagePosition: "right center" },
-  { slug: "music-performance", type: "Production", service: "production", title: "Sound, in focus.", blurb: "Music performance captured with image and rhythm in sync.", image: "/Updated Images/Full white coverage.png", imagePosition: "center" },
-  { slug: "virtual-mountain", type: "Post-production", service: "post-production", title: "Beyond the studio wall.", blurb: "Virtual worldbuilding and finishing for a complete screen experience.", image: "/Updated Images/About us.png", imagePosition: "center" },
+  { slug: "automotive-launch", type: "Advertising", service: "advertising-campaigns", title: "Velocity, given a new language.", blurb: "Automotive launch film and commercial storytelling.", image: "/Updated Images/Branding.png", imagePosition: "center" },
+  { slug: "luxury-beauty", type: "Content Production", service: "content-production", title: "Light that moves.", blurb: "A beauty film shaped around light, texture and performance.", image: "/Updated Images/personal branding.png", imagePosition: "right center" },
+  { slug: "music-performance", type: "Content Production", service: "content-production", title: "Sound, in focus.", blurb: "Music performance captured with image and rhythm in sync.", image: "/Updated Images/Full white coverage.png", imagePosition: "center" },
+  { slug: "brand-identity-system", type: "Brand Development", service: "brand-development-pr", title: "Identities built to endure.", blurb: "Comprehensive visual systems and personal branding portfolios.", image: "/Updated Images/About us.png", imagePosition: "center" },
 ] as const;
 
 export const testimonials = [
@@ -190,7 +208,7 @@ export const navPrimary: NavItem[] = [
 
 export const navGuide = [
   { label: "About", href: "/about", hint: "Who we are, the founders and why the house exists" },
-  { label: "Services", href: "/services", hint: "Pre-production, production, post — then digital, ads and live" },
+  { label: "Services", href: "/services", hint: "Six divisions: Strategy, Brand, Production, Social, Ads, Events" },
   { label: "Portfolio", href: "/portfolio", hint: "Selected frames across every division" },
   { label: "Resources", href: "/resources", hint: "Articles, FAQs and testimonials" },
   { label: "Contact", href: "/contact", hint: "Start a brief — one service or the full chain" },

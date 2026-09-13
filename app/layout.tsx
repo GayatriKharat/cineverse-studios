@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: { default: "Narayani Studios LLP", template: "%s · Narayani Studios" },
-  description: "Narayani Studios LLP is a premium cinematic production house for branding, content, talent, platforms and entertainment — in India and internationally.",
+  description: "An integrated house for branding, production, talent, platforms and entertainment, built to serve brands and creators anywhere in the world.",
   metadataBase: new URL("https://narayanistudios.com"),
 };
 

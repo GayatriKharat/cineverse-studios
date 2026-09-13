@@ -10,9 +10,12 @@ type SendPhase = "idle" | "sending" | "flying";
 export function ContactForm() {
   const search = useSearchParams();
   const hinted = search.get("service") ?? "";
+  const subservice = search.get("subservice") ?? "";
   const matched = services.some((s) => s.slug === hinted) ? hinted : "";
+  const initialDetails = subservice ? `Enquiring about ${subservice}:\n` : "";
+
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormValues>({
-    defaultValues: { service: matched },
+    defaultValues: { service: matched, details: initialDetails },
   });
   const [state, setState] = useState("");
   const [sendPhase, setSendPhase] = useState<SendPhase>("idle");
@@ -47,19 +50,23 @@ export function ContactForm() {
         <input {...register("email", { required: "Please enter an email", pattern: { value: /^\S+@\S+\.\S+$/, message: "Enter a valid email" } })} type="email" autoComplete="email" placeholder="you@company.com" />
         {errors.email && <small>{errors.email.message}</small>}
       </label>
-      <label>Contact number
-        <input {...register("phone", { required: "Please enter your contact number" })} type="tel" autoComplete="tel" placeholder="+91 74474 74431" />
-        {errors.phone && <small>{errors.phone.message}</small>}
+      <label>Contact number (optional)
+        <input {...register("phone")} type="tel" autoComplete="tel" placeholder="+91 74474 74431" />
       </label>
       <label>Service needed
         <select {...register("service")}>
           <option value="">Select a service</option>
-          {services.map((service) => <option key={service.slug} value={service.slug}>{service.title}</option>)}
+          <option value="strategy-consulting">Strategy & Consulting</option>
+          <option value="brand-development-pr">Brand Development & PR</option>
+          <option value="content-production">Content & Production</option>
+          <option value="social-media-growth">Social Media & Audience Growth</option>
+          <option value="advertising-campaigns">Advertising & Campaigns</option>
+          <option value="events-experiences">Events & Experiences</option>
           <option value="full-production">Full production</option>
         </select>
       </label>
       <label>Tell us about your project
-        <textarea {...register("details", { required: "Tell us a little about the project", minLength: 15 })} rows={5} placeholder="Tell us about your project, scope, timeline, references" />
+        <textarea {...register("details", { required: "Tell us a little about the project", minLength: 10 })} rows={5} placeholder="Tell us about your project, scope, timeline, references" />
         {errors.details && <small>{errors.details.message}</small>}
       </label>
       <button className={`button send-button is-${sendPhase}`} disabled={isSubmitting || sendPhase !== "idle"} type="submit" aria-live="polite">

@@ -38,19 +38,23 @@ export function PageHero({
 
 export function CtaBand({
   eyebrow,
-  title = <>Have a story worth <em>framing?</em></>,
-  buttonText = "Enquire ↗",
+  title = <>Start your project with <em>Narayani Studios.</em></>,
+  subheading = "Tell us the brief. We will name the stage.",
+  buttonText = "Contact Us ↗",
   buttonHref = "/contact",
 }: {
   eyebrow?: string;
   title?: React.ReactNode;
+  subheading?: string;
   buttonText?: string;
   buttonHref?: string;
 }) {
   return (
     <section className="cta-band wrap">
       <Reveal>
+        {eyebrow && <span className="kicker">{eyebrow}</span>}
         <h2>{title}</h2>
+        {subheading && <p className="section-lede" style={{ margin: "12px 0 28px", color: "var(--text-dim, #71717A)" }}>{subheading}</p>}
         <Magnetic>
           <Link className="button" href={buttonHref}>{buttonText}</Link>
         </Magnetic>

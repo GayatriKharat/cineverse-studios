@@ -56,11 +56,14 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
                   />
                   <div className="tab-copy">
                     <h2>{craft.title}</h2>
-                    <p className="lede">{craft.strap}</p>
-                    {serviceSlug === "production" && (
-                      <Link className="button" href={craftHref("production", craft.slug)}>Open full page <span>↗</span></Link>
-                    )}
-                    <Link className="text-link" href={`/contact?service=${serviceSlug}`}>Enquire about {craft.title} ↗</Link>
+                    <p className="lede" style={{ fontSize: "1.05rem", lineHeight: "1.65", color: "var(--text-muted, #A1A1AA)", margin: "16px 0 24px" }}>
+                      {craft.description || craft.strap}
+                    </p>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "center" }}>
+                      <Link className="button" href={`/contact?service=${encodeURIComponent(serviceSlug)}&subservice=${encodeURIComponent(craft.title)}`}>
+                        Enquire about {craft.title} ↗
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

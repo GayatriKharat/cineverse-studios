@@ -43,7 +43,7 @@ export function SiteFooter() {
           <SocialLinks />
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Narayani Studios | Pre-production · Production · Post-production · Digital & Social · Advertising · Events</span>
+          <span>© 2026 Narayani Studios | Strategy & Consulting · Brand Development & PR · Content & Production · Social Media & Audience Growth · Advertising & Campaigns · Events & Experiences</span>
         </div>
       </div>
     </footer>

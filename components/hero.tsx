@@ -35,7 +35,7 @@ export function Hero() {
           Strategy, story, shoot, edit, distribute, launch, one studio for every stage of the work.
         </p>
         <div className="hero-actions">
-          <Magnetic><Link className="button" href="/services">Our Services</Link></Magnetic>
+          <Magnetic><Link className="button" href="/services">Our Services ↗</Link></Magnetic>
           <Link className="button-ghost" href="/contact">Contact Us</Link>
         </div>
       </div>

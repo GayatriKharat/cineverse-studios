@@ -2,66 +2,61 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CraftTabs } from "@/components/craft-tabs";
 import { CtaBand, PageHero } from "@/components/page-hero";
-import { craftsByService, productionCrafts } from "@/lib/offerings";
-import { pillars, services } from "@/lib/site-data";
+import { craftsByService } from "@/lib/offerings";
+import { findService, services } from "@/lib/site-data";
 
 export function generateStaticParams() {
   return services.map(({ slug }) => ({ slug }));
 }
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = findService(slug);
   if (!service) notFound();
-  const crafts = craftsByService[slug];
-  const isMain = pillars.some((p) => p.slug === service.slug);
 
-  if (slug === "production") {
-    return (
-      <main>
-        <PageHero
-          compact
-          eyebrow="02 · Main service"
-          title="Production"
-          copy="Every format. One production floor. Open a craft for the problem, the solution, what you leave with, and how it runs."
-          image="/film-automotive.png"
-        />
-        <section className="wrap quick-need">
-          <h2>What do you need <em>made?</em></h2>
-          <CraftTabs crafts={productionCrafts} serviceSlug="production" />
-        </section>
-        <CtaBand />
-      </main>
-    );
-  }
+  const crafts = craftsByService[service.slug] || craftsByService[slug] || [];
 
   return (
     <main>
       <PageHero
         compact
-        eyebrow={`${service.code} · ${isMain ? "Main service" : "Extended service"}`}
+        eyebrow={`Division ${service.code}`}
         title={service.title}
         copy={service.strap}
         image={service.image}
       />
-      {crafts ? (
-        <section className="wrap">
-          <CraftTabs crafts={crafts} serviceSlug={slug} />
+      
+      {crafts.length > 0 ? (
+        <section className="wrap" style={{ marginTop: "40px", marginBottom: "40px" }}>
+          <CraftTabs crafts={crafts} serviceSlug={service.slug} />
         </section>
       ) : (
-        <section className="wrap">
+        <section className="wrap" style={{ marginTop: "40px", marginBottom: "40px" }}>
           <ul className="sub-list">
-            {service.items.map((item) => <li key={item}>{item}</li>)}
+            {service.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </section>
       )}
-      <section className="service-actions wrap">
-        <Link className="button" href={`/contact?service=${service.slug}`}>Enquire about {service.title}</Link>
-        <Link className="text-link" href="/services">All services ↗</Link>
+
+      <section className="service-actions wrap" style={{ display: "flex", flexWrap: "wrap", gap: "20px", alignItems: "center", marginTop: "48px", marginBottom: "48px" }}>
+        <Link className="button" href={`/contact?service=${encodeURIComponent(service.slug)}`}>
+          Enquire about {service.title} ↗
+        </Link>
+        <Link className="text-link" href="/services">
+          All services ↗
+        </Link>
       </section>
-      <CtaBand />
+
+      <CtaBand
+        title={<>Start your project with <em>Narayani Studios.</em></>}
+        subheading="Tell us the brief. We will name the stage."
+        buttonText="Contact Us ↗"
+        buttonHref="/contact"
+      />
     </main>
   );
 }

@@ -40,7 +40,6 @@ export default function About() {
   return (
     <main>
       <PageHero
-        eyebrow="About us"
         title={<>Built to make <em>ideas move.</em></>}
         copy="Where every story gets the craft it deserves."
         image="/Updated Images/About us.png"
