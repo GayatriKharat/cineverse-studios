@@ -16,7 +16,7 @@ export const divisions: ServiceItem[] = [
     title: "Strategy & Consulting",
     strap: "Turning ideas into clear strategies and actionable plans.",
     summary: "Turning ideas into clear strategies and actionable plans.",
-    image: "/Updated Images/6 services/Pre production.png",
+    image: "/services/strategy-consulting.jpg",
     items: [
       "Business & Marketing Consulting",
       "Brand Positioning",
@@ -34,7 +34,7 @@ export const divisions: ServiceItem[] = [
     title: "Brand Development & PR",
     strap: "Building strong identities and creating a presence people remember.",
     summary: "Building strong identities and creating a presence people remember.",
-    image: "/Updated Images/6 services/Production.png",
+    image: "/services/brand-development-pr.jpg",
     items: [
       "Brand Strategy & Identity",
       "Brand Development",
@@ -51,7 +51,7 @@ export const divisions: ServiceItem[] = [
     title: "Content & Production",
     strap: "Turning ideas into high-quality content, from concept to final output.",
     summary: "Turning ideas into high-quality content, from concept to final output.",
-    image: "/Updated Images/6 services/Post Production.png",
+    image: "/services/content-production.jpg",
     items: [
       "Concept & Script Development",
       "Pre-Production",
@@ -69,7 +69,7 @@ export const divisions: ServiceItem[] = [
     title: "Social Media & Audience Growth",
     strap: "Building your online presence, engaging audiences, and growing your reach.",
     summary: "Building your online presence, engaging audiences, and growing your reach.",
-    image: "/Updated Images/6 services/Social Media.png",
+    image: "/services/social-media-growth.jpg",
     items: [
       "Social Media Management",
       "Content Creation & Publishing",
@@ -86,7 +86,7 @@ export const divisions: ServiceItem[] = [
     title: "Advertising & Campaigns",
     strap: "Creating campaigns that connect brands with the right people.",
     summary: "Creating campaigns that connect brands with the right people.",
-    image: "/Updated Images/6 services/Advertising.png",
+    image: "/services/advertising-campaigns.jpg",
     items: [
       "Campaign Development",
       "Advertising Strategy & Creative",
@@ -104,7 +104,7 @@ export const divisions: ServiceItem[] = [
     title: "Events & Experiences",
     strap: "Creating memorable experiences that bring brands and audiences together.",
     summary: "Creating memorable experiences that bring brands and audiences together.",
-    image: "/Updated Images/6 services/Evants.png",
+    image: "/services/events-experiences.jpg",
     items: [
       "Event Strategy & Concept",
       "Corporate Events",
@@ -169,7 +169,27 @@ export const testimonials = [
   { quote: "Narayani understands that beautiful creative work also needs to perform in the real world.", name: "Founder", scope: "Brand & digital" },
 ] as const;
 
-export const clients = ["Brands", "Creators", "Startups", "Government", "Entertainment", "Events", "Global teams"] as const;
+export type ClientItem = {
+  name: string;
+  logo: string;
+};
+
+export const clientLogos: ClientItem[] = [
+  { name: "Aaditya Iyengar", logo: "/clients/aaditya-iyengar.png" },
+  { name: "Cloud Hire", logo: "/clients/cloud-hire.png" },
+  { name: "Cutting Pe Meeting", logo: "/clients/cutting-pe-meeting.png" },
+  { name: "Indian Farmer", logo: "/clients/indian-farmer.png" },
+  { name: "Interior Coach", logo: "/clients/interior-coach.png" },
+  { name: "Invest With Akash", logo: "/clients/investwithakash.png" },
+  { name: "Paper 2 Pixel", logo: "/clients/paper-2-pixel.png" },
+  { name: "Raksham Talks", logo: "/clients/raksham-talks.png" },
+  { name: "Santosh Jadhav", logo: "/clients/santosh-jadhav.png" },
+  { name: "The Indian Impact", logo: "/clients/the-indian-impact.png" },
+  { name: "V2C", logo: "/clients/v2c.png" },
+  { name: "Wyatt Eiden", logo: "/clients/wyatt-eiden.png" },
+];
+
+export const clients = clientLogos.map((c) => c.name);
 
 export const faqs = [
   ["Can I hire you for just one service?", "Yes. You can bring us in for one focused requirement — from a script or edit to a social campaign — or combine divisions for an end-to-end partnership spanning branding, production, talent and distribution."],

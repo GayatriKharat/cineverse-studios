@@ -12,7 +12,7 @@ export function Hero() {
     if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      gsap.to(".hero-reel", { scale: 1.08, duration: 18, ease: "none" });
+      gsap.to(".hero-reel", { opacity: 0.95, duration: 18, ease: "none" });
       tl.from(".hero-line span", { yPercent: 110, duration: 1.15, stagger: 0.12 }, 0.2)
         .from(".hero-lede", { opacity: 0, y: 16, duration: 0.75 }, 0.5)
         .from(".hero-actions", { opacity: 0, y: 16, duration: 0.7 }, 0.7)

@@ -206,7 +206,7 @@ h3{color:var(--color-white);font-weight:500}
 .client-strip span{color:#ffffff66}
 .client-strip i{color:var(--color-primary);opacity:.7}
 .social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.social-links a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid #ffffff18;border-radius:50%;color:#9daaff;font-size:12px;transition:border-color .3s,color .3s,background .3s,transform .3s}.social-links a:hover{border-color:var(--color-primary);color:#fff;background:#2337c614;transform:translateY(-2px)}.social-icon{color:inherit;font-weight:700;line-height:1}.social-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.client-logo-item{display:inline-flex!important;align-items:center;gap:16px}.client-logo-item svg{width:32px;height:32px;flex:none;filter:drop-shadow(0 0 8px #2337c655)}.client-logo-item b{font-size:13px;font-weight:500;color:#ffffff88}.client-logo-item i{margin-left:8px;font-size:14px}
+.client-logo-item{display:inline-flex!important;align-items:center;gap:16px}.client-logo-img{width:42px;height:42px;flex:none;object-fit:contain;border-radius:0;background:transparent;padding:0;box-shadow:none;transition:none}.client-logo-item:hover .client-logo-img{transform:none}.client-logo-item b{font-size:13px;font-weight:500;color:#ffffff88}.client-logo-item i{margin-left:8px;font-size:14px}
 .feature-work{background:transparent;color:#fff}
 .feature-work .eyebrow{color:#2337c6}
 .feature-work h2,.feature-work h2 em{color:#fff}
@@ -267,10 +267,10 @@ h3{color:var(--color-white);font-weight:500}
 .service-card-face{height:100%;min-height:340px;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;background-color:#2d2d2f;background-position:center;background-size:cover;position:relative;overflow:hidden}
 .service-directory-card{display:flex;flex-direction:column;height:100%;border:1px solid #2337c655;border-radius:12px;background:linear-gradient(145deg,#2337c638,#080a18d9 82%);overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
 .service-directory-card:hover{border-color:#2337c688;transform:translateY(-4px);box-shadow:0 18px 44px #00000055}
-.service-directory-media{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid #ffffff14;background:#111318}
-.service-directory-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#05081722,#080a18c7)}
-.service-directory-media img{display:block;width:100%;height:100%;object-fit:cover;opacity:.9;transition:transform .8s var(--ease),opacity .3s}
-.service-directory-card:hover .service-directory-media img{transform:scale(1.05);opacity:1}
+.service-directory-media{position:relative;display:block;width:100%;aspect-ratio:16/9;overflow:hidden;background:#0c0d14}
+.service-directory-media:after{content:none;display:none}
+.service-directory-media img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;object-position:center;opacity:1}
+.service-directory-card:hover .service-directory-media img{transform:none;opacity:1}
 .service-directory-media span{position:absolute;z-index:1;top:14px;left:16px;color:var(--color-gold);font:11px/1 var(--font-sans),sans-serif;letter-spacing:.12em}
 .service-directory-copy{display:flex;flex:1;flex-direction:column;gap:12px;padding:26px}
 .service-directory-copy h3{margin:0;font-size:21px;letter-spacing:-.012em}
@@ -2594,48 +2594,66 @@ main > section {
    ========================================================= */
 
 /* =========================================================
-   SERVICE CARDS: SIGNATURE PALETTE & ALTERNATING THEME
-   - Odd (1, 3, 5): Pure White (#FFFFFF) + Reference Yellow Diagonal (#F5B400)
-   - Even (2, 4, 6): Rich Royal Blue (#2337C6) + Crisp White text
-   - Unified 18px corner curves and matching soft elevation shadows
-   - Full edge-to-edge cover images (16:9) with zero letterboxing
+   SERVICE CARDS: SIGNATURE PALETTE & EXACT LAYOUT
+   - Odd (1, 3, 5): Pure White (#FFFFFF) + Inset Rounded Image + Bottom-Right Yellow Slash (#F5B400) + White Arrow Circle
+   - Even (2, 4, 6): Rich Royal Blue (#2337C6) + Inset Rounded Image + White text + Blue/White Arrow Circle
+   - 24px Card Curves with 16px Inner Inset Rounded Images
    ========================================================= */
 
-/* 1. Grid item shells are clean and transparent */
+/* Grid container & items */
+.service-pillars .client-service-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+  margin-top: 40px !important;
+}
+
+@media (max-width: 1024px) {
+  .service-pillars .client-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .service-pillars .client-service-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
 .service-pillars .client-service-grid > *,
 .service-pillars .client-service-grid .stagger-item {
   background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
   border: none !important;
   box-shadow: none !important;
-  border-radius: 18px !important;
   padding: 0 !important;
   margin: 0 !important;
+  display: flex !important;
 }
 
-/* 2. Base Service Card Links */
+/* Card Link Container */
 html body main .service-pillars .service-card-link,
 html body main .service-pillars .service-architecture-card {
   position: relative !important;
-  display: block !important;
+  display: flex !important;
+  flex-direction: column !important;
   width: 100% !important;
   height: 100% !important;
-  border-radius: 18px !important;
+  min-height: 420px !important;
+  border-radius: 24px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
-  box-shadow: 0 10px 28px rgba(17, 24, 39, 0.08) !important;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease !important;
   text-decoration: none !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 html body main .service-pillars .service-card-link:hover,
 html body main .service-pillars .service-architecture-card:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.14) !important;
+  transform: translateY(-6px) !important;
 }
 
-/* 3. Base Card Face */
+/* Base Card Face */
 html body main .service-pillars .service-card-face {
   position: relative !important;
   display: flex !important;
@@ -2643,251 +2661,252 @@ html body main .service-pillars .service-card-face {
   justify-content: flex-start !important;
   width: 100% !important;
   height: 100% !important;
-  min-height: 0 !important;
-  padding: 0 0 26px 0 !important;
-  border-radius: 18px !important;
+  padding: 16px 16px 28px 16px !important;
+  border-radius: 24px !important;
   overflow: hidden !important;
+  box-sizing: border-box !important;
+  isolation: isolate !important;
+  background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  isolation: isolate !important;
 }
 
-/* 4. White Cards (Odd: 1, 3, 5 - Pre-production, Post-production, Advertising) */
-html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  background-image: none !important;
-  border: 1px solid rgba(0, 0, 0, 0.09) !important;
+/* Inset Media Container */
+html body main .service-pillars .service-card-media-wrap {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #000000 !important;
+  flex-shrink: 0 !important;
+  line-height: 0 !important;
 }
 
-html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  background-image: none !important;
-  color: #000000 !important;
-}
-
-html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face > h3 {
-  color: #000000 !important;
-}
-
-html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face > p {
-  color: rgba(0, 0, 0, 0.72) !important;
-}
-
-/* Reference-style diagonal yellow graphic on White cards */
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face::before {
-  content: none !important;
-  display: none !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  z-index: 2 !important;
-
-  top: 48% !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  left: auto !important;
-
-  width: 44% !important;
-  height: 52% !important;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 180, 0, 1) 0%,
-    rgba(245, 180, 0, 1) 68%,
-    rgba(245, 180, 0, 0.96) 78%,
-    rgba(245, 180, 0, 0.72) 88%,
-    rgba(245, 180, 0, 0.32) 96%,
-    rgba(245, 180, 0, 0) 100%
-  ) !important;
-
-  clip-path: polygon(
-    73% 0%,
-    100% 0%,
-    55% 76%,
-    40% 100%,
-    0% 100%
-  ) !important;
-
-  transform: none !important;
-  pointer-events: none !important;
-}
-
-/* 5. Blue Cards (Even: 2, 4, 6 - Production, Digital & Social, Events) */
-html body main .service-pillars .client-service-grid > :nth-child(even),
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link {
-  background: #2337C6 !important;
-  background-color: #2337C6 !important;
-  background-image: none !important;
-  border: 1px solid #2337C6 !important;
-  border-radius: 18px !important;
-  box-shadow: 0 10px 28px rgba(17, 24, 39, 0.08) !important;
-}
-
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link:hover {
-  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.14) !important;
-}
-
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face {
-  background: #2337C6 !important;
-  background-color: #2337C6 !important;
-  background-image: none !important;
-  border: none !important;
-  border-radius: 18px !important;
-  color: #FFFFFF !important;
-}
-
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3,
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face > p {
-  color: #FFFFFF !important;
-}
-
-/* Absolutely no yellow overlay on blue cards */
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face::before,
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face::after,
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link::before {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-}
-
-/* 6. Card Image: Edge-to-edge cover fitting above yellow graphic */
 html body main .service-pillars .service-card-image {
   position: relative !important;
-  inset: auto !important;
   display: block !important;
   width: 100% !important;
-  height: auto !important;
+  height: 100% !important;
   aspect-ratio: 16 / 9 !important;
   object-fit: cover !important;
   object-position: center !important;
-  background: #f0f2f7 !important;
-  border-radius: 17px 17px 0 0 !important;
-  flex: 0 0 auto !important;
+  border-radius: 16px !important;
   margin: 0 !important;
   padding: 0 !important;
-  z-index: 4 !important;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: none !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 html body main .service-pillars .service-card-link:hover .service-card-image {
   transform: scale(1.03) !important;
 }
 
-/* 7. Hide card number labels */
-html body main .service-pillars .service-card-face > span,
-.service-directory-media span {
-  display: none !important;
+/* Card Body (Title & Text) */
+html body main .service-pillars .service-card-body {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 22px 8px 12px 8px !important;
+  flex-grow: 1 !important;
+  z-index: 3 !important;
 }
 
-/* 8. Card Typography: sitting cleanly on top of graphics */
-html body main .service-pillars .service-card-face > h3 {
+html body main .service-pillars .service-card-body h3 {
   position: relative !important;
   display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  margin: 18px 0 0 !important;
-  padding: 0 54px 0 24px !important;
-  font-size: clamp(20px, 1.8vw, 24px) !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.02em !important;
-  font-weight: 600 !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+  font-size: clamp(22px, 1.8vw, 26px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.025em !important;
+  font-weight: 700 !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
   hyphens: none !important;
-  z-index: 5 !important;
 }
 
-html body main .service-pillars .service-card-face > p {
+html body main .service-pillars .service-card-body p {
   position: relative !important;
   display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  margin: 8px 0 0 !important;
-  padding: 0 54px 0 24px !important;
-  font-size: 14px !important;
-  line-height: 1.5 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 15px !important;
+  line-height: 1.48 !important;
+  max-width: 82% !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
-  z-index: 5 !important;
 }
 
-/* 9. Arrow Buttons: Customized per theme */
-html body main .service-pillars .service-card-link::after {
-  content: "↗" !important;
+/* 1. White Cards (Odd: index 0, 2, 4 -> 1st, 3rd, 5th) */
+html body main .service-pillars .card-theme-white,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+html body main .service-pillars .card-theme-white:hover,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link:hover {
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12) !important;
+}
+
+html body main .service-pillars .card-theme-white .service-card-face,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+html body main .service-pillars .card-theme-white .service-card-body h3,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-body h3,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face > h3 {
+  color: #000000 !important;
+}
+
+html body main .service-pillars .card-theme-white .service-card-body p,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-body p,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face > p {
+  color: #4B5563 !important;
+}
+
+/* Yellow Diagonal Cut in Bottom Right Corner of White Cards */
+html body main .service-pillars .service-card-yellow-slash,
+html body main .service-pillars .card-theme-white .service-card-face::after,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
+  content: "" !important;
+  display: block !important;
   position: absolute !important;
-  right: 18px !important;
-  bottom: 18px !important;
-  width: 36px !important;
-  height: 36px !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 50% !important;
+  height: 52% !important;
+  background: #F5B400 !important;
+  clip-path: polygon(100% 0%, 100% 100%, 8% 100%) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+/* 2. Royal Blue Cards (Even: index 1, 3, 5 -> 2nd, 4th, 6th) */
+html body main .service-pillars .card-theme-blue,
+html body main .service-pillars .client-service-grid > :nth-child(even),
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link {
+  background: #2337C6 !important;
+  background-color: #2337C6 !important;
+  border: 1px solid #2337C6 !important;
+  box-shadow: 0 12px 34px rgba(35, 55, 198, 0.2) !important;
+}
+
+html body main .service-pillars .card-theme-blue:hover,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link:hover {
+  box-shadow: 0 18px 46px rgba(35, 55, 198, 0.3) !important;
+}
+
+html body main .service-pillars .card-theme-blue .service-card-face,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face {
+  background: #2337C6 !important;
+  background-color: #2337C6 !important;
+  color: #FFFFFF !important;
+}
+
+html body main .service-pillars .card-theme-blue .service-card-body h3,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-body h3,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3 {
+  color: #FFFFFF !important;
+}
+
+html body main .service-pillars .card-theme-blue .service-card-body p,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-body p,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face > p {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* Ensure no yellow slash or overlay on Blue cards */
+html body main .service-pillars .card-theme-blue .service-card-yellow-slash,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face::after,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face::before,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* 3. Circular Arrow Button */
+html body main .service-pillars .service-card-circle-btn {
+  position: absolute !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  width: 44px !important;
+  height: 44px !important;
   border-radius: 50% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 15px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
   line-height: 1 !important;
-  z-index: 10 !important;
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease !important;
+  z-index: 5 !important;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
 }
 
-/* White card arrow */
-html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link::after {
-  border: 1px solid #2337C6 !important;
+/* White card arrow button */
+html body main .service-pillars .card-theme-white .service-card-circle-btn,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-circle-btn {
+  border: 1.5px solid #2337C6 !important;
   background: #FFFFFF !important;
   color: #2337C6 !important;
 }
 
-/* Blue card arrow */
-html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link::after {
-  border: 1px solid rgba(255, 255, 255, 0.75) !important;
-  background: transparent !important;
+html body main .service-pillars .card-theme-white:hover .service-card-circle-btn,
+html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link:hover .service-card-circle-btn {
+  background: #2337C6 !important;
+  color: #FFFFFF !important;
+  transform: scale(1.08) !important;
+}
+
+/* Blue card arrow button */
+html body main .service-pillars .card-theme-blue .service-card-circle-btn,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-circle-btn {
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.14) !important;
   color: #FFFFFF !important;
 }
 
-/* Hover state on arrows */
-html body main .service-pillars .service-card-link:hover::after {
-  background: #F5B400 !important;
-  border-color: #F5B400 !important;
-  color: #000000 !important;
-  transform: rotate(45deg) !important;
+html body main .service-pillars .card-theme-blue:hover .service-card-circle-btn,
+html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link:hover .service-card-circle-btn {
+  background: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  color: #2337C6 !important;
+  transform: scale(1.08) !important;
 }
 
-/* 10. Responsive */
+/* Turn off legacy ::after arrow */
+html body main .service-pillars .service-card-link::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Hide legacy tags */
+html body main .service-pillars .service-card-face > span:not(.service-card-circle-btn):not(.service-card-yellow-slash) {
+  display: none !important;
+}
+
+/* Responsive adjustments */
 @media (max-width: 760px) {
-  html body main .service-pillars .service-card-face > h3 {
-    margin-top: 14px !important;
-    padding: 0 48px 0 18px !important;
-    font-size: 20px !important;
+  html body main .service-pillars .service-card-face {
+    padding: 14px 14px 24px 14px !important;
   }
-  html body main .service-pillars .service-card-face > p {
-    margin-top: 8px !important;
-    padding: 0 48px 0 18px !important;
-    font-size: 13px !important;
+  html body main .service-pillars .service-card-body h3 {
+    font-size: 21px !important;
   }
-  html body main .service-pillars .service-card-link::after {
-    right: 14px !important;
-    bottom: 14px !important;
-    width: 32px !important;
-    height: 32px !important;
+  html body main .service-pillars .service-card-body p {
+    font-size: 14px !important;
   }
-  .service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
-    top: 50% !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: auto !important;
-    width: 44% !important;
-    height: 50% !important;
-    clip-path: polygon(
-      73% 0%,
-      100% 0%,
-      55% 76%,
-      40% 100%,
-      0% 100%
-    ) !important;
+  html body main .service-pillars .service-card-circle-btn {
+    right: 18px !important;
+    bottom: 18px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
 }
 
@@ -2898,23 +2917,181 @@ html body main .service-pillars .service-card-link:hover::after {
   height: auto !important;
   aspect-ratio: 16 / 9 !important;
   overflow: hidden !important;
-  border-radius: 14px 14px 0 0 !important;
-  background: #f4f6fb !important;
+  border-radius: 12px 12px 0 0 !important;
+  background: transparent !important;
+}
+
+.service-directory-media::after {
+  content: none !important;
+  display: none !important;
 }
 
 .service-directory-media img {
   display: block !important;
   width: 100% !important;
-  height: 100% !important;
+  height: auto !important;
   aspect-ratio: 16 / 9 !important;
   object-fit: contain !important;
   object-position: center !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.service-directory-card:hover .service-directory-media img {
+  transform: none !important;
+}
+
+/* Page Hero Full-Cover Uncropped Layout */
+.page-hero.has-media {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+}
+
+.page-hero.has-media.is-compact {
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+.page-hero.has-media .page-hero-media {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  line-height: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+.page-hero.has-media .page-hero-media::after,
+.page-hero.has-media .page-hero-media::before {
+  content: none !important;
+  display: none !important;
+}
+
+.page-hero.has-media .page-hero-cover-img {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  object-fit: unset !important;
+  object-position: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.page-hero.has-media .page-hero-shade {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, transparent 35%, rgba(0, 0, 0, 0.68) 100%) !important;
+  pointer-events: none !important;
+}
+
+.page-hero.has-media .page-hero-copy {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  width: 100% !important;
+  max-width: var(--wrap, 1280px) !important;
+  margin: 0 auto !important;
+  padding-top: clamp(60px, 8vw, 120px) !important;
+  padding-bottom: clamp(24px, 4vw, 56px) !important;
+  padding-left: clamp(20px, 4vw, 60px) !important;
+  padding-right: clamp(20px, 4vw, 60px) !important;
+  pointer-events: none !important;
+}
+
+.page-hero.has-media .page-hero-copy > * {
+  pointer-events: auto !important;
+}
+
+.page-hero.has-media .page-hero-copy h1,
+.page-hero.has-media .page-hero-copy h2,
+.page-hero.has-media .page-hero-copy h3,
+.page-hero.has-media .page-hero-copy p,
+.page-hero.has-media .page-hero-copy .lede {
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
+}
+
+.page-hero.has-media .page-hero-copy .eyebrow {
+  color: #F5B400 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+@media (max-width: 768px) {
+  .page-hero.has-media .page-hero-copy {
+    padding-bottom: clamp(14px, 3vw, 24px) !important;
+    padding-left: clamp(16px, 3vw, 24px) !important;
+    padding-right: clamp(16px, 3vw, 24px) !important;
+  }
+  .page-hero.has-media .page-hero-copy h1 {
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem) !important;
+    line-height: 1.1 !important;
+  }
+  .page-hero.has-media .page-hero-copy p,
+  .page-hero.has-media .page-hero-copy .lede {
+    font-size: clamp(0.88rem, 2.8vw, 1.05rem) !important;
+    margin-top: 4px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* Fallback for page-hero without media (like /faq) */
+.page-hero:not(.has-media) {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  min-height: clamp(380px, 48svh, 540px) !important;
+  padding-top: clamp(130px, 16vh, 180px) !important;
+  padding-bottom: clamp(40px, 6vh, 60px) !important;
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.page-hero:not(.has-media) .page-hero-copy {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 980px !important;
 }
 
 .home-reel {
   aspect-ratio: 16 / 9 !important;
   min-height: 0 !important;
   border-radius: 18px !important;
-  background-size: cover !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
   background-position: center !important;
 }

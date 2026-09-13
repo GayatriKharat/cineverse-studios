@@ -10,7 +10,7 @@ export default function ServicesPage() {
       <PageHero
         title="From the first plan to the last impression."
         copy="Six divisions, one connected team, from the first idea to the audience it reaches."
-        image="/all-services-hero.png"
+        image="/hero/main-photo-v2.jpg"
         actions={
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginTop: "24px" }}>
             <a className="button" href="#explore">

@@ -7,7 +7,7 @@ import { Hero } from "@/components/hero";
 import { MediaReveal, Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { SocialLinks } from "@/components/social-links";
 import { asset, cssUrl } from "@/lib/asset";
-import { clients, services, testimonials } from "@/lib/site-data";
+import { clientLogos, services, testimonials } from "@/lib/site-data";
 
 export default function Home() {
   return (
@@ -34,27 +34,35 @@ export default function Home() {
         </Reveal>
 
         <Stagger className="pillar-cards client-service-grid">
-          {services.map((service) => (
-            <StaggerItem key={service.slug}>
-              <Link className="service-architecture-card service-card-link" href={`/services/${service.slug}`}>
-                <div className="service-card-face">
-                  <span style={{ fontSize: "0.85rem", letterSpacing: "0.08em", color: "var(--text-dim, #71717A)", textTransform: "uppercase", fontWeight: 600 }}>
-                    Division {service.code}
-                  </span>
-                  <img
-                    src={asset(service.image)}
-                    alt={service.title}
-                    className="service-card-image"
-                    style={{ marginTop: "12px", marginBottom: "16px" }}
-                  />
-                  <h3>{service.title}</h3>
-                  <p style={{ marginTop: "8px", fontSize: "0.95rem", lineHeight: "1.5", color: "var(--text-muted, #A1A1AA)" }}>
-                    {service.strap}
-                  </p>
-                </div>
-              </Link>
-            </StaggerItem>
-          ))}
+          {services.map((service, index) => {
+            const isWhite = index % 2 === 0;
+            return (
+              <StaggerItem key={service.slug}>
+                <Link
+                  className={`service-architecture-card service-card-link ${isWhite ? "card-theme-white" : "card-theme-blue"}`}
+                  href={`/services/${service.slug}`}
+                >
+                  <div className="service-card-face">
+                    <div className="service-card-media-wrap">
+                      <img
+                        src={asset(service.image)}
+                        alt={service.title}
+                        className="service-card-image"
+                      />
+                    </div>
+                    <div className="service-card-body">
+                      <h3>{service.title}</h3>
+                      <p>{service.strap}</p>
+                    </div>
+                    {isWhite && <span className="service-card-yellow-slash" aria-hidden="true" />}
+                    <span className="service-card-circle-btn" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
+                </Link>
+              </StaggerItem>
+            );
+          })}
         </Stagger>
 
         <div style={{ marginTop: "40px", textAlign: "center" }}>
@@ -70,13 +78,18 @@ export default function Home() {
             <h2>Who we have <em>worked with.</em></h2>
           </Reveal>
         </div>
-        {[clients, [...clients].reverse()].map((row, rowIndex) => (
+        {[clientLogos, [...clientLogos].reverse()].map((row, rowIndex) => (
           <div className={`client-strip${rowIndex ? " is-reverse" : ""}`} key={rowIndex}>
             <div>
               {[...row, ...row].map((client, index) => (
-                <span className="client-logo-item" key={`${client}-${index}`}>
-                  <BrandMark size={24} />
-                  <b>{client}</b>
+                <span className="client-logo-item" key={`${client.name}-${index}`}>
+                  <img
+                    src={asset(client.logo)}
+                    alt={client.name}
+                    className="client-logo-img"
+                    loading="lazy"
+                  />
+                  <b>{client.name}</b>
                   <i>—</i>
                 </span>
               ))}

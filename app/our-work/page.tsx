@@ -9,7 +9,7 @@ export default function OurWork() {
         eyebrow="Portfolio"
         title={<>Selected <em>frames.</em></>}
         copy="A record of worlds made for brands, stages and screens — stills from the floor, not a stock gallery."
-        image="/film-virtual.png"
+        image="/hero/main-photo-v2.jpg"
         actions={<div className="hero-actions"><Link className="button" href="/services">Browse by service <span>↓</span></Link><Link className="button-ghost" href="/contact">Start a brief</Link></div>}
       />
       <WorkShowcase />
