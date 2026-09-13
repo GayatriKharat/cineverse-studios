@@ -265,12 +265,12 @@ h3{color:var(--color-white);font-weight:500}
 .service-architecture-card{min-height:340px}
 .service-pillars .service-architecture-card{border-radius:14px}
 .service-card-face{height:100%;min-height:340px;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;background-color:#2d2d2f;background-position:center;background-size:cover;position:relative;overflow:hidden}
-.service-directory-card{display:flex;flex-direction:column;height:100%;border:1px solid rgba(0,0,0,0.1);border-radius:18px;background:#ffffff;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
-.service-directory-card:hover{border-color:#2337c6;transform:translateY(-4px);box-shadow:0 16px 36px rgba(35,55,198,0.12)}
-.service-directory-media{position:relative;display:block;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:18px 18px 0 0;background:#f4f6fb}
-.service-directory-media:before,.service-directory-media:after{content:none!important;display:none!important}
-.service-directory-media img{display:block;width:100%;height:100%;object-fit:cover;opacity:1;filter:none;border-radius:18px 18px 0 0;transition:transform .5s cubic-bezier(0.16,1,0.3,1)}
-.service-directory-card:hover .service-directory-media img{transform:scale(1.03);opacity:1}
+.service-directory-card{display:flex;flex-direction:column;height:100%;border:1px solid #2337c655;border-radius:12px;background:linear-gradient(145deg,#2337c638,#080a18d9 82%);overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
+.service-directory-card:hover{border-color:#2337c688;transform:translateY(-4px);box-shadow:0 18px 44px #00000055}
+.service-directory-media{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid #ffffff14;background:#111318}
+.service-directory-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#05081722,#080a18c7)}
+.service-directory-media img{display:block;width:100%;height:100%;object-fit:cover;opacity:.9;transition:transform .8s var(--ease),opacity .3s}
+.service-directory-card:hover .service-directory-media img{transform:scale(1.05);opacity:1}
 .service-directory-media span{position:absolute;z-index:1;top:14px;left:16px;color:var(--color-gold);font:11px/1 var(--font-sans),sans-serif;letter-spacing:.12em}
 .service-directory-copy{display:flex;flex:1;flex-direction:column;gap:12px;padding:26px}
 .service-directory-copy h3{margin:0;font-size:21px;letter-spacing:-.012em}
@@ -2593,211 +2593,17 @@ main > section {
    Black  #000000
    ========================================================= */
 
-/* White cards */
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face {
-  position: relative !important;
-  overflow: hidden !important;
-  isolation: isolate !important;
-
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  background-image: none !important;
-
-  color: #000000 !important;
-  filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-}
-
-/* Remove any older pseudo-element treatment */
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face::before {
-  content: none !important;
-  display: none !important;
-}
-
-/*
-   Reference-style diagonal yellow graphic.
-
-   It is intentionally:
-   - wide rather than a thin stripe
-   - anchored to the far-right edge
-   - angled toward the left as it reaches the bottom
-   - strongest through the middle
-   - softly dissolved at the lower tip
-*/
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  z-index: 2 !important;
-
-  top: 50% !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  left: auto !important;
-
-  width: 42% !important;
-  height: 50% !important;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(245, 180, 0, 1) 0%,
-      rgba(245, 180, 0, 1) 68%,
-      rgba(245, 180, 0, 0.96) 78%,
-      rgba(245, 180, 0, 0.72) 88%,
-      rgba(245, 180, 0, 0.32) 96%,
-      rgba(245, 180, 0, 0) 100%
-    ) !important;
-
-  /*
-    Top is near the right edge.
-    Bottom moves noticeably left, producing the broad diagonal wedge.
-  */
-  clip-path: polygon(
-    73% 0%,
-    100% 0%,
-    55% 76%,
-    40% 100%,
-    0% 100%
-  ) !important;
-
-  transform: none !important;
-  pointer-events: none !important;
-}
-
-/* Keep all white-card content above the graphic */
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > * {
-  position: relative !important;
-  z-index: 5 !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > span {
-  color: #2337C6 !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > h3 {
-  color: #000000 !important;
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  word-wrap: normal !important;
-  hyphens: none !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(odd) .service-card-face > p {
-  color: #000000 !important;
-}
-
-/* Blue cards — exact project palette */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face {
-  position: relative !important;
-  overflow: hidden !important;
-  isolation: isolate !important;
-
-  background: #2337C6 !important;
-  background-color: #2337C6 !important;
-  background-image: none !important;
-
-  color: #FFFFFF !important;
-  border-color: #2337C6 !important;
-
-  filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-}
-
-/* Absolutely no yellow graphic on blue cards */
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face::before,
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face::after {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > * {
-  position: relative !important;
-  z-index: 5 !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > span {
-  color: #F5B400 !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3,
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > p {
-  color: #FFFFFF !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(even) .service-card-face > h3 {
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  word-wrap: normal !important;
-  hyphens: none !important;
-}
-
-/* Arrow buttons */
-.service-pillars .service-card-link::after {
-  color: #2337C6 !important;
-  border-color: #2337C6 !important;
-  background: #FFFFFF !important;
-}
-
-.service-pillars .client-service-grid > :nth-child(even) .service-card-link::after {
-  color: #FFFFFF !important;
-  border-color: #FFFFFF !important;
-  background: transparent !important;
-}
-
-.service-pillars .service-card-link:hover::after {
-  background: #F5B400 !important;
-  border-color: #F5B400 !important;
-  color: #000000 !important;
-}
-
-/* Mobile keeps the same visual proportions */
-@media (max-width: 700px) {
-  .service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
-    top: 50% !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: auto !important;
-
-    width: 44% !important;
-    height: 50% !important;
-
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(245, 180, 0, 1) 0%,
-        rgba(245, 180, 0, 1) 68%,
-        rgba(245, 180, 0, 0.94) 80%,
-        rgba(245, 180, 0, 0.62) 90%,
-        rgba(245, 180, 0, 0.22) 97%,
-        rgba(245, 180, 0, 0) 100%
-      ) !important;
-
-    clip-path: polygon(
-      73% 0%,
-      100% 0%,
-      55% 76%,
-      40% 100%,
-      0% 100%
-    ) !important;
-  }
-}
-
 /* =========================================================
-   DEFINITIVE SERVICE CARD STYLING & CORNERS / SHADOW FIX
-   - Unified curves (border-radius: 18px) for all cards (blue & white)
-   - Matching soft elevation shadows for both blue and white cards
-   - No double borders, no white bottom ledge under blue cards
-   - No numbers (01, 02...) on cards
-   - Images fit completely without cropping (aspect-ratio: 16/9, object-fit: contain)
+   SERVICE CARDS: SIGNATURE PALETTE & ALTERNATING THEME
+   - Odd (1, 3, 5): Pure White (#FFFFFF) + Reference Yellow Diagonal (#F5B400)
+   - Even (2, 4, 6): Rich Royal Blue (#2337C6) + Crisp White text
+   - Unified 18px corner curves and matching soft elevation shadows
+   - Full edge-to-edge cover images (16:9) with zero letterboxing
    ========================================================= */
 
-/* 1. Grid items / shells have no outer borders or backgrounds */
-html body main .service-pillars .client-service-grid > *,
-html body main .service-pillars .client-service-grid .stagger-item {
+/* 1. Grid item shells are clean and transparent */
+.service-pillars .client-service-grid > *,
+.service-pillars .client-service-grid .stagger-item {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
@@ -2808,7 +2614,7 @@ html body main .service-pillars .client-service-grid .stagger-item {
   margin: 0 !important;
 }
 
-/* 2. All Service Card Links: unified curve and matching elevation shadow */
+/* 2. Base Service Card Links */
 html body main .service-pillars .service-card-link,
 html body main .service-pillars .service-architecture-card {
   position: relative !important;
@@ -2829,7 +2635,7 @@ html body main .service-pillars .service-architecture-card:hover {
   box-shadow: 0 18px 42px rgba(17, 24, 39, 0.14) !important;
 }
 
-/* 3. Card Faces: Flex column filling the entire card */
+/* 3. Base Card Face */
 html body main .service-pillars .service-card-face {
   position: relative !important;
   display: flex !important;
@@ -2838,7 +2644,7 @@ html body main .service-pillars .service-card-face {
   width: 100% !important;
   height: 100% !important;
   min-height: 0 !important;
-  padding: 0 0 28px 0 !important;
+  padding: 0 0 26px 0 !important;
   border-radius: 18px !important;
   overflow: hidden !important;
   border: none !important;
@@ -2846,7 +2652,7 @@ html body main .service-pillars .service-card-face {
   isolation: isolate !important;
 }
 
-/* 4. White Cards (Odd: 01, 03, 05) */
+/* 4. White Cards (Odd: 1, 3, 5 - Pre-production, Post-production, Advertising) */
 html body main .service-pillars .client-service-grid > :nth-child(odd) .service-card-link {
   background: #FFFFFF !important;
   background-color: #FFFFFF !important;
@@ -2869,7 +2675,49 @@ html body main .service-pillars .client-service-grid > :nth-child(odd) .service-
   color: rgba(0, 0, 0, 0.72) !important;
 }
 
-/* 5. Blue Cards (Even: 02, 04, 06) — seamless #2337C6, matching shadow and curve */
+/* Reference-style diagonal yellow graphic on White cards */
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face::before {
+  content: none !important;
+  display: none !important;
+}
+
+.service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 2 !important;
+
+  top: 48% !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+
+  width: 44% !important;
+  height: 52% !important;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 180, 0, 1) 0%,
+    rgba(245, 180, 0, 1) 68%,
+    rgba(245, 180, 0, 0.96) 78%,
+    rgba(245, 180, 0, 0.72) 88%,
+    rgba(245, 180, 0, 0.32) 96%,
+    rgba(245, 180, 0, 0) 100%
+  ) !important;
+
+  clip-path: polygon(
+    73% 0%,
+    100% 0%,
+    55% 76%,
+    40% 100%,
+    0% 100%
+  ) !important;
+
+  transform: none !important;
+  pointer-events: none !important;
+}
+
+/* 5. Blue Cards (Even: 2, 4, 6 - Production, Digital & Social, Events) */
 html body main .service-pillars .client-service-grid > :nth-child(even),
 html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link {
   background: #2337C6 !important;
@@ -2898,15 +2746,16 @@ html body main .service-pillars .client-service-grid > :nth-child(even) .service
   color: #FFFFFF !important;
 }
 
-/* Disable unwanted overlays on blue card */
+/* Absolutely no yellow overlay on blue cards */
 html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face::before,
 html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-face::after,
 html body main .service-pillars .client-service-grid > :nth-child(even) .service-card-link::before {
   content: none !important;
   display: none !important;
+  background: none !important;
 }
 
-/* 6. Image Fitting — 100% visible, complete and crisp within designated area */
+/* 6. Card Image: Edge-to-edge cover fitting above yellow graphic */
 html body main .service-pillars .service-card-image {
   position: relative !important;
   inset: auto !important;
@@ -2916,62 +2765,58 @@ html body main .service-pillars .service-card-image {
   aspect-ratio: 16 / 9 !important;
   object-fit: cover !important;
   object-position: center !important;
-  background: transparent !important;
+  background: #f0f2f7 !important;
   border-radius: 17px 17px 0 0 !important;
   flex: 0 0 auto !important;
   margin: 0 !important;
   padding: 0 !important;
-  z-index: 1 !important;
-  filter: none !important;
-  opacity: 1 !important;
+  z-index: 4 !important;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 html body main .service-pillars .service-card-link:hover .service-card-image {
-  transform: scale(1.02) !important;
+  transform: scale(1.03) !important;
 }
 
-/* 7. Remove Card Numbers from UI */
+/* 7. Hide card number labels */
 html body main .service-pillars .service-card-face > span,
 .service-directory-media span {
   display: none !important;
 }
 
-/* 8. Card Typography */
+/* 8. Card Typography: sitting cleanly on top of graphics */
 html body main .service-pillars .service-card-face > h3 {
   position: relative !important;
-  top: auto !important;
-  left: auto !important;
   display: block !important;
-  width: calc(100% - 56px) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
   margin: 18px 0 0 !important;
-  padding: 0 24px !important;
-  font-size: clamp(22px, 2vw, 30px) !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.025em !important;
+  padding: 0 54px 0 24px !important;
+  font-size: clamp(20px, 1.8vw, 24px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
   font-weight: 600 !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
   hyphens: none !important;
-  z-index: 2 !important;
+  z-index: 5 !important;
 }
 
 html body main .service-pillars .service-card-face > p {
   position: relative !important;
-  top: auto !important;
-  left: auto !important;
   display: block !important;
-  width: calc(100% - 56px) !important;
-  margin: 10px 0 0 !important;
-  padding: 0 24px !important;
-  font-size: 13.5px !important;
-  line-height: 1.45 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 8px 0 0 !important;
+  padding: 0 54px 0 24px !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
-  z-index: 2 !important;
+  z-index: 5 !important;
 }
 
-/* 9. Arrow Buttons */
+/* 9. Arrow Buttons: Customized per theme */
 html body main .service-pillars .service-card-link::after {
   content: "↗" !important;
   position: absolute !important;
@@ -3003,10 +2848,11 @@ html body main .service-pillars .client-service-grid > :nth-child(even) .service
   color: #FFFFFF !important;
 }
 
+/* Hover state on arrows */
 html body main .service-pillars .service-card-link:hover::after {
   background: #F5B400 !important;
   border-color: #F5B400 !important;
-  color: #111111 !important;
+  color: #000000 !important;
   transform: rotate(45deg) !important;
 }
 
@@ -3014,12 +2860,12 @@ html body main .service-pillars .service-card-link:hover::after {
 @media (max-width: 760px) {
   html body main .service-pillars .service-card-face > h3 {
     margin-top: 14px !important;
-    padding: 0 18px !important;
+    padding: 0 48px 0 18px !important;
     font-size: 20px !important;
   }
   html body main .service-pillars .service-card-face > p {
     margin-top: 8px !important;
-    padding: 0 18px !important;
+    padding: 0 48px 0 18px !important;
     font-size: 13px !important;
   }
   html body main .service-pillars .service-card-link::after {
@@ -3028,28 +2874,32 @@ html body main .service-pillars .service-card-link:hover::after {
     width: 32px !important;
     height: 32px !important;
   }
+  .service-pillars .client-service-grid > :nth-child(odd) .service-card-face::after {
+    top: 50% !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+    width: 44% !important;
+    height: 50% !important;
+    clip-path: polygon(
+      73% 0%,
+      100% 0%,
+      55% 76%,
+      40% 100%,
+      0% 100%
+    ) !important;
+  }
 }
 
 /* 11. Global Image Fitting: ensure full images are visible across components */
 .service-directory-media {
   position: relative !important;
-  display: block !important;
   width: 100% !important;
   height: auto !important;
   aspect-ratio: 16 / 9 !important;
   overflow: hidden !important;
-  border-radius: 18px 18px 0 0 !important;
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-}
-
-.service-directory-media::before,
-.service-directory-media::after {
-  content: none !important;
-  display: none !important;
-  background: none !important;
+  border-radius: 14px 14px 0 0 !important;
+  background: #f4f6fb !important;
 }
 
 .service-directory-media img {
@@ -3057,16 +2907,8 @@ html body main .service-pillars .service-card-link:hover::after {
   width: 100% !important;
   height: 100% !important;
   aspect-ratio: 16 / 9 !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center !important;
-  border-radius: 18px 18px 0 0 !important;
-  opacity: 1 !important;
-  filter: none !important;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.service-directory-card:hover .service-directory-media img {
-  transform: scale(1.03) !important;
 }
 
 .home-reel {
