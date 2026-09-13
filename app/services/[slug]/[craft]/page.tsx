@@ -13,7 +13,7 @@ export function generateStaticParams() {
   return params;
 }
 
-export const dynamicParams = true;
+
 
 export default async function CraftPage({ params }: { params: Promise<{ slug: string; craft: string }> }) {
   const { slug, craft: craftSlug } = await params;
