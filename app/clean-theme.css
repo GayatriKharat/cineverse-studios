@@ -117,3 +117,58 @@ p,.lede,.hero-lede,.section-lede{color:rgba(0,0,0,.68)}
 .footer-kicker,.footer-column h2,.footer-contact-column h3,.footer-bottom{color:#000000!important}.footer-lede,.footer-contact-column>p,.footer-bottom{color:rgba(0,0,0,.68)!important}.footer-column h2,.footer-bottom{border-color:rgba(0,0,0,.14)!important}
 .footer-nav a,.footer-contact-column a{color:#000000!important}.footer-nav a:hover,.footer-contact-column a:hover{color:#2337C6!important}.footer-contact-label{color:#2337C6!important}.footer-cta{background:#F5B400;color:#000000}.footer-cta:hover,.footer-cta:focus-visible{background:#2337C6;color:#FFFFFF}
 .footer-contact-column .social-links a{border-color:rgba(0,0,0,.2)!important;color:#000000!important}.footer-contact-column .social-links a:hover{border-color:#2337C6!important;color:#2337C6!important}
+
+/* Service Directory & Service Pillars Card Image Proportions */
+.service-directory-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.service-directory-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: #2337C6 !important;
+  box-shadow: 0 16px 36px rgba(35, 55, 198, 0.14) !important;
+}
+
+.service-directory-media {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden !important;
+  border-radius: 18px 18px 0 0 !important;
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.service-directory-media::before,
+.service-directory-media::after {
+  content: none !important;
+  display: none !important;
+}
+
+.service-directory-media img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 18px 18px 0 0 !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.service-directory-card:hover .service-directory-media img {
+  transform: scale(1.03) !important;
+}
