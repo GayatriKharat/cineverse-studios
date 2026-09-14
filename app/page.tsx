@@ -159,7 +159,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-contact wrap" aria-label="Start a project" style={{ backgroundImage: cssUrl("/Updated Images/Let's connect.png"), paddingTop: "80px", paddingBottom: "80px" }}>
+      <section className="home-contact wrap" aria-label="Start a project" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
         <div>
           <Reveal>
             <h2>Let&apos;s <em>talk.</em></h2>
