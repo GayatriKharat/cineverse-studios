@@ -11,20 +11,31 @@ export function Hero() {
     const el = root.current;
     if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      gsap.to(".hero-reel", { opacity: 0.95, duration: 18, ease: "none" });
-      tl.from(".hero-line span", { yPercent: 110, duration: 1.15, stagger: 0.12 }, 0.2)
-        .from(".hero-lede", { opacity: 0, y: 16, duration: 0.75 }, 0.5)
-        .from(".hero-actions", { opacity: 0, y: 16, duration: 0.7 }, 0.7)
-        .from(".stage-rail", { opacity: 0, y: 18, duration: 0.8 }, 0.9)
-        .from(".hero-slate, .hero-now", { opacity: 0, duration: 0.6 }, 1.0);
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 1.55 });
+      gsap.fromTo(
+        ".hero-reel",
+        { opacity: 0, x: 28, scale: 0.94 },
+        { opacity: 1, x: 0, scale: 1, duration: 1.35, ease: "power3.out", delay: 1.55 }
+      );
+      tl.from(".hero-line span", { yPercent: 110, duration: 1.05, stagger: 0.1 }, 0)
+        .from(".hero-lede", { opacity: 0, y: 14, duration: 0.65 }, 0.25)
+        .from(".hero-actions", { opacity: 0, y: 14, duration: 0.6 }, 0.45);
     }, el);
     return () => ctx.revert();
   }, []);
 
   return (
     <section ref={root} className="hero" id="top">
-      <div className="hero-reel" aria-hidden="true" />
+      <div className="hero-n-field" aria-hidden="true">
+        <span className="hero-mid-haze" />
+        <span className="hero-mid-ring is-a" />
+        <span className="hero-mid-ring is-b" />
+        <span className="hero-mid-dust" />
+        <span className="hero-n-cast" />
+        <div className="hero-reel">
+          <span className="hero-n-light" />
+        </div>
+      </div>
       <div className="hero-shade" />
       <div className="hero-copy wrap">
         <h1>

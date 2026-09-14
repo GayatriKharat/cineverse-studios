@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { FlipCard } from "@/components/flip-card";
-import { cssUrl } from "@/lib/asset";
+import { asset } from "@/lib/asset";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { AnimatedStats } from "@/components/animated-stats";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
@@ -106,38 +105,42 @@ export default function About() {
         </div>
       </section>
 
-      <section className="founders wrap">
+      <section className="founders wrap" aria-labelledby="founders-title">
         <Reveal>
-          <h2>The people who hold <em>the picture.</em></h2>
-          <p className="lede">Hover a portrait to turn the card. On phone, tap once.</p>
+          <h2 id="founders-title">The people who hold <em>the picture.</em></h2>
+          <p className="lede">Meet the partners behind Narayani Studios.</p>
         </Reveal>
         <Stagger className="founder-row">
           {founders.map((person) => (
             <StaggerItem key={person.name}>
-              <FlipCard
-                className="founder-flip"
-                front={
-                  <>
-                    <div className="portrait" style={{ backgroundImage: cssUrl(person.image) }} />
+              <article className="founder-card">
+                <div className="founder-card-media">
+                  <img
+                    className="founder-card-photo"
+                    src={asset(person.image)}
+                    alt={person.name}
+                  />
+                  <div className="founder-card-credit">
                     <h3>{person.name}</h3>
                     <span>{person.line}</span>
-                  </>
-                }
-                back={
-                  <div className="founder-back">
-                    <div className="founder-back-head">
-                      <h3>{person.name}</h3>
-                      <span>{person.line}</span>
-                    </div>
-                    <div className="founder-bio">
-                      {person.bio.map((paragraph, idx) => (
-                        <p key={idx}>{paragraph}</p>
-                      ))}
-                    </div>
-                    <a className="text-link" href={person.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a>
                   </div>
-                }
-              />
+                </div>
+                <div className="founder-card-panel">
+                  <div className="founder-card-bio">
+                    {person.bio.map((paragraph, idx) => (
+                      <p key={idx}>{paragraph}</p>
+                    ))}
+                  </div>
+                  <a
+                    className="button founder-cta"
+                    href={person.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Connect on LinkedIn ↗
+                  </a>
+                </div>
+              </article>
             </StaggerItem>
           ))}
         </Stagger>

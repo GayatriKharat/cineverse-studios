@@ -6,6 +6,8 @@ import "./cinematic.css";
 import "./clean-theme.css";
 import "./serpentine-snake.css";
 import "./talk.css";
+import "./theme-unify.css";
+import "./intro-hero.css";
 import { IntroLoader } from "@/components/intro-loader";
 import { Navigation } from "@/components/navigation";
 import { PageTransition } from "@/components/page-transition";
@@ -35,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={manrope.variable}>
       <body>
-        <style>{`:root{--hero-still:url("${publicBase}/Updated%20Images/narayani%20Home%20white.png");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}`}</style>
+        <style>{`:root{--hero-still:url("${publicBase}/narayani-n-dissolve-hero.png?v=clean-n-1");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}`}</style>
         <a className="skip-link" href="#main">Skip to content</a>
         <IntroLoader />
         <ScrollProgress />

@@ -1,19 +1,47 @@
 "use client";
+
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 
 export function IntroLoader() {
-  const [done, setDone] = useState(false);
+  const [phase, setPhase] = useState<"boot" | "lit" | "done">("boot");
 
   useEffect(() => {
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const compact = matchMedia("(max-width: 860px)").matches;
-    const t = window.setTimeout(() => setDone(true), reduce ? 120 : compact ? 450 : 900);
-    return () => window.clearTimeout(t);
+    if (reduce) {
+      setPhase("done");
+      return;
+    }
+
+    const lit = window.setTimeout(() => setPhase("lit"), 120);
+    const done = window.setTimeout(() => setPhase("done"), 1680);
+    return () => {
+      window.clearTimeout(lit);
+      window.clearTimeout(done);
+    };
   }, []);
 
   return (
-    <div className={`intro-loader${done ? " is-done" : ""}`} aria-hidden={done}>
-      <b><i /></b>
+    <div
+      className={`intro-loader is-${phase}`}
+      aria-hidden={phase === "done"}
+      role="presentation"
+    >
+      <div className="intro-stage">
+        <div className="intro-n-wrap">
+          <img
+            className="intro-logo"
+            src={asset("/narayani-logo.png?v=nobg-big-20260914")}
+            alt=""
+          />
+          <span className="intro-beam" aria-hidden="true" />
+          <span className="intro-glow" aria-hidden="true" />
+        </div>
+        <p className="intro-caption">Narayani Studios</p>
+        <div className="intro-progress" aria-hidden="true">
+          <i />
+        </div>
+      </div>
     </div>
   );
 }

@@ -12,7 +12,7 @@
     radial-gradient(circle at 82% 35%, #f5b40013 0, transparent 28%),
     linear-gradient(145deg, #03040c 0%, #071238 48%, #020208 100%);
   border: 1px solid #ffffff14;
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 28px 80px #00000080, inset 0 1px #ffffff0d;
 }
 

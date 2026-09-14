@@ -1,0 +1,187 @@
+/* Unified Narayani theme — logo-matched curves + consistent surfaces.
+   Soft radius mirrors the N-mark corner (~12px), not pills. */
+
+:root {
+  --ns-radius: 12px;
+  --ns-radius-sm: 8px;
+  --ns-radius-btn: 10px;
+  --ns-radius-panel: 12px;
+  --ns-blue: #2337C6;
+  --ns-gold: #F5B400;
+  --ns-ink: #17181c;
+  --ns-line: rgba(0, 0, 0, 0.12);
+  --ns-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons & CTAs — same curve + gold→blue special hover */
+.button,
+.button-ghost,
+.nav-cta,
+.footer-cta,
+.hero-actions .button,
+.hero-actions .button-ghost,
+.talk-form .send-button,
+.founder-cta,
+.cta-band .button,
+.founding-note-cta {
+  border-radius: var(--ns-radius-btn) !important;
+}
+
+.button,
+.nav-cta,
+.footer-cta,
+.hero-actions .button,
+.talk-form .send-button,
+.founder-cta,
+.cta-band .button,
+.founding-note-cta {
+  background: var(--ns-gold) !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease !important;
+}
+
+.button:hover,
+.button:focus-visible,
+.nav-cta:hover,
+.nav-cta:focus-visible,
+.footer-cta:hover,
+.footer-cta:focus-visible,
+.hero-actions .button:hover,
+.hero-actions .button:focus-visible,
+.talk-form .send-button:hover,
+.talk-form .send-button:focus-visible,
+.founder-cta:hover,
+.founder-cta:focus-visible,
+.cta-band .button:hover,
+.founding-note-cta:hover {
+  background: var(--ns-blue) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(35, 55, 198, 0.28),
+    0 0 0 1px rgba(245, 180, 0, 0.55) !important;
+}
+
+.button-ghost,
+.hero-actions .button-ghost {
+  background: #fff !important;
+  color: var(--ns-blue) !important;
+  border: 1px solid var(--ns-blue) !important;
+  box-shadow: none !important;
+}
+
+.button-ghost:hover,
+.button-ghost:focus-visible,
+.hero-actions .button-ghost:hover,
+.hero-actions .button-ghost:focus-visible {
+  background: var(--ns-blue) !important;
+  color: #fff !important;
+  border-color: var(--ns-blue) !important;
+  box-shadow: 0 12px 28px rgba(35, 55, 198, 0.22) !important;
+}
+
+/* Cards / panels / media tiles — one radius */
+.pillar-card,
+.flip-face,
+.craft-tile,
+.detail-grid article,
+.resource-card,
+.founder-grid article,
+.founder-card,
+.founding-note,
+.testimonial-cards article,
+.testimonial-track article,
+.resource-testimonial-grid article,
+.faq,
+.resource-faq-list details,
+.service-directory-card,
+.service-pillars .service-architecture-card,
+.service-pillars .service-card-link,
+.service-pillars .client-service-grid > *,
+.resource-preview,
+.stats-band,
+.contact-form,
+.talk-form,
+.talk-stage .talk-form,
+.home-reel,
+.page-hero-media,
+.feature-card,
+.work-row div,
+.gallery-grid div,
+.talk-channel,
+.country-code-select,
+.country-code-menu,
+.about-values_purpose__placeholder {
+  border-radius: var(--ns-radius) !important;
+}
+
+.service-pillars .service-card-link,
+.service-pillars .service-architecture-card {
+  border-radius: var(--ns-radius) !important;
+}
+
+.service-pillars .service-card-link,
+.service-pillars .service-architecture-card,
+.founder-card,
+.founding-note,
+.resource-preview,
+.service-directory-card,
+.stats-band,
+.contact-form.talk-form {
+  border: 1px solid var(--ns-line) !important;
+  box-shadow: var(--ns-shadow) !important;
+  overflow: hidden;
+}
+
+/* Purpose / mandate stage on About */
+section[class*="purpose"],
+section[class*="about-values"] {
+  border-radius: var(--ns-radius);
+}
+
+/* Inputs match controls */
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.talk-form input,
+.talk-form select,
+.talk-form textarea,
+.talk-field input,
+.talk-field select,
+.talk-field textarea,
+.country-code-trigger {
+  border-radius: var(--ns-radius-sm) !important;
+}
+
+/* Footer panel follows same soft curve */
+.site-footer-panel {
+  border-radius: var(--ns-radius) !important;
+}
+
+/* Kill pill radii from older theme layers */
+.nav-cta,
+.button,
+.button-ghost,
+.hero-actions .button,
+.hero-actions .button-ghost,
+.footer-cta,
+.faq button,
+.resource-faq-list summary,
+.service-directory-options a {
+  border-radius: var(--ns-radius-btn) !important;
+}
+
+.service-directory-options a {
+  border-radius: var(--ns-radius-sm) !important;
+}
+
+/* Keep circular only where intentional (avatars / social) */
+.social-links a,
+.client-logo-img {
+  border-radius: 50% !important;
+}
