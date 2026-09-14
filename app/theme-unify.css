@@ -185,3 +185,204 @@ section[class*="about-values"] {
 .client-logo-img {
   border-radius: 50% !important;
 }
+
+/* Soft-hide without deleting markup */
+.is-soft-hidden,
+[hidden].is-soft-hidden {
+  display: none !important;
+}
+
+/* Founders: read more instead of scroll */
+.founder-card-bio {
+  overflow: visible !important;
+  max-height: none !important;
+}
+.founder-card-bio.is-collapsed {
+  max-height: none !important;
+}
+.founder-read-more {
+  align-self: flex-start;
+  margin: 4px 0 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #2337c6;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.founder-cta {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* Footer reach-us mail only spacing */
+.footer-mail-only {
+  display: inline-block;
+  margin: 8px 0 18px;
+  word-break: break-all;
+  line-height: 1.5;
+}
+.footer-contact-column > a + a {
+  margin-top: 12px;
+}
+
+/* Form equal left/right */
+.home-contact.talk-stage,
+.contact-layout.talk-stage {
+  width: min(100% - 32px, 1200px) !important;
+  margin-inline: auto !important;
+  margin-block: 40px !important;
+  padding: clamp(28px, 4vw, 44px) !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: clamp(24px, 4vw, 48px) !important;
+  align-items: start !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 900px) {
+  .home-contact.talk-stage,
+  .contact-layout.talk-stage {
+    grid-template-columns: 1fr !important;
+    width: min(100% - 24px, 1200px) !important;
+  }
+}
+
+/* CTA bands match contact blue panel */
+.cta-band.cta-band-panel,
+.cta-band.talk-stage {
+  width: min(100% - 32px, 1200px) !important;
+  margin: 40px auto !important;
+  padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 48px) !important;
+  background: #1a1a1a !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22) !important;
+  text-align: left !important;
+}
+.cta-band.cta-band-panel h2,
+.cta-band.cta-band-panel .section-lede {
+  color: #fff !important;
+}
+.cta-band.cta-band-panel h2 em {
+  color: #f5b400 !important;
+}
+
+/* Tighter section rhythm */
+.studio-reel,
+.service-pillars,
+.home-voices,
+.who-we-are,
+.intro,
+.founders,
+.about-story,
+.cta-band,
+.resources-architecture {
+  padding-block: clamp(40px, 7vw, 64px) !important;
+}
+.purpose {
+  margin-top: clamp(20px, 3vw, 36px) !important;
+}
+
+/* Craft accordion: blue lead + animation filler (no images) */
+.craft-lead-line,
+.serpentine-drawer-strap.craft-lead-line {
+  color: #2337c6 !important;
+  font-weight: 600 !important;
+  font-size: 1.02rem !important;
+  line-height: 1.55 !important;
+  margin: 0 0 12px !important;
+}
+.craft-body-copy,
+.serpentine-drawer-desc {
+  color: rgba(0, 0, 0, 0.72) !important;
+}
+.tab-panel.is-no-image {
+  display: grid !important;
+  grid-template-columns: minmax(140px, 220px) 1fr !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+@media (max-width: 760px) {
+  .tab-panel.is-no-image {
+    grid-template-columns: 1fr !important;
+  }
+}
+.craft-anim-filler {
+  position: relative;
+  min-height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(35, 55, 198, 0.28), transparent 55%),
+    radial-gradient(circle at 70% 65%, rgba(245, 180, 0, 0.22), transparent 50%),
+    linear-gradient(145deg, #eef1ff, #ffffff 55%, #fff7e0);
+  border: 1px solid rgba(35, 55, 198, 0.14);
+}
+.craft-anim-filler.is-compact {
+  min-height: 120px;
+  margin-bottom: 14px;
+}
+.craft-anim-filler span,
+.craft-anim-filler i {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(35, 55, 198, 0.35);
+  animation: craftOrbit 8s linear infinite;
+}
+.craft-anim-filler span:nth-child(1) {
+  inset: 18% 22%;
+}
+.craft-anim-filler span:nth-child(2) {
+  inset: 30% 34%;
+  border-color: rgba(245, 180, 0, 0.45);
+  animation-duration: 11s;
+  animation-direction: reverse;
+}
+.craft-anim-filler span:nth-child(3) {
+  inset: 42% 46%;
+  animation-duration: 6s;
+}
+.craft-anim-filler i {
+  width: 10px;
+  height: 10px;
+  inset: auto 18% 28% auto;
+  background: #f5b400;
+  border: 0;
+  box-shadow: 0 0 16px #f5b400;
+  animation: craftPulse 2.4s ease-in-out infinite;
+}
+@keyframes craftOrbit {
+  to { transform: rotate(360deg); }
+}
+@keyframes craftPulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+
+.page-hero.is-n-hero .page-hero-cover-img {
+  object-fit: contain !important;
+  object-position: right center !important;
+  background: #ffffff;
+}
+.page-hero.is-n-hero {
+  background: #ffffff !important;
+}
+.page-hero.is-n-hero .page-hero-shade {
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,.92) 42%, rgba(255,255,255,0) 72%) !important;
+}
+.page-hero.is-n-hero .page-hero-copy h1,
+.page-hero.is-n-hero .page-hero-copy .lede {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+.page-hero.is-n-hero .page-hero-copy h1 em {
+  color: #2337c6 !important;
+}
+

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { cssUrl } from "@/lib/asset";
-import { craftHref, type Craft } from "@/lib/offerings";
+import { splitCraftCopy } from "@/lib/craft-copy";
+import { type Craft } from "@/lib/offerings";
 
 export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlug: string }) {
   const [active, setActive] = useState<string | null>(crafts[0]?.slug ?? null);
@@ -16,6 +16,7 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
     <div className="craft-stack">
       {crafts.map((craft, index) => {
         const on = craft.slug === active;
+        const { lead, body } = splitCraftCopy(craft.strap, craft.description || craft.strap);
         return (
           <article key={craft.slug} className={`craft-bar${on ? " is-on" : ""}`} id={craft.slug}>
             <button
@@ -49,16 +50,19 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
                 >
                   ×
                 </button>
-                <div className="tab-panel">
-                  <div
-                    className="tab-visual"
-                    style={on ? { backgroundImage: cssUrl(craft.image) } : undefined}
-                  />
+                <div className="tab-panel is-no-image">
+                  <div className="craft-anim-filler" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                    <i />
+                  </div>
                   <div className="tab-copy">
                     <h2>{craft.title}</h2>
-                    <p className="lede" style={{ fontSize: "1.05rem", lineHeight: "1.65", color: "var(--text-muted, #A1A1AA)", margin: "16px 0 24px" }}>
-                      {craft.description || craft.strap}
-                    </p>
+                    {lead ? <p className="craft-lead-line">{lead}</p> : null}
+                    {body ? (
+                      <p className="lede craft-body-copy">{body}</p>
+                    ) : null}
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "center" }}>
                       <Link className="button" href={`/contact?service=${encodeURIComponent(serviceSlug)}&subservice=${encodeURIComponent(craft.title)}`}>
                         Enquire about {craft.title} ↗

@@ -21,7 +21,7 @@ export function PageHero({
   actions?: React.ReactNode;
 }) {
   return (
-    <section data-rv className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}`}>
+    <section data-rv className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}${image?.includes("n-hero") ? " is-n-hero" : ""}`}>
       {image && (
         <div className="page-hero-media">
           <img
@@ -58,11 +58,11 @@ export function CtaBand({
   buttonHref?: string;
 }) {
   return (
-    <section className="cta-band wrap">
+    <section className="cta-band wrap talk-stage cta-band-panel">
       <Reveal>
         {eyebrow && <span className="kicker">{eyebrow}</span>}
         <h2>{title}</h2>
-        {subheading && <p className="section-lede" style={{ margin: "12px 0 28px", color: "var(--text-dim, #71717A)" }}>{subheading}</p>}
+        {subheading && <p className="section-lede" style={{ margin: "12px 0 28px" }}>{subheading}</p>}
         <Magnetic>
           <Link className="button" href={buttonHref}>{buttonText}</Link>
         </Magnetic>

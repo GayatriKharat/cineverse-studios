@@ -8,7 +8,7 @@ const channels = [
   },
   {
     label: "Phone",
-    value: "+91 74474 74431",
+    value: "+91 7447474431",
     href: "tel:+917447474431",
   },
 ] as const;
@@ -25,7 +25,7 @@ export function TalkChannels({ showLocale = false }: { showLocale?: boolean }) {
           </span>
         </a>
       ))}
-          {showLocale && (
+      {showLocale && (
         <div className="talk-channel is-static">
           <span className="talk-channel-label">Where we work</span>
           <span className="talk-channel-value">India · International</span>

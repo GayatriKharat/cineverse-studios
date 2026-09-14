@@ -2,9 +2,9 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight, Plus, Minus, GitCommit, Rows } from "lucide-react";
 import { CraftTabs } from "@/components/craft-tabs";
+import { splitCraftCopy } from "@/lib/craft-copy";
 import type { Craft } from "@/lib/offerings";
 
 interface SerpentineCraftSnakeProps {
@@ -71,7 +71,7 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
       <div className="serpentine-header-bar">
         <div className="serpentine-title-wrap">
           <h2 className="serpentine-section-title">Explore our services</h2>
-          <span className="serpentine-section-count">{crafts.length} disciplines</span>
+          <span className="serpentine-section-count">{crafts.length} offerings</span>
         </div>
 
         <div className="serpentine-view-switch" role="tablist" aria-label="Services layout switch">
@@ -165,6 +165,7 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
               const isLeft = idx % 2 === 0;
               const formattedNum = String(idx + 1).padStart(2, "0");
               const isExtended = activeSlug === craft.slug;
+              const { lead, body } = splitCraftCopy(craft.strap, craft.description || craft.strap);
 
               const handleToggle = () => {
                 if (isExtended) {
@@ -223,28 +224,14 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
                           {/* Extended Drawer: 100% Unchanged Exact Copy */}
                           <div className="serpentine-drawer" aria-hidden={!isExtended}>
                             <div className="serpentine-drawer-inner">
-                              {craft.image && (
-                                <div className="serpentine-drawer-visual">
-                                  <Image
-                                    src={craft.image}
-                                    alt={craft.title}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, 380px"
-                                    referrerPolicy="no-referrer"
-                                    className="serpentine-drawer-img"
-                                  />
-                                  <div className="serpentine-drawer-scrim" />
-                                </div>
-                              )}
-
-                              {craft.strap && (
-                                <p className="serpentine-drawer-strap">{craft.strap}</p>
-                              )}
-
-                              {craft.description && (
-                                <p className="serpentine-drawer-desc">{craft.description}</p>
-                              )}
-
+                              <div className="craft-anim-filler is-compact" aria-hidden="true">
+                                <span />
+                                <span />
+                                <span />
+                                <i />
+                              </div>
+                              {lead ? <p className="serpentine-drawer-strap craft-lead-line">{lead}</p> : null}
+                              {body ? <p className="serpentine-drawer-desc">{body}</p> : null}
                               <div className="serpentine-drawer-action">
                                 <Link
                                   href={`/contact?service=${encodeURIComponent(serviceSlug)}&subservice=${encodeURIComponent(craft.title)}`}
@@ -350,28 +337,14 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
                           {/* Extended Drawer: 100% Unchanged Exact Copy */}
                           <div className="serpentine-drawer" aria-hidden={!isExtended}>
                             <div className="serpentine-drawer-inner">
-                              {craft.image && (
-                                <div className="serpentine-drawer-visual">
-                                  <Image
-                                    src={craft.image}
-                                    alt={craft.title}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, 380px"
-                                    referrerPolicy="no-referrer"
-                                    className="serpentine-drawer-img"
-                                  />
-                                  <div className="serpentine-drawer-scrim" />
-                                </div>
-                              )}
-
-                              {craft.strap && (
-                                <p className="serpentine-drawer-strap">{craft.strap}</p>
-                              )}
-
-                              {craft.description && (
-                                <p className="serpentine-drawer-desc">{craft.description}</p>
-                              )}
-
+                              <div className="craft-anim-filler is-compact" aria-hidden="true">
+                                <span />
+                                <span />
+                                <span />
+                                <i />
+                              </div>
+                              {lead ? <p className="serpentine-drawer-strap craft-lead-line">{lead}</p> : null}
+                              {body ? <p className="serpentine-drawer-desc">{body}</p> : null}
                               <div className="serpentine-drawer-action">
                                 <Link
                                   href={`/contact?service=${encodeURIComponent(serviceSlug)}&subservice=${encodeURIComponent(craft.title)}`}

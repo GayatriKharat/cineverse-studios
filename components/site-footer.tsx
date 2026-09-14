@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navPrimary, services } from "@/lib/site-data";
+import { services } from "@/lib/site-data";
 import { SocialLinks } from "@/components/social-links";
 import { BrandLogo } from "@/components/brand-logo";
 
@@ -8,8 +8,6 @@ export function SiteFooter() {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "Resources", href: "/resources" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -38,15 +36,12 @@ export function SiteFooter() {
         </div>
         <div className="footer-column footer-contact-column">
           <h2>Reach us</h2>
-          <p className="footer-contact-label">Studio</p>
-          <p>India · International</p>
-          <a href="mailto:business@narayanistudios.com">business@narayanistudios.com</a>
-          <a href="tel:+917447474431">+91 74474 74431</a>
+          <a className="footer-mail-only" href="mailto:business@narayanistudios.com">business@narayanistudios.com</a>
           <h3>Follow Us</h3>
           <SocialLinks />
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Narayani Studios | Pre-production · Production · Post-production · Digital & Social · Advertising · Events</span>
+          <span>© 2026 Narayani Studios | Pre production · Production · Post production · Digital & Social · Advertising · Events</span>
         </div>
       </div>
     </footer>

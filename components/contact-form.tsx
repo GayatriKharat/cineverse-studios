@@ -12,8 +12,6 @@ type FormValues = {
   countryCode: string;
   phoneNumber: string;
   service: string;
-  budget: string;
-  timeline: string;
   details: string;
 };
 
@@ -51,8 +49,6 @@ export function ContactForm() {
     defaultValues: {
       service: matched,
       countryCode: "+91",
-      budget: "$25k - $50k",
-      timeline: "Next 30 days",
       details: initialDetails,
     },
   });
@@ -71,7 +67,7 @@ export function ContactForm() {
         email: values.email,
         phone: fullPhone,
         service: values.service,
-        details: `[Budget: ${values.budget} | Timeline: ${values.timeline}]\n\n${values.details}`,
+        details: values.details,
       };
 
       const response = await fetch("/api/contact", {
@@ -80,11 +76,10 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
 
-      // Static Hostinger hosting has no Node API — fall back to mailto.
       if (response.status === 404 || response.status === 405) {
         const contactEmail =
           process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "business@narayanistudios.com";
-        const subject = encodeURIComponent(`Narayani Studios enquiry — ${payload.service || "General"}`);
+        const subject = encodeURIComponent(`Narayani Studios enquiry ${payload.service || "General"}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nService: ${payload.service}\n\n${payload.details}`
         );
@@ -100,7 +95,7 @@ export function ContactForm() {
       } catch {
         const contactEmail =
           process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "business@narayanistudios.com";
-        const subject = encodeURIComponent(`Narayani Studios enquiry — ${payload.service || "General"}`);
+        const subject = encodeURIComponent(`Narayani Studios enquiry ${payload.service || "General"}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nService: ${payload.service}\n\n${payload.details}`
         );
@@ -112,12 +107,16 @@ export function ContactForm() {
       if (!response.ok) throw new Error(result.error ?? "Unable to send your enquiry.");
       setSendPhase("flying");
       window.setTimeout(() => setSendPhase("idle"), 1250);
-      setState("Brief received. Our executive producer will connect within 2 hours.");
+      setState("Brief received. Our team will connect soon.");
     } catch (error) {
       setSendPhase("idle");
       setState(error instanceof Error ? error.message : "Unable to send your enquiry. Please try again.");
     }
   };
+
+  if (!mounted) {
+    return <div className="contact-form talk-form" aria-hidden />;
+  }
 
   return (
     <form className="contact-form talk-form" onSubmit={handleSubmit(submit)} noValidate>
@@ -126,10 +125,6 @@ export function ContactForm() {
           <p className="talk-form-kicker">Studio brief</p>
           <h3>Contact us.</h3>
         </div>
-        <p className="talk-form-promise">
-          <span className="talk-pulse" aria-hidden="true" />
-          Reply in under 2 hrs
-        </p>
       </header>
 
       <div className="talk-form-grid">
@@ -177,7 +172,7 @@ export function ContactForm() {
             })}
             type="tel"
             autoComplete="tel"
-            placeholder="74474 74431"
+            placeholder="7447474431"
           />
         </div>
         {errors.phoneNumber && <small>{errors.phoneNumber.message}</small>}
@@ -194,27 +189,6 @@ export function ContactForm() {
           ))}
         </select>
       </label>
-
-      <div className="talk-form-grid">
-        <label className="talk-field">
-          <span>Budget</span>
-          <select {...register("budget")}>
-            <option value="$10k - $25k">$10k – $25k</option>
-            <option value="$25k - $50k">$25k – $50k</option>
-            <option value="$50k - $100k+">$50k – $100k+</option>
-            <option value="Custom / Enterprise">Custom / Enterprise</option>
-          </select>
-        </label>
-        <label className="talk-field">
-          <span>Timeline</span>
-          <select {...register("timeline")}>
-            <option value="Immediate start">Immediate start</option>
-            <option value="Next 30 days">Next 30 days</option>
-            <option value="Next 3-6 months">Next 3–6 months</option>
-            <option value="Flexible">Flexible</option>
-          </select>
-        </label>
-      </div>
 
       <label className="talk-field">
         <span>Project notes</span>
@@ -236,7 +210,7 @@ export function ContactForm() {
         aria-live="polite"
       >
         <span className="send-button-label">
-          {sendPhase === "sending" ? "Transmitting brief…" : "Dispatch studio brief"}
+          {sendPhase === "sending" ? "Sending…" : "Send"}
         </span>
         {sendPhase === "flying" && (
           <span className="send-button-plane" aria-hidden="true">

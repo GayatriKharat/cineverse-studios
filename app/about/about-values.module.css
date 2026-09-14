@@ -48,26 +48,18 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   max-width: 1220px;
   margin: 0 auto;
 }
 
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: #f5b400;
-  font-weight: 500;
-}
-
 .kicker {
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.32em;
-  color: #ffffff75;
+  color: #f5b400;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .stage {
@@ -144,11 +136,11 @@
 
 .cardDot {
   font-size: 8px;
-  color: #ffffff40;
+  color: #f5b400;
 }
 
 .mission .cardDot {
-  color: #f5b40060;
+  color: #f5b400;
 }
 
 .icon {
@@ -296,8 +288,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  width: 100%;
+  text-align: center;
+  gap: 10px;
+  width: min(100%, 280px);
+  min-height: min(28vw, 340px);
+  margin: 0 auto;
 }
 
 .center h2 {
@@ -320,7 +315,7 @@
 
 .centerSub {
   position: relative;
-  margin: 20px auto 0;
+  margin: 8px auto 0;
   color: #ffffff88;
   font-size: 11px;
   line-height: 1.65;

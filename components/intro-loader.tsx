@@ -37,7 +37,6 @@ export function IntroLoader() {
           <span className="intro-beam" aria-hidden="true" />
           <span className="intro-glow" aria-hidden="true" />
         </div>
-        <p className="intro-caption">Narayani Studios</p>
         <div className="intro-progress" aria-hidden="true">
           <i />
         </div>

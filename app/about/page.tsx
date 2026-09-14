@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { asset } from "@/lib/asset";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { AnimatedStats } from "@/components/animated-stats";
+import { FounderCard } from "@/components/founder-card";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import styles from "./about-values.module.css";
 
@@ -41,11 +41,10 @@ export default function About() {
       <PageHero
         title={<>Built to make <em>ideas move.</em></>}
         copy="Where every story gets the craft it deserves."
-        image="/Updated Images/About us.png"
+        image="/about-n-hero.png"
         actions={
           <div className="hero-actions" style={{ marginTop: "24px" }}>
-            <Link className="button" href="/portfolio">See our work ↗</Link>
-            <Link className="button-ghost" href="/contact">Contact Us</Link>
+            <Link className="button" href="/contact">Contact Us</Link>
           </div>
         }
       />
@@ -55,7 +54,6 @@ export default function About() {
         <div className={styles.gridLines} aria-hidden="true" />
 
         <div className={styles.header}>
-          <span className={styles.eyebrow}>Mandate</span>
           <span className={styles.kicker}>ONE ECOSYSTEM</span>
         </div>
 
@@ -80,9 +78,9 @@ export default function About() {
             </div>
             <div className={styles.centerContent}>
               <h2 id="purpose-title">One ecosystem.<br /><em>Limitless</em> creative directions.</h2>
-              <p className={styles.centerSub}>Strategy · Creativity · Production · Distribution<br /><strong>Together under one roof.</strong></p>
+              <p className={styles.centerSub}><strong>Together under one roof.</strong></p>
               <div className={styles.centerLine} aria-hidden="true" />
-              <span className={styles.centerNote}>THE HOUSE<br />IN MOTION</span>
+              <span className={styles.centerNote}>ONE<br />ECOSYSTEM</span>
             </div>
           </div>
 
@@ -99,10 +97,6 @@ export default function About() {
             <small>IDEA <b>→</b> IDENTITY</small>
           </article>
         </div>
-
-        <div className={styles.footerMark} aria-hidden="true">
-          <span>STRATEGY</span><i /> <span>CREATIVITY</span><i /> <span>PRODUCTION</span><i /> <span>DISTRIBUTION</span>
-        </div>
       </section>
 
       <section className="founders wrap" aria-labelledby="founders-title">
@@ -113,34 +107,7 @@ export default function About() {
         <Stagger className="founder-row">
           {founders.map((person) => (
             <StaggerItem key={person.name}>
-              <article className="founder-card">
-                <div className="founder-card-media">
-                  <img
-                    className="founder-card-photo"
-                    src={asset(person.image)}
-                    alt={person.name}
-                  />
-                  <div className="founder-card-credit">
-                    <h3>{person.name}</h3>
-                    <span>{person.line}</span>
-                  </div>
-                </div>
-                <div className="founder-card-panel">
-                  <div className="founder-card-bio">
-                    {person.bio.map((paragraph, idx) => (
-                      <p key={idx}>{paragraph}</p>
-                    ))}
-                  </div>
-                  <a
-                    className="button founder-cta"
-                    href={person.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Connect on LinkedIn ↗
-                  </a>
-                </div>
-              </article>
+              <FounderCard person={person} />
             </StaggerItem>
           ))}
         </Stagger>

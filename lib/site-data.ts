@@ -374,36 +374,13 @@ export const navPrimary: NavItem[] = [
         ]
     },
     {
-        label: "Portfolio",
-        href: "/portfolio"
-    },
-    {
-        label: "Resources",
-        href: "/resources",
-        children: [
-            {
-                label: "All resources",
-                href: "/resources"
-            },
-            {
-                label: "Articles",
-                href: "/resources/articles"
-            },
-            {
-                label: "FAQs",
-                href: "/resources/faqs"
-            },
-            {
-                label: "Testimonials",
-                href: "/resources/testimonials"
-            }
-        ]
-    },
-    {
         label: "Contact",
         href: "/contact"
-    }
+    },
 ];
+
+/* Hidden for now (not deleted): Portfolio + Resources nav entries kept out of navPrimary */
+
 export const navGuide = [
     {
         label: "About",

@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <Hero />
 
-      <section className="studio-reel wrap" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
+      <section className="studio-reel wrap is-soft-hidden" hidden aria-hidden="true" style={{ paddingTop: "48px", paddingBottom: "48px" }}>
         <Reveal>
           <h2>Meet the <em>studio.</em></h2>
         </Reveal>
@@ -28,7 +28,7 @@ export default function Home() {
         </MediaReveal>
       </section>
 
-      <section className="wrap service-pillars" style={{ paddingTop: "60px", paddingBottom: "80px" }}>
+      <section className="wrap service-pillars" style={{ paddingTop: "48px", paddingBottom: "56px" }}>
         <Reveal>
           <h2>Our <em>services.</em></h2>
           <p className="section-lede" style={{ marginBottom: "40px" }}>
@@ -93,7 +93,7 @@ export default function Home() {
                     loading="lazy"
                   />
                   <b>{client.name}</b>
-                  <i>—</i>
+                  <i aria-hidden="true">·</i>
                 </span>
               ))}
             </div>
@@ -101,13 +101,13 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="home-voices wrap" style={{ paddingTop: "80px", paddingBottom: "80px" }} aria-label="Founding collaborations">
+      <section className="home-voices wrap" style={{ paddingTop: "56px", paddingBottom: "56px" }} aria-label="Founding collaborations">
         <Reveal>
           <article className="founding-note">
             <p className="founding-note-kicker">Founding collaborations</p>
             <h2>Be one of our first <em>collaborations.</em></h2>
             <p>
-              We&apos;re opening the slate with partners who value genuine craft. First reviews land here — until then, this is an invitation to build with us from the ground up.
+              We&apos;re opening the slate with partners who value genuine craft. First reviews land here until then, this is an invitation to build with us from the ground up.
             </p>
             <Link className="button founding-note-cta" href="/contact">
               Start a project ↗
@@ -125,7 +125,7 @@ export default function Home() {
         ]}
       />
 
-      <section className="who-we-are wrap" aria-label="Who we are" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+      <section className="who-we-are wrap" aria-label="Who we are" style={{ paddingTop: "56px", paddingBottom: "56px" }}>
         <div className="who-we-are-grid">
           <Reveal>
             <h2>A creative ecosystem, built for <em>all your needs.</em></h2>
@@ -137,7 +137,7 @@ export default function Home() {
             <div className="who-we-are-detail">
               <span />
               <p>
-                Narayani Studios delivers branding, marketing and end-to-end production across digital, film and advertising media.
+                Narayani Studios delivers branding, marketing and end to end production across digital, film and advertising media.
               </p>
             </div>
             <div className="who-we-are-detail">
@@ -158,11 +158,7 @@ export default function Home() {
               Let&apos;s <em>talk.</em>
             </h2>
             <p className="section-lede">
-              One service or the full chain — send the brief and we&apos;ll name the stage, the team, and the next move.
-            </p>
-            <p className="talk-promise-line">
-              <span className="talk-pulse" aria-hidden="true" />
-              Producer reply · usually under 2 hours
+              One service or the full chain, send the brief and we&apos;ll name the stage, the team, and the next move.
             </p>
             <TalkChannels />
           </Reveal>
