@@ -138,8 +138,28 @@ label,
     display: flex !important;
   }
 
-  .nav .menu {
+  /* Never show mobile menu toggle / Close chip on laptop */
+  .nav .menu,
+  .nav-end .menu,
+  .nav.is-open .menu {
     display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    opacity: 0 !important;
+  }
+
+  .index-menu,
+  .index-menu.open {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
   }
 }
 

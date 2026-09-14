@@ -41,6 +41,16 @@ export function Navigation() {
   }, [pathname]);
 
   useEffect(() => {
+    const mq = window.matchMedia("(min-width: 981px)");
+    const closeOnDesktop = () => {
+      if (mq.matches) setOpen(false);
+    };
+    closeOnDesktop();
+    mq.addEventListener("change", closeOnDesktop);
+    return () => mq.removeEventListener("change", closeOnDesktop);
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
@@ -117,8 +127,14 @@ export function Navigation() {
         </div>
         <div className="nav-end">
           <Link className="nav-cta" href="/contact">Let&apos;s Create <span aria-hidden="true">→</span></Link>
-          <button className="menu" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
-            {open ? "Close" : "Menu"}
+          <button
+            className="menu"
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-expanded={open}
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            <span aria-hidden="true">{open ? "✕" : "Menu"}</span>
           </button>
         </div>
       </header>
