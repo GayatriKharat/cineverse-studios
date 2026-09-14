@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 
 type BrandLogoProps = {
   href?: string | null;
@@ -12,9 +13,6 @@ type BrandLogoProps = {
   height?: number | string;
 };
 
-/** Exact client logo file — do not redraw as SVG. */
-const LOGO_SRC = "/narayani-logo.png?v=nobg-big-20260914";
-
 export function BrandLogo({
   href = "/",
   variant = "dark",
@@ -25,6 +23,10 @@ export function BrandLogo({
 }: BrandLogoProps) {
   const defaultWidth = compact ? 240 : 300;
   const computedWidth = width ?? defaultWidth;
+  const logoSrc =
+    variant === "light"
+      ? asset("/narayani-logo-white.png?v=pages-fix-1")
+      : asset("/narayani-logo.png?v=pages-fix-1");
 
   const content = (
     <span
@@ -40,7 +42,7 @@ export function BrandLogo({
     >
       <img
         className="brand-logo-image"
-        src={LOGO_SRC}
+        src={logoSrc}
         alt="Narayani Studios"
         width={typeof computedWidth === "number" ? computedWidth : 300}
         height={typeof computedWidth === "number" ? Math.round(computedWidth * 0.24) : 72}
