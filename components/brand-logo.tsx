@@ -191,10 +191,9 @@ export function BrandLogo({
   width,
   height,
 }: BrandLogoProps) {
-  // textColor: variant="light" (e.g. dark footer) -> white; variant="dark" (e.g. light header) -> black
-  const textColor = variant === "light" ? "#FFFFFF" : "#000000";
   const defaultWidth = compact ? 175 : 220;
   const computedWidth = width ?? defaultWidth;
+  const logoSrc = "/narayani-logo.png";
 
   const content = (
     <span
@@ -207,13 +206,13 @@ export function BrandLogo({
         textDecoration: "none",
         lineHeight: 1,
         background: "transparent",
-        mixBlendMode: variant === "dark" ? "multiply" : "normal",
       }}
     >
-      <BrandLogoSvgLockup
-        textColor={textColor}
-        idPrefix={variant === "light" ? "logo-light" : "logo-dark"}
-        className="brand-logo-lockup"
+      <img
+        src={logoSrc}
+        alt="Narayani Studios"
+        style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }}
+        referrerPolicy="no-referrer"
       />
     </span>
   );

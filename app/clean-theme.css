@@ -50,7 +50,7 @@ p,.lede,.hero-lede,.section-lede{color:rgba(0,0,0,.68)}
 .studio-reel,.service-pillars,.home-voices,.who-we-are,.intro,.feature-work,.house,.voices,.founders,.note,.cta-band,.resources-architecture,.resource-section,.about-story,.dailies{background:#FFFFFF;color:#000000}
 .studio-reel h2,.service-pillars h2,.home-voices h2,.who-we-are h2,.intro h2,.feature-work h2,.cta-band h2,.resources-architecture h2,.about-story h2{color:#000000}.studio-reel h2 em,.service-pillars h2 em,.home-voices h2 em,.who-we-are h2 em,.intro h2 em,.feature-work h2 em,.cta-band h2 em,.resources-architecture h2 em,.about-story h2 em{color:#2337C6}
 .home-reel{border:1px solid rgba(0,0,0,.14)}.home-reel:before{background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.62))}.home-reel span{border-color:#F5B400;background:rgba(0,0,0,.72);color:#FFFFFF}.home-reel:hover span{background:#2337C6}
-.client-strip{background:#FFFFFF;border-color:rgba(0,0,0,.14)}.client-strip span,.client-logo-item b{color:rgba(0,0,0,.68)}.client-strip i{color:#2337C6}.client-logo-img{background:transparent!important;border:none!important;border-radius:0!important;object-fit:contain!important}
+.client-strip{background:#FFFFFF;border-color:rgba(0,0,0,.14)}.client-strip span,.client-logo-item b{color:rgba(0,0,0,.68)}.client-strip i{color:#2337C6}.client-logo-img{width:88px!important;height:88px!important;background:rgba(0,0,0,0.02)!important;border:1px solid rgba(0,0,0,0.08)!important;border-radius:50%!important;object-fit:cover!important;padding:2px!important}
 
 
 /* Service cards are styled with signature alternating layout in cinematic.css */
