@@ -2,8 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Plus, Minus, GitCommit, Rows } from "lucide-react";
-import { CraftTabs } from "@/components/craft-tabs";
+import { ArrowUpRight, Plus, Minus } from "lucide-react";
 import { splitCraftCopy } from "@/lib/craft-copy";
 import type { Craft } from "@/lib/offerings";
 
@@ -23,7 +22,6 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
   // First sub-service card opens by default; others open on hover/click.
   const [activeSlug, setActiveSlug] = useState<string | null>(crafts[0]?.slug ?? null);
   const [dismissedSlug, setDismissedSlug] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<"serpentine" | "accordion">("serpentine");
 
   const totalHeight = crafts.length * ROW_HEIGHT;
 
@@ -66,44 +64,16 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
 
   return (
     <div className="serpentine-section" id="sub-services-serpentine">
-      {/* Header with View Switcher */}
       <div className="serpentine-header-bar">
         <div className="serpentine-title-wrap">
           <h2 className="serpentine-section-title">Explore our services</h2>
-          <span className="serpentine-section-count">{crafts.length} offerings</span>
-        </div>
-
-        <div className="serpentine-view-switch" role="tablist" aria-label="Services layout switch">
-          <button
-            type="button"
-            className={`serpentine-switch-btn${viewMode === "serpentine" ? " is-active" : ""}`}
-            onClick={() => setViewMode("serpentine")}
-            id="switch-to-snake-view"
-            aria-selected={viewMode === "serpentine"}
-          >
-            <GitCommit className="w-3.5 h-3.5" />
-            <span>Serpentine Line</span>
-          </button>
-          <button
-            type="button"
-            className={`serpentine-switch-btn${viewMode === "accordion" ? " is-active" : ""}`}
-            onClick={() => setViewMode("accordion")}
-            id="switch-to-accordion-view"
-            aria-selected={viewMode === "accordion"}
-          >
-            <Rows className="w-3.5 h-3.5" />
-            <span>Accordion</span>
-          </button>
         </div>
       </div>
 
-      {viewMode === "accordion" ? (
-        <CraftTabs crafts={crafts} serviceSlug={serviceSlug} />
-      ) : (
-        <div
-          className="serpentine-track-container"
-          style={{ height: `${totalHeight}px` }}
-        >
+      <div
+        className="serpentine-track-container"
+        style={{ height: `${totalHeight}px` }}
+      >
           {/* Dynamic SVG Snake Line (Shape is 100% fixed and unaffected by card expansion) */}
           {pathData && (
             <svg
@@ -377,7 +347,6 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
             <span>Hover or tap any curve node to explore sub-service details</span>
           </div>
         </div>
-      )}
     </div>
   );
 }
