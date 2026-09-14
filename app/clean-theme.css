@@ -20,7 +20,7 @@
 }
 
 html,body,#main{background:#FFFFFF;color:#000000}
-body{font-family:"Manrope",Arial,sans-serif}
+body{font-family:var(--font-sans),"Manrope",Arial,sans-serif}
 h1,h2,h3,.nav,.button,.button-ghost,.nav-cta,.menu,.footer-cta{font-family:var(--sf-pro)}
 h1,h2,h3{color:#000000;letter-spacing:0;font-weight:700}
 h1 em,h2 em{color:#2337C6;font-family:var(--sf-pro);font-style:normal;font-weight:700}

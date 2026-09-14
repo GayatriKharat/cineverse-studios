@@ -13,7 +13,7 @@ export default function ContactPage() {
             Start the <em>conversation.</em>
           </h1>
           <p className="contact-hero-lede">
-            One service or the full chain. Share the brief and we&apos;ll map the stage, the team, and the next move.
+            One service or the full chain. Share the brief and we will map the stage, the team, and the next move.
           </p>
         </Reveal>
         <div className="contact-hero-orbit" aria-hidden="true">

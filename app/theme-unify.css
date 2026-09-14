@@ -671,19 +671,32 @@ section[class*="about-values"] {
 }
 .contact-hero h1 {
   margin: 0;
-  max-width: 14ch;
+  max-width: min(18ch, 100%);
   font-size: clamp(2.8rem, 7vw, 5.2rem);
   line-height: 0.94;
   letter-spacing: -0.04em;
   color: #0a0a0a;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  overflow-wrap: normal !important;
+  word-break: keep-all !important;
 }
-.contact-hero h1 em { color: #2337c6; font-style: normal; }
+.contact-hero h1 em {
+  color: #2337c6;
+  font-style: normal;
+  white-space: nowrap;
+}
 .contact-hero-lede {
   margin: 1.15rem 0 0;
-  max-width: 38ch;
+  max-width: 42ch;
   color: rgba(0, 0, 0, 0.68);
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   line-height: 1.5;
+  letter-spacing: 0 !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
 }
 .contact-hero-orbit {
   position: absolute;

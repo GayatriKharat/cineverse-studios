@@ -47,9 +47,9 @@ label,
 .hero-lede,
 .lede,
 .section-lede {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
-  hyphens: auto;
+  hyphens: none;
 }
 
 /* ---------- NAV: logo slightly closer to links ---------- */
