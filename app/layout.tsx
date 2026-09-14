@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={manrope.variable}>
       <body>
-        <style>{`:root{--hero-still:url("${publicBase}/narayani-n-dissolve-hero.png?v=clean-n-1");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}`}</style>
+        <style>{`:root{--hero-still:url("${publicBase}/narayani-n-dissolve-hero.png?v=clean-n-1");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}.intro-loader{background:#fff!important;color:#14111f}.intro-loader .intro-logo{opacity:1}`}</style>
         <a className="skip-link" href="#main">Skip to content</a>
         <IntroLoader />
         <ScrollProgress />

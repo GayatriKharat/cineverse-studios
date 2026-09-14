@@ -31,7 +31,7 @@ export function IntroLoader() {
         <div className="intro-n-wrap">
           <img
             className="intro-logo"
-            src={asset("/narayani-logo.png?v=nobg-big-20260914")}
+            src={asset("/narayani-logo.png?v=loader-white-20260914")}
             alt=""
           />
           <span className="intro-beam" aria-hidden="true" />

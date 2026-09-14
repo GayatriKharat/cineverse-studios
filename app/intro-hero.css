@@ -1,12 +1,12 @@
-/* Intro loader — logo light grow, then quick site reveal */
+/* Intro loader — white field so logo is readable before site reveal */
 .intro-loader{
   position:fixed;
   inset:0;
   z-index:120;
   display:grid;
   place-items:center;
-  background:#05060c !important;
-  color:#fff;
+  background:#ffffff !important;
+  color:#14111f;
   pointer-events:auto;
   transition:opacity .45s ease,visibility .45s ease;
 }
@@ -29,18 +29,19 @@
   isolation:isolate;
   overflow:hidden;
   border-radius:12px;
+  background:#ffffff;
 }
 .intro-logo{
   display:block;
   width:100%;
   height:auto;
-  filter:brightness(.55) saturate(.9);
+  filter:brightness(.92) saturate(.95);
   transform:scale(.96);
   transition:filter .7s ease,transform .7s cubic-bezier(.22,1,.36,1);
 }
 .intro-loader.is-lit .intro-logo,
 .intro-loader.is-done .intro-logo{
-  filter:brightness(1.05) saturate(1.08) drop-shadow(0 0 28px rgba(35,55,198,.35));
+  filter:brightness(1) saturate(1.05) drop-shadow(0 8px 24px rgba(35,55,198,.16));
   transform:scale(1);
 }
 .intro-beam{
@@ -50,13 +51,13 @@
   background:linear-gradient(
     90deg,
     transparent 0%,
-    rgba(245,180,0,.05) 18%,
-    rgba(255,255,255,.55) 48%,
-    rgba(35,55,198,.35) 72%,
+    rgba(245,180,0,.12) 18%,
+    rgba(35,55,198,.18) 48%,
+    rgba(245,180,0,.14) 72%,
     transparent 100%
   );
   transform:skewX(-18deg) translateX(-120%);
-  mix-blend-mode:screen;
+  mix-blend-mode:multiply;
   pointer-events:none;
   z-index:2;
 }
@@ -68,7 +69,7 @@
   position:absolute;
   inset:18% 22%;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(245,180,0,.35) 0%,rgba(35,55,198,.18) 42%,transparent 70%);
+  background:radial-gradient(circle,rgba(245,180,0,.22) 0%,rgba(35,55,198,.12) 42%,transparent 70%);
   opacity:0;
   filter:blur(18px);
   pointer-events:none;
@@ -78,7 +79,7 @@
 .intro-loader.is-lit .intro-glow{opacity:1}
 .intro-caption{
   margin:0;
-  color:rgba(255,255,255,.72);
+  color:rgba(20,17,31,.62);
   font-size:11px;
   letter-spacing:.28em;
   text-transform:uppercase;
@@ -94,7 +95,7 @@
   width:min(52vw,220px);
   height:2px;
   border-radius:999px;
-  background:rgba(255,255,255,.12);
+  background:rgba(20,17,31,.1);
   overflow:hidden;
 }
 .intro-progress i{
