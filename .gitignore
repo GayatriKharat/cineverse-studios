@@ -8,6 +8,7 @@ out/
 .env.production.local
 *.log
 tsconfig.tsbuildinfo
+.tmp-pdf-extract/
 
 # Client-sensitive. Local only — never commit or deploy.
 reports/

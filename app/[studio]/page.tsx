@@ -86,8 +86,6 @@ export function generateStaticParams() {
   return Object.keys(pages).map((studio) => ({ studio }));
 }
 
-export const dynamicParams = false;
-
 export async function generateMetadata({ params }: { params: Promise<{ studio: string }> }): Promise<Metadata> {
   const { studio } = await params;
   const page = pages[studio as keyof typeof pages];
@@ -104,51 +102,52 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
       <PageHero eyebrow={page.eyebrow} title={page.title} copy={page.copy} image={page.image} />
       {studio === "team" && (
         <section className="founders wrap">
-          <p className="eyebrow">Founders</p>
           <h2>Flip a portrait.</h2>
           <Stagger className="founder-row">
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-shreeraj.png?v=6") }} /><p className="eyebrow">Founder</p><h3>ShreeRaj Avhad</h3><span>Creative direction · Production</span></>}
-                back={<div className="founder-back"><p className="eyebrow">Founder</p><h3>ShreeRaj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/images/shreeraj-avhad.jpg") }} /><h3>Shreeraj Avhad</h3><span>Co-Founder & CEO</span></>}
+                back={<div className="founder-back"><h3>Shreeraj Avhad</h3><p>Holds the picture from first idea to locked frame. Scripts, shoots and finishing sit in one conversation.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
             <StaggerItem>
               <FlipCard
                 className="founder-flip"
-                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/founder-kiran.png?v=6") }} /><p className="eyebrow">Co-founder</p><h3>Kiran Dhangar</h3><span>Brand strategy · Operations</span></>}
-                back={<div className="founder-back"><p className="eyebrow">Co-founder</p><h3>Kiran Dhangar</h3><p>Keeps the house commercially sharp: brand, ops and the brief that production can actually make.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
+                front={<><div className="portrait" style={{ backgroundImage: cssUrl("/images/kiran-dhangar.jpg") }} /><h3>Kiran Dhangar</h3><span>Co-Founder & COO</span></>}
+                back={<div className="founder-back"><h3>Kiran Dhangar</h3><p>Keeps the house commercially sharp: brand, ops and the brief that production can actually make.</p><Link className="text-link" href="/contact">Start a brief ↗</Link></div>}
               />
             </StaggerItem>
           </Stagger>
         </section>
       )}
-      <section className="wrap">
-        <Stagger className="flip-grid two">
-          {page.items.map((item, index) => (
-            <StaggerItem key={item.title}>
-              <FlipCard
-                className="dept-flip"
-                front={
-                  <div className="pillar-back">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <h3>{item.title}</h3>
-                    <p>Hover to flip</p>
-                  </div>
-                }
-                back={
-                  <div className="pillar-back">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <h3>{item.title}</h3>
-                    <p>{item.copy}</p>
-                  </div>
-                }
-              />
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </section>
+      {studio !== "portfolio" && (
+        <section className="wrap">
+          <Stagger className="flip-grid two">
+            {page.items.map((item, index) => (
+              <StaggerItem key={item.title}>
+                <FlipCard
+                  className="dept-flip"
+                  front={
+                    <div className="pillar-back">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <h3>{item.title}</h3>
+                      <p>Hover to flip</p>
+                    </div>
+                  }
+                  back={
+                    <div className="pillar-back">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.copy}</p>
+                    </div>
+                  }
+                />
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </section>
+      )}
       {studio === "portfolio" && <WorkShowcase />}
       {studio === "insights" && (
         <section className="note wrap">

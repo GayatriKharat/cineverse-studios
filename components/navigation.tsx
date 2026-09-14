@@ -77,7 +77,7 @@ export function Navigation() {
   return (
     <>
       <header ref={navRef} className={`nav${scrolled ? " scrolled" : ""}${onDarkHero ? " on-hero" : ""}${open ? " is-open" : ""}`}>
-        <BrandLogo variant="dark" compact showTagline />
+        <BrandLogo variant="dark" compact showTagline={false} />
         <nav aria-label="Primary">
           {navPrimary.map((item) => (
             <div key={item.label} className={`nav-item${item.children ? " has-drop" : ""}${openDrop === item.label ? " is-open" : ""}`}>
@@ -113,12 +113,12 @@ export function Navigation() {
             </div>
           ))}
         </nav>
+        <Link className="nav-cta" href="/contact">Let&apos;s Create <span aria-hidden="true">→</span></Link>
         <button className="menu" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
           {open ? "Close" : "Menu"}
         </button>
       </header>
       <div className={`index-menu${open ? " open" : ""}`} aria-hidden={!open}>
-        <p className="eyebrow">Menu</p>
         <div className="index-cols">
           {navPrimary.map((item, i) => (
             <div key={item.label} className="index-block">

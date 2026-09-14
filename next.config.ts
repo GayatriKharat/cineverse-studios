@@ -1,14 +1,13 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 const basePath = process.env.BASE_PATH ?? "";
+const isExport = process.env.OUTPUT_EXPORT === "true" || process.env.GITHUB_ACTIONS === "true";
+
 const nextConfig: NextConfig = {
-  ...(process.env.NODE_ENV === "production" ? { output: "export" as const } : {}),
+  ...(isExport ? { output: "export" } : {}),
   trailingSlash: true,
-  basePath,
-  assetPrefix: basePath,
+  ...(basePath ? { basePath } : {}),
   images: { unoptimized: true },
-  outputFileTracingRoot: path.join(process.cwd()),
 };
 
 export default nextConfig;

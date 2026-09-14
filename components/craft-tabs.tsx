@@ -5,7 +5,7 @@ import { cssUrl } from "@/lib/asset";
 import { craftHref, type Craft } from "@/lib/offerings";
 
 export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlug: string }) {
-  const [active, setActive] = useState(crafts[0]?.slug ?? "");
+  const [active, setActive] = useState<string | null>(crafts[0]?.slug ?? null);
 
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
@@ -23,8 +23,9 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
               className="craft-bar-hit"
               aria-expanded={on}
               onClick={() => {
-                setActive(craft.slug);
-                history.replaceState(null, "", `#${craft.slug}`);
+                const next = active === craft.slug ? null : craft.slug;
+                setActive(next);
+                history.replaceState(null, "", next ? `#${next}` : window.location.pathname + window.location.search);
               }}
             >
               <span className="craft-bar-index">{String(index + 1).padStart(2, "0")}</span>
@@ -37,32 +38,32 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
             </button>
             <div className="craft-panel">
               <div className="craft-panel-inner">
+                <button
+                  type="button"
+                  className="craft-panel-close"
+                  aria-label={`Close ${craft.title} details`}
+                  onClick={() => {
+                    setActive(null);
+                    history.replaceState(null, "", window.location.pathname + window.location.search);
+                  }}
+                >
+                  ×
+                </button>
                 <div className="tab-panel">
                   <div
                     className="tab-visual"
                     style={on ? { backgroundImage: cssUrl(craft.image) } : undefined}
                   />
                   <div className="tab-copy">
-                    <p className="eyebrow">What we provide</p>
                     <h2>{craft.title}</h2>
-                    <p className="lede">{craft.strap}</p>
-                    <p><b>The problem.</b> {craft.problem}</p>
-                    <p><b>The solution.</b> {craft.solution}</p>
-                    <p className="who"><b>Who it is for.</b> {craft.forWho}</p>
-                    <div className="split-mini">
-                      <div>
-                        <h3>You leave with</h3>
-                        <ul>{craft.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
-                      </div>
-                      <div>
-                        <h3>How it runs</h3>
-                        <ol>{craft.steps.map((item) => <li key={item}>{item}</li>)}</ol>
-                      </div>
+                    <p className="lede" style={{ fontSize: "1.05rem", lineHeight: "1.65", color: "var(--text-muted, #A1A1AA)", margin: "16px 0 24px" }}>
+                      {craft.description || craft.strap}
+                    </p>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "center" }}>
+                      <Link className="button" href={`/contact?service=${encodeURIComponent(serviceSlug)}&subservice=${encodeURIComponent(craft.title)}`}>
+                        Enquire about {craft.title} ↗
+                      </Link>
                     </div>
-                    {serviceSlug === "production" && (
-                      <Link className="button" href={craftHref("production", craft.slug)}>Open full page <span>↗</span></Link>
-                    )}
-                    <Link className="text-link" href={`/contact?service=${serviceSlug}`}>Enquire about {craft.title} ↗</Link>
                   </div>
                 </div>
               </div>

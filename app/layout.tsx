@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import "./noir.css";
 import "./cinematic.css";
-import { Cursor } from "@/components/cursor";
+import "./clean-theme.css";
+import "./serpentine-snake.css";
+import "./talk.css";
 import { IntroLoader } from "@/components/intro-loader";
 import { Navigation } from "@/components/navigation";
 import { PageTransition } from "@/components/page-transition";
@@ -13,23 +15,17 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { Spotlight } from "@/components/spotlight";
 
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans", weight: ["400", "500", "600", "700"] });
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-});
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans", weight: ["400", "500", "600", "700"] });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#08090B",
+  themeColor: "#FFFFFF",
 };
 
 export const metadata: Metadata = {
   title: { default: "Narayani Studios LLP", template: "%s · Narayani Studios" },
-  description: "Narayani Studios LLP is a premium cinematic production house for branding, content, talent, platforms and entertainment — in India and internationally.",
+  description: "An integrated house for branding, production, talent, platforms and entertainment, built to serve brands and creators anywhere in the world.",
   metadataBase: new URL("https://narayanistudios.com"),
 };
 
@@ -37,9 +33,9 @@ const publicBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${cormorant.variable}`}>
+    <html lang="en" className={manrope.variable}>
       <body>
-        <style>{`:root{--hero-still:url("${publicBase}/service-documentary.png");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}`}</style>
+        <style>{`:root{--hero-still:url("${publicBase}/Updated%20Images/narayani%20Home%20white.png");--aurora-still:url("${publicBase}/cinematic-aurora-hero.png");}`}</style>
         <a className="skip-link" href="#main">Skip to content</a>
         <IntroLoader />
         <ScrollProgress />
@@ -48,7 +44,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Spotlight />
         <SmoothScroll />
         <ScrollReveal />
-        <Cursor />
         <PageTransition />
         <Navigation />
         <div id="main">{children}</div>

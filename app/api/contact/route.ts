@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
   try {
     const { name, email, phone, service, details } = await request.json();
 
-    if (![name, email, phone, details].every((value) => typeof value === "string" && value.trim())) {
+    if (![name, email, details].every((value) => typeof value === "string" && value.trim())) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    if (phone.replace(/\D/g, "").length < 10) {
+    if (phone && typeof phone === "string" && phone.trim() && phone.replace(/\D/g, "").length < 7) {
       return NextResponse.json({ error: "Please enter a valid phone number." }, { status: 400 });
     }
 

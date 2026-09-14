@@ -1,28 +1,77 @@
 import Link from "next/link";
-import { FlipCard } from "@/components/flip-card";
+import { ArrowUpRight } from "lucide-react";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-import { cssUrl } from "@/lib/asset";
-import { craftHref, craftsByService } from "@/lib/offerings";
+import { asset } from "@/lib/asset";
 import { services } from "@/lib/site-data";
 
-export default function Services() {
+export default function ServicesPage() {
   return (
     <main>
-      <PageHero eyebrow="Services" title={<>Six divisions. <em>One floor.</em></>} copy="From the first idea to the final delivery, every craft lives in one connected production house. Open a division to find the right route for your brief." image="/client/frame-02.jpg" />
-      <section id="explore" className="wrap service-pillars">
-        <Reveal><p className="eyebrow">01 / The craft</p><h2>Pick a division. <em>Make it move.</em></h2></Reveal>
+      <PageHero
+        title="From the first plan to the last impression."
+        copy="Six divisions, one connected team, from the first idea to the audience it reaches."
+        image="/all-service-v3.png"
+        actions={
+          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginTop: "24px" }}>
+            <a className="button" href="#explore">
+              Explore services ↓
+            </a>
+            <Link className="text-link" href="/contact" style={{ display: "inline-flex", alignItems: "center" }}>
+              Contact Us ↗
+            </Link>
+          </div>
+        }
+      />
+
+      <section id="explore" className="wrap service-pillars" style={{ paddingTop: "60px", paddingBottom: "80px" }}>
+        <Reveal>
+          <h2>Explore our services.</h2>
+          <p className="section-lede" style={{ marginBottom: "40px" }}>
+            Open a division to see what sits inside it.
+          </p>
+        </Reveal>
+
         <Stagger className="pillar-cards client-service-grid">
-          {services.map((service) => {
-            const crafts = craftsByService[service.slug] ?? [];
-            return <StaggerItem key={service.slug}><FlipCard className="service-architecture-card" href={`/services/${service.slug}`}
-              front={<div className="service-card-face" style={{ backgroundImage: cssUrl(service.image) }}><span>{service.code}</span><h3>{service.title}</h3><p>{service.strap}</p></div>}
-              back={<div className="service-card-face service-card-back"><span>{service.code}</span><h3>{service.title}</h3><p>{service.summary}</p><div className="service-card-links">{crafts.slice(0, 3).map((craft) => <Link key={craft.slug} href={craftHref(service.slug, craft.slug)}>{craft.title}</Link>)}<Link className="text-link" href={`/services/${service.slug}`}>Open division ↗</Link></div></div>}
-            /></StaggerItem>;
+          {services.map((service, index) => {
+            const isWhite = index % 2 === 0;
+            return (
+              <StaggerItem key={service.slug}>
+                <Link
+                  className={`service-architecture-card service-card-link ${isWhite ? "card-theme-white" : "card-theme-blue"}`}
+                  href={`/services/${service.slug}`}
+                >
+                  <div className="service-card-face">
+                    <div className="service-card-media-wrap">
+                      <img
+                        src={asset(service.image)}
+                        alt={service.title}
+                        className="service-card-image"
+                      />
+                    </div>
+                    <div className="service-card-body">
+                      <h3>{service.title}</h3>
+                      <p>{service.strap}</p>
+                    </div>
+                    {isWhite && <span className="service-card-yellow-slash" aria-hidden="true" />}
+                    <span className="service-card-arrow-action" aria-hidden="true">
+                      <ArrowUpRight className="service-card-arrow-icon" size={34} strokeWidth={2.4} />
+                    </span>
+                  </div>
+                </Link>
+              </StaggerItem>
+            );
           })}
         </Stagger>
       </section>
-      <CtaBand />
+
+      <CtaBand
+        title={<>Start your project with <em>Narayani Studios.</em></>}
+        subheading="Tell us the brief. We will name the stage."
+        buttonText="Contact Us ↗"
+        buttonHref="/contact"
+      />
     </main>
   );
 }
+

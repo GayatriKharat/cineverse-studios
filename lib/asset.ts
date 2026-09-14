@@ -6,7 +6,11 @@ export function asset(path: string) {
   const file = q >= 0 ? path.slice(0, q) : path;
   const query = q >= 0 ? path.slice(q) : "";
   const normalized = file.startsWith("/") ? file : `/${file}`;
-  return `${base}${normalized}${query}`;
+  const encoded = normalized
+    .split("/")
+    .map((segment) => encodeURIComponent(segment))
+    .join("/");
+  return `${base}${encoded}${query}`;
 }
 
 export function cssUrl(path: string) {

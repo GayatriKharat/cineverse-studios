@@ -1,0 +1,6 @@
+{
+  "name": "Cineverse Studios",
+  "description": "An integrated house for branding, production, talent, platforms and entertainment, built to serve brands and creators anywhere in the world.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

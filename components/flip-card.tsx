@@ -24,22 +24,22 @@ export function FlipCard({
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
       onKeyDown={(event) => {
-        if (!href) return;
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          router.push(href);
+          if (href) {
+            router.push(href);
+          } else {
+            setFlipped((prev) => !prev);
+          }
         }
       }}
       onClick={(event) => {
         if ((event.target as HTMLElement).closest("a")) return;
-        const touch = window.matchMedia("(hover: none)").matches;
-        if (touch) {
-          if (!flipped) {
-            setFlipped(true);
-            return;
-          }
+        if (href) {
+          router.push(href);
+        } else {
+          setFlipped((prev) => !prev);
         }
-        if (href) router.push(href);
       }}
     >
       <div className="flip-inner">
