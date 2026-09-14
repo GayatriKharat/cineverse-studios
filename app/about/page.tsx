@@ -79,9 +79,8 @@ export default function About() {
             <div className={styles.centerContent}>
               <h2 id="purpose-title">One ecosystem.<br /><em>Limitless</em> creative directions.</h2>
               <p className={styles.centerSub}><strong>Together under one roof.</strong></p>
-              <div className={styles.centerLine} aria-hidden="true" />
-              <span className={styles.centerNote}>ONE<br />ECOSYSTEM</span>
             </div>
+            <div className={styles.centerLine} aria-hidden="true" />
           </div>
 
           <article className={`${styles.card} ${styles.mission}`}>

@@ -185,6 +185,20 @@ label,
   padding-inline: clamp(16px, 4vw, 72px) !important;
 }
 
+/* Match CTA / talk panel edge breathing room */
+.site-footer.wrap {
+  width: 100% !important;
+  max-width: none !important;
+  padding-inline: 0 !important;
+}
+
+.site-footer-panel {
+  width: min(100% - 24px, 1400px) !important;
+  max-width: 1400px !important;
+  margin-inline: auto !important;
+  padding-inline: clamp(16px, 3vw, 40px) !important;
+}
+
 /* ---------- HERO ---------- */
 @media (max-width: 1200px) {
   .hero-copy {
@@ -449,7 +463,8 @@ label,
 /* ---------- CONTACT / FORMS ---------- */
 .home-contact.talk-stage,
 .contact-layout.talk-stage {
-  width: min(100% - 28px, 1200px) !important;
+  width: min(100% - 24px, 1400px) !important;
+  max-width: 1400px !important;
   margin: clamp(28px, 4vw, 44px) auto !important;
   padding: clamp(24px, 3.5vw, 40px) !important;
   display: grid !important;
@@ -463,7 +478,7 @@ label,
   .home-contact.talk-stage,
   .contact-layout.talk-stage {
     grid-template-columns: 1fr !important;
-    width: min(100% - 20px, 1200px) !important;
+    width: min(100% - 24px, 1400px) !important;
     gap: 22px !important;
   }
 
@@ -589,67 +604,27 @@ label,
   }
 }
 
-/* CTA panels */
+/* CTA panels — size with page wrap */
 .cta-band.cta-band-panel,
 .cta-band.talk-stage {
-  width: min(100% - 28px, 1200px) !important;
-  margin: clamp(28px, 4vw, 44px) auto !important;
-  padding: clamp(28px, 4vw, 48px) clamp(18px, 3vw, 40px) !important;
+  width: min(100% - 24px, 1400px) !important;
+  max-width: 1400px !important;
+  margin: clamp(24px, 3.5vw, 40px) auto !important;
+  padding: clamp(24px, 3.2vw, 40px) clamp(18px, 3vw, 36px) !important;
 }
 
-/* About / Services N-hero: home-style left copy + right N */
-.page-hero.is-n-hero {
-  display: flex !important;
-  align-items: center !important;
-  min-height: clamp(560px, 72vh, 760px) !important;
+/* About / Services N-hero — match home hero type */
+.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy {
+  max-width: min(42rem, 52%) !important;
 }
 
-.page-hero.is-n-hero .page-hero-copy {
-  position: relative !important;
-  left: auto !important;
-  right: auto !important;
-  top: auto !important;
-  bottom: auto !important;
-  transform: none !important;
-  max-width: min(38rem, 48%) !important;
-  margin-left: clamp(1rem, 2vw, 2.5rem) !important;
-  margin-right: auto !important;
-  padding: clamp(5.5rem, 9vh, 8rem) 0 2rem !important;
-  background: transparent !important;
-}
-
-.page-hero.is-n-hero .page-hero-cover-img {
-  position: absolute !important;
-  top: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  left: auto !important;
-  width: min(58%, 720px) !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  object-position: right center !important;
-}
-
-.page-hero.is-n-hero .page-hero-shade {
-  background: linear-gradient(
-    90deg,
-    #fff 0%,
-    #fff 42%,
-    rgba(255, 255, 255, 0.94) 54%,
-    rgba(255, 255, 255, 0.35) 72%,
-    transparent 86%
-  ) !important;
-}
-
-.page-hero.is-n-hero .page-hero-copy h1,
-.page-hero.is-n-hero .page-hero-copy .lede {
-  color: #0a0a0a !important;
-  text-shadow: none !important;
-  max-width: 100% !important;
-}
-
-.page-hero.is-n-hero .page-hero-copy h1 em {
-  color: #2337c6 !important;
+.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1 {
+  max-width: 16ch !important;
+  width: auto !important;
+  white-space: normal !important;
+  font-size: clamp(2.8rem, 4.8vw, 5.4rem) !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.055em !important;
 }
 
 .nav-start nav,
@@ -658,40 +633,15 @@ label,
   letter-spacing: 0.12em !important;
 }
 
-.page-hero.is-n-hero.is-single-line .page-hero-copy {
-  max-width: min(52rem, 58%) !important;
-}
-
-.page-hero.is-n-hero.is-single-line .page-hero-copy h1 {
-  max-width: none !important;
-  width: max-content !important;
-  white-space: nowrap !important;
-  font-size: clamp(1.85rem, 3.6vw, 3.35rem) !important;
-  line-height: 1.1 !important;
-}
-
 @media (max-width: 900px) {
-  .page-hero.is-n-hero {
-    display: grid !important;
-    grid-template-rows: minmax(200px, 40vw) auto !important;
-    min-height: auto !important;
-  }
-
-  .page-hero.is-n-hero .page-hero-copy {
+  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy {
     max-width: 100% !important;
-    margin: 0 !important;
-    padding: 8px 16px 32px !important;
-    background: #fff !important;
   }
 
-  .page-hero.is-n-hero .page-hero-cover-img {
-    position: relative !important;
-    width: 100% !important;
-  }
-
-  .page-hero.is-n-hero.is-single-line .page-hero-copy h1 {
+  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1 {
     white-space: normal !important;
     width: auto !important;
-    font-size: clamp(2rem, 8vw, 2.8rem) !important;
+    max-width: 14ch !important;
+    font-size: clamp(2.4rem, 9.5vw, 3.8rem) !important;
   }
 }

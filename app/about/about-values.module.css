@@ -282,17 +282,21 @@
 }
 
 .centerContent {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 10px;
-  width: min(100%, 280px);
-  min-height: min(28vw, 340px);
-  margin: 0 auto;
+  gap: 12px;
+  padding: 24px;
+  pointer-events: none;
+}
+
+.centerContent > * {
+  pointer-events: auto;
 }
 
 .center h2 {
@@ -315,7 +319,7 @@
 
 .centerSub {
   position: relative;
-  margin: 8px auto 0;
+  margin: 0 auto;
   color: #ffffff88;
   font-size: 11px;
   line-height: 1.65;
@@ -331,21 +335,16 @@
 }
 
 .centerLine {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: calc(50% + min(11vw, 132px));
   width: 1px;
-  height: 36px;
-  margin: 18px auto;
+  height: 28px;
+  transform: translateX(-50%);
+  margin: 0;
   background: linear-gradient(#f5b400, transparent);
-}
-
-.centerNote {
-  position: relative;
-  color: #ffffff44;
-  font-size: 8.5px;
-  line-height: 1.6;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  text-align: center;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .footerMark {

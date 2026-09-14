@@ -20,9 +20,8 @@ const CENTER_X = 500;
 const ROW_CENTER_OFFSET = 95;
 
 export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSnakeProps) {
-  // Initially null: no card is auto-opened by default.
-  // Cards open on cursor hover, and close when cursor leaves or when clicked.
-  const [activeSlug, setActiveSlug] = useState<string | null>(null);
+  // First sub-service card opens by default; others open on hover/click.
+  const [activeSlug, setActiveSlug] = useState<string | null>(crafts[0]?.slug ?? null);
   const [dismissedSlug, setDismissedSlug] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"serpentine" | "accordion">("serpentine");
 

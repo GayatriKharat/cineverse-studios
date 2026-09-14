@@ -570,7 +570,8 @@ a.talk-channel:hover .talk-channel-arrow {
   .contact-layout.talk-stage {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
-    margin-inline: 12px !important;
+    width: min(100% - 24px, 1400px) !important;
+    margin-inline: auto !important;
     padding: 36px 20px 40px !important;
   }
 

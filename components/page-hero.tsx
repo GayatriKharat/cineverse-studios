@@ -34,7 +34,7 @@ export function PageHero({
             alt=""
             className="page-hero-cover-img"
             loading="eager"
-            style={{ objectPosition: imagePosition }}
+            style={image?.includes("n-hero") ? undefined : { objectPosition: imagePosition }}
           />
           <div className="page-hero-shade" />
         </div>
@@ -67,7 +67,7 @@ export function CtaBand({
       <Reveal>
         {eyebrow && <span className="kicker">{eyebrow}</span>}
         <h2>{title}</h2>
-        {subheading && <p className="section-lede" style={{ margin: "12px 0 28px" }}>{subheading}</p>}
+        {subheading && <p className="section-lede">{subheading}</p>}
         <Magnetic>
           <Link className="button" href={buttonHref}>{buttonText}</Link>
         </Magnetic>
