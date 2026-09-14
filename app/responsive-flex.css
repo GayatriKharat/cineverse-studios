@@ -349,14 +349,16 @@ label,
   .founder-card {
     height: auto !important;
     max-height: none !important;
-    grid-template-rows: auto auto !important;
+    grid-template-rows: auto minmax(220px, 280px) !important;
   }
 
-  .founder-card-bio,
-  .founder-card-bio.is-collapsed,
+  .founder-card-bio.is-collapsed {
+    overflow: hidden !important;
+  }
+
   .founder-card-bio.is-expanded {
+    overflow-y: auto !important;
     max-height: none !important;
-    overflow: visible !important;
   }
 
   .about-story {

@@ -192,17 +192,41 @@ section[class*="about-values"] {
   display: none !important;
 }
 
-/* Founders: read more instead of scroll */
+/* Founders: collapsed preview; expanded bio scrolls above CTA */
+.founder-card-panel {
+  display: flex !important;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  overflow: hidden;
+}
 .founder-card-bio {
-  overflow: visible !important;
+  flex: 1 1 auto;
+  min-height: 0;
   max-height: none !important;
+  overflow: hidden !important;
 }
 .founder-card-bio.is-collapsed {
-  max-height: none !important;
+  overflow: hidden !important;
+}
+.founder-card-bio.is-expanded {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #2337c655 transparent;
+  padding-right: 6px;
+}
+.founder-card-bio.is-expanded::-webkit-scrollbar {
+  width: 5px;
+}
+.founder-card-bio.is-expanded::-webkit-scrollbar-thumb {
+  background: #2337c655;
+  border-radius: 3px;
 }
 .founder-read-more {
+  flex-shrink: 0;
   align-self: flex-start;
-  margin: 4px 0 12px;
+  margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
@@ -216,6 +240,7 @@ section[class*="about-values"] {
   text-underline-offset: 3px;
 }
 .founder-cta {
+  flex-shrink: 0;
   position: relative;
   z-index: 2;
   pointer-events: auto;
@@ -399,7 +424,7 @@ section[class*="about-values"] {
   margin-top: clamp(20px, 3vw, 36px) !important;
 }
 
-/* Craft accordion: blue lead + animation filler (no images) */
+/* Craft panels: blue lead only (no image / filler) */
 .craft-lead-line,
 .serpentine-drawer-strap.craft-lead-line {
   color: #2337c6 !important;
@@ -412,51 +437,17 @@ section[class*="about-values"] {
 .serpentine-drawer-desc {
   color: rgba(0, 0, 0, 0.72) !important;
 }
-.tab-panel.is-no-image {
-  display: grid !important;
-  grid-template-columns: minmax(140px, 220px) 1fr !important;
-  gap: 24px !important;
-  align-items: stretch !important;
+.tab-panel.is-no-image,
+.tab-panel.is-text-only {
+  display: block !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
 }
-@media (max-width: 760px) {
-  .tab-panel.is-no-image {
-    grid-template-columns: 1fr !important;
-  }
+.serpentine-drawer-inner.is-text-only {
+  gap: 12px;
 }
 .craft-anim-filler {
-  position: relative;
-  min-height: 180px;
-  border-radius: 12px;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(35, 55, 198, 0.28), transparent 55%),
-    radial-gradient(circle at 70% 65%, rgba(245, 180, 0, 0.22), transparent 50%),
-    linear-gradient(145deg, #eef1ff, #ffffff 55%, #fff7e0);
-  border: 1px solid rgba(35, 55, 198, 0.14);
-}
-.craft-anim-filler.is-compact {
-  min-height: 120px;
-  margin-bottom: 14px;
-}
-.craft-anim-filler span,
-.craft-anim-filler i {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(35, 55, 198, 0.35);
-  animation: craftOrbit 8s linear infinite;
-}
-.craft-anim-filler span:nth-child(1) {
-  inset: 18% 22%;
-}
-.craft-anim-filler span:nth-child(2) {
-  inset: 30% 34%;
-  border-color: rgba(245, 180, 0, 0.45);
-  animation-duration: 11s;
-  animation-direction: reverse;
-}
-.craft-anim-filler span:nth-child(3) {
-  inset: 42% 46%;
-  animation-duration: 6s;
+  display: none !important;
 }
 .craft-anim-filler i {
   width: 10px;

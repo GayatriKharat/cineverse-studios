@@ -192,13 +192,7 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
 
                           {/* Extended Drawer: 100% Unchanged Exact Copy */}
                           <div className="serpentine-drawer" aria-hidden={!isExtended}>
-                            <div className="serpentine-drawer-inner">
-                              <div className="craft-anim-filler is-compact" aria-hidden="true">
-                                <span />
-                                <span />
-                                <span />
-                                <i />
-                              </div>
+                            <div className="serpentine-drawer-inner is-text-only">
                               {lead ? <p className="serpentine-drawer-strap craft-lead-line">{lead}</p> : null}
                               {body ? <p className="serpentine-drawer-desc">{body}</p> : null}
                               <div className="serpentine-drawer-action">
@@ -305,13 +299,7 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
 
                           {/* Extended Drawer: 100% Unchanged Exact Copy */}
                           <div className="serpentine-drawer" aria-hidden={!isExtended}>
-                            <div className="serpentine-drawer-inner">
-                              <div className="craft-anim-filler is-compact" aria-hidden="true">
-                                <span />
-                                <span />
-                                <span />
-                                <i />
-                              </div>
+                            <div className="serpentine-drawer-inner is-text-only">
                               {lead ? <p className="serpentine-drawer-strap craft-lead-line">{lead}</p> : null}
                               {body ? <p className="serpentine-drawer-desc">{body}</p> : null}
                               <div className="serpentine-drawer-action">

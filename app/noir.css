@@ -190,9 +190,9 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
   font-weight:600;
 }
 .founder-card-panel{
-  display:grid;
-  grid-template-rows:1fr auto;
-  gap:14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
   min-height:0;
   height:100%;
   padding:20px 22px 22px;
@@ -203,12 +203,16 @@ h3{font-family:var(--font-sans),Outfit,sans-serif;font-weight:600;font-size:clam
   display:grid;
   align-content:start;
   gap:12px;
+  flex:1 1 auto;
   min-height:0;
-  overflow-y:auto;
+  overflow:hidden;
   padding-right:6px;
   scrollbar-width:thin;
   scrollbar-color:#2337C655 transparent;
   -webkit-overflow-scrolling:touch;
+}
+.founder-card-bio.is-expanded{
+  overflow-y:auto;
 }
 .founder-card-bio::-webkit-scrollbar{width:5px}
 .founder-card-bio::-webkit-scrollbar-thumb{background:#2337C655;border-radius:3px}

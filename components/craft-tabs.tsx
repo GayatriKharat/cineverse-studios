@@ -50,13 +50,7 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
                 >
                   ×
                 </button>
-                <div className="tab-panel is-no-image">
-                  <div className="craft-anim-filler" aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
-                    <i />
-                  </div>
+                <div className="tab-panel is-no-image is-text-only">
                   <div className="tab-copy">
                     <h2>{craft.title}</h2>
                     {lead ? <p className="craft-lead-line">{lead}</p> : null}

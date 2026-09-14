@@ -25,6 +25,7 @@ const serviceOptions = [
   ["advertising-campaigns", "Advertising & Campaigns"],
   ["events-experiences", "Events & Experiences"],
   ["full-production", "Full Production Chain"],
+  ["other", "Other"],
 ] as const;
 
 export function ContactForm() {
@@ -172,7 +173,7 @@ export function ContactForm() {
             })}
             type="tel"
             autoComplete="tel"
-            placeholder="7447474431"
+            placeholder=""
           />
         </div>
         {errors.phoneNumber && <small>{errors.phoneNumber.message}</small>}
@@ -181,7 +182,7 @@ export function ContactForm() {
       <label className="talk-field">
         <span>Service</span>
         <select {...register("service")}>
-          <option value="">Select a service or full chain</option>
+          <option value="">Select a Service</option>
           {serviceOptions.map(([slug, title]) => (
             <option key={slug} value={slug}>
               {title}
