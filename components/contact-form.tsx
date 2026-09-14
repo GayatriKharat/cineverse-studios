@@ -30,6 +30,11 @@ const serviceOptions = [
 ] as const;
 
 export function ContactForm() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const search = useSearchParams();
   const hinted = search.get("service") ?? "";
   const subservice = search.get("subservice") ?? "";
