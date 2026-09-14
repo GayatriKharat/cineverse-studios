@@ -86,8 +86,6 @@ export function generateStaticParams() {
   return Object.keys(pages).map((studio) => ({ studio }));
 }
 
-export const dynamicParams = false;
-
 export async function generateMetadata({ params }: { params: Promise<{ studio: string }> }): Promise<Metadata> {
   const { studio } = await params;
   const page = pages[studio as keyof typeof pages];
