@@ -77,46 +77,50 @@ export function Navigation() {
   return (
     <>
       <header ref={navRef} className={`nav${scrolled ? " scrolled" : ""}${onDarkHero ? " on-hero" : ""}${open ? " is-open" : ""}`}>
-        <BrandLogo variant="dark" compact showTagline={false} />
-        <nav aria-label="Primary">
-          {navPrimary.map((item) => (
-            <div key={item.label} className={`nav-item${item.children ? " has-drop" : ""}${openDrop === item.label ? " is-open" : ""}`}>
-              <Link
-                href={item.href}
-                className={`nav-link${isActive(pathname, item) ? " is-active" : ""}`}
-                onClick={(event) => openParent(event, item)}
-              >
-                {item.label}
-              </Link>
-              {item.children ? (
-                <>
-                  <button
-                    type="button"
-                    className="nav-caret"
-                    aria-label={`${item.label} menu`}
-                    aria-expanded={openDrop === item.label}
-                    onClick={() => setOpenDrop((current) => (current === item.label ? null : item.label))}
-                  >
-                    ▾
-                  </button>
-                  <div className="nav-drop">
-                    <div className="nav-drop-inner">
-                      {item.children.map((child) => (
-                        <Link key={`${child.href}-${child.label}`} href={child.href} onClick={() => setOpenDrop(null)}>
-                          {child.label}
-                        </Link>
-                      ))}
+        <div className="nav-start">
+          <BrandLogo variant="dark" compact showTagline={false} />
+          <nav aria-label="Primary">
+            {navPrimary.map((item) => (
+              <div key={item.label} className={`nav-item${item.children ? " has-drop" : ""}${openDrop === item.label ? " is-open" : ""}`}>
+                <Link
+                  href={item.href}
+                  className={`nav-link${isActive(pathname, item) ? " is-active" : ""}`}
+                  onClick={(event) => openParent(event, item)}
+                >
+                  {item.label}
+                </Link>
+                {item.children ? (
+                  <>
+                    <button
+                      type="button"
+                      className="nav-caret"
+                      aria-label={`${item.label} menu`}
+                      aria-expanded={openDrop === item.label}
+                      onClick={() => setOpenDrop((current) => (current === item.label ? null : item.label))}
+                    >
+                      ▾
+                    </button>
+                    <div className="nav-drop">
+                      <div className="nav-drop-inner">
+                        {item.children.map((child) => (
+                          <Link key={`${child.href}-${child.label}`} href={child.href} onClick={() => setOpenDrop(null)}>
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </>
-              ) : null}
-            </div>
-          ))}
-        </nav>
-        <Link className="nav-cta" href="/contact">Let&apos;s Create <span aria-hidden="true">→</span></Link>
-        <button className="menu" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
-          {open ? "Close" : "Menu"}
-        </button>
+                  </>
+                ) : null}
+              </div>
+            ))}
+          </nav>
+        </div>
+        <div className="nav-end">
+          <Link className="nav-cta" href="/contact">Let&apos;s Create <span aria-hidden="true">→</span></Link>
+          <button className="menu" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
+            {open ? "Close" : "Menu"}
+          </button>
+        </div>
       </header>
       <div className={`index-menu${open ? " open" : ""}`} aria-hidden={!open}>
         <div className="index-cols">

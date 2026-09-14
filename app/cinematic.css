@@ -758,27 +758,30 @@ h1 em,h2 em{color:var(--color-primary)}
   gap: 20px !important;
 }
 
-.nav > .brand-logo-link {
+.nav > .brand-logo-link,
+.nav-start > .brand-logo-link {
   grid-column: 1 !important;
   justify-self: start !important;
   min-width: 0 !important;
 }
 
-.nav > nav {
+.nav > nav,
+.nav-start > nav {
   grid-column: 2 !important;
-  justify-self: center !important;
+  justify-self: start !important;
 
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
 
-  gap: clamp(16px, 2vw, 30px) !important;
-  min-width: max-content !important;
+  gap: clamp(14px, 1.8vw, 28px) !important;
+  min-width: 0 !important;
 
   margin: 0 !important;
 }
 
-.nav > .nav-end {
+.nav > .nav-end,
+.nav-end {
   grid-column: 3 !important;
   justify-self: end !important;
 
@@ -790,7 +793,8 @@ h1 em,h2 em{color:var(--color-primary)}
   margin: 0 !important;
 }
 
-.nav > .nav-end .nav-cta {
+.nav > .nav-end .nav-cta,
+.nav-end .nav-cta {
   width: auto !important;
   max-width: 150px !important;
   min-width: 0 !important;
@@ -803,7 +807,8 @@ h1 em,h2 em{color:var(--color-primary)}
 }
 
 .nav > a.nav-cta,
-.nav > .nav-cta {
+.nav > .nav-cta,
+.nav-end > .nav-cta {
   grid-column: 3 !important;
   justify-self: end !important;
   align-self: center !important;
@@ -2005,15 +2010,18 @@ main > section {
     min-height: 72px !important;
   }
 
-  .nav > nav {
+  .nav > nav,
+  .nav-start > nav {
     display: none !important;
   }
 
-  .nav > .nav-end {
+  .nav > .nav-end,
+  .nav-end {
     grid-column: 2 !important;
   }
 
-  .nav > .nav-end .nav-cta {
+  .nav > .nav-end .nav-cta,
+  .nav-end .nav-cta {
     display: none !important;
   }
 

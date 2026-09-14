@@ -31,7 +31,7 @@ const founders = [
       "This habit is exactly what carried over into his current role. Kiran is skilled at spotting small problems before they become big ones, a scheduling delay before it causes a bottleneck, a handoff that’s about to go wrong, a process that works fine today but won’t hold up as the studio grows. He fixes these issues early, before they affect the final work.",
       "This is, at its core, what a Chief Operating Officer does. And because Kiran has worked hands-on in editing himself, he understands how creative teams actually work, not just how a process looks on paper. That makes the systems he builds at Narayani Studios practical and easy to follow, which matters more as the studio takes on more projects at once.",
     ],
-    linkedin: "https://www.linkedin.com/in/kirandhangar/",
+    linkedin: "https://www.linkedin.com/in/kiran-dhangar-492b19115/",
   },
 ];
 

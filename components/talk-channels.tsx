@@ -6,11 +6,6 @@ const channels = [
     value: "business@narayanistudios.com",
     href: "mailto:business@narayanistudios.com",
   },
-  {
-    label: "Phone",
-    value: "+91 7447474431",
-    href: "tel:+917447474431",
-  },
 ] as const;
 
 export function TalkChannels({ showLocale = false }: { showLocale?: boolean }) {

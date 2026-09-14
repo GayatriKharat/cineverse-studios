@@ -5,15 +5,33 @@ import { TalkChannels } from "@/components/talk-channels";
 
 export default function ContactPage() {
   return (
-    <main>
-      <section className="contact-layout wrap talk-stage is-page" aria-label="Contact the studio">
+    <main className="contact-page">
+      <section className="contact-hero wrap" aria-label="Contact">
+        <Reveal>
+          <p className="contact-hero-kicker">Let&apos;s build</p>
+          <h1>
+            Start the <em>conversation.</em>
+          </h1>
+          <p className="contact-hero-lede">
+            One service or the full chain. Share the brief and we&apos;ll map the stage, the team, and the next move.
+          </p>
+        </Reveal>
+        <div className="contact-hero-orbit" aria-hidden="true">
+          <span />
+          <span />
+          <i />
+        </div>
+      </section>
+
+      <section className="contact-layout wrap talk-stage is-page contact-stage-creative" aria-label="Contact the studio">
         <div className="talk-copy">
           <Reveal>
-            <h1>
+            <p className="talk-eyebrow">Studio desk</p>
+            <h2>
               Get in <em>touch.</em>
-            </h1>
+            </h2>
             <p className="section-lede">
-              Tell us the brief, one service or the full chain. We will name the stage and come back with a plan.
+              Drop the vision, scope, and references. We reply with a clear plan.
             </p>
             <TalkChannels showLocale />
           </Reveal>

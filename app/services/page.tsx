@@ -12,6 +12,7 @@ export default function ServicesPage() {
         title="From the first plan to the last impression."
         copy="Six divisions, one connected team, from the first idea to the audience it reaches."
         image="/services-n-hero.png"
+        singleLineTitle
         actions={
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginTop: "24px" }}>
             <a className="button" href="#explore">

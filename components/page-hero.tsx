@@ -10,6 +10,7 @@ export function PageHero({
   image,
   imagePosition = "center",
   compact = false,
+  singleLineTitle = false,
   actions,
 }: {
   eyebrow?: string;
@@ -18,10 +19,14 @@ export function PageHero({
   image?: string;
   imagePosition?: string;
   compact?: boolean;
+  singleLineTitle?: boolean;
   actions?: React.ReactNode;
 }) {
   return (
-    <section data-rv className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}${image?.includes("n-hero") ? " is-n-hero" : ""}`}>
+    <section
+      data-rv
+      className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}${image?.includes("n-hero") ? " is-n-hero" : ""}${singleLineTitle ? " is-single-line" : ""}`}
+    >
       {image && (
         <div className="page-hero-media">
           <img
