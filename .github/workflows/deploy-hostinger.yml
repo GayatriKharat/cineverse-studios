@@ -1,0 +1,54 @@
+# Optional: deploy static build to Hostinger via FTP.
+# Prefer Hostinger Node.js Web Apps if you need /api/contact (Gmail form).
+#
+# Required GitHub secrets:
+#   HOSTINGER_FTP_HOST      e.g. ftp.yourdomain.com
+#   HOSTINGER_FTP_USER
+#   HOSTINGER_FTP_PASSWORD
+# Optional:
+#   HOSTINGER_FTP_SERVER_DIR  default: public_html/
+#
+# Enable: Actions → Deploy to Hostinger → Run workflow
+# Or set `on.push` once secrets are configured.
+
+name: Deploy to Hostinger
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+concurrency:
+  group: hostinger
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build static site (root domain, no basePath)
+        run: npm run build:hostinger:static
+        env:
+          OUTPUT_EXPORT: "true"
+          BASE_PATH: ""
+          NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
+
+      - name: Upload to Hostinger FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_HOST }}
+          username: ${{ secrets.HOSTINGER_FTP_USER }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: public_html/
+          dangerous-clean-slate: true

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000 -H 0.0.0.0",
-    "build": "NODE_ENV=production next build",
+    "build": "next build",
+    "build:hostinger": "next build",
+    "build:hostinger:static": "cross-env OUTPUT_EXPORT=true BASE_PATH= NEXT_PUBLIC_BASE_PATH= next build",
     "start": "next start -p 3000 -H 0.0.0.0",
     "lint": "tsc --noEmit"
   },
@@ -31,6 +33,7 @@
     "@types/nodemailer": "^8.0.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "cross-env": "^10.1.0",
     "pngjs": "^7.0.0",
     "typescript": "^5.8.3"
   }

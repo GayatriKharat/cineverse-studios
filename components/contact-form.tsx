@@ -79,7 +79,36 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const result = await response.json();
+
+      // Static Hostinger hosting has no Node API — fall back to mailto.
+      if (response.status === 404 || response.status === 405) {
+        const contactEmail =
+          process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "business@narayanistudios.com";
+        const subject = encodeURIComponent(`Narayani Studios enquiry — ${payload.service || "General"}`);
+        const body = encodeURIComponent(
+          `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nService: ${payload.service}\n\n${payload.details}`
+        );
+        window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+        setSendPhase("idle");
+        setState("Opening your email app to send the brief…");
+        return;
+      }
+
+      let result: { error?: string; message?: string } = {};
+      try {
+        result = await response.json();
+      } catch {
+        const contactEmail =
+          process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "business@narayanistudios.com";
+        const subject = encodeURIComponent(`Narayani Studios enquiry — ${payload.service || "General"}`);
+        const body = encodeURIComponent(
+          `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nService: ${payload.service}\n\n${payload.details}`
+        );
+        window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+        setSendPhase("idle");
+        setState("Opening your email app to send the brief…");
+        return;
+      }
       if (!response.ok) throw new Error(result.error ?? "Unable to send your enquiry.");
       setSendPhase("flying");
       window.setTimeout(() => setSendPhase("idle"), 1250);
