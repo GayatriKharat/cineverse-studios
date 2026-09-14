@@ -8,6 +8,7 @@ import "./serpentine-snake.css";
 import "./talk.css";
 import "./theme-unify.css";
 import "./intro-hero.css";
+import "./responsive-flex.css";
 import { IntroLoader } from "@/components/intro-loader";
 import { Navigation } from "@/components/navigation";
 import { PageTransition } from "@/components/page-transition";
