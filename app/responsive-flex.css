@@ -113,14 +113,23 @@ label,
     z-index: 5;
   }
 
-  .nav-cta {
+  /* High-specificity hide — clean-theme forces inline-flex later otherwise */
+  .nav-cta,
+  .nav > .nav-cta,
+  .nav-end .nav-cta,
+  .nav > .nav-end .nav-cta,
+  .nav-end > .nav-cta {
     display: none !important;
   }
 
   .brand-logo-image,
   .nav .brand-logo-image {
-    width: min(40vw, 156px) !important;
-    max-height: 44px !important;
+    width: min(42vw, 148px) !important;
+    max-height: 40px !important;
+  }
+
+  .nav-end {
+    gap: 0 !important;
   }
 }
 
@@ -541,6 +550,27 @@ label,
 
 /* ---------- PAGE HEROES ---------- */
 @media (max-width: 760px) {
+  .hero-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .hero-actions > a,
+  .hero-actions > button,
+  .hero-actions .button,
+  .hero-actions .button-ghost {
+    flex: 0 1 auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 48px !important;
+    max-height: 56px !important;
+  }
+
   .page-hero-copy,
   .page-hero.is-compact .page-hero-copy {
     padding-top: 100px !important;

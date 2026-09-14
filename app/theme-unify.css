@@ -638,9 +638,44 @@ section[class*="about-values"] {
     font-size: 1rem !important;
   }
 
+  .page-hero.has-media.is-n-hero .page-hero-copy .hero-actions,
+  .page-hero.has-media.is-n-hero .page-hero-copy > div.hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    align-self: flex-start !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin-top: 1.1rem !important;
+    gap: 12px !important;
+  }
+
+  .page-hero.has-media.is-n-hero .page-hero-copy .hero-actions > a,
+  .page-hero.has-media.is-n-hero .page-hero-copy .hero-actions > .button,
   .page-hero.has-media.is-n-hero .page-hero-copy .button {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
     min-height: 48px !important;
-    font-size: 0.9rem !important;
+    max-height: 52px !important;
+    padding: 0 1.35rem !important;
+    font-size: 0.92rem !important;
+    align-self: flex-start !important;
+  }
+}
+
+/* Phone header: logo + Menu only */
+@media (max-width: 980px) {
+  .nav-cta,
+  .nav > .nav-cta,
+  .nav-end .nav-cta,
+  .nav > .nav-end .nav-cta,
+  .nav-end > .nav-cta {
+    display: none !important;
   }
 }
 
