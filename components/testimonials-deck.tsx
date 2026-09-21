@@ -38,39 +38,46 @@ export function TestimonialsDeck({ items }: { items: readonly Testimonial[] }) {
 
   return (
     <div className="testimonial-deck-shell">
-      <div className="testimonial-deck is-sharp" aria-label="Client testimonials">
+      <div className="testimonial-deck" aria-label="Draggable client testimonials">
         {items.map((item, index) => {
           const isFront = index === active;
           const isPrev = index === prev;
           const isNext = index === next;
           const show = isFront || isPrev || isNext;
-          const side = isFront ? 0 : isNext ? 1 : -1;
-          const x = isFront ? drag.x : side * 220;
+          const position = isFront ? 0 : isNext ? 1 : -1;
+          const x = isFront ? drag.x : position * 200;
           const y = isFront ? drag.y : 0;
-          const rotateZ = isFront ? drag.x * 0.015 : 0;
+          const rotateZ = isFront ? drag.x * 0.035 : position * 3;
+          // Perspective lives only on side cards. Putting it on the shell
+          // makes Chromium soft-rasterize the front quote.
+          const transform = isFront
+            ? `translate(${x}px, ${y}px) rotate(${rotateZ}deg)`
+            : `perspective(1400px) translate(${show ? x : position * 420}px, ${y}px) rotateZ(${rotateZ}deg) rotateY(${position * -28}deg) scale(0.82)`;
 
           return (
             <article
-              className={`testimonial-card${isFront ? " is-front" : " is-side"}${drag.down && isFront ? " is-dragging" : ""}${show ? " is-visible" : " is-hidden"}`}
+              className={`testimonial-card${isFront ? " is-front" : ""}${drag.down && isFront ? " is-dragging" : ""}`}
               key={`${item.name}-${index}`}
               style={{
-                zIndex: isFront ? 30 : show ? 10 : 1,
+                zIndex: isFront ? items.length : show ? 2 : 0,
                 opacity: show ? 1 : 0,
                 pointerEvents: show ? "auto" : "none",
-                transform: `translate3d(${show ? x : side * 480}px, ${y}px, 0) rotate(${rotateZ}deg) scale(1)`,
-                filter: "none",
+                transform,
               }}
               onPointerDown={isFront ? onPointerDown : undefined}
               onPointerMove={isFront ? onPointerMove : undefined}
               onPointerUp={isFront ? onPointerUp : undefined}
               onPointerCancel={isFront ? onPointerUp : undefined}
               onClick={() => {
-                if (!drag.x && !isFront) setActive(index);
+                if (!drag.x && !isFront && show) setActive(index);
               }}
             >
               <div className="testimonial-card-top">
                 <span className="testimonial-signal">
                   0{index + 1} / 0{items.length}
+                </span>
+                <span className="testimonial-orbit" aria-hidden="true">
+                  ◌
                 </span>
               </div>
               <span className="stars" aria-label="5 stars">

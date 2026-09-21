@@ -9,19 +9,19 @@ const notes = [
   {
     title: "How the right production process protects the idea",
     copy: "The choices made before a shoot protect the idea, the schedule and the final frame.",
-    image: "/pre_production_image.png",
+    image: "/resource-note-process.png",
     href: "/resources/blog",
   },
   {
     title: "Making branded content people choose to spend time with",
     copy: "A practical look at building branded work with enough craft to earn attention.",
-    image: "/production_image.png",
+    image: "/resource-note-branded-content.png",
     href: "/resources/blog",
   },
   {
     title: "What a clear creative brief unlocks",
     copy: "Why a sharper brief gives every department a clearer route from thought to delivery.",
-    image: "/post_production_image.png",
+    image: "/resource-note-creative-brief.png",
     href: "/resources/blog",
   },
 ];

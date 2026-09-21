@@ -15,6 +15,12 @@ const entries = [
   ["What a clear creative brief unlocks", "Strategy"],
   ["On building campaigns that travel across platforms", "Distribution"],
 ];
+const noteImages = [
+  "/resource-note-process.png",
+  "/resource-note-branded-content.png",
+  "/resource-note-creative-brief.png",
+  "/Updated Images/Full white coverage.png",
+];
 const gallery = [
   "/Updated Images/portfolio.png",
   "/Updated Images/Branding.png",
@@ -123,7 +129,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <main className="resource-subpage">
+    <main className={`resource-subpage${slug === "testimonials" ? " testimonials-page" : ""}`}>
       <PageHero
         title={hero.title}
         copy={hero.copy}
@@ -237,19 +243,13 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
         <section id="list" className="wrap service-pillars resource-block resource-sub-section">
           <Stagger className="pillar-cards client-service-grid">
             {entries.map(([entry, tag], index) => {
-              const images = [
-                "/Updated Images/portfolio.png",
-                "/Updated Images/Branding.png",
-                "/Updated Images/personal branding.png",
-                "/Updated Images/Full white coverage.png",
-              ];
               return (
                 <StaggerItem key={entry}>
                   <HomeCard
                     href="/contact"
                     title={entry}
                     copy={`${slug === "news" ? "Update" : tag} · ${resource.copy}`}
-                    image={images[index % images.length]}
+                    image={noteImages[index % noteImages.length]}
                     index={index}
                   />
                 </StaggerItem>
