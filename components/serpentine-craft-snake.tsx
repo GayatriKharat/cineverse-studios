@@ -330,10 +330,6 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
               );
             })}
           </div>
-
-          <div className="serpentine-hint-bar">
-            <span>Hover or tap any curve node to explore sub-service details</span>
-          </div>
         </div>
     </div>
   );

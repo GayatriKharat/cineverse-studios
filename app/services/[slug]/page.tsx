@@ -2,14 +2,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { SerpentineCraftSnake } from "@/components/serpentine-craft-snake";
 import { CtaBand, PageHero } from "@/components/page-hero";
+import { brandHeroTitle } from "@/lib/brand-title";
 import { craftsByService } from "@/lib/offerings";
 import { findService, services } from "@/lib/site-data";
 
 export function generateStaticParams() {
   return services.map(({ slug }) => ({ slug }));
 }
-
-
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -23,11 +22,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <PageHero
         compact
         eyebrow={`Division ${service.code}`}
-        title={service.title}
+        title={brandHeroTitle(service.title)}
         copy={service.strap}
         image={service.image}
       />
-      
+
       {crafts.length > 0 ? (
         <section className="wrap" style={{ marginTop: "32px", marginBottom: "40px" }}>
           <SerpentineCraftSnake crafts={crafts} serviceSlug={service.slug} />
@@ -60,6 +59,3 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     </main>
   );
 }
-
-
-

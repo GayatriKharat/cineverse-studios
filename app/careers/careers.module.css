@@ -1,0 +1,226 @@
+﻿.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.tile {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 240px;
+  padding: 28px 24px 26px;
+  border-radius: 16px;
+  border: 1px solid rgba(35, 55, 198, 0.14);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(35, 55, 198, 0.1), transparent 42%),
+    radial-gradient(circle at 92% 88%, rgba(245, 180, 0, 0.1), transparent 38%),
+    linear-gradient(155deg, #f7f8ff 0%, #ffffff 55%, #fffdf6 100%);
+  box-shadow: 0 14px 36px rgba(17, 24, 39, 0.06);
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms ease,
+    border-color 320ms ease;
+}
+
+.tile::before,
+.tile::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid rgba(245, 180, 0, 0.75);
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color 320ms ease;
+}
+
+.tile::before {
+  top: 14px;
+  left: 14px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.tile::after {
+  right: 14px;
+  bottom: 14px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.tile:hover {
+  transform: translateY(-8px);
+  border-color: rgba(35, 55, 198, 0.34);
+  box-shadow: 0 22px 48px rgba(35, 55, 198, 0.14);
+}
+
+.tile:hover::before,
+.tile:hover::after {
+  border-color: #f5b400;
+}
+
+.tileBlue {
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(245, 180, 0, 0.16), transparent 36%),
+    radial-gradient(circle at 86% 78%, rgba(255, 255, 255, 0.1), transparent 40%),
+    linear-gradient(155deg, #15257a 0%, #2337c6 48%, #0d1748 100%);
+  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.22);
+  color: #ffffff;
+}
+
+.tileBlue:hover {
+  border-color: rgba(245, 180, 0, 0.55);
+  box-shadow: 0 26px 52px rgba(35, 55, 198, 0.35);
+}
+
+.watermark {
+  position: absolute;
+  right: 10px;
+  bottom: -8px;
+  z-index: 0;
+  font-family: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(5.5rem, 9vw, 7.2rem);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: rgba(35, 55, 198, 0.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+.tileBlue .watermark {
+  color: rgba(255, 255, 255, 0.08);
+}
+
+.top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.index {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2337c6;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.tileBlue .index {
+  color: #f5b400;
+}
+
+.indexDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f5b400;
+  box-shadow: 0 0 0 4px rgba(245, 180, 0, 0.18);
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(35, 55, 198, 0.16);
+  background: rgba(255, 255, 255, 0.72);
+  color: #2337c6;
+  box-shadow: 0 8px 20px rgba(35, 55, 198, 0.08);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 320ms ease;
+}
+
+.tileBlue .iconWrap {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  color: #f5b400;
+  box-shadow: none;
+}
+
+.tile:hover .iconWrap {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.body {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  line-height: 1.15;
+  color: #0a0b12;
+}
+
+.tileBlue .title {
+  color: #ffffff;
+}
+
+.copy {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.62);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 34ch;
+}
+
+.tileBlue .copy {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.slash {
+  position: absolute;
+  left: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, #f5b400, #2337c6);
+  opacity: 0.9;
+}
+
+.tileBlue .slash {
+  background: linear-gradient(180deg, #f5b400, #ffffff);
+}
+
+.hireGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+@media (max-width: 980px) {
+  .grid,
+  .hireGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1180px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile,
+  .iconWrap {
+    transition: none;
+  }
+  .tile:hover {
+    transform: none;
+  }
+}

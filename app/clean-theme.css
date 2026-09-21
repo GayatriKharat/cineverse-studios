@@ -231,6 +231,43 @@ span:has(> .title-stop):not(.hero-line):not(.hero-line *) {
   transform: none !important;
 }
 
+/* Individual service/craft heroes — keep classic media layout; Home title colors */
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-shade {
+  display: block !important;
+  opacity: 1 !important;
+  background: linear-gradient(
+    100deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.94) 34%,
+    rgba(255, 255, 255, 0.35) 58%,
+    transparent 78%
+  ) !important;
+}
+
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy {
+  justify-content: center !important;
+  text-align: left !important;
+}
+
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy h1,
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy h1 span:not(.title-stop) {
+  color: #000000 !important;
+  text-shadow: none !important;
+}
+
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy h1 em,
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy h1 em span,
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy h1 em .title-end {
+  color: #2337c6 !important;
+}
+
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy .eyebrow,
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy .lede,
+.page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy p {
+  color: rgba(0, 0, 0, 0.72) !important;
+  text-shadow: none !important;
+}
+
 /* —— Live N sparkles (Home + About/Services N heroes) —— */
 .page-hero.has-media.is-n-hero .page-hero-media {
   isolation: isolate;

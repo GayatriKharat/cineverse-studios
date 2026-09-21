@@ -28,7 +28,7 @@ export function PageHero({
   return (
     <section
       data-rv
-      className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media is-home-align" : ""}${isNHero ? " is-n-hero" : ""}${singleLineTitle ? " is-single-line" : ""}`}
+      className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}${isNHero ? " is-n-hero is-home-align" : ""}${singleLineTitle ? " is-single-line" : ""}`}
     >
       {image && (
         <div className="page-hero-media">
@@ -73,7 +73,11 @@ export function CtaBand({
         <h2>{title}</h2>
         {subheading && <p className="section-lede">{subheading}</p>}
         <Magnetic>
-          <Link className="button" href={buttonHref}>{buttonText}</Link>
+          {buttonHref.startsWith("mailto:") || buttonHref.startsWith("http") ? (
+            <a className="button" href={buttonHref}>{buttonText}</a>
+          ) : (
+            <Link className="button" href={buttonHref}>{buttonText}</Link>
+          )}
         </Magnetic>
       </Reveal>
     </section>

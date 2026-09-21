@@ -2,9 +2,14 @@ import { SocialLinks } from "@/components/social-links";
 
 const channels = [
   {
-    label: "Email",
+    label: "Business",
     value: "business@narayanistudios.com",
     href: "mailto:business@narayanistudios.com",
+  },
+  {
+    label: "Careers",
+    value: "career@narayanistudios.com",
+    href: "mailto:career@narayanistudios.com",
   },
 ] as const;
 

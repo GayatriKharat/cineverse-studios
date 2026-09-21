@@ -8,7 +8,10 @@ export function SiteFooter() {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Resources", href: "/resources" },
     { label: "Contact", href: "/contact" },
+    { label: "Careers", href: "/careers" },
   ];
 
   return (
@@ -37,6 +40,7 @@ export function SiteFooter() {
         <div className="footer-column footer-contact-column">
           <h2>Reach us</h2>
           <a className="footer-mail-only" href="mailto:business@narayanistudios.com">business@narayanistudios.com</a>
+          <a className="footer-mail-only" href="mailto:career@narayanistudios.com">career@narayanistudios.com</a>
           <h3>Follow Us</h3>
           <SocialLinks />
         </div>

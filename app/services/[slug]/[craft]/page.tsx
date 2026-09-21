@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CtaBand, PageHero } from "@/components/page-hero";
+import { brandHeroTitle } from "@/lib/brand-title";
 import { craftsByService, findCraft } from "@/lib/offerings";
 
 export function generateStaticParams() {
@@ -13,8 +14,6 @@ export function generateStaticParams() {
   return params;
 }
 
-
-
 export default async function CraftPage({ params }: { params: Promise<{ slug: string; craft: string }> }) {
   const { slug, craft: craftSlug } = await params;
   const craft = findCraft(slug, craftSlug);
@@ -22,7 +21,7 @@ export default async function CraftPage({ params }: { params: Promise<{ slug: st
 
   return (
     <main>
-      <PageHero eyebrow={craft.title} title={craft.title} copy={craft.strap} image={craft.image} />
+      <PageHero eyebrow={craft.title} title={brandHeroTitle(craft.title)} copy={craft.strap} image={craft.image} />
       <section className="intro wrap">
         <div>
           <h2>{craft.problem || craft.strap}</h2>

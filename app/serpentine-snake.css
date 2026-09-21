@@ -458,12 +458,9 @@
   border-color: #000000;
 }
 
-/* Hint Callout */
+/* Hint Callout — removed from UI */
 .serpentine-hint-bar {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.85rem;
-  color: rgba(0, 0, 0, 0.5);
+  display: none !important;
 }
 
 /* =========================================================

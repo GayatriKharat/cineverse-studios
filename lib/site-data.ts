@@ -1,4 +1,4 @@
-export const divisions = [
+﻿export const divisions = [
     {
         slug: "strategy-consulting",
         code: "01",
@@ -261,18 +261,33 @@ export const projects = [
 export const testimonials = [
     {
         quote: "A thoughtful, decisive partner from the first conversation to the final delivery.",
-        name: "Brand Partner",
-        scope: "Integrated campaign"
+        name: "Aaditya Iyengar",
+        scope: "Creator collaboration"
     },
     {
         quote: "The team brought real clarity to a complex brief, then made the work feel effortless.",
-        name: "Marketing Lead",
-        scope: "Film production"
+        name: "Cloud Hire",
+        scope: "Brand & digital"
     },
     {
         quote: "Narayani understands that beautiful creative work also needs to perform in the real world.",
-        name: "Founder",
-        scope: "Brand & digital"
+        name: "The Indian Impact",
+        scope: "Film production"
+    },
+    {
+        quote: "From the first plan to the last impression, the house stayed sharp and easy to work with.",
+        name: "Invest With Akash",
+        scope: "Content production"
+    },
+    {
+        quote: "They held the picture across strategy, shoot and finish. That continuity shows in the work.",
+        name: "Paper 2 Pixel",
+        scope: "Integrated campaign"
+    },
+    {
+        quote: "Clear briefs, strong craft, and a team that moves with the same energy we bring to our own audience.",
+        name: "Raksham Talks",
+        scope: "Social & content"
     }
 ];
 export const clientLogos = [
@@ -374,12 +389,34 @@ export const navPrimary: NavItem[] = [
         ]
     },
     {
+        label: "Portfolio",
+        href: "/portfolio"
+    },
+    {
+        label: "Resources",
+        href: "/resources",
+        children: [
+            {
+                label: "All resources",
+                href: "/resources"
+            },
+            ...resourceNavTypes.map((resource) => ({
+                label: resource.title,
+                href: `/resources/${resource.slug}`
+            }))
+        ]
+    },
+    {
         label: "Contact",
         href: "/contact"
     },
+    {
+        label: "Careers",
+        href: "/careers"
+    },
 ];
 
-/* Hidden for now (not deleted): Portfolio + Resources nav entries kept out of navPrimary */
+/* Portfolio + Resources restored in navPrimary */
 
 export const navGuide = [
     {
@@ -406,6 +443,11 @@ export const navGuide = [
         label: "Contact",
         href: "/contact",
         hint: "Start a brief — one service or the full chain"
+    },
+    {
+        label: "Careers",
+        href: "/careers",
+        hint: "Join the team — open roles and how we hire"
     }
 ];
 export const navIndex = [
@@ -432,6 +474,10 @@ export const navIndex = [
     [
         "Contact",
         "/contact"
+    ],
+    [
+        "Careers",
+        "/careers"
     ],
     [
         "Team",
