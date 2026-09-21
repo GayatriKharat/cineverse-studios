@@ -52,7 +52,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       <CtaBand
-        title={<>Start your project with <em>Narayani Studios.</em></>}
+        title={<>Start your project with <em>Narayani Studios</em><span className="title-stop">.</span></>}
         subheading="Tell us the brief. We will name the stage."
         buttonText="Contact Us ↗"
         buttonHref="/contact"

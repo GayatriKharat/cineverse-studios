@@ -74,10 +74,10 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
   if (slug === "testimonials") {
     return (
       <main className="testimonials-page">
-        <PageHero eyebrow="Resources / Voices" title={<>What partners <em>remember.</em></>} copy={resource.copy} />
+        <PageHero eyebrow="Resources / Voices" title={<>What partners <em>remember</em><span className="title-stop">.</span></>} copy={resource.copy} />
         <section className="testimonials-stage wrap">
           <div className="testimonials-intro">
-            <h2>Work that leaves a <em>trace.</em></h2>
+            <h2>Work that leaves a <em>trace</em><span className="title-stop">.</span></h2>
             <p>Three perspectives from the people who trusted the house with the idea, the process and the final frame.</p>
           </div>
           <TestimonialsDeck items={testimonials} />

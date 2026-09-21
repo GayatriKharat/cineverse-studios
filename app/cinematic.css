@@ -692,7 +692,9 @@ html,body,#main{background:var(--brand-white)!important;color:var(--brand-black)
 
 * Image direction for the white Narayani theme.
 .hero-reel,.page-hero-media div,.feature-still,.pillar-card-media,.service-card-face,.service-directory-media img,.resource-preview>div:first-child,.portrait,.frame-row div,.work-row div,.gallery-grid div,.resource-gallery-preview a{filter:saturate(.72) brightness(1.12) contrast(.96)!important}
-.hero-reel,.page-hero-media div{mix-blend-mode:multiply}
+.hero-reel{mix-blend-mode:normal!important}
+.page-hero.has-media.is-n-hero .page-hero-cover-img,
+.page-hero.has-media.is-home-align .page-hero-cover-img{mix-blend-mode:normal!important}
 .service-card-face:before,.feature-card:after{background:linear-gradient(180deg,#FFFFFF00 24%,#00000026 100%)!important}
 .home-reel:before{background:linear-gradient(180deg,#FFFFFF00,#00000038)!important}
 .resource-preview>div:first-child,.service-directory-media img,.portrait,.frame-row div,.work-row div,.gallery-grid div,.resource-gallery-preview a{background-color:var(--brand-white)!important}

@@ -155,43 +155,13 @@ h2 em {
   overflow: hidden;
   min-height: 86svh;
   padding: 120px 0 80px;
-
-  background:
-    radial-gradient(
-      circle at 88% 20%,
-      rgba(35, 55, 198, 0.12),
-      transparent 32rem
-    ),
-    linear-gradient(
-      135deg,
-      #ffffff 0%,
-      #ffffff 58%,
-      #f3f5ff 100%
-    );
+  background: #ffffff;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  right: -180px;
-  top: 80px;
-  border: 1px solid rgba(35, 55, 198, 0.12);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
+.hero::before,
 .hero::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  right: 13%;
-  top: 24%;
-  background: var(--brand-gold);
-  transform: rotate(45deg);
-  box-shadow: 0 0 0 12px rgba(245, 180, 0, 0.08);
+  content: none !important;
+  display: none !important;
 }
 
 .hero-stage {

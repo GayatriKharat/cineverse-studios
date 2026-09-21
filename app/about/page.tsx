@@ -39,11 +39,11 @@ export default function About() {
   return (
     <main>
       <PageHero
-        title={<>Built to make <em>ideas move.</em></>}
+        title={<>Built to make <em>ideas move<span className="title-stop">.</span></em></>}
         copy="Where every story gets the craft it deserves."
-        image="/about-n-hero.png"
+        image="/about-n-hero.png?v=home-size-1"
         actions={
-          <div className="hero-actions" style={{ marginTop: "24px" }}>
+          <div className="hero-actions">
             <Link className="button" href="/contact">Contact Us</Link>
           </div>
         }
@@ -65,7 +65,7 @@ export default function About() {
               <span className={styles.cardDot} aria-hidden="true">●</span>
             </div>
             <div className={styles.icon} aria-hidden="true">◉</div>
-            <h3>To build the world&apos;s most admired <em>creative ecosystem.</em></h3>
+            <h3>To build the world&apos;s most admired <em>creative ecosystem</em><span className="title-stop">.</span></h3>
             <div className={styles.rule} />
             <p>Where great ideas find their voice, ambition finds its stage, and every collaboration becomes a mark of distinction.</p>
             <small>VOICE <b>→</b> STAGE</small>
@@ -77,7 +77,7 @@ export default function About() {
               <i />
             </div>
             <div className={styles.centerContent}>
-              <h2 id="purpose-title">One ecosystem.<br /><em>Limitless</em> creative directions.</h2>
+              <h2 id="purpose-title">One ecosystem<span className="title-stop">.</span><br /><em>Limitless</em> creative directions<span className="title-stop">.</span></h2>
               <p className={styles.centerSub}><strong>Together under one roof.</strong></p>
             </div>
             <div className={styles.centerLine} aria-hidden="true" />
@@ -90,7 +90,7 @@ export default function About() {
               <span className={styles.cardDot} aria-hidden="true">●</span>
             </div>
             <div className={styles.icon} aria-hidden="true">◎</div>
-            <h3>To bring strategy, creativity, production, branding and distribution <em>together.</em></h3>
+            <h3>To bring strategy, creativity, production, branding and distribution <em>together</em><span className="title-stop">.</span></h3>
             <div className={styles.rule} />
             <p>Turning ideas into identities the world remembers.</p>
             <small>IDEA <b>→</b> IDENTITY</small>
@@ -100,7 +100,7 @@ export default function About() {
 
       <section className="founders wrap" aria-labelledby="founders-title">
         <Reveal>
-          <h2 id="founders-title">The people who hold <em>the picture.</em></h2>
+          <h2 id="founders-title">The people who hold <em>the picture</em><span className="title-stop">.</span></h2>
           <p className="lede">Meet the partners behind Narayani Studios.</p>
         </Reveal>
         <Stagger className="founder-row">
@@ -115,7 +115,7 @@ export default function About() {
       <section className="about-story wrap" aria-labelledby="story-title">
         <Reveal className="about-story-lead">
           <p className="founders-eyebrow">Origin</p>
-          <h2 id="story-title">How Narayani Studios <em>started.</em></h2>
+          <h2 id="story-title">How Narayani Studios <em>started</em><span className="title-stop">.</span></h2>
         </Reveal>
         <Reveal delay={0.08} className="about-story-copy">
           <p>Shreeraj Avhad and Kiran Dhangar have worked together since 2024, across a wide range of projects. Along the way, working with creators, brands, and other people in the industry, we kept running into the same problem.</p>
@@ -126,7 +126,7 @@ export default function About() {
       </section>
 
       <AnimatedStats stats={[{ value: 52, suffix: "+", label: "Happy clients across the globe" }, { value: 4.2, suffix: "B+", label: "Views generated across platforms", decimals: 1 }, { value: 1200, suffix: "+", label: "Content pieces created for clients" }, { value: 6400, suffix: "+", label: "Content pieces distributed" }]} />
-      <CtaBand title={<>Start your project with <em>Narayani Studios.</em></>} buttonText="Contact Us ↗" buttonHref="/contact" />
+      <CtaBand title={<>Start your project with <em>Narayani Studios</em><span className="title-stop">.</span></>} buttonText="Contact Us ↗" buttonHref="/contact" />
     </main>
   );
 }

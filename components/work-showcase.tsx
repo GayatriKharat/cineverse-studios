@@ -6,7 +6,7 @@ export function WorkShowcase() {
   return (
     <>
       <section className="wrap">
-        <h2>Open the work through a <em>service.</em></h2>
+        <h2>Open the work through a <em>service</em><span className="title-stop">.</span></h2>
         <div className="work-cats">
           {services.map((service) => (
             <Link key={service.slug} href={`#${service.slug}`} className="work-cat">

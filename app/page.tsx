@@ -16,7 +16,7 @@ export default function Home() {
 
       <section className="studio-reel wrap is-soft-hidden" hidden aria-hidden="true" style={{ paddingTop: "48px", paddingBottom: "48px" }}>
         <Reveal>
-          <h2>Meet the <em>studio.</em></h2>
+          <h2>Meet the <em>studio</em><span className="title-stop">.</span></h2>
         </Reveal>
         <MediaReveal>
           <Link href="/about" className="home-reel" style={{ backgroundImage: cssUrl("/Updated Images/portfolio.png") }}>
@@ -30,7 +30,7 @@ export default function Home() {
 
       <section className="wrap service-pillars" style={{ paddingTop: "48px", paddingBottom: "56px" }}>
         <Reveal>
-          <h2>Our <em>services.</em></h2>
+          <h2>Our <em>services</em><span className="title-stop">.</span></h2>
           <p className="section-lede" style={{ marginBottom: "40px" }}>
             Six divisions, from the first plan to the last impression. See what’s inside each one.
           </p>
@@ -78,7 +78,7 @@ export default function Home() {
       <section className="client-marquees" aria-label="Who we have worked with">
         <div className="wrap client-marquees-header">
           <Reveal>
-            <h2>Who we have <em>worked with.</em></h2>
+            <h2>Who we have <em>worked with</em><span className="title-stop">.</span></h2>
           </Reveal>
         </div>
         {[clientLogos, [...clientLogos].reverse()].map((row, rowIndex) => (
@@ -105,7 +105,7 @@ export default function Home() {
         <Reveal>
           <article className="founding-note">
             <p className="founding-note-kicker">Founding collaborations</p>
-            <h2>Be one of our first <em>collaborations.</em></h2>
+            <h2>Be one of our first <em>collaborations</em><span className="title-stop">.</span></h2>
             <p>
               We&apos;re opening the slate with partners who value genuine craft. First reviews land here until then, this is an invitation to build with us from the ground up.
             </p>
@@ -128,7 +128,7 @@ export default function Home() {
       <section className="who-we-are wrap" aria-label="Who we are" style={{ paddingTop: "56px", paddingBottom: "56px" }}>
         <div className="who-we-are-grid">
           <Reveal>
-            <h2>A creative ecosystem, built for <em>all your needs.</em></h2>
+            <h2>A creative ecosystem, built for <em>all your needs</em><span className="title-stop">.</span></h2>
           </Reveal>
           <Reveal delay={0.08} className="who-we-are-copy">
             <p className="who-we-are-lede">
@@ -155,7 +155,7 @@ export default function Home() {
         <div className="talk-copy">
           <Reveal>
             <h2>
-              Let&apos;s <em>talk.</em>
+              Let&apos;s <em>talk</em><span className="title-stop">.</span>
             </h2>
             <p className="section-lede">
               One service or the full chain, send the brief and we&apos;ll name the stage, the team, and the next move.

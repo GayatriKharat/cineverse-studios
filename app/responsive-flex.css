@@ -665,18 +665,20 @@ label,
   padding: clamp(24px, 3.2vw, 40px) clamp(18px, 3vw, 36px) !important;
 }
 
-/* About / Services N-hero — match home hero type */
-.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy {
-  max-width: min(42rem, 52%) !important;
+/* Page heroes inherit home type — no single-line shrink */
+.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy,
+.page-hero.has-media.is-home-align.is-single-line .page-hero-copy {
+  max-width: min(38rem, 48%) !important;
 }
 
-.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1 {
-  max-width: 16ch !important;
+.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1,
+.page-hero.has-media.is-home-align.is-single-line .page-hero-copy h1 {
+  max-width: 520px !important;
   width: auto !important;
   white-space: normal !important;
-  font-size: clamp(2.8rem, 4.8vw, 5.4rem) !important;
-  line-height: 0.9 !important;
-  letter-spacing: -0.055em !important;
+  font-size: clamp(5rem, 7vw, 9.5rem) !important;
+  line-height: 0.82 !important;
+  letter-spacing: -0.035em !important;
 }
 
 .nav-start nav,
@@ -686,14 +688,15 @@ label,
 }
 
 @media (max-width: 900px) {
-  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy {
+  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy,
+  .page-hero.has-media.is-home-align.is-single-line .page-hero-copy {
     max-width: 100% !important;
   }
 
-  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1 {
+  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1,
+  .page-hero.has-media.is-home-align.is-single-line .page-hero-copy h1 {
     white-space: normal !important;
     width: auto !important;
-    max-width: 14ch !important;
-    font-size: clamp(2.4rem, 9.5vw, 3.8rem) !important;
+    max-width: none !important;
   }
 }

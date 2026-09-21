@@ -39,20 +39,89 @@ p,.lede,.hero-lede,.section-lede{color:rgba(0,0,0,.68)}
 .index-menu{background:rgba(255,255,255,.98)}.index-menu a,.index-menu .index-sub a{color:#000000!important;border-color:rgba(0,0,0,.14)!important;text-shadow:none!important}.index-menu a span{color:#2337C6!important}
 .nav-drop-inner{background:#FFFFFF;border-color:rgba(0,0,0,.14);box-shadow:0 12px 28px rgba(0,0,0,.1)}.nav-drop a{background:#FFFFFF;color:#000000;border-color:rgba(0,0,0,.14);box-shadow:none;text-shadow:none}.nav-drop a:hover,.nav-drop a:focus{background:rgba(35,55,198,.06);color:#2337C6;border-color:#2337C6;box-shadow:none}
 
-.hero{background:#FFFFFF;color:#000000;min-height:clamp(620px,72vh,760px);align-items:center;padding-top:1rem}
+.hero{background:#FFFFFF!important;color:#000000;min-height:810px;align-items:center;padding-top:1rem}
+@media (max-width:1200px){.hero{min-height:clamp(680px,80vh,810px)}}
+@media (max-width:860px){.hero{min-height:auto}}
+.hero-mid-haze,
+.hero-mid-ring,
+.hero-mid-dust,
+.hero-n-cast,
+.hero-n-light{display:none!important;opacity:0!important;visibility:hidden!important}
 .hero-reel{
   transform:none;
-  filter:saturate(1.05) contrast(1.04) brightness(1.02);
+  mix-blend-mode:normal!important;
+  background-color:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+  filter:saturate(1.04) contrast(1.03) brightness(1.01)!important;
   animation:heroNDissolve 14s ease-in-out infinite alternate;
-  mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 82%,transparent 100%);
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 82%,transparent 100%);
+  /* Soft edge dissolve into continuous white */
+  mask-image:
+    linear-gradient(90deg,transparent 0%,#000 12%,#000 100%),
+    linear-gradient(180deg,transparent 0%,#000 8%,#000 94%,transparent 100%)!important;
+  -webkit-mask-image:
+    linear-gradient(90deg,transparent 0%,#000 12%,#000 100%),
+    linear-gradient(180deg,transparent 0%,#000 8%,#000 94%,transparent 100%)!important;
+  mask-composite:intersect!important;
+  -webkit-mask-composite:source-in!important;
 }
 @keyframes heroNDissolve{
-  from{opacity:.9;filter:saturate(1.02) contrast(1.02) brightness(1.04);transform:translate3d(0,6px,0) scale(1)}
-  to{opacity:1;filter:saturate(1.12) contrast(1.08) brightness(1.01) drop-shadow(0 0 28px rgba(245,180,0,.18));transform:translate3d(-8px,-4px,0) scale(1.03)}
+  from{opacity:.94;filter:saturate(1.02) contrast(1.02) brightness(1.02);transform:translate3d(0,4px,0) scale(1)}
+  to{opacity:1;filter:saturate(1.08) contrast(1.05) brightness(1.01);transform:translate3d(-6px,-3px,0) scale(1.02)}
 }
-.hero-shade{background:linear-gradient(90deg,#FFFFFF 0%,#FFFFFF 42%,rgba(255,255,255,.92) 58%,rgba(255,255,255,0) 74%)}
-.hero-copy{max-width:min(38rem,48%);margin-right:auto;margin-left:clamp(1rem,2vw,2.5rem);padding-top:clamp(5.5rem,9vh,8rem);padding-bottom:2rem;text-align:left}.hero .eyebrow{color:#2337C6!important;font-size:.82rem;letter-spacing:.22em;margin-bottom:1.25rem}.hero h1{font-size:clamp(5rem,7vw,9.5rem);line-height:.82;letter-spacing:-.075em;max-width:520px}.hero h1,.hero h1 span{color:#000000!important;text-shadow:none}.hero h1 em{color:#2337C6!important}.hero .hero-lede{max-width:28rem;margin-top:1.4rem;color:rgba(0,0,0,.78)!important;font-size:clamp(1.2rem,1.7vw,1.8rem);line-height:1.35}.hero-actions{margin-top:1.8rem;gap:1.1rem}.hero-actions .button{background:#F5B400;color:#000000;border-radius:999px;min-height:58px;padding-inline:1.7rem;font-size:1.05rem;letter-spacing:0;text-transform:none}.hero-actions .button:hover{background:#2337C6;color:#FFFFFF}.hero-actions .button-ghost{border:0;background:transparent;color:#2337C6;border-radius:0;min-height:58px;padding-inline:1rem;font-size:1.05rem;letter-spacing:0;text-transform:none}.hero-actions .button-ghost span{display:inline-grid;place-items:center;width:2.8rem;height:2.8rem;margin-left:.45rem;border:2px solid #2337C6;border-radius:50%;font-size:1.1rem}.hero-actions .button-ghost:hover{background:transparent;color:#000000}
+/* No center seam — continuous white into the N */
+.hero-shade{background:transparent!important;display:none!important}
+.hero-n-field{background:transparent!important;border:0!important;box-shadow:none!important;outline:0!important}
+.hero-copy{max-width:min(38rem,48%);margin-right:auto;margin-left:clamp(1rem,2vw,2.5rem);padding-top:clamp(5.5rem,9vh,8rem);padding-bottom:2rem;text-align:left}.hero .eyebrow{color:#2337C6!important;font-size:.82rem;letter-spacing:.22em;margin-bottom:1.25rem}.hero h1{font-size:clamp(5rem,7vw,9.5rem);line-height:.82;letter-spacing:-.035em;max-width:520px}.hero h1,.hero h1 span{color:#000000!important;text-shadow:none}.hero h1 em,.hero h1 em span{color:#2337C6!important}
+/* Round yellow title stops — site-wide */
+.title-end {
+  white-space: nowrap !important;
+}
+.hero h1 em .title-end,
+.page-hero.has-media.is-n-hero .page-hero-copy h1 em .title-end,
+.page-hero.has-media.is-home-align .page-hero-copy h1 em .title-end,
+.page-hero.has-media.is-n-hero .page-hero-copy h2 em .title-end,
+.page-hero.has-media.is-home-align .page-hero-copy h2 em .title-end {
+  color: #2337c6 !important;
+}
+h1 .title-stop,
+h2 .title-stop,
+h3 .title-stop,
+.page-hero .title-stop,
+.page-hero.has-media .title-stop,
+.page-hero.has-media.is-n-hero .title-stop,
+.hero .title-stop,
+.serpentine-section-title .title-stop,
+.cta-band .title-stop,
+.title-stop {
+  display: inline-block !important;
+  width: 0.22em !important;
+  height: 0.22em !important;
+  margin-left: 0.08em !important;
+  margin-bottom: 0 !important;
+  border-radius: 50% !important;
+  background: #f5b400 !important;
+  color: transparent !important;
+  font-size: 1em !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  vertical-align: 0.18em !important;
+  position: relative !important;
+  top: -0.02em !important;
+  overflow: hidden !important;
+  text-shadow: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  white-space: nowrap !important;
+}
+/* Keep stop glued to the last word — only the word+stop unit, not the whole line */
+.title-end,
+em:has(> .title-stop),
+span:has(> .title-stop):not(.hero-line):not(.hero-line *) {
+  white-space: nowrap !important;
+}.hero .hero-lede{max-width:28rem;margin-top:1.4rem;color:rgba(0,0,0,.78)!important;font-size:clamp(1.2rem,1.7vw,1.8rem);line-height:1.35}.hero-actions{margin-top:1.8rem;gap:1.1rem}.hero-actions .button{background:#F5B400;color:#000000;border-radius:999px;min-height:58px;padding-inline:1.7rem;font-size:1.05rem;letter-spacing:0;text-transform:none}.hero-actions .button:hover{background:#2337C6;color:#FFFFFF}.hero-actions .button-ghost{border:0;background:transparent;color:#2337C6;border-radius:0;min-height:58px;padding-inline:1rem;font-size:1.05rem;letter-spacing:0;text-transform:none}.hero-actions .button-ghost span{display:inline-grid;place-items:center;width:2.8rem;height:2.8rem;margin-left:.45rem;border:2px solid #2337C6;border-radius:50%;font-size:1.1rem}.hero-actions .button-ghost:hover{background:transparent;color:#000000}
 @media (max-width:1200px){.hero-reel{width:min(40rem,50%)}.hero-copy{max-width:min(34rem,52%);margin-left:1rem}.hero h1{max-width:480px;font-size:clamp(3.4rem,5.8vw,7rem)}}
 
 .page-hero{background:#000000;color:#FFFFFF}.page-hero.has-media{background:transparent!important;min-height:0!important;padding:0!important}.page-hero-media:after{content:none!important;display:none!important}.page-hero h1,.page-hero h2,.page-hero h3,.page-hero p,.page-hero .lede{color:#FFFFFF!important}.page-hero h1 em,.page-hero h2 em,.page-hero .eyebrow{color:#F5B400!important}

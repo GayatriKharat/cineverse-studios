@@ -25,7 +25,7 @@ export function PageHero({
   return (
     <section
       data-rv
-      className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media" : ""}${image?.includes("n-hero") ? " is-n-hero" : ""}${singleLineTitle ? " is-single-line" : ""}`}
+      className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media is-home-align" : ""}${image?.includes("n-hero") ? " is-n-hero" : ""}${singleLineTitle ? " is-single-line" : ""}`}
     >
       {image && (
         <div className="page-hero-media">
@@ -51,7 +51,7 @@ export function PageHero({
 
 export function CtaBand({
   eyebrow,
-  title = <>Start your project with <em>Narayani Studios.</em></>,
+  title = <>Start your project with <em>Narayani Studios</em><span className="title-stop">.</span></>,
   subheading = "Tell us the brief. We will name the stage.",
   buttonText = "Contact Us ↗",
   buttonHref = "/contact",

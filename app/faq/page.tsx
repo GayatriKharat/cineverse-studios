@@ -7,7 +7,7 @@ export default function FaqPage() {
     <main>
       <PageHero
         eyebrow="FAQ"
-        title={<>Useful answers, <em>upfront.</em></>}
+        title={<>Useful answers, <em>upfront</em><span className="title-stop">.</span></>}
         copy="How the house works — one service or the full chain, in India and internationally."
       />
       <section className="faq-section wrap">

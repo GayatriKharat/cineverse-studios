@@ -40,7 +40,7 @@ export function Hero() {
       <div className="hero-copy wrap">
         <h1>
           <span className="hero-line"><span>Script to screen,</span></span>
-          <span className="hero-line"><span><em>under one roof.</em></span></span>
+          <span className="hero-line"><span><em>under one <span className="title-end">roof<span className="title-stop">.</span></span></em></span></span>
         </h1>
         <p className="hero-lede hero-meta">
           Strategy, story, shoot, edit, distribute, launch, one studio for every stage of the work.

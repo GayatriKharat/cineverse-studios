@@ -284,8 +284,12 @@
   background-position:center right;
   background-size:contain;
   background-repeat:no-repeat;
+  background-color:transparent !important;
   z-index:1;
-  filter:drop-shadow(-28px 18px 34px rgba(35,55,198,.14)) drop-shadow(-12px 8px 18px rgba(0,0,0,.08));
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  filter:none !important;
 }
 
 .hero-n-light{

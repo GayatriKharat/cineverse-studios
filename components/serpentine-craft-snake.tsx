@@ -66,7 +66,7 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
     <div className="serpentine-section" id="sub-services-serpentine">
       <div className="serpentine-header-bar">
         <div className="serpentine-title-wrap">
-          <h2 className="serpentine-section-title">Explore our services</h2>
+          <h2 className="serpentine-section-title">Explore our services<span className="title-stop">.</span></h2>
         </div>
       </div>
 

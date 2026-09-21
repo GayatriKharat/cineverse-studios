@@ -9,17 +9,20 @@ export default function ServicesPage() {
   return (
     <main>
       <PageHero
-        title="From the first plan to the last impression."
+        title={<>
+          From the first plan{" "}
+          <em>to the last <span className="title-end">impression<span className="title-stop">.</span></span></em>
+        </>}
         copy="Six divisions, one connected team, from the first idea to the audience it reaches."
-        image="/services-n-hero.png"
+        image="/services-n-hero.png?v=home-size-1"
         singleLineTitle
         actions={
-          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginTop: "24px" }}>
+          <div className="hero-actions">
             <a className="button" href="#explore">
               Explore services ↓
             </a>
-            <Link className="text-link" href="/contact" style={{ display: "inline-flex", alignItems: "center" }}>
-              Contact Us ↗
+            <Link className="button-ghost" href="/contact">
+              Contact Us
             </Link>
           </div>
         }
@@ -27,7 +30,7 @@ export default function ServicesPage() {
 
       <section id="explore" className="wrap service-pillars" style={{ paddingTop: "60px", paddingBottom: "80px" }}>
         <Reveal>
-          <h2>Explore our services.</h2>
+          <h2>Explore our services<span className="title-stop">.</span></h2>
           <p className="section-lede" style={{ marginBottom: "40px" }}>
             Open a division to see what sits inside it.
           </p>
@@ -67,7 +70,7 @@ export default function ServicesPage() {
       </section>
 
       <CtaBand
-        title={<>Start your project with <em>Narayani Studios.</em></>}
+        title={<>Start your project with <em>Narayani Studios</em><span className="title-stop">.</span></>}
         subheading="Tell us the brief. We will name the stage."
         buttonText="Contact Us ↗"
         buttonHref="/contact"

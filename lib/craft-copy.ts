@@ -1,30 +1,41 @@
-/** Prefer strap as the blue lead line; body continues without repeating it. */
+/** Blue lead = first sentence once; black body = remaining sentences only. */
 export function splitCraftCopy(strap: string, description: string) {
-  const lead = (strap || "").trim();
-  let body = (description || "").trim();
+  const strapText = (strap || "").trim();
+  const desc = (description || "").trim();
+  const source = desc || strapText;
 
-  if (lead && body) {
-    const leadCore = lead.replace(/[.!?]+$/u, "").trim();
-    const lowerBody = body.toLowerCase();
-    const lowerLead = lead.toLowerCase();
-    const lowerLeadCore = leadCore.toLowerCase();
+  const firstMatch = source.match(/^(.+?[.!?])(?:\s+|$)/u);
+  const firstSentence = firstMatch?.[1]?.trim() ?? source;
 
-    if (lowerBody.startsWith(lowerLead)) {
-      body = body.slice(lead.length).replace(/^[\s.:–—-]+/u, "").trim();
-    } else if (leadCore && lowerBody.startsWith(lowerLeadCore)) {
-      body = body.slice(leadCore.length).replace(/^[\s.:–—-]+/u, "").trim();
-    }
+  // Prefer strap as the blue lead when available (short, intentional line).
+  const lead = strapText || firstSentence;
+
+  // Body is everything after the first sentence of the description,
+  // so the opening idea never repeats under the lead.
+  let body = "";
+  if (desc && firstMatch) {
+    body = desc.slice(firstMatch[0].length).trim();
   }
 
-  // If body still opens with the same sentence as the lead, drop that sentence.
-  if (lead && body) {
-    const leadCore = lead.replace(/[.!?]+$/u, "").trim().toLowerCase();
-    const firstSentence = body.match(/^(.+?[.!?])(?:\s|$)/u)?.[1]?.trim() ?? "";
-    const firstCore = firstSentence.replace(/[.!?]+$/u, "").trim().toLowerCase();
-    if (firstCore && firstCore === leadCore) {
-      body = body.slice(firstSentence.length).trim();
-    }
-  }
-
+  body = stripLeadingEcho(lead, body);
   return { lead, body };
+}
+
+function stripLeadingEcho(lead: string, body: string) {
+  if (!lead || !body) return body;
+
+  const leadCore = lead.replace(/[.!?]+$/u, "").trim().toLowerCase();
+  const lowerBody = body.toLowerCase();
+
+  if (lowerBody.startsWith(leadCore)) {
+    return body.slice(leadCore.length).replace(/^[\s.:–—-]+/u, "").trim();
+  }
+
+  const bodyFirst = body.match(/^(.+?[.!?])(?:\s+|$)/u)?.[1]?.trim() ?? "";
+  const bodyCore = bodyFirst.replace(/[.!?]+$/u, "").trim().toLowerCase();
+  if (bodyCore && bodyCore === leadCore) {
+    return body.slice(bodyFirst.length).trim();
+  }
+
+  return body;
 }

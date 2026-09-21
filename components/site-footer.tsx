@@ -18,7 +18,7 @@ export function SiteFooter() {
           <div style={{ marginBottom: "16px" }}>
             <BrandLogo variant="dark" compact={false} showTagline={false} />
           </div>
-          <p className="footer-tag" style={{ color: "var(--brand-blue)", fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.08em", marginBottom: "8px" }}>Production · Branding · Media</p>
+          <p className="footer-tag" style={{ color: "var(--brand-blue)", fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.04em", marginBottom: "8px" }}>Script to screen, under one roof.</p>
           <p className="footer-lede">An integrated house for branding, production, talent, platforms and entertainment, built to serve brands and creators anywhere in the world.</p>
           <Link className="footer-cta" href="/contact">Start a project <span aria-hidden="true">↗</span></Link>
         </div>

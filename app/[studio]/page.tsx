@@ -10,7 +10,7 @@ import { cssUrl } from "@/lib/asset";
 const pages = {
   productions: {
     eyebrow: "Productions",
-    title: <>Film, music and entertainment <em>made to last.</em></>,
+    title: <>Film, music and entertainment <em>made to last</em><span className="title-stop">.</span></>,
     copy: "Conceive, develop, produce and co-produce films, series, OTT, music, podcasts, live shows and stage work — in India and internationally.",
     image: "/film-automotive.png",
     items: [
@@ -22,7 +22,7 @@ const pages = {
   },
   portfolio: {
     eyebrow: "Portfolio",
-    title: <>A record of worlds <em>made real.</em></>,
+    title: <>A record of worlds <em>made real</em><span className="title-stop">.</span></>,
     copy: "Selected work spanning brand storytelling, culture, launch moments and moving image.",
     image: "/film-virtual.png",
     items: [
@@ -34,7 +34,7 @@ const pages = {
   },
   talent: {
     eyebrow: "Talent",
-    title: <>Creators, artists <em>and voices.</em></>,
+    title: <>Creators, artists <em>and voices</em><span className="title-stop">.</span></>,
     copy: "Represent, manage and promote creators, artists, influencers and public personalities — collaborations, campaigns, endorsements and commercial opportunities.",
     image: "/service-photography.png",
     items: [
@@ -46,7 +46,7 @@ const pages = {
   },
   team: {
     eyebrow: "Team",
-    title: <>A studio of sharp <em>point of view.</em></>,
+    title: <>A studio of sharp <em>point of view</em><span className="title-stop">.</span></>,
     copy: "Creative direction, production leadership, brand strategy and digital — one senior team, not a relay of vendors.",
     image: "/service-documentary.png",
     items: [
@@ -58,7 +58,7 @@ const pages = {
   },
   "media-ip": {
     eyebrow: "Media & IP",
-    title: <>Make it. Own it. <em>Take it further.</em></>,
+    title: <>Make it. Own it. <em>Take it further</em><span className="title-stop">.</span></>,
     copy: "Create, acquire, license and commercialise copyrights, trademarks, film and music rights, digital assets and platforms — then distribute through theatres, television, OTT and venues.",
     image: "/service-vfx.png",
     items: [
@@ -70,7 +70,7 @@ const pages = {
   },
   insights: {
     eyebrow: "Insights",
-    title: <>Notes from inside <em>the frame.</em></>,
+    title: <>Notes from inside <em>the frame</em><span className="title-stop">.</span></>,
     copy: "Process, production journals and the currents we are watching — not the trends we are chasing.",
     image: "/service-motion.png",
     items: [
@@ -102,7 +102,7 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
       <PageHero eyebrow={page.eyebrow} title={page.title} copy={page.copy} image={page.image} />
       {studio === "team" && (
         <section className="founders wrap">
-          <h2>Flip a portrait.</h2>
+          <h2>Flip a portrait<span className="title-stop">.</span></h2>
           <Stagger className="founder-row">
             <StaggerItem>
               <FlipCard

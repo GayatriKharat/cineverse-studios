@@ -466,120 +466,184 @@ section[class*="about-values"] {
   50% { transform: scale(1.35); opacity: 1; }
 }
 
-/* About / Services N-hero — first put: full artwork, readable left copy */
-.page-hero.has-media.is-n-hero {
+/* Page heroes — lock to Home 1st-section text + N alignment */
+.page-hero.has-media.is-n-hero,
+.page-hero.has-media.is-home-align {
+  position: relative !important;
   background: #ffffff !important;
-  color: #0a0a0a !important;
-  min-height: 0 !important;
+  color: #000000 !important;
+  min-height: 810px !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  padding-top: 1rem !important;
 }
 
-.page-hero.has-media.is-n-hero .page-hero-media {
-  position: relative !important;
-  inset: auto !important;
-  width: 100% !important;
-  height: auto !important;
-  background: #ffffff !important;
-  line-height: 0 !important;
-}
-
-.page-hero.has-media.is-n-hero .page-hero-cover-img {
-  position: relative !important;
-  inset: auto !important;
-  top: auto !important;
-  right: auto !important;
-  left: auto !important;
+.page-hero.has-media.is-n-hero .page-hero-media,
+.page-hero.has-media.is-home-align .page-hero-media {
+  position: absolute !important;
+  top: 5rem !important;
+  right: 0 !important;
   bottom: auto !important;
+  left: auto !important;
+  /* Match Home .hero-n-field rendered size exactly */
+  width: min(52rem, 60%) !important;
+  height: min(740px, calc(100% - 5rem)) !important;
+  max-height: 740px !important;
+  min-height: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  line-height: 0 !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+}
+
+.page-hero.has-media.is-n-hero .page-hero-cover-img,
+.page-hero.has-media.is-home-align .page-hero-cover-img {
+  position: absolute !important;
+  inset: 0 !important;
   display: block !important;
   width: 100% !important;
-  height: auto !important;
-  max-width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
   max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
   transform: none !important;
   object-fit: contain !important;
   object-position: right center !important;
-  background: #ffffff !important;
-  filter: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: saturate(1.04) contrast(1.03) brightness(1.01) !important;
   mix-blend-mode: normal !important;
+  /* Exact Home .hero-reel dissolve mask */
+  mask-image:
+    linear-gradient(90deg, transparent 0%, #000 12%, #000 100%),
+    linear-gradient(180deg, transparent 0%, #000 8%, #000 94%, transparent 100%) !important;
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, #000 12%, #000 100%),
+    linear-gradient(180deg, transparent 0%, #000 8%, #000 94%, transparent 100%) !important;
+  mask-composite: intersect !important;
+  -webkit-mask-composite: source-in !important;
 }
 
-.page-hero.has-media.is-n-hero .page-hero-shade {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 1 !important;
-  background: linear-gradient(
-    90deg,
-    #ffffff 0%,
-    rgba(255, 255, 255, 0.92) 42%,
-    rgba(255, 255, 255, 0) 72%
-  ) !important;
+.page-hero.has-media.is-n-hero .page-hero-shade,
+.page-hero.has-media.is-home-align .page-hero-shade {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
 }
 
-.page-hero.has-media.is-n-hero .page-hero-copy {
-  position: absolute !important;
+/* Mirror .hero-copy exactly */
+.page-hero.has-media.is-n-hero .page-hero-copy,
+.page-hero.has-media.is-home-align .page-hero-copy {
+  position: relative !important;
   z-index: 2 !important;
-  left: 0 !important;
+  left: auto !important;
   right: auto !important;
-  top: 0 !important;
-  bottom: 0 !important;
+  top: auto !important;
+  bottom: auto !important;
   transform: none !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
+  display: block !important;
   width: min(38rem, 48%) !important;
   max-width: min(38rem, 48%) !important;
   margin: 0 !important;
+  margin-right: auto !important;
   margin-left: clamp(1rem, 2vw, 2.5rem) !important;
   padding: clamp(5.5rem, 9vh, 8rem) 0 2rem !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   background: transparent !important;
-  color: #0a0a0a !important;
+  color: #000000 !important;
   text-align: left !important;
+  pointer-events: auto !important;
+  justify-content: flex-start !important;
+}
+
+.page-hero.has-media.is-n-hero .page-hero-copy .eyebrow,
+.page-hero.has-media.is-home-align .page-hero-copy .eyebrow {
+  color: #2337c6 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.22em !important;
+  margin-bottom: 1.25rem !important;
+  text-transform: uppercase !important;
 }
 
 .page-hero.has-media.is-n-hero .page-hero-copy h1,
-.page-hero.has-media.is-n-hero .page-hero-copy h2,
-.page-hero.has-media.is-n-hero .page-hero-copy h3,
-.page-hero.has-media.is-n-hero .page-hero-copy p,
-.page-hero.has-media.is-n-hero .page-hero-copy .lede,
-.page-hero.has-media.is-n-hero .page-hero-copy .eyebrow {
+.page-hero.has-media.is-home-align .page-hero-copy h1,
+.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1,
+.page-hero.has-media.is-home-align.is-single-line .page-hero-copy h1 {
   color: #000000 !important;
   text-shadow: none !important;
-  max-width: 100% !important;
+  /* Exact Home .hero h1 */
+  font-size: clamp(5rem, 7vw, 9.5rem) !important;
+  line-height: 0.82 !important;
+  letter-spacing: -0.035em !important;
+  max-width: 520px !important;
+  width: auto !important;
+  font-weight: 700 !important;
+  white-space: normal !important;
 }
 
-.page-hero.has-media.is-n-hero .page-hero-copy h1 {
-  /* Match home hero headline */
-  font-size: clamp(3.2rem, 5.8vw, 6.8rem) !important;
-  line-height: 0.88 !important;
-  letter-spacing: -0.06em !important;
-  max-width: 11ch !important;
-  font-weight: 700 !important;
+.page-hero.has-media.is-n-hero .page-hero-copy h1,
+.page-hero.has-media.is-home-align .page-hero-copy h1,
+.page-hero.has-media.is-n-hero .page-hero-copy h1 span:not(.title-stop):not(.title-end),
+.page-hero.has-media.is-home-align .page-hero-copy h1 span:not(.title-stop):not(.title-end) {
+  color: #000000 !important;
 }
 
 .page-hero.has-media.is-n-hero .page-hero-copy h1 em,
-.page-hero.has-media.is-n-hero .page-hero-copy h2 em {
+.page-hero.has-media.is-home-align .page-hero-copy h1 em,
+.page-hero.has-media.is-n-hero .page-hero-copy h2 em,
+.page-hero.has-media.is-home-align .page-hero-copy h2 em,
+.page-hero.has-media.is-n-hero .page-hero-copy h1 em span,
+.page-hero.has-media.is-home-align .page-hero-copy h1 em span,
+.page-hero.has-media.is-n-hero .page-hero-copy h2 em span,
+.page-hero.has-media.is-home-align .page-hero-copy h2 em span,
+.page-hero.has-media.is-n-hero .page-hero-copy h1 em .title-end,
+.page-hero.has-media.is-home-align .page-hero-copy h1 em .title-end {
   color: #2337c6 !important;
 }
 
-.page-hero.has-media.is-n-hero .page-hero-copy .lede {
+.page-hero.has-media.is-n-hero .page-hero-copy .lede,
+.page-hero.has-media.is-home-align .page-hero-copy .lede,
+.page-hero.has-media.is-n-hero .page-hero-copy > p,
+.page-hero.has-media.is-home-align .page-hero-copy > p {
   max-width: 28rem !important;
   margin-top: 1.4rem !important;
-  font-size: clamp(1.15rem, 1.7vw, 1.7rem) !important;
+  /* Exact Home .hero-lede */
+  font-size: clamp(1.2rem, 1.7vw, 1.8rem) !important;
   line-height: 1.35 !important;
   color: rgba(0, 0, 0, 0.78) !important;
   font-weight: 400 !important;
+  text-shadow: none !important;
 }
 
 .page-hero.has-media.is-n-hero .page-hero-copy .hero-actions,
-.page-hero.has-media.is-n-hero .page-hero-copy > div {
+.page-hero.has-media.is-home-align .page-hero-copy .hero-actions,
+.page-hero.has-media.is-n-hero .page-hero-copy > div.hero-actions,
+.page-hero.has-media.is-home-align .page-hero-copy > div.hero-actions {
   display: flex !important;
   flex-wrap: wrap !important;
   align-items: center !important;
   gap: 1.1rem !important;
   max-width: 100% !important;
   margin-top: 1.8rem !important;
+  width: auto !important;
+  height: auto !important;
 }
 
-.page-hero.has-media.is-n-hero .page-hero-copy .button {
+.page-hero.has-media.is-n-hero .page-hero-copy .button,
+.page-hero.has-media.is-home-align .page-hero-copy .button {
   background: #f5b400 !important;
   color: #000000 !important;
   border-radius: 999px !important;
@@ -591,29 +655,93 @@ section[class*="about-values"] {
 }
 
 .page-hero.has-media.is-n-hero .page-hero-copy .button:hover,
-.page-hero.has-media.is-n-hero .page-hero-copy .button:focus-visible {
+.page-hero.has-media.is-home-align .page-hero-copy .button:hover,
+.page-hero.has-media.is-n-hero .page-hero-copy .button:focus-visible,
+.page-hero.has-media.is-home-align .page-hero-copy .button:focus-visible {
   background: #2337c6 !important;
   color: #ffffff !important;
 }
 
-.page-hero.has-media.is-n-hero .page-hero-copy .text-link {
+.page-hero.has-media.is-n-hero .page-hero-copy .text-link,
+.page-hero.has-media.is-home-align .page-hero-copy .text-link,
+.page-hero.has-media.is-n-hero .page-hero-copy .button-ghost,
+.page-hero.has-media.is-home-align .page-hero-copy .button-ghost {
   color: #2337c6 !important;
-  font-size: 0.95rem !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+@media (max-width: 1200px) {
+  .page-hero.has-media.is-n-hero,
+  .page-hero.has-media.is-home-align {
+    min-height: clamp(680px, 80vh, 810px) !important;
+  }
+
+  .page-hero.has-media.is-n-hero .page-hero-media,
+  .page-hero.has-media.is-home-align .page-hero-media {
+    width: min(40rem, 50%) !important;
+  }
+
+  .page-hero.has-media.is-n-hero .page-hero-copy,
+  .page-hero.has-media.is-home-align .page-hero-copy {
+    max-width: min(34rem, 52%) !important;
+    width: min(34rem, 52%) !important;
+    margin-left: 1rem !important;
+  }
+
+  .page-hero.has-media.is-n-hero .page-hero-copy h1,
+  .page-hero.has-media.is-home-align .page-hero-copy h1,
+  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1,
+  .page-hero.has-media.is-home-align.is-single-line .page-hero-copy h1 {
+    max-width: 480px !important;
+    font-size: clamp(3.4rem, 5.8vw, 7rem) !important;
+  }
 }
 
 @media (max-width: 900px) {
-  .page-hero.has-media.is-n-hero {
-    display: block !important;
+  .page-hero.has-media.is-n-hero,
+  .page-hero.has-media.is-home-align {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    padding-top: 0 !important;
   }
 
-  .page-hero.has-media.is-n-hero .page-hero-shade {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 40%, #fff 92%) !important;
+  .page-hero.has-media.is-n-hero .page-hero-media,
+  .page-hero.has-media.is-home-align .page-hero-media {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-height: none !important;
+    height: clamp(240px, 58vw, 360px) !important;
+    margin: 0 auto !important;
   }
 
-  .page-hero.has-media.is-n-hero .page-hero-copy {
+  .page-hero.has-media.is-n-hero .page-hero-cover-img,
+  .page-hero.has-media.is-home-align .page-hero-cover-img {
+    position: relative !important;
+    inset: auto !important;
+    width: min(92%, 360px) !important;
+    height: 100% !important;
+    margin: 0 auto !important;
+    object-position: center center !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+
+  .page-hero.has-media.is-n-hero .page-hero-shade,
+  .page-hero.has-media.is-home-align .page-hero-shade {
+    display: none !important;
+  }
+
+  .page-hero.has-media.is-n-hero .page-hero-copy,
+  .page-hero.has-media.is-home-align .page-hero-copy {
     position: relative !important;
     left: auto !important;
     right: auto !important;
@@ -622,50 +750,129 @@ section[class*="about-values"] {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 16px clamp(16px, 5vw, 28px) 36px !important;
+    padding: 1rem clamp(16px, 5vw, 28px) 1.5rem !important;
     background: #fff !important;
     justify-content: flex-start !important;
   }
 
-  .page-hero.has-media.is-n-hero .page-hero-copy h1 {
-    max-width: 14ch !important;
+  .page-hero.has-media.is-n-hero .page-hero-copy h1,
+  .page-hero.has-media.is-home-align .page-hero-copy h1,
+  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1,
+  .page-hero.has-media.is-home-align.is-single-line .page-hero-copy h1 {
+    max-width: none !important;
     font-size: clamp(2.6rem, 11vw, 4.2rem) !important;
     line-height: 0.95 !important;
   }
 
-  .page-hero.has-media.is-n-hero .page-hero-copy .lede {
+  .page-hero.has-media.is-n-hero .page-hero-copy .lede,
+  .page-hero.has-media.is-home-align .page-hero-copy .lede {
     max-width: 36ch !important;
     font-size: 1rem !important;
   }
 
   .page-hero.has-media.is-n-hero .page-hero-copy .hero-actions,
-  .page-hero.has-media.is-n-hero .page-hero-copy > div.hero-actions {
+  .page-hero.has-media.is-home-align .page-hero-copy .hero-actions {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: wrap !important;
     align-items: center !important;
-    align-self: flex-start !important;
-    width: auto !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin-top: 1.1rem !important;
-    gap: 12px !important;
+    margin-top: 1.25rem !important;
+    gap: 0.75rem !important;
   }
 
-  .page-hero.has-media.is-n-hero .page-hero-copy .hero-actions > a,
-  .page-hero.has-media.is-n-hero .page-hero-copy .hero-actions > .button,
-  .page-hero.has-media.is-n-hero .page-hero-copy .button {
-    flex: 0 0 auto !important;
-    width: auto !important;
-    max-width: 100% !important;
-    height: auto !important;
+  .page-hero.has-media.is-n-hero .page-hero-copy .button,
+  .page-hero.has-media.is-home-align .page-hero-copy .button {
     min-height: 48px !important;
-    max-height: 52px !important;
-    padding: 0 1.35rem !important;
-    font-size: 0.92rem !important;
-    align-self: flex-start !important;
+    font-size: 0.9rem !important;
+    padding-inline: 1.2rem !important;
   }
+}
+
+/* Kill wrap padding that would shift copy away from home */
+.page-hero.has-media.is-n-hero .page-hero-copy.wrap,
+.page-hero.has-media.is-home-align .page-hero-copy.wrap {
+  padding-inline: 0 !important;
+  margin-inline: 0 !important;
+  margin-left: clamp(1rem, 2vw, 2.5rem) !important;
+  width: min(38rem, 48%) !important;
+  max-width: min(38rem, 48%) !important;
+}
+
+/* Photo heroes (non-N): same field, cover fill */
+.page-hero.has-media.is-home-align:not(.is-n-hero) .page-hero-cover-img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Text-only page heroes — same left text block as home */
+.page-hero:not(.has-media) {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: clamp(420px, 52vh, 560px) !important;
+  padding: 1rem 0 2rem !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.page-hero:not(.has-media) .page-hero-copy {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(38rem, 70%) !important;
+  max-width: min(38rem, 70%) !important;
+  margin: 0 !important;
+  margin-left: clamp(1rem, 2vw, 2.5rem) !important;
+  padding: clamp(5.5rem, 9vh, 8rem) 0 2rem !important;
+  padding-inline: 0 !important;
+  text-align: left !important;
+}
+
+.page-hero:not(.has-media) .page-hero-copy h1 {
+  color: #000000 !important;
+  font-size: clamp(5rem, 7vw, 9.5rem) !important;
+  line-height: 0.82 !important;
+  letter-spacing: -0.035em !important;
+  max-width: 520px !important;
+  text-shadow: none !important;
+}
+
+.page-hero:not(.has-media) .page-hero-copy h1 em {
+  color: #2337c6 !important;
+}
+
+.page-hero:not(.has-media) .page-hero-copy .lede,
+.page-hero:not(.has-media) .page-hero-copy p {
+  color: rgba(0, 0, 0, 0.78) !important;
+  max-width: 28rem !important;
+  font-size: clamp(1.2rem, 1.7vw, 1.8rem) !important;
+  margin-top: 1.4rem !important;
+  line-height: 1.35 !important;
+}
+
+.page-hero:not(.has-media) .page-hero-copy .eyebrow {
+  color: #2337c6 !important;
+}
+
+/* Contact first section — home text metrics */
+.contact-hero {
+  padding: clamp(5.5rem, 9vh, 8rem) 0 2rem !important;
+  min-height: clamp(420px, 52vh, 560px) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.contact-hero h1 {
+  max-width: 520px !important;
+  font-size: clamp(5rem, 7vw, 9.5rem) !important;
+  line-height: 0.82 !important;
+  letter-spacing: -0.035em !important;
+}
+.contact-hero-lede {
+  max-width: 28rem !important;
+  margin-top: 1.4rem !important;
+  font-size: clamp(1.2rem, 1.7vw, 1.8rem) !important;
+  line-height: 1.35 !important;
+  color: rgba(0, 0, 0, 0.78) !important;
 }
 
 /* Phone header: logo + Menu only */
@@ -771,32 +978,11 @@ section[class*="about-values"] {
   letter-spacing: 0.24em !important;
   text-transform: uppercase !important;
 }
-.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy {
-  max-width: min(42rem, 52%) !important;
-  width: min(42rem, 52%) !important;
-}
-
-.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1 {
-  max-width: 16ch !important;
-  width: auto !important;
-  white-space: normal !important;
-  font-size: clamp(2.8rem, 4.8vw, 5.4rem) !important;
-  line-height: 0.9 !important;
-  letter-spacing: -0.055em !important;
-}
-
-@media (max-width: 900px) {
-  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  .page-hero.has-media.is-n-hero.is-single-line .page-hero-copy h1 {
-    white-space: normal !important;
-    width: auto !important;
-    max-width: 14ch !important;
-    font-size: clamp(2.4rem, 9.5vw, 3.8rem) !important;
-  }
+/* single-line page heroes use the same home type scale (no shrink) */
+.page-hero.has-media.is-n-hero.is-single-line .page-hero-copy,
+.page-hero.has-media.is-home-align.is-single-line .page-hero-copy {
+  max-width: min(38rem, 48%) !important;
+  width: min(38rem, 48%) !important;
 }
 
 /* Real social brand marks — keep official colors (ignore theme text tints) */
