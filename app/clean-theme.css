@@ -231,3 +231,103 @@ span:has(> .title-stop):not(.hero-line):not(.hero-line *) {
   transform: none !important;
 }
 
+/* —— Live N sparkles (Home + About/Services N heroes) —— */
+.page-hero.has-media.is-n-hero .page-hero-media {
+  isolation: isolate;
+}
+.n-sparkles {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+}
+.n-sparkle {
+  position: absolute !important;
+  left: var(--sx) !important;
+  top: var(--sy) !important;
+  width: var(--size) !important;
+  height: var(--size) !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background: #f5b400 !important;
+  box-shadow:
+    0 0 6px rgba(245, 180, 0, 0.85),
+    0 0 14px rgba(245, 180, 0, 0.35) !important;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: nSparkDrift var(--dur) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+.n-sparkle.is-blue {
+  background: #2337c6 !important;
+  box-shadow:
+    0 0 6px rgba(35, 55, 198, 0.8),
+    0 0 14px rgba(35, 55, 198, 0.35) !important;
+}
+.n-sparkle.is-lg {
+  filter: blur(0.2px);
+}
+.n-sparkle-m0 { animation-name: nSparkRise; }
+.n-sparkle-m1 { animation-name: nSparkOrbit; }
+.n-sparkle-m2 { animation-name: nSparkDrift; }
+.n-sparkle-m3 { animation-name: nSparkTwinkle; }
+.n-sparkle-m4 { animation-name: nSparkSweep; }
+.n-sparkle-m5 { animation-name: nSparkPulse; }
+
+@keyframes nSparkRise {
+  0%   { opacity: 0; transform: translate3d(0, 8px, 0) scale(0.4); }
+  18%  { opacity: 1; }
+  70%  { opacity: 0.85; transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(1); }
+  100% { opacity: 0; transform: translate3d(calc(var(--drift-x) * 1.2), calc(var(--drift-y) * 1.35), 0) scale(0.2); }
+}
+@keyframes nSparkOrbit {
+  0%   { opacity: 0; transform: translate3d(0, 0, 0) scale(0.5) rotate(0deg); }
+  15%  { opacity: 1; }
+  50%  { opacity: 0.9; transform: translate3d(var(--drift-x), calc(var(--drift-y) * 0.5), 0) scale(1.1) rotate(180deg); }
+  100% { opacity: 0; transform: translate3d(calc(var(--drift-x) * -0.4), var(--drift-y), 0) scale(0.35) rotate(360deg); }
+}
+@keyframes nSparkDrift {
+  0%   { opacity: 0; transform: translate3d(0, 0, 0) scale(0.6); }
+  20%  { opacity: 1; }
+  55%  { opacity: 0.95; transform: translate3d(var(--drift-x), calc(var(--drift-y) * 0.6), 0) scale(1); }
+  100% { opacity: 0; transform: translate3d(calc(var(--drift-x) * 1.4), calc(var(--drift-y) * 0.2), 0) scale(0.3); }
+}
+@keyframes nSparkTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.3); }
+  30% { opacity: 1; transform: scale(1.25); }
+  55% { opacity: 0.55; transform: scale(0.85); }
+  75% { opacity: 1; transform: scale(1.1); }
+}
+@keyframes nSparkSweep {
+  0%   { opacity: 0; transform: translate3d(-12px, 6px, 0) scale(0.4); }
+  25%  { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(0.2); }
+}
+@keyframes nSparkPulse {
+  0%, 100% { opacity: 0.15; transform: scale(0.6); }
+  45% { opacity: 1; transform: scale(1.35); }
+  70% { opacity: 0.6; transform: scale(0.9); }
+}
+
+/* Soft live breath on the N itself */
+.hero-reel,
+.page-hero.has-media.is-n-hero .page-hero-cover-img {
+  animation: heroNDissolve 14s ease-in-out infinite alternate !important;
+  transform-origin: 72% 52% !important;
+}
+.hero-n-field .n-sparkles,
+.page-hero-media .n-sparkles {
+  z-index: 4 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .n-sparkle,
+  .hero-reel,
+  .page-hero.has-media.is-n-hero .page-hero-cover-img {
+    animation: none !important;
+  }
+  .n-sparkles { display: none !important; }
+}
+
+

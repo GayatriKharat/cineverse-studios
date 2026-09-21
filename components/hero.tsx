@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Magnetic } from "@/components/magnetic";
+import { NSparkles } from "@/components/n-sparkles";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -35,6 +36,7 @@ export function Hero() {
         <div className="hero-reel">
           <span className="hero-n-light" />
         </div>
+        <NSparkles />
       </div>
       <div className="hero-shade" />
       <div className="hero-copy wrap">

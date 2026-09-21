@@ -515,7 +515,6 @@ section[class*="about-values"] {
   max-height: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  transform: none !important;
   object-fit: contain !important;
   object-position: right center !important;
   background: transparent !important;

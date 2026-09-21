@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Magnetic } from "@/components/magnetic";
+import { NSparkles } from "@/components/n-sparkles";
 import { Reveal } from "@/components/reveal";
 import { asset } from "@/lib/asset";
 
@@ -22,10 +23,12 @@ export function PageHero({
   singleLineTitle?: boolean;
   actions?: React.ReactNode;
 }) {
+  const isNHero = Boolean(image?.includes("n-hero"));
+
   return (
     <section
       data-rv
-      className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media is-home-align" : ""}${image?.includes("n-hero") ? " is-n-hero" : ""}${singleLineTitle ? " is-single-line" : ""}`}
+      className={`page-hero${compact ? " is-compact" : ""}${image ? " has-media is-home-align" : ""}${isNHero ? " is-n-hero" : ""}${singleLineTitle ? " is-single-line" : ""}`}
     >
       {image && (
         <div className="page-hero-media">
@@ -34,8 +37,9 @@ export function PageHero({
             alt=""
             className="page-hero-cover-img"
             loading="eager"
-            style={image?.includes("n-hero") ? undefined : { objectPosition: imagePosition }}
+            style={isNHero ? undefined : { objectPosition: imagePosition }}
           />
+          {isNHero && <NSparkles />}
           <div className="page-hero-shade" />
         </div>
       )}
