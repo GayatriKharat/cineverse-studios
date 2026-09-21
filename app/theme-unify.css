@@ -473,7 +473,7 @@ section[class*="about-values"] {
   background: #ffffff !important;
   color: #000000 !important;
   min-height: 810px !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   border: 0 !important;
   box-shadow: none !important;
   display: flex !important;

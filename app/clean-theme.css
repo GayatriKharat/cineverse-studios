@@ -39,7 +39,7 @@ p,.lede,.hero-lede,.section-lede{color:rgba(0,0,0,.68)}
 .index-menu{background:rgba(255,255,255,.98)}.index-menu a,.index-menu .index-sub a{color:#000000!important;border-color:rgba(0,0,0,.14)!important;text-shadow:none!important}.index-menu a span{color:#2337C6!important}
 .nav-drop-inner{background:#FFFFFF;border-color:rgba(0,0,0,.14);box-shadow:0 12px 28px rgba(0,0,0,.1)}.nav-drop a{background:#FFFFFF;color:#000000;border-color:rgba(0,0,0,.14);box-shadow:none;text-shadow:none}.nav-drop a:hover,.nav-drop a:focus{background:rgba(35,55,198,.06);color:#2337C6;border-color:#2337C6;box-shadow:none}
 
-.hero{background:#FFFFFF!important;color:#000000;min-height:810px;align-items:center;padding-top:1rem}
+.hero{background:#FFFFFF!important;color:#000000;min-height:810px;align-items:center;padding-top:1rem;overflow:visible!important}
 @media (max-width:1200px){.hero{min-height:clamp(680px,80vh,810px)}}
 @media (max-width:860px){.hero{min-height:auto}}
 .hero-mid-haze,
@@ -234,80 +234,40 @@ span:has(> .title-stop):not(.hero-line):not(.hero-line *) {
 /* —— Live N sparkles (Home + About/Services N heroes) —— */
 .page-hero.has-media.is-n-hero .page-hero-media {
   isolation: isolate;
+  overflow: visible !important;
+}
+.hero-n-field {
+  overflow: visible !important;
 }
 .n-sparkles {
   position: absolute !important;
   inset: 0 !important;
-  z-index: 3 !important;
+  z-index: 5 !important;
   pointer-events: none !important;
   overflow: visible !important;
 }
 .n-sparkle {
   position: absolute !important;
-  left: var(--sx) !important;
-  top: var(--sy) !important;
-  width: var(--size) !important;
-  height: var(--size) !important;
-  margin: 0 !important;
+  display: block !important;
   border-radius: 50% !important;
   background: #f5b400 !important;
   box-shadow:
-    0 0 6px rgba(245, 180, 0, 0.85),
-    0 0 14px rgba(245, 180, 0, 0.35) !important;
+    0 0 8px rgba(245, 180, 0, 0.95),
+    0 0 18px rgba(245, 180, 0, 0.45) !important;
   opacity: 0;
   will-change: transform, opacity;
-  animation: nSparkDrift var(--dur) ease-in-out infinite;
-  animation-delay: var(--delay);
+  pointer-events: none !important;
 }
 .n-sparkle.is-blue {
   background: #2337c6 !important;
   box-shadow:
-    0 0 6px rgba(35, 55, 198, 0.8),
-    0 0 14px rgba(35, 55, 198, 0.35) !important;
+    0 0 8px rgba(35, 55, 198, 0.9),
+    0 0 18px rgba(35, 55, 198, 0.45) !important;
 }
 .n-sparkle.is-lg {
-  filter: blur(0.2px);
-}
-.n-sparkle-m0 { animation-name: nSparkRise; }
-.n-sparkle-m1 { animation-name: nSparkOrbit; }
-.n-sparkle-m2 { animation-name: nSparkDrift; }
-.n-sparkle-m3 { animation-name: nSparkTwinkle; }
-.n-sparkle-m4 { animation-name: nSparkSweep; }
-.n-sparkle-m5 { animation-name: nSparkPulse; }
-
-@keyframes nSparkRise {
-  0%   { opacity: 0; transform: translate3d(0, 8px, 0) scale(0.4); }
-  18%  { opacity: 1; }
-  70%  { opacity: 0.85; transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(1); }
-  100% { opacity: 0; transform: translate3d(calc(var(--drift-x) * 1.2), calc(var(--drift-y) * 1.35), 0) scale(0.2); }
-}
-@keyframes nSparkOrbit {
-  0%   { opacity: 0; transform: translate3d(0, 0, 0) scale(0.5) rotate(0deg); }
-  15%  { opacity: 1; }
-  50%  { opacity: 0.9; transform: translate3d(var(--drift-x), calc(var(--drift-y) * 0.5), 0) scale(1.1) rotate(180deg); }
-  100% { opacity: 0; transform: translate3d(calc(var(--drift-x) * -0.4), var(--drift-y), 0) scale(0.35) rotate(360deg); }
-}
-@keyframes nSparkDrift {
-  0%   { opacity: 0; transform: translate3d(0, 0, 0) scale(0.6); }
-  20%  { opacity: 1; }
-  55%  { opacity: 0.95; transform: translate3d(var(--drift-x), calc(var(--drift-y) * 0.6), 0) scale(1); }
-  100% { opacity: 0; transform: translate3d(calc(var(--drift-x) * 1.4), calc(var(--drift-y) * 0.2), 0) scale(0.3); }
-}
-@keyframes nSparkTwinkle {
-  0%, 100% { opacity: 0; transform: scale(0.3); }
-  30% { opacity: 1; transform: scale(1.25); }
-  55% { opacity: 0.55; transform: scale(0.85); }
-  75% { opacity: 1; transform: scale(1.1); }
-}
-@keyframes nSparkSweep {
-  0%   { opacity: 0; transform: translate3d(-12px, 6px, 0) scale(0.4); }
-  25%  { opacity: 1; }
-  100% { opacity: 0; transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(0.2); }
-}
-@keyframes nSparkPulse {
-  0%, 100% { opacity: 0.15; transform: scale(0.6); }
-  45% { opacity: 1; transform: scale(1.35); }
-  70% { opacity: 0.6; transform: scale(0.9); }
+  box-shadow:
+    0 0 10px rgba(245, 180, 0, 1),
+    0 0 22px rgba(245, 180, 0, 0.55) !important;
 }
 
 /* Soft live breath on the N itself */
@@ -316,18 +276,14 @@ span:has(> .title-stop):not(.hero-line):not(.hero-line *) {
   animation: heroNDissolve 14s ease-in-out infinite alternate !important;
   transform-origin: 72% 52% !important;
 }
-.hero-n-field .n-sparkles,
-.page-hero-media .n-sparkles {
-  z-index: 4 !important;
-}
 
 @media (prefers-reduced-motion: reduce) {
-  .n-sparkle,
+  .n-sparkles { display: none !important; }
   .hero-reel,
   .page-hero.has-media.is-n-hero .page-hero-cover-img {
     animation: none !important;
   }
-  .n-sparkles { display: none !important; }
 }
+
 
 
