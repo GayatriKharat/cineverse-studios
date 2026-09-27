@@ -41,7 +41,7 @@ export function Navigation() {
   }, [pathname]);
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 981px)");
+    const mq = window.matchMedia("(min-width: 1281px)");
     const closeOnDesktop = () => {
       if (mq.matches) setOpen(false);
     };

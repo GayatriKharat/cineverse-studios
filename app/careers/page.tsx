@@ -166,7 +166,7 @@ export default function CareersPage() {
           </>
         }
         copy="Narayani Studios is building a creative house with people who want to make work that moves. If that is you, we want to meet you."
-        image="/careers-n-hero.png?v=1"
+        image="/careers-n-hero.png?v=1")
         actions={
           <div className="hero-actions">
             <a className="button" href="#open-roles">
