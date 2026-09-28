@@ -8,10 +8,7 @@ export function SiteFooter() {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "Resources", href: "/resources" },
     { label: "Contact", href: "/contact" },
-    { label: "Careers", href: "/careers" },
   ];
 
   return (

@@ -389,34 +389,12 @@ export const navPrimary: NavItem[] = [
         ]
     },
     {
-        label: "Portfolio",
-        href: "/portfolio"
-    },
-    {
-        label: "Resources",
-        href: "/resources",
-        children: [
-            {
-                label: "All resources",
-                href: "/resources"
-            },
-            ...resourceNavTypes.map((resource) => ({
-                label: resource.title,
-                href: `/resources/${resource.slug}`
-            }))
-        ]
-    },
-    {
         label: "Contact",
         href: "/contact"
     },
-    {
-        label: "Careers",
-        href: "/careers"
-    },
 ];
 
-/* Portfolio + Resources restored in navPrimary */
+/* Hidden for now (not deleted): Portfolio, Resources, Careers kept out of navPrimary */
 
 export const navGuide = [
     {
@@ -430,25 +408,10 @@ export const navGuide = [
         hint: "Six divisions: Strategy, Brand, Production, Social, Ads, Events"
     },
     {
-        label: "Portfolio",
-        href: "/portfolio",
-        hint: "Selected frames across every division"
-    },
-    {
-        label: "Resources",
-        href: "/resources",
-        hint: "Articles, FAQs and testimonials"
-    },
-    {
         label: "Contact",
         href: "/contact",
         hint: "Start a brief — one service or the full chain"
     },
-    {
-        label: "Careers",
-        href: "/careers",
-        hint: "Join the team — open roles and how we hire"
-    }
 ];
 export const navIndex = [
     [
