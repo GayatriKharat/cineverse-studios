@@ -204,14 +204,6 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
                                   <span>Enquire about {craft.title} ↗</span>
                                   <ArrowUpRight className="w-3.5 h-3.5" />
                                 </Link>
-                                <button
-                                  type="button"
-                                  onClick={handleToggle}
-                                  className="serpentine-close-btn"
-                                  aria-label={`Close ${craft.title}`}
-                                >
-                                  Close
-                                </button>
                               </div>
                             </div>
                           </div>
@@ -311,14 +303,6 @@ export function SerpentineCraftSnake({ crafts, serviceSlug }: SerpentineCraftSna
                                   <span>Enquire about {craft.title} ↗</span>
                                   <ArrowUpRight className="w-3.5 h-3.5" />
                                 </Link>
-                                <button
-                                  type="button"
-                                  onClick={handleToggle}
-                                  className="serpentine-close-btn"
-                                  aria-label={`Close ${craft.title}`}
-                                >
-                                  Close
-                                </button>
                               </div>
                             </div>
                           </div>

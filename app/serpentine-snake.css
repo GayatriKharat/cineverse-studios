@@ -436,28 +436,6 @@
   transform: translateX(4px);
 }
 
-.serpentine-close-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.65);
-  font-family: var(--font-sans, "Manrope", sans-serif);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.serpentine-close-btn:hover {
-  background: #000000;
-  color: #FFFFFF;
-  border-color: #000000;
-}
-
 /* Hint Callout — removed from UI */
 .serpentine-hint-bar {
   display: none !important;

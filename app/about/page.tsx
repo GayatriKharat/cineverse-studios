@@ -64,7 +64,6 @@ export default function About() {
               <span className={styles.cardLabel}>OUR VISION</span>
               <span className={styles.cardDot} aria-hidden="true">●</span>
             </div>
-            <div className={styles.icon} aria-hidden="true">◉</div>
             <h3>To build the world&apos;s most admired <em>creative <span className="title-end">ecosystem<span className="title-stop">.</span></span></em></h3>
             <div className={styles.rule} />
             <p>Where great ideas find their voice, ambition finds its stage, and every collaboration becomes a mark of distinction.</p>
@@ -89,7 +88,6 @@ export default function About() {
               <span className={styles.cardLabel}>OUR MISSION</span>
               <span className={styles.cardDot} aria-hidden="true">●</span>
             </div>
-            <div className={styles.icon} aria-hidden="true">◎</div>
             <h3>To bring strategy, creativity, production, branding and distribution <em>together<span className="title-stop">.</span></em></h3>
             <div className={styles.rule} />
             <p>Turning ideas into identities the world remembers.</p>
