@@ -5,6 +5,7 @@ import { CtaBand, PageHero } from "@/components/page-hero";
 import { ResourceSubnav } from "@/components/resource-subnav";
 import { Reveal } from "@/components/reveal";
 import { articles } from "@/lib/article-data";
+import { titleWithStop } from "@/lib/brand-title";
 
 export function generateStaticParams() {
   return articles.map((article) => ({ slug: article.slug }));
@@ -24,12 +25,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <main className="article-reading-page resource-subpage">
       <PageHero
-        title={
-          <>
-            {article.title}
-            <span className="title-stop">.</span>
-          </>
-        }
+        title={titleWithStop(article.title)}
         copy={article.dek}
         image="/resources-n-hero.png?v=2"
         actions={
@@ -74,8 +70,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <CtaBand
         title={
           <>
-            Start your project with <em>Narayani Studios</em>
-            <span className="title-stop">.</span>
+            Start your project with <em>Narayani <span className="title-end">Studios<span className="title-stop">.</span></span></em>
           </>
         }
         subheading="Tell us the brief. We will name the stage."

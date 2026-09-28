@@ -68,7 +68,7 @@ export default async function CraftPage({ params }: { params: Promise<{ slug: st
         </Link>
       </section>
       <CtaBand
-        title={<>Let’s build this <em>together</em><span className="title-stop">.</span></>}
+        title={<>Let’s build this <em>together<span className="title-stop">.</span></em></>}
         subheading="Tell us where you want to start."
         buttonText="Get in touch ↗"
         buttonHref="/contact"

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Magnetic } from "@/components/magnetic";
 import { NSparkles } from "@/components/n-sparkles";
 import { Reveal } from "@/components/reveal";
@@ -55,7 +55,7 @@ export function PageHero({
 
 export function CtaBand({
   eyebrow,
-  title = <>Start your project with <em>Narayani Studios</em><span className="title-stop">.</span></>,
+  title = <>Start your project with <em>Narayani <span className="title-end">Studios<span className="title-stop">.</span></span></em></>,
   subheading = "Tell us the brief. We will name the stage.",
   buttonText = "Contact Us ↗",
   buttonHref = "/contact",

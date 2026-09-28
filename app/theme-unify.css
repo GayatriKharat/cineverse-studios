@@ -192,13 +192,32 @@ section[class*="about-values"] {
   display: none !important;
 }
 
-/* Founders: collapsed preview; expanded bio scrolls above CTA */
+/* Founders: Read more expands the card (no inner scrollbar) */
+.founder-row {
+  align-items: start !important;
+}
+.founder-row > *,
+.founder-row .stagger-item,
+.founder-row [data-rv] {
+  height: auto !important;
+  min-height: 0 !important;
+}
 .founder-card-panel {
   display: flex !important;
   flex-direction: column;
   gap: 10px;
   min-height: 0;
   overflow: hidden;
+}
+.founder-card.is-expanded {
+  grid-template-rows: auto auto !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.founder-card.is-expanded .founder-card-panel {
+  height: auto !important;
+  overflow: visible !important;
 }
 .founder-card-bio {
   flex: 1 1 auto;
@@ -210,18 +229,18 @@ section[class*="about-values"] {
   overflow: hidden !important;
 }
 .founder-card-bio.is-expanded {
-  overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: #2337c655 transparent;
-  padding-right: 6px;
+  flex: 0 1 auto !important;
+  overflow: visible !important;
+  overflow-y: visible !important;
+  max-height: none !important;
+  padding-right: 0 !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: auto;
 }
 .founder-card-bio.is-expanded::-webkit-scrollbar {
-  width: 5px;
-}
-.founder-card-bio.is-expanded::-webkit-scrollbar-thumb {
-  background: #2337c655;
-  border-radius: 3px;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 .founder-read-more {
   flex-shrink: 0;
@@ -238,6 +257,10 @@ section[class*="about-values"] {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+.founder-read-more:hover,
+.founder-read-more:focus-visible {
+  color: #0a0a0a;
 }
 .founder-cta {
   flex-shrink: 0;
@@ -258,6 +281,25 @@ section[class*="about-values"] {
 }
 .footer-contact-column > a.footer-mail-only:last-of-type {
   margin-bottom: 18px;
+}
+
+/* No scroll-section reload / fade-up on scroll */
+[data-rv],
+[data-rv].reveal-in,
+[data-rv].reveal-settle,
+.reveal-in.reveal-settle,
+.reveal-settle {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+.media-reveal > a,
+.media-reveal > img,
+.media-reveal-in > a,
+.media-reveal-in > img {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 .footer-contact-column > a + a {
   margin-top: 8px;
@@ -1421,4 +1463,11 @@ h3 .title-stop,
   top: 0 !important;
   transform: none !important;
   overflow: hidden !important;
+  white-space: nowrap !important;
+}
+/* Keep stop glued to its last word — never alone on the next line */
+.title-end,
+em:has(> .title-stop),
+span:has(> .title-stop):not(.hero-line):not(.hero-line *) {
+  white-space: nowrap !important;
 }

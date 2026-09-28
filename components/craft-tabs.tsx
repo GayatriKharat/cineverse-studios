@@ -39,17 +39,6 @@ export function CraftTabs({ crafts, serviceSlug }: { crafts: Craft[]; serviceSlu
             </button>
             <div className="craft-panel">
               <div className="craft-panel-inner">
-                <button
-                  type="button"
-                  className="craft-panel-close"
-                  aria-label={`Close ${craft.title} details`}
-                  onClick={() => {
-                    setActive(null);
-                    history.replaceState(null, "", window.location.pathname + window.location.search);
-                  }}
-                >
-                  ×
-                </button>
                 <div className="tab-panel is-no-image is-text-only">
                   <div className="tab-copy">
                     <h2>{craft.title}</h2>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
@@ -30,7 +30,7 @@ export default function ServicesPage() {
 
       <section id="explore" className="wrap service-pillars" style={{ paddingTop: "60px", paddingBottom: "80px" }}>
         <Reveal>
-          <h2>Explore our services<span className="title-stop">.</span></h2>
+          <h2>Explore our <span className="title-end">services<span className="title-stop">.</span></span></h2>
           <p className="section-lede" style={{ marginBottom: "40px" }}>
             Open a division to see what sits inside it.
           </p>
@@ -70,7 +70,7 @@ export default function ServicesPage() {
       </section>
 
       <CtaBand
-        title={<>Start your project with <em>Narayani Studios</em><span className="title-stop">.</span></>}
+        title={<>Start your project with <em>Narayani <span className="title-end">Studios<span className="title-stop">.</span></span></em></>}
         subheading="Tell us the brief. We will name the stage."
         buttonText="Contact Us ↗"
         buttonHref="/contact"

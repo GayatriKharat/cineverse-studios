@@ -1,12 +1,14 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Quote } from "lucide-react";
 import { HomeCard } from "@/components/home-card";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { ResourceSubnav } from "@/components/resource-subnav";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-import { TestimonialsDeck } from "@/components/testimonials-deck";
+import { StudioTile, studioTileGridClass } from "@/components/studio-tile";
 import { articles } from "@/lib/article-data";
+import { titleWithStop } from "@/lib/brand-title";
 import { faqs, resourceTypes, testimonials } from "@/lib/site-data";
 
 const entries = [
@@ -49,7 +51,7 @@ const heroBySlug: Record<
     current: "Articles",
     title: (
       <>
-        Longer form, <em>deeper craft<span className="title-stop">.</span></em>
+        Longer form, <em>deeper <span className="title-end">craft<span className="title-stop">.</span></span></em>
       </>
     ),
     copy: "Evergreen thinking on branding, production and culture.",
@@ -75,7 +77,7 @@ const heroBySlug: Record<
     current: "All resources",
     title: (
       <>
-        Notes from <em>the floor<span className="title-stop">.</span></em>
+        Notes from <em>the <span className="title-end">floor<span className="title-stop">.</span></span></em>
       </>
     ),
     copy: "Process, people and the work — notes from inside the frame.",
@@ -117,12 +119,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
 
   const hero = heroBySlug[slug] ?? {
     current: "All resources" as const,
-    title: (
-      <>
-        {resource.title}
-        <span className="title-stop">.</span>
-      </>
-    ),
+    title: titleWithStop(resource.title),
     copy: resource.copy,
     ctaHref: "#list",
     ctaLabel: "Explore ↓",
@@ -152,8 +149,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
         <section id="answers" className="faq-section wrap resource-block resource-sub-section">
           <Reveal>
             <h2>
-              Clear answers, <em>ready when you are</em>
-              <span className="title-stop">.</span>
+              Clear answers, <em>ready when you <span className="title-end">are<span className="title-stop">.</span></span></em>
             </h2>
             <p className="section-lede">One service or the full chain — start here before the brief.</p>
           </Reveal>
@@ -175,8 +171,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
         <section id="list" className="wrap service-pillars resource-block resource-sub-section">
           <Reveal>
             <h2>
-              Read from the <em>studio desk</em>
-              <span className="title-stop">.</span>
+              Read from the <em>studio <span className="title-end">desk<span className="title-stop">.</span></span></em>
             </h2>
             <p className="section-lede" style={{ marginBottom: "36px" }}>
               Longer notes on craft, process and the business of making work.
@@ -207,17 +202,29 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
       ) : null}
 
       {slug === "testimonials" ? (
-        <section id="voices" className="testimonials-stage wrap resource-sub-section">
-          <Reveal className="testimonials-intro">
+        <section id="voices" className="wrap service-pillars resource-block resource-sub-section">
+          <Reveal>
             <h2>
-              Work that leaves a <em>trace</em>
-              <span className="title-stop">.</span>
+              Work that leaves a <em>trace<span className="title-stop">.</span></em>
             </h2>
-            <p>
+            <p className="section-lede" style={{ marginBottom: "8px" }}>
               Perspectives from the people who trusted the house with the idea, the process and the final frame.
             </p>
           </Reveal>
-          <TestimonialsDeck items={testimonials} />
+          <Stagger className={studioTileGridClass}>
+            {testimonials.map((item, index) => (
+              <StaggerItem key={item.name}>
+                <StudioTile
+                  label={String(index + 1).padStart(2, "0")}
+                  title={item.name}
+                  copy={`“${item.quote}”`}
+                  meta={item.scope}
+                  Icon={Quote}
+                  blue={index % 2 === 1}
+                />
+              </StaggerItem>
+            ))}
+          </Stagger>
         </section>
       ) : null}
 
@@ -268,14 +275,12 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
       <CtaBand
         title={
           <>
-            Start your project with <em>Narayani Studios</em>
-            <span className="title-stop">.</span>
+            Start your project with <em>Narayani <span className="title-end">Studios<span className="title-stop">.</span></span></em>
           </>
         }
         subheading="Tell us the brief. We will name the stage."
         buttonText="Contact Us ↗"
-        buttonHref="/contact"
-      />
+        buttonHref="/contact" />
     </main>
   );
 }

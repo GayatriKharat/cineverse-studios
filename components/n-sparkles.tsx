@@ -4,30 +4,39 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 type Spark = {
+  /** spawn within the bottom spray of the N */
   x: number;
   y: number;
   size: number;
-  blue: boolean;
+  mist: boolean;
   delay: number;
   dur: number;
+  /** directed travel: up + slightly out along the spray */
   dx: number;
   dy: number;
-  kind: number;
 };
 
-const SPARKS: Spark[] = Array.from({ length: 42 }, (_, i) => ({
-  x: 48 + ((i * 17) % 46),
-  y: 22 + ((i * 13) % 62),
-  size: 3 + (i % 5),
-  blue: i % 4 === 0,
-  delay: (i % 10) * 0.22,
-  dur: 1.6 + (i % 6) * 0.35,
-  dx: (i % 2 === 0 ? 1 : -1) * (28 + (i % 7) * 10),
-  dy: -(24 + (i % 8) * 12),
-  kind: i % 5,
-}));
+/** Soft gold dust clustered at the N’s bottom tip, drifting up-right like the dissolve spray */
+const SPARKS: Spark[] = Array.from({ length: 22 }, (_, i) => {
+  const t = i / 21;
+  // Bottom-right leg / tip of the N (matches the dissolve sparkle zone)
+  const x = 58 + (i % 7) * 3.2 + (i % 3) * 1.1;
+  const y = 78 + (i % 5) * 2.4 + (t * 4);
+  // Direction: soft arc up and outward (same space as the painted sparkles)
+  const dx = 10 + (i % 6) * 4 + t * 18;
+  const dy = -(22 + (i % 5) * 6 + t * 28);
+  return {
+    x,
+    y: Math.min(y, 94),
+    size: i % 5 === 0 ? 3.5 : i % 3 === 0 ? 2.4 : 1.6,
+    mist: i % 5 === 0,
+    delay: (i % 11) * 0.28,
+    dur: 2.8 + (i % 5) * 0.45,
+    dx,
+    dy,
+  };
+});
 
-/** Continuous gold/blue sparkles with clear live motion around the N dissolve */
 export function NSparkles({ className = "" }: { className?: string }) {
   const root = useRef<HTMLDivElement>(null);
 
@@ -41,7 +50,6 @@ export function NSparkles({ className = "" }: { className?: string }) {
       nodes.forEach((node, i) => {
         const s = SPARKS[i];
         if (!s) return;
-        const tl = gsap.timeline({ repeat: -1, delay: s.delay });
 
         gsap.set(node, {
           left: `${s.x}%`,
@@ -51,59 +59,38 @@ export function NSparkles({ className = "" }: { className?: string }) {
           opacity: 0,
           x: 0,
           y: 0,
-          scale: 0.35,
+          scale: 0.4,
         });
 
-        if (s.kind === 0) {
-          // rise + fade
-          tl.to(node, { opacity: 1, scale: 1.15, duration: s.dur * 0.22, ease: "power2.out" })
-            .to(node, { x: s.dx, y: s.dy, duration: s.dur * 0.78, ease: "none" }, 0)
-            .to(node, { opacity: 0, scale: 0.25, duration: s.dur * 0.35, ease: "power1.in" }, s.dur * 0.65);
-        } else if (s.kind === 1) {
-          // orbit arc
-          tl.to(node, { opacity: 1, scale: 1.2, duration: 0.25 })
-            .to(node, {
-              motionPath: undefined,
-              x: s.dx,
-              y: s.dy * 0.4,
-              rotation: 180,
-              duration: s.dur * 0.5,
-              ease: "sine.inOut",
-            })
-            .to(node, {
-              x: s.dx * -0.35,
-              y: s.dy,
-              rotation: 360,
-              opacity: 0,
-              scale: 0.3,
-              duration: s.dur * 0.5,
-              ease: "sine.in",
-            });
-        } else if (s.kind === 2) {
-          // lateral sweep from N spray edge
-          tl.fromTo(
+        // Soft knowing drift along the spray path — fade in, ease up-right, fade out
+        gsap
+          .timeline({ repeat: -1, delay: s.delay, defaults: { ease: "sine.inOut" } })
+          .to(node, {
+            opacity: s.mist ? 0.55 : 0.95,
+            scale: s.mist ? 1.05 : 1.2,
+            duration: s.dur * 0.22,
+            ease: "power1.out",
+          })
+          .to(
             node,
-            { x: -16, y: 10, opacity: 0, scale: 0.4 },
-            { x: s.dx * 1.2, y: s.dy * 0.55, opacity: 1, scale: 1.1, duration: s.dur * 0.45, ease: "power2.out" }
-          ).to(node, { opacity: 0, scale: 0.2, duration: s.dur * 0.4, ease: "power1.in" });
-        } else if (s.kind === 3) {
-          // twinkle in place
-          tl.to(node, { opacity: 1, scale: 1.6, duration: 0.28, ease: "power2.out" })
-            .to(node, { opacity: 0.35, scale: 0.7, duration: 0.35 })
-            .to(node, { opacity: 1, scale: 1.35, duration: 0.3 })
-            .to(node, { opacity: 0, scale: 0.4, duration: 0.4 });
-        } else {
-          // float up with flicker
-          tl.to(node, { opacity: 1, duration: 0.2 })
-            .to(node, {
+            {
+              x: s.dx,
               y: s.dy,
-              x: s.dx * 0.45,
-              duration: s.dur,
-              ease: "none",
-              opacity: 0.9,
-            }, 0)
-            .to(node, { opacity: 0, scale: 0.2, duration: 0.35 }, s.dur * 0.7);
-        }
+              duration: s.dur * 0.78,
+              ease: "sine.out",
+            },
+            0.05
+          )
+          .to(
+            node,
+            {
+              opacity: 0,
+              scale: 0.35,
+              duration: s.dur * 0.32,
+              ease: "power1.in",
+            },
+            s.dur * 0.62
+          );
       });
     }, el);
 
@@ -111,11 +98,11 @@ export function NSparkles({ className = "" }: { className?: string }) {
   }, []);
 
   return (
-    <div ref={root} className={`n-sparkles ${className}`.trim()} aria-hidden="true">
+    <div ref={root} className={`n-sparkles is-directed ${className}`.trim()} aria-hidden="true">
       {SPARKS.map((s, i) => (
         <span
           key={i}
-          className={`n-sparkle${s.blue ? " is-blue" : ""}${s.size >= 6 ? " is-lg" : ""}`}
+          className={`n-sparkle${s.mist ? " is-mist" : ""}${s.size >= 3 ? " is-lg" : ""}`}
         />
       ))}
     </div>

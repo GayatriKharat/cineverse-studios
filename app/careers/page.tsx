@@ -1,7 +1,7 @@
-import { Clapperboard, Layers, Mail, MessageSquare, Sparkles, Target, Users, Wand2, Zap } from "lucide-react";
+import { Clapperboard, Layers, Sparkles, Users, Wand2, Zap } from "lucide-react";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-import styles from "./careers.module.css";
+import { StudioTile, studioTileGridClass } from "@/components/studio-tile";
 
 const whyNarayani = [
   {
@@ -85,73 +85,12 @@ const openRoles = [
   },
 ];
 
-const hireSteps = [
-  {
-    step: "01",
-    title: "Send your story",
-    copy: "Mail career@narayanistudios.com with your CV, reel or portfolio, and a short note on the role you want.",
-    Icon: Mail,
-  },
-  {
-    step: "02",
-    title: "Craft conversation",
-    copy: "We talk through your work, how you think, and where you would sit in the house.",
-    Icon: MessageSquare,
-  },
-  {
-    step: "03",
-    title: "Practical round",
-    copy: "A small brief or sample task, close to the real work you would do here.",
-    Icon: Target,
-  },
-  {
-    step: "04",
-    title: "Welcome in",
-    copy: "If the fit is clear on both sides, we lock the stage and bring you onto the team.",
-    Icon: Sparkles,
-  },
-];
-
 const culture = [
   { title: "Taste first", copy: "We protect the work. Shortcuts that flatten the story do not survive review." },
   { title: "Clear handoffs", copy: "Briefs, cuts and feedback stay sharp so the next person can move without guesswork." },
   { title: "Show up ready", copy: "Deadlines are real. So is support. We push hard and we look after the room." },
   { title: "Build together", copy: "Wins are shared. Credit is named. The house gets stronger when everyone owns the frame." },
 ];
-
-function CareerTile({
-  label,
-  title,
-  copy,
-  Icon,
-  blue = false,
-}: {
-  label: string;
-  title: string;
-  copy: string;
-  Icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
-  blue?: boolean;
-}) {
-  return (
-    <article className={`${styles.tile}${blue ? ` ${styles.tileBlue}` : ""}`}>
-      <span className={styles.slash} aria-hidden="true" />
-      <span className={styles.watermark} aria-hidden="true">{label}</span>
-      <div className={styles.top}>
-        <span className={styles.index}>
-          <i className={styles.indexDot} aria-hidden="true" />
-          {label}
-        </span>
-        <span className={styles.iconWrap} aria-hidden="true">
-          <Icon size={20} strokeWidth={2.1} />
-        </span>
-      </div>
-      <div className={styles.body}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.copy}>{copy}</p>
-      </div>
-    </article>
-  );
-}
 
 export default function CareersPage() {
   return (
@@ -161,12 +100,12 @@ export default function CareersPage() {
           <>
             <span className="title-keep">Welcome to the</span>{" "}
             <em>
-              team<span className="title-stop">.</span>
+              <span className="title-end">team<span className="title-stop">.</span></span>
             </em>
           </>
         }
         copy="Narayani Studios is building a creative house with people who want to make work that moves. If that is you, we want to meet you."
-        image={"/careers-n-hero.png?v=1"}
+        image={"/careers-n-hero.png?v=2"}
         actions={
           <div className="hero-actions">
             <a className="button" href="#open-roles">
@@ -182,17 +121,16 @@ export default function CareersPage() {
       <section className="wrap service-pillars" aria-labelledby="why-title">
         <Reveal>
           <h2 id="why-title">
-            Built for people who want the <em>whole journey</em>
-            <span className="title-stop">.</span>
+            Built for people who want the <em>whole <span className="title-end">journey<span className="title-stop">.</span></span></em>
           </h2>
           <p className="section-lede" style={{ marginBottom: "8px" }}>
             Not a side desk. A seat inside an integrated studio where your craft meets the audience.
           </p>
         </Reveal>
-        <Stagger className={styles.grid}>
+        <Stagger className={studioTileGridClass}>
           {whyNarayani.map((item, index) => (
             <StaggerItem key={item.label}>
-              <CareerTile {...item} blue={index % 2 === 1} />
+              <StudioTile {...item} blue={index % 2 === 1} />
             </StaggerItem>
           ))}
         </Stagger>
@@ -201,8 +139,7 @@ export default function CareersPage() {
       <section className="about-story wrap" aria-labelledby="growth-title">
         <Reveal className="about-story-lead">
           <h2 id="growth-title">
-            Grow your craft. <em>Widen your range</em>
-            <span className="title-stop">.</span>
+            Grow your craft. <em>Widen your <span className="title-end">range<span className="title-stop">.</span></span></em>
           </h2>
         </Reveal>
         <Reveal delay={0.08} className="about-story-copy">
@@ -224,8 +161,7 @@ export default function CareersPage() {
       <section id="open-roles" className="wrap" style={{ paddingBlock: "clamp(56px, 8vw, 100px)" }} aria-labelledby="roles-title">
         <Reveal>
           <h2 id="roles-title">
-            Stages waiting for the <em>right people</em>
-            <span className="title-stop">.</span>
+            Stages waiting for the <em>right <span className="title-end">people<span className="title-stop">.</span></span></em>
           </h2>
           <p className="section-lede" style={{ marginBottom: "28px" }}>
             Roles stay live as the house grows. Apply even if the title is close, not perfect.
@@ -251,34 +187,11 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="wrap service-pillars" aria-labelledby="hire-title" style={{ background: "transparent" }}>
-        <Reveal>
-          <h2 id="hire-title">
-            A clear path from hello to <em>welcome</em>
-            <span className="title-stop">.</span>
-          </h2>
-        </Reveal>
-        <Stagger className={styles.hireGrid}>
-          {hireSteps.map((item, index) => (
-            <StaggerItem key={item.step}>
-              <CareerTile
-                label={item.step}
-                title={item.title}
-                copy={item.copy}
-                Icon={item.Icon}
-                blue={index % 2 === 1}
-              />
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </section>
-
       <section className="who-we-are wrap" aria-labelledby="culture-title" style={{ paddingTop: "56px", paddingBottom: "56px" }}>
         <div className="who-we-are-grid">
           <Reveal>
             <h2 id="culture-title">
-              The culture behind the <em>work</em>
-              <span className="title-stop">.</span>
+              The culture behind the <em>work<span className="title-stop">.</span></em>
             </h2>
           </Reveal>
           <Reveal delay={0.08} className="who-we-are-copy">
@@ -301,8 +214,7 @@ export default function CareersPage() {
         <Reveal>
           <article className="founding-note">
             <h2>
-              Ready to join <em>Narayani Studios</em>
-              <span className="title-stop">.</span>
+              Ready to join <em>Narayani <span className="title-end">Studios<span className="title-stop">.</span></span></em>
             </h2>
             <p>
               Send your CV, reel or portfolio to{" "}
@@ -321,8 +233,7 @@ export default function CareersPage() {
       <CtaBand
         title={
           <>
-            Build with <em>Narayani Studios</em>
-            <span className="title-stop">.</span>
+            Build with <em>Narayani <span className="title-end">Studios<span className="title-stop">.</span></span></em>
           </>
         }
         subheading="Business briefs go to business@. Careers go to career@. Same house, clear desks."

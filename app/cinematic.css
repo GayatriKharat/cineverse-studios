@@ -262,8 +262,15 @@ h3{color:var(--color-white);font-weight:500}
 .cursor{border:1px solid #ffffff55;mix-blend-mode:difference;transition:width .25s,height .25s,background .25s,border-color .25s}
 .cursor.is-hot{border-color:var(--color-primary);background:#2337c633;mix-blend-mode:normal}
 .reveal-in{animation:sectionIn .9s var(--ease) both;animation-delay:var(--reveal-delay,0s)}
+.reveal-in.reveal-settle,
+.reveal-settle{
+  animation:none!important;
+  opacity:1!important;
+  transform:none!important;
+}
 @keyframes sectionIn{from{opacity:.01;transform:translateY(28px)}to{opacity:1;transform:none}}
 .reveal-in.stagger-item{animation-delay:calc(var(--stagger-step, .09s) * var(--stagger-index, 0))}
+.reveal-in.stagger-item.reveal-settle{animation:none!important;animation-delay:0s!important}
 .stagger-item:nth-child(1){--stagger-index:0}.stagger-item:nth-child(2){--stagger-index:1}.stagger-item:nth-child(3){--stagger-index:2}.stagger-item:nth-child(4){--stagger-index:3}.stagger-item:nth-child(5){--stagger-index:4}.stagger-item:nth-child(6){--stagger-index:5}.stagger-item:nth-child(7){--stagger-index:6}.stagger-item:nth-child(8){--stagger-index:7}
 @media (pointer:coarse){.spotlight,.cursor,.progress{display:none}}
 @media (hover: none) {

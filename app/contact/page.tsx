@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+﻿import { Suspense } from "react";
 import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/reveal";
 import { TalkChannels } from "@/components/talk-channels";
@@ -10,7 +10,7 @@ export default function ContactPage() {
         <Reveal>
           <p className="contact-hero-kicker">Let&apos;s build</p>
           <h1>
-            Start the <em>conversation</em><span className="title-stop">.</span>
+            Start the <em>conversation<span className="title-stop">.</span></em>
           </h1>
           <p className="contact-hero-lede">
             One service or the full chain. Share the brief and we will map the stage, the team, and the next move.
@@ -28,7 +28,7 @@ export default function ContactPage() {
           <Reveal>
             <p className="talk-eyebrow">Studio desk</p>
             <h2>
-              Get in <em>touch</em><span className="title-stop">.</span>
+              Get in <em>touch<span className="title-stop">.</span></em>
             </h2>
             <p className="section-lede">
               Drop the vision, scope, and references. We reply with a clear plan.

@@ -18,7 +18,7 @@ export function FounderCard({ person }: { person: Founder }) {
   const rest = person.bio.slice(1);
 
   return (
-    <article className="founder-card">
+    <article className={`founder-card${expanded ? " is-expanded" : ""}`}>
       <div className="founder-card-media">
         <img className="founder-card-photo" src={asset(person.image)} alt={person.name} />
         <div className="founder-card-credit">
@@ -38,6 +38,7 @@ export function FounderCard({ person }: { person: Founder }) {
             type="button"
             className="founder-read-more"
             onClick={() => setExpanded((value) => !value)}
+            aria-expanded={expanded}
           >
             {expanded ? "Show less" : "Read more"}
           </button>

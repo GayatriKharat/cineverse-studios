@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CtaBand, PageHero } from "@/components/page-hero";
-import { WorkShowcase } from "@/components/work-showcase";
+import { PortfolioReel } from "@/components/portfolio-reel";
 
 export default function OurWork() {
   return (
@@ -11,7 +11,7 @@ export default function OurWork() {
             Selected <em>frames<span className="title-stop">.</span></em>
           </>
         }
-        copy="Work made for brands, creators and stages, stills from the floor, not a stock gallery."
+        copy="Short form, long form, VTC and podcast work — click any card to play muted from YouTube."
         image="/portfolio-n-hero.png?v=2"
         actions={
           <div className="hero-actions">
@@ -24,12 +24,11 @@ export default function OurWork() {
           </div>
         }
       />
-      <WorkShowcase />
+      <PortfolioReel />
       <CtaBand
         title={
           <>
-            Have an idea worth <em>making</em>
-            <span className="title-stop">.</span>
+            Have an idea worth <em>making<span className="title-stop">.</span></em>
           </>
         }
         subheading="Tell us the brief. We will name the stage."

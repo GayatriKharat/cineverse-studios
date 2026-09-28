@@ -1,41 +1,16 @@
 import Link from "next/link";
+import { Quote } from "lucide-react";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { HomeCard } from "@/components/home-card";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
+import { StudioTile, studioTileGridClass } from "@/components/studio-tile";
 import { articles } from "@/lib/article-data";
 import { faqs, testimonials } from "@/lib/site-data";
-
-const notes = [
-  {
-    title: "How the right production process protects the idea",
-    copy: "The choices made before a shoot protect the idea, the schedule and the final frame.",
-    image: "/resource-note-process.png",
-    href: "/resources/blog",
-  },
-  {
-    title: "Making branded content people choose to spend time with",
-    copy: "A practical look at building branded work with enough craft to earn attention.",
-    image: "/resource-note-branded-content.png",
-    href: "/resources/blog",
-  },
-  {
-    title: "What a clear creative brief unlocks",
-    copy: "Why a sharper brief gives every department a clearer route from thought to delivery.",
-    image: "/resource-note-creative-brief.png",
-    href: "/resources/blog",
-  },
-];
 
 const articleImages = [
   "/Updated Images/portfolio.png",
   "/Updated Images/Branding.png",
   "/Updated Images/personal branding.png",
-];
-
-const voiceImages = [
-  "/Updated Images/About us.png",
-  "/Updated Images/Let's connect.png",
-  "/Updated Images/Full white coverage.png",
 ];
 
 export default function Resources() {
@@ -49,12 +24,12 @@ export default function Resources() {
             From the <em>studio<span className="title-stop">.</span></em>
           </>
         }
-        copy="Notes on craft, the work, and the business of making it, articles, FAQs and what clients say."
+        copy="Articles, FAQs and what clients say — craft, process and the business of making work."
         image="/resources-n-hero.png?v=2"
         actions={
           <>
             <div className="hero-actions">
-              <a className="button" href="#blog">
+              <a className="button" href="#articles">
                 Explore resources ↓
               </a>
               <Link className="button-ghost" href="/contact">
@@ -62,45 +37,19 @@ export default function Resources() {
               </Link>
             </div>
             <nav className="resource-tabs resource-hero-tabs" aria-label="Resource categories">
-              <a href="#blog">Notes</a>
               <a href="#articles">Articles</a>
-              <a href="#voices">Testimonials</a>
               <a href="#answers">FAQs</a>
+              <a href="#voices">Testimonials</a>
             </nav>
           </>
         }
       />
 
-      <section id="blog" className="wrap service-pillars resource-block">
+      <section id="articles" className="wrap service-pillars resource-block">
         <Reveal>
           <div className="resource-feature-head">
             <h2>
-              Notes from <em>the floor</em>
-              <span className="title-stop">.</span>
-            </h2>
-            <Link className="text-link" href="/resources/blog">
-              All posts ↗
-            </Link>
-          </div>
-          <p className="section-lede" style={{ marginBottom: "36px" }}>
-            Process notes from inside the frame — practical, sharp and ready to use.
-          </p>
-        </Reveal>
-        <Stagger className="pillar-cards client-service-grid">
-          {notes.map((note, index) => (
-            <StaggerItem key={note.title}>
-              <HomeCard {...note} index={index} />
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </section>
-
-      <section id="articles" className="wrap service-pillars resource-block is-alt">
-        <Reveal>
-          <div className="resource-feature-head">
-            <h2>
-              Longer form, <em>deeper craft</em>
-              <span className="title-stop">.</span>
+              Longer form, <em>deeper <span className="title-end">craft<span className="title-stop">.</span></span></em>
             </h2>
             <Link className="text-link" href="/resources/articles">
               All articles ↗
@@ -125,42 +74,11 @@ export default function Resources() {
         </Stagger>
       </section>
 
-      <section id="voices" className="wrap service-pillars resource-block">
-        <Reveal>
-          <div className="resource-feature-head">
-            <h2>
-              What clients <em>say</em>
-              <span className="title-stop">.</span>
-            </h2>
-            <Link className="text-link" href="/resources/testimonials">
-              All testimonials ↗
-            </Link>
-          </div>
-          <p className="section-lede" style={{ marginBottom: "36px" }}>
-            Voices from partners who trusted the house with the idea and the final frame.
-          </p>
-        </Reveal>
-        <Stagger className="pillar-cards client-service-grid">
-          {previewTestimonials.map((item, index) => (
-            <StaggerItem key={item.name}>
-              <HomeCard
-                href="/resources/testimonials"
-                title={item.name}
-                copy={`“${item.quote}” · ${item.scope}`}
-                image={voiceImages[index]}
-                index={index}
-              />
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </section>
-
       <section id="answers" className="wrap service-pillars resource-block is-alt">
         <Reveal>
           <div className="resource-feature-head">
             <h2>
-              Questions we get <em>often</em>
-              <span className="title-stop">.</span>
+              Questions we get <em>often<span className="title-stop">.</span></em>
             </h2>
             <Link className="text-link" href="/resources/faqs">
               All FAQs ↗
@@ -183,17 +101,46 @@ export default function Resources() {
         </div>
       </section>
 
+      <section id="voices" className="wrap service-pillars resource-block">
+        <Reveal>
+          <div className="resource-feature-head">
+            <h2>
+              What clients <em>say<span className="title-stop">.</span></em>
+            </h2>
+            <Link className="text-link" href="/resources/testimonials">
+              All testimonials ↗
+            </Link>
+          </div>
+          <p className="section-lede" style={{ marginBottom: "8px" }}>
+            Voices from partners who trusted the house with the idea and the final frame.
+          </p>
+        </Reveal>
+        <Stagger className={studioTileGridClass}>
+          {previewTestimonials.map((item, index) => (
+            <StaggerItem key={item.name}>
+              <StudioTile
+                label={String(index + 1).padStart(2, "0")}
+                title={item.name}
+                copy={`“${item.quote}”`}
+                meta={item.scope}
+                Icon={Quote}
+                blue={index % 2 === 1}
+              />
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </section>
+
       <CtaBand
         title={
           <>
-            Start your project with <em>Narayani Studios</em>
-            <span className="title-stop">.</span>
+            Start your project with <em>Narayani <span className="title-end">Studios<span className="title-stop">.</span></span></em>
           </>
         }
         subheading="Tell us the brief. We will name the stage."
         buttonText="Contact Us ↗"
-        buttonHref="/contact"
-      />
+        buttonHref="/contact" />
     </main>
   );
 }
+

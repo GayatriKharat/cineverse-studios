@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { CtaBand, PageHero } from "@/components/page-hero";
 import { AnimatedStats } from "@/components/animated-stats";
 import { FounderCard } from "@/components/founder-card";
@@ -7,16 +7,16 @@ import styles from "./about-values.module.css";
 
 const founders = [
   {
-    name: "Shreeraj Avhad",
+    name: "ShreeRaj Avhad",
     role: "Co-Founder & CEO",
     image: "/images/shreeraj-avhad.jpg",
     line: "Co-Founder & CEO",
     bio: [
-      "Shreeraj started working as a graphic designer at just 13 years old. From there, his skills grew naturally, one after another. He picked up photography to shoot better visuals. Then videography, to bring those visuals to life. Then video editing, to shape the footage into a story. Then scripting, to plan that story before the camera even rolled. Then social media and content strategy, to make sure the finished work actually reached people.",
-      "Each new skill came from a real need, not from trying to add more to his resume. Over time, this gave him something rare: experience across the entire journey of content, from the very first idea to the moment it reaches an audience. Most people in this industry specialize in one part of that journey. Shreeraj has worked through nearly all of it himself.",
+      "ShreeRaj started working as a graphic designer at just 13 years old. From there, his skills grew naturally, one after another. He picked up photography to shoot better visuals. Then videography, to bring those visuals to life. Then video editing, to shape the footage into a story. Then scripting, to plan that story before the camera even rolled. Then social media and content strategy, to make sure the finished work actually reached people.",
+      "Each new skill came from a real need, not from trying to add more to his resume. Over time, this gave him something rare: experience across the entire journey of content, from the very first idea to the moment it reaches an audience. Most people in this industry specialize in one part of that journey. ShreeRaj has worked through nearly all of it himself.",
       "He also holds a BCA degree, which gives him a solid understanding of the technology behind modern content, useful in a world where platforms and algorithms shape reach as much as the content itself.",
       "The scale of his work backs this up. He has worked with some of the industry’s biggest creators, on content that has crossed billions of views and reached millions of people, across thousands of pieces of content. That kind of experience isn’t built overnight. It comes from making thousands of real decisions, on real deadlines, about what to shoot, how to edit it, and when to post it.",
-      "This experience shapes how Narayani Studios works. Most production houses split a project across many hands: one team for strategy, another for the shoot, another for editing, another for distribution. The client is left managing the gaps between them. Because Shreeraj has personally done every one of these jobs, Narayani Studios is built to handle a project from start to finish, without those gaps.",
+      "This experience shapes how Narayani Studios works. Most production houses split a project across many hands: one team for strategy, another for the shoot, another for editing, another for distribution. The client is left managing the gaps between them. Because ShreeRaj has personally done every one of these jobs, Narayani Studios is built to handle a project from start to finish, without those gaps.",
     ],
     linkedin: "https://www.linkedin.com/in/shreerajavhad/",
   },
@@ -39,7 +39,7 @@ export default function About() {
   return (
     <main>
       <PageHero
-        title={<>Built to make <em>ideas move<span className="title-stop">.</span></em></>}
+        title={<>Built to make <em>ideas <span className="title-end">move<span className="title-stop">.</span></span></em></>}
         copy="Where every story gets the craft it deserves."
         image="/about-n-hero.png?v=home-size-1"
         actions={
@@ -65,7 +65,7 @@ export default function About() {
               <span className={styles.cardDot} aria-hidden="true">●</span>
             </div>
             <div className={styles.icon} aria-hidden="true">◉</div>
-            <h3>To build the world&apos;s most admired <em>creative ecosystem</em><span className="title-stop">.</span></h3>
+            <h3>To build the world&apos;s most admired <em>creative <span className="title-end">ecosystem<span className="title-stop">.</span></span></em></h3>
             <div className={styles.rule} />
             <p>Where great ideas find their voice, ambition finds its stage, and every collaboration becomes a mark of distinction.</p>
             <small>VOICE <b>→</b> STAGE</small>
@@ -77,7 +77,7 @@ export default function About() {
               <i />
             </div>
             <div className={styles.centerContent}>
-              <h2 id="purpose-title">One ecosystem<span className="title-stop">.</span><br /><em>Limitless</em> creative directions<span className="title-stop">.</span></h2>
+              <h2 id="purpose-title">One <span className="title-end">ecosystem<span className="title-stop">.</span></span><br /><em>Limitless</em> creative <span className="title-end">directions<span className="title-stop">.</span></span></h2>
               <p className={styles.centerSub}><strong>Together under one roof.</strong></p>
             </div>
             <div className={styles.centerLine} aria-hidden="true" />
@@ -90,7 +90,7 @@ export default function About() {
               <span className={styles.cardDot} aria-hidden="true">●</span>
             </div>
             <div className={styles.icon} aria-hidden="true">◎</div>
-            <h3>To bring strategy, creativity, production, branding and distribution <em>together</em><span className="title-stop">.</span></h3>
+            <h3>To bring strategy, creativity, production, branding and distribution <em>together<span className="title-stop">.</span></em></h3>
             <div className={styles.rule} />
             <p>Turning ideas into identities the world remembers.</p>
             <small>IDEA <b>→</b> IDENTITY</small>
@@ -100,7 +100,7 @@ export default function About() {
 
       <section className="founders wrap" aria-labelledby="founders-title">
         <Reveal>
-          <h2 id="founders-title">The people who hold <em>the picture</em><span className="title-stop">.</span></h2>
+          <h2 id="founders-title">The people who hold <em>the <span className="title-end">picture<span className="title-stop">.</span></span></em></h2>
           <p className="lede">Meet the partners behind Narayani Studios.</p>
         </Reveal>
         <Stagger className="founder-row">
@@ -115,10 +115,10 @@ export default function About() {
       <section className="about-story wrap" aria-labelledby="story-title">
         <Reveal className="about-story-lead">
           <p className="founders-eyebrow">Origin</p>
-          <h2 id="story-title">How Narayani Studios <em>started</em><span className="title-stop">.</span></h2>
+          <h2 id="story-title">How Narayani Studios <em>started<span className="title-stop">.</span></em></h2>
         </Reveal>
         <Reveal delay={0.08} className="about-story-copy">
-          <p>Shreeraj Avhad and Kiran Dhangar have worked together since 2024, across a wide range of projects. Along the way, working with creators, brands, and other people in the industry, we kept running into the same problem.</p>
+          <p>ShreeRaj Avhad and Kiran Dhangar have worked together since 2024, across a wide range of projects. Along the way, working with creators, brands, and other people in the industry, we kept running into the same problem.</p>
           <p>To get one project done properly, clients often had to coordinate with multiple people or teams for different parts of the process. That made everything more complicated, and it showed in the final result too, the quality and consistency of the work suffered because no one was looking after the whole thing.</p>
           <p>That’s what made us realise there was an opportunity to build something different. Between us, we had experience across creative, content, production, technology, and execution. Bringing that together meant we could offer something more complete, a solution where creators and brands wouldn’t need to manage separate teams for every part of their work.</p>
           <p className="about-story-close">That idea became Narayani Studios: a complete creative ecosystem under one roof, built to take an idea from the very start, through creation and execution, all the way to the audience it’s meant to reach.</p>
@@ -126,7 +126,7 @@ export default function About() {
       </section>
 
       <AnimatedStats stats={[{ value: 52, suffix: "+", label: "Happy clients across the globe" }, { value: 4.2, suffix: "B+", label: "Views generated across platforms", decimals: 1 }, { value: 1200, suffix: "+", label: "Content pieces created for clients" }, { value: 6400, suffix: "+", label: "Content pieces distributed" }]} />
-      <CtaBand title={<>Start your project with <em>Narayani Studios</em><span className="title-stop">.</span></>} buttonText="Contact Us ↗" buttonHref="/contact" />
+      <CtaBand title={<>Start your project with <em>Narayani <span className="title-end">Studios<span className="title-stop">.</span></span></em></>} buttonText="Contact Us ↗" buttonHref="/contact" />
     </main>
   );
 }

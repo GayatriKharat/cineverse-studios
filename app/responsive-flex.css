@@ -130,8 +130,8 @@ label,
     display: none !important;
   }
 
-  .brand-logo-image,
-  .nav .brand-logo-image {
+  .nav .brand-logo-image,
+  .nav-start .brand-logo-image {
     width: min(42vw, 148px) !important;
     max-height: 40px !important;
   }
@@ -209,8 +209,8 @@ label,
     font-size: 11px !important;
   }
 
-  .brand-logo-image,
-  .nav .brand-logo-image {
+  .nav .brand-logo-image,
+  .nav-start .brand-logo-image {
     max-height: 36px !important;
     width: auto !important;
   }
@@ -279,6 +279,36 @@ label,
   max-width: 1400px !important;
   margin-inline: auto !important;
   padding-inline: clamp(16px, 3vw, 40px) !important;
+}
+
+/* Footer logo + tagline: fixed home-footer gap on every page */
+.footer-brand-lockup {
+  display: grid !important;
+  justify-items: start !important;
+  gap: 16px !important;
+  margin: 0 0 8px !important;
+}
+
+.footer-brand-lockup .brand-logo-link,
+.footer-brand-lockup .brand-logo {
+  width: min(100%, 300px) !important;
+  max-width: min(100%, 300px) !important;
+}
+
+.footer-brand-lockup .brand-logo-image {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+.footer-tag {
+  margin: 0 !important;
+  color: var(--brand-blue) !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.35 !important;
 }
 
 /* ---------- HERO ---------- */
@@ -434,12 +464,17 @@ label,
     grid-template-rows: auto minmax(220px, 280px) !important;
   }
 
+  .founder-card.is-expanded {
+    grid-template-rows: auto auto !important;
+  }
+
   .founder-card-bio.is-collapsed {
     overflow: hidden !important;
   }
 
   .founder-card-bio.is-expanded {
-    overflow-y: auto !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
     max-height: none !important;
   }
 
@@ -805,6 +840,12 @@ h3 .title-stop,
   top: 0 !important;
   transform: none !important;
   overflow: hidden !important;
+  white-space: nowrap !important;
+}
+.title-end,
+em:has(> .title-stop),
+span:has(> .title-stop):not(.hero-line):not(.hero-line *) {
+  white-space: nowrap !important;
 }
 
 /* Page hero copy never collides with N on mid widths */

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { asset } from "@/lib/asset";
+import { titleWithStop } from "@/lib/brand-title";
 import { projects, services, workCategories } from "@/lib/site-data";
 
 export function WorkShowcase() {
@@ -10,8 +11,7 @@ export function WorkShowcase() {
       <section id="work" className="wrap service-pillars" style={{ paddingTop: "60px", paddingBottom: "40px" }}>
         <Reveal>
           <h2>
-            Featured <em>work</em>
-            <span className="title-stop">.</span>
+            Featured <em>work<span className="title-stop">.</span></em>
           </h2>
           <p className="section-lede" style={{ marginBottom: "40px" }}>
             A few frames that show how the house thinks, shoots and finishes.
@@ -53,8 +53,7 @@ export function WorkShowcase() {
       <section className="wrap" style={{ paddingBottom: "28px" }}>
         <Reveal>
           <h2>
-            Open the work through a <em>service</em>
-            <span className="title-stop">.</span>
+            Open the work through a <em>service<span className="title-stop">.</span></em>
           </h2>
           <p className="section-lede" style={{ marginBottom: "28px" }}>
             Jump into a division to see frames shaped for that craft.
@@ -109,10 +108,7 @@ export function WorkShowcase() {
             <section key={category.slug} id={category.slug} className="service-pillars" style={{ paddingTop: "48px", paddingBottom: "24px", background: "transparent" }}>
               <Reveal>
                 <div className="work-band-head" style={{ marginBottom: "28px" }}>
-                  <h2>
-                    {category.title}
-                    <span className="title-stop">.</span>
-                  </h2>
+                  <h2>{titleWithStop(category.title)}</h2>
                   <Link className="text-link" href={`/services/${category.slug}`}>
                     Open service ↗
                   </Link>
