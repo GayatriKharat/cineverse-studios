@@ -469,48 +469,65 @@
 }
 
 @media (max-width: 820px) {
+  .serpentine-section {
+    margin: 1rem 0 1.75rem;
+    padding: 0;
+  }
+
   .serpentine-track-container {
     overflow: visible;
     height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .serpentine-rows {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.65rem;
     height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .serpentine-row {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    display: block !important;
     height: auto !important;
-    min-height: 0;
-    margin-bottom: 1rem;
+    min-height: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
   }
 
   .serpentine-svg-canvas {
-    display: none; /* Clean mobile stack */
+    display: none !important; /* Clean mobile stack — keep cards visible */
   }
 
   .serpentine-row.is-left .serpentine-group-left,
   .serpentine-row.is-right .serpentine-group-right {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: flex-end;
-    width: 100%;
-    height: auto;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
   }
 
   .serpentine-node-wrap {
-    display: none;
+    display: none !important;
   }
 
   .serpentine-bridge {
-    display: none;
+    display: none !important;
   }
 
   .serpentine-card-wrap {
-    order: 3;
-    width: 100%;
+    width: 100% !important;
+  }
+
+  .serpentine-capsule {
+    width: 100% !important;
+  }
+
+  .serpentine-drawer.is-text-only,
+  .serpentine-drawer-inner.is-text-only {
+    max-width: 100%;
   }
 }

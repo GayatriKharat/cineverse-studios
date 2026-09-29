@@ -253,8 +253,15 @@ span:has(> .title-stop):not(.hero-line):not(.hero-line *) {
 }
 
 .page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy {
-  justify-content: center !important;
+  justify-content: flex-end !important;
   text-align: left !important;
+}
+
+@media (max-width: 900px) {
+  .page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy {
+    justify-content: flex-end !important;
+    padding-top: 96px !important;
+  }
 }
 
 .page-hero.has-media:not(.is-n-hero):not(.is-home-align) .page-hero-copy h1,

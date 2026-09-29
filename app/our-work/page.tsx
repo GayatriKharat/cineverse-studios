@@ -11,7 +11,7 @@ export default function OurWork() {
             Selected <em>frames<span className="title-stop">.</span></em>
           </>
         }
-        copy="Short form, long form, VTC and podcast work — click any card to play muted from YouTube."
+        copy="Work in chapters — featured frame first, then the supporting cuts. Click any card to play muted."
         image="/portfolio-n-hero.png?v=2"
         actions={
           <div className="hero-actions">
