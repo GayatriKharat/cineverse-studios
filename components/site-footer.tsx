@@ -1,16 +1,9 @@
 import Link from "next/link";
-import { services } from "@/lib/site-data";
+import { footerExploreLinks, services } from "@/lib/site-data";
 import { SocialLinks } from "@/components/social-links";
 import { BrandLogo } from "@/components/brand-logo";
 
 export function SiteFooter() {
-  const exploreLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Contact", href: "/contact" },
-  ];
-
   return (
     <footer className="site-footer wrap">
       <div className="site-footer-panel">
@@ -25,7 +18,7 @@ export function SiteFooter() {
         <div className="footer-column">
           <h2>Explore</h2>
           <nav className="footer-nav" aria-label="Explore">
-            {exploreLinks.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+            {footerExploreLinks.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
           </nav>
         </div>
         <div className="footer-column">

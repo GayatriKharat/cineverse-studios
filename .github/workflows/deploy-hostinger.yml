@@ -41,6 +41,7 @@ jobs:
           OUTPUT_EXPORT: "true"
           BASE_PATH: ""
           NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_HIDE_SECONDARY_PAGES: "true"
           NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
 
       - name: Upload to Hostinger FTP

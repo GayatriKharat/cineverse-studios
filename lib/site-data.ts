@@ -365,6 +365,20 @@ export interface NavItem {
   children?: { label: string; href: string }[];
 }
 
+/**
+ * Live Hostinger builds set NEXT_PUBLIC_HIDE_SECONDARY_PAGES=true so Portfolio,
+ * Resources and Careers stay out of nav/footer. GitHub Pages / local leave it
+ * unset so those pages remain visible for review.
+ */
+export const hideSecondaryPages =
+  process.env.NEXT_PUBLIC_HIDE_SECONDARY_PAGES === "true";
+
+const secondaryNavItems: NavItem[] = [
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Resources", href: "/resources" },
+    { label: "Careers", href: "/careers" },
+];
+
 export const navPrimary: NavItem[] = [
     {
         label: "Home",
@@ -388,13 +402,26 @@ export const navPrimary: NavItem[] = [
                 }))
         ]
     },
+    ...(hideSecondaryPages ? [] : secondaryNavItems),
     {
         label: "Contact",
         href: "/contact"
     },
 ];
 
-/* Hidden for now (not deleted): Portfolio, Resources, Careers kept out of navPrimary */
+export const footerExploreLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    ...(hideSecondaryPages
+        ? []
+        : [
+            { label: "Portfolio", href: "/portfolio" },
+            { label: "Resources", href: "/resources" },
+            { label: "Careers", href: "/careers" },
+        ]),
+    { label: "Contact", href: "/contact" },
+];
 
 export const navGuide = [
     {
@@ -407,6 +434,25 @@ export const navGuide = [
         href: "/services",
         hint: "Six divisions: Strategy, Brand, Production, Social, Ads, Events"
     },
+    ...(hideSecondaryPages
+        ? []
+        : [
+            {
+                label: "Portfolio",
+                href: "/portfolio",
+                hint: "Selected frames and video work from the house"
+            },
+            {
+                label: "Resources",
+                href: "/resources",
+                hint: "Articles, FAQs and client voices"
+            },
+            {
+                label: "Careers",
+                href: "/careers",
+                hint: "Open roles and how to join the studio"
+            },
+        ]),
     {
         label: "Contact",
         href: "/contact",

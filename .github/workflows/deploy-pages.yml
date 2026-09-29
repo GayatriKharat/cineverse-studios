@@ -29,6 +29,8 @@ jobs:
           OUTPUT_EXPORT: "true"
           BASE_PATH: /${{ github.event.repository.name }}
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          # Show Portfolio / Resources / Careers on GitHub Pages for review
+          NEXT_PUBLIC_HIDE_SECONDARY_PAGES: "false"
           NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
       - uses: actions/upload-pages-artifact@v3
         with:
